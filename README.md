@@ -1,358 +1,41 @@
-🌉 SkillBridge — Student–Industry Collaboration
+🌉 SkillBridge — Student Industry Collaboration
 
 <p align="center">
-  <strong>Assess. Understand. Improve. Match. Apply.</strong><br>
-  A skill-based collaboration platform connecting students, industry, and institutions.
+  <img src="https://img.shields.io/badge/Java-21-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white" alt="Java 21" />
+  <img src="https://img.shields.io/badge/Spring_Boot-4.0.7-6DB33F?style=for-the-badge&logo=springboot&logoColor=white" alt="Spring Boot 4" />
+  <img src="https://img.shields.io/badge/Spring_Security-RBAC-6DB33F?style=for-the-badge&logo=springsecurity&logoColor=white" alt="Spring Security" />
+  <img src="https://img.shields.io/badge/MySQL-Database-4479A1?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL" />
+  <img src="https://img.shields.io/badge/Maven-Build-C71A36?style=for-the-badge&logo=apachemaven&logoColor=white" alt="Maven" />
 </p>
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Java-21-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white" alt="Java 21">
-  <img src="https://img.shields.io/badge/Spring_Boot-4.x-6DB33F?style=for-the-badge&logo=springboot&logoColor=white" alt="Spring Boot">
-  <img src="https://img.shields.io/badge/REST_API-Backend-0A66C2?style=for-the-badge" alt="REST API">
-  <img src="https://img.shields.io/badge/MySQL-Database-4479A1?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL">
-  <img src="https://img.shields.io/badge/Maven-Build-C71A36?style=for-the-badge&logo=apachemaven&logoColor=white" alt="Maven">
-</p>
+A skill-based Academia–Industry Collaboration Portal built to connect students, companies, and institutions through measurable skill assessment, opportunity matching, skill-gap identification, and placement tracking.
 
-<p align="center">
-  <a href="#-why-skillbridge">Why</a> •
-  <a href="#-how-it-works">Workflow</a> •
-  <a href="#-modules">Modules</a> •
-  <a href="#-architecture">Architecture</a> •
-  <a href="#-getting-started">Setup</a> •
-  <a href="#-roadmap">Roadmap</a>
-</p>
+Unlike a conventional job or internship portal, SkillBridge focuses on one central problem: the gap between what students know and what industry requires.
 
-🎯 Why SkillBridge?
+The platform follows a simple continuous workflow:
 
-Finding an internship or job is easy. Knowing whether you are actually ready for it is not.
+Assess → Score → Match → Identify Gaps → Improve → Re-assess → Apply → Recruit → Place
 
-Students often list skills without a standardized way to demonstrate their current level. Companies, meanwhile, define roles around specific skills and spend time filtering candidates. Institutions may know students' academic performance without having a unified view of industry-skill readiness.
+🎯 Project Objective
 
-SkillBridge is built around that missing layer.
+The objective of SkillBridge is to create a unified platform where:
 
-Instead of:
+Students can measure their skills instead of relying only on self-declared skills.
 
-Student → Search → Apply → Company Filters
+Companies can define required skills and minimum skill levels for opportunities.
 
-SkillBridge follows:
+A matching engine can compare student skill profiles with industry requirements.
 
-Assess → Score → Profile → Match → Identify Gaps
-                                      ↓
-                               Improve → Re-assess
-                                      ↓
-                                    Apply
+Students who are not eligible can understand their exact skill gaps.
 
-The platform brings together students, companies, institutions, and administrators around measurable skills and opportunity requirements.
+Students can use learning resources, improve, and re-assess themselves.
 
-✨ The Core Idea
+Companies can screen suitable candidates.
 
-Don't just tell a student "not eligible." Tell them what is missing and what they can do next.
+Institutions can monitor overall skill readiness and placement progress.
 
-A student's skill profile is compared with the requirements defined by a company. If the student qualifies, they can apply. If they do not, the system explains the skill gap and provides a path toward re-assessment.
-
-The complete journey
-
-STUDENT
-   ↓
-ASSESSMENT
-   ↓
-SKILL SCORE
-   ↓
-SKILL PROFILE
-   ↓
-MATCHING ENGINE ← COMPANY REQUIRED SKILLS
-   ↓
-ELIGIBILITY
-   ├───────────────┐
-   ↓               ↓
-ELIGIBLE       NOT ELIGIBLE
-   ↓               ↓
- APPLY          SKILL GAP
-   ↓               ↓
-SCREENING      RESOURCES
-   ↓               ↓
-RECRUITMENT    RE-ASSESS
-   ↓               │
-INSTITUTION ←─────┘
-   ↓
-PLACEMENT DATA
-
-🚀 What Makes SkillBridge Different?
-
-Traditional Portal
-
-SkillBridge
-
-Student searches and applies
-
-Student is guided toward suitable opportunities
-
-Skills are mainly self-declared
-
-Skills can be backed by assessments
-
-Rejection ends the process
-
-Rejection can explain the missing skill
-
-No clear improvement loop
-
-Skill gap → resources → re-assessment
-
-Generic candidate filtering
-
-Skill-based comparison against role requirements
-
-Placement data is fragmented
-
-Institution gets a consolidated readiness view
-
-Core differentiators
-
-Assessment-backed skills — convert skill knowledge into measurable scores.
-
-Skill-based matching — compare student scores against company-defined thresholds.
-
-Explainable skill gaps — show exactly which requirement is missing.
-
-Improvement loop — learn, practice, re-assess, and become eligible.
-
-Company screening — allow role-specific screening after application.
-
-🧩 Modules
-
-<details>
-<summary><strong>👨‍🎓 Student</strong></summary>
-
-Personal profile
-
-Education and department
-
-Projects and interests
-
-Skill assessments
-
-Skill scores and proficiency levels
-
-Skill-gap visibility
-
-Recommended opportunities
-
-Application tracking
-
-Re-assessment
-
-</details>
-
-<details>
-<summary><strong>🏢 Company</strong></summary>
-
-Company profile
-
-Job and internship creation
-
-Required skills
-
-Minimum skill thresholds
-
-Opportunity details
-
-Applicant review
-
-Company screening
-
-Application status updates
-
-</details>
-
-<details>
-<summary><strong>⚙️ Matching Engine</strong></summary>
-
-The matching engine is the heart of SkillBridge.
-
-Student Skill Profile
-        +
-Company Requirements
-        ↓
-Skill Comparison
-        ↓
-Eligibility
-        ↓
-Match Result + Skill Gap
-
-Example:
-
-Java          78 / Required 70   ✓
-SQL           65 / Required 50   ✓
-Spring Boot   42 / Required 60   ✗
-Git           72 / Required 50   ✓
-
-Instead of returning only Not Eligible, the system can explain:
-
-Spring Boot
-Current : 42
-Required: 60
-Gap     : 18 points
-
-Next → Learning Resources → Practice → Re-assess
-
-</details>
-
-<details>
-<summary><strong>🏫 Institution</strong></summary>
-
-The institution focuses on visibility and analytics:
-
-Student overview
-
-Skill readiness
-
-Assessment completion
-
-Skill proficiency distribution
-
-Application statistics
-
-Internship progress
-
-Placement overview
-
-Identification of common skill gaps
-
-</details>
-
-<details>
-<summary><strong>🛡️ Admin</strong></summary>
-
-User management
-
-Role management
-
-Assessment management
-
-Skill/category management
-
-Opportunity moderation
-
-Platform monitoring
-
-</details>
-
-🔄 How It Works
-
-01 — Build a profile
-
-Students create a profile containing education, projects, interests, resume information, and relevant details.
-
-02 — Assess skills
-
-Students take field-specific assessments. A result might look like:
-
-Java          78
-SQL           65
-Spring Boot   42
-Git           72
-
-03 — Create the skill profile
-
-The assessment results become a measurable representation of current readiness.
-
-A configurable initial interpretation can be:
-
-80–100  Strong
-60–79   Good
-40–59   Developing
-0–39    Beginner
-
-04 — Company defines requirements
-
-Example:
-
-Java          ≥ 70
-SQL           ≥ 50
-Spring Boot   ≥ 60
-Git           ≥ 50
-
-05 — Match
-
-The matching engine compares the student's latest assessed scores with the opportunity requirements.
-
-06 — Eligibility
-
-Eligible     → Apply
-Not Eligible → Skill Gap → Resources → Re-assess → Match Again
-
-07 — Company screening
-
-After an application is accepted for screening, the company may use a role-specific test containing MCQs, technical questions, aptitude, or coding questions depending on the role.
-
-08 — Recruitment
-
-Successful screening can move the candidate toward resume submission and subsequent recruitment stages.
-
-09 — Institution insights
-
-Aggregated data can show skill readiness, application progress, and placement trends.
-
-🏗️ Architecture
-
-Domain model
-
-User
-├── Student
-├── Company
-├── Institution
-└── Admin
-
-Student
-├── Education
-├── Skills
-├── Assessments
-└── Applications
-
-Company
-├── Profile
-└── Opportunities
-
-Opportunity
-├── Required Skills
-└── Applications
-
-Assessment
-├── Questions
-├── Answers
-└── Result
-
-Application
-├── Student
-├── Opportunity
-├── Match Result
-└── Status
-
-Application flow
-
-┌──────────────┐
-│   Frontend   │
-└──────┬───────┘
-       │ REST API
-       ▼
-┌──────────────┐
-│ Spring Boot  │
-│   Backend    │
-└──────┬───────┘
-       │
- ┌─────┴───────────────┐
- ▼                     ▼
-Business Logic      Security / RBAC
- │
- ├── Assessment
- ├── Matching
- └── Application Flow
- │
- ▼
-┌──────────────┐
-│    MySQL     │
-└──────────────┘
+[!IMPORTANT]
+SkillBridge is not intended to be another LinkedIn or generic job portal. Its core purpose is skill assessment, skill-based matching, and actionable skill-gap improvement.
 
 🛠️ Technical Stack
 
@@ -360,268 +43,534 @@ Category
 
 Technology
 
-Purpose
+Description
 
 ☕ Language
 
 Java 21
 
-Application development
+Modern LTS Java runtime and application development
 
-🚀 Backend
+🚀 Framework
 
-Spring Boot
+Spring Boot 4.0.7
 
-REST API and application layer
-
-🔐 Security
-
-Spring Security
-
-Authentication and RBAC
+Core backend web framework and REST API layer
 
 🗄️ Database
 
 MySQL
 
-Structured application data
+Relational storage for users, skills, assessments, opportunities and applications
 
-📡 API
+🔒 Security
 
-REST
+Spring Security
 
-Frontend/backend communication
+Authentication and Role-Based Access Control (RBAC)
 
-📦 Build
+🔑 Password Security
+
+BCrypt
+
+Secure password hashing
+
+📦 Build Tool
 
 Maven
 
-Dependency and build management
+Dependency management and project build pipeline
+
+🧩 API Style
+
+REST
+
+Communication between frontend and backend
 
 🧪 Testing
 
 JUnit / Spring Test
 
-Backend testing
+Backend unit and integration testing
 
-Keep this table synchronized with the actual implementation as the repository evolves.
+✨ Core Features
 
-📁 Project Structure
+👨‍🎓 Student Skill Assessment:
 
-skillbridge-student-industry-collaboration/
-│
-├── src/
-│   ├── main/
-│   │   ├── java/
-│   │   │   └── .../
-│   │   │       ├── config/
-│   │   │       ├── controller/
-│   │   │       ├── dto/
-│   │   │       ├── entity/
-│   │   │       ├── repository/
-│   │   │       ├── service/
-│   │   │       ├── security/
-│   │   │       └── matching/
-│   │   └── resources/
-│   │       └── application.properties
-│   └── test/
-│
-├── docs/
-│   ├── architecture/
-│   ├── diagrams/
-│   └── screenshots/
-│
-├── .gitignore
-├── pom.xml
-└── README.md
+Student registration and profile creation.
 
-⚡ Getting Started
+Education, department, year, projects and interests.
 
-Prerequisites
+Field-specific skill assessments.
 
-Java 21+
+Skill scores generated from assessment results.
 
-Maven
+Skill readiness overview.
 
-MySQL
+Visibility into missing or weak skills.
 
-Git
+🏢 Company & Opportunity Management:
 
-IntelliJ IDEA, Eclipse, or VS Code
+Company profile creation.
 
-1. Clone
+Internship and job posting.
 
-git clone https://github.com/<your-username>/skillbridge-student-industry-collaboration.git
-cd skillbridge-student-industry-collaboration
+Required skill definition.
 
-2. Create the database
+Minimum skill-score requirements.
 
-CREATE DATABASE skillbridge;
+Opportunity details such as duration, location, stipend and eligibility.
 
-3. Configure application properties
+Candidate/application management.
 
-spring.datasource.url=jdbc:mysql://localhost:3306/skillbridge
-spring.datasource.username=YOUR_USERNAME
-spring.datasource.password=YOUR_PASSWORD
+⚙️ Skill-Based Matching Engine:
 
-spring.jpa.hibernate.ddl-auto=update
-spring.jpa.show-sql=false
+Compares assessed student skills with company requirements.
 
-Never commit real credentials, API keys, tokens, or secrets.
+Determines opportunity eligibility.
 
-4. Build
+Identifies individual skill gaps.
 
-./mvnw clean install
+Provides an explainable match result.
 
-Windows:
+Supports re-assessment after skill improvement.
 
-mvnw.cmd clean install
+📝 Application Workflow:
 
-5. Run
+Apply only when the student satisfies the opportunity requirements.
 
-./mvnw spring-boot:run
+Track application status.
 
-Windows:
+Company screening after application.
 
-mvnw.cmd spring-boot:run
+Optional role-specific screening assessment.
 
-🔌 API Surface
+Recruitment-stage tracking.
 
-The API can be organized around the major domain resources:
+🏫 Institution Dashboard:
 
-Area
+Student overview.
 
-Responsibility
+Overall skill readiness.
 
-/api/auth
+Skill proficiency distribution.
 
-Authentication and registration
+Application statistics.
 
-/api/students
+Placement overview.
 
-Student profiles and skills
+Identification of common skill gaps.
 
-/api/assessments
+🛡️ Role-Based Access Control:
 
-Assessments and results
+STUDENT
 
-/api/skills
+COMPANY
 
-Skill definitions and mappings
+INSTITUTION
 
-/api/companies
+ADMIN
 
-Company profiles
+[!NOTE]
+The initial implementation should prioritize skill assessment + matching + skill-gap identification + application workflow. Advanced AI recommendation, facial recognition, advanced proctoring, blockchain certificates and large-scale LMS integrations remain future-scope capabilities.
 
-/api/opportunities
+🔄 System Workflow
 
-Jobs and internships
+flowchart TD
+    Student[Student] --> Assessment[Assessment]
+    Assessment --> Score[Skill Score]
+    Score --> Profile[Skill Profile]
+    Profile --> Matching[Matching Engine]
 
-/api/matching
+    Company[Company] --> Requirements[Required Skills]
+    Requirements --> Matching
 
-Skill comparison and eligibility
+    Matching --> Eligibility{Eligible?}
 
-/api/applications
+    Eligibility -->|YES| Apply[Apply]
+    Eligibility -->|NO| Gap[Skill Gap]
 
-Application lifecycle
+    Gap --> Resources[Learning Resources]
+    Resources --> Reassess[Re-assess]
+    Reassess --> Matching
 
-/api/institutions
+    Apply --> Screening[Company Screening]
+    Screening --> Result{Pass?}
 
-Institution insights
+    Result -->|YES| Resume[Resume Submission]
+    Result -->|NO| Rejected[Not Selected]
 
-/api/admin
+    Resume --> Recruitment[Recruitment]
+    Recruitment --> Institution[Institution]
+    Institution --> Placement[Placement Data]
 
-Administrative operations
+🧠 How the Matching Engine Works
 
-Treat these as the intended API organization unless the implementation defines different routes.
+The matching engine is the heart of SkillBridge.
 
-🧠 Matching Logic — MVP
+It compares the student's assessed skill scores against the minimum requirements defined by the company.
 
-The first matching implementation can remain transparent and rule-based.
+👨‍🎓 Student Skill Profile
 
-for each required skill:
+Java          78
+SQL           65
+Spring Boot   42
+Git           72
 
-    if studentScore >= requiredScore
-        → requirement satisfied
-    else
-        → requirement not satisfied
-        → calculate skill gap
+🏢 Company Requirements
+
+Java          ≥ 70
+SQL           ≥ 50
+Spring Boot   ≥ 60
+Git           ≥ 50
+
+⚙️ Matching Result
+
+Java          78 ≥ 70   ✓
+SQL           65 ≥ 50   ✓
+Spring Boot   42 < 60   ✗
+Git           72 ≥ 50   ✓
+
+The student is therefore not currently eligible.
+
+But SkillBridge does not stop at rejection.
+
+💡 Skill Gap Response
+
+Missing Skill : Spring Boot
+Current Score : 42
+Required Score: 60
+Skill Gap     : 18 points
+
+The platform can then guide the student toward:
+
+Learning Resources
+        ↓
+Practice
+        ↓
+Re-assessment
+        ↓
+Updated Skill Score
+        ↓
+Matching Again
+
+[!TIP]
+The most important principle of the matching engine is explainability. A student should understand why an opportunity is unavailable and what needs to improve.
+
+📊 Skill Score
+
+After completing an assessment, SkillBridge generates a measurable skill score.
 
 Example:
 
-Student                 Requirement
-──────────────────────────────────────
-Java          78        Java          70 ✓
-SQL           65        SQL           50 ✓
-Spring Boot   42        Spring Boot   60 ✗
-Git           72        Git           50 ✓
+JAVA
+████████████████░░░░  78%
 
-This approach makes the MVP explainable and easy to demonstrate before introducing more advanced recommendation methods.
+SQL
+█████████████░░░░░░░  65%
 
-🧪 Assessment Model
+SPRING BOOT
+████████░░░░░░░░░░░░  42%
+
+A possible initial classification is:
+
+80–100 → Strong
+60–79  → Good
+40–59  → Developing
+0–39   → Beginner
+
+The exact score ranges can be configured as the assessment system evolves.
+
+📝 Assessment Module
+
+Assessments are used to convert broad skill claims into measurable results.
+
+A basic assessment consists of:
 
 Assessment
 ├── Skill
 ├── Questions
-├── Options / Answers
+├── Answers
 ├── Attempt
 ├── Score
 └── Result
 
-Possible future extensions:
+The MVP can support:
 
-Question difficulty
+Multiple-choice questions.
 
-Skill-wise scoring
+Skill-specific question sets.
 
-Time limits
+Timed assessments.
 
-Attempt history
+Automatic scoring.
 
-Basic integrity signals
+Assessment result storage.
 
-Role-specific screening tests
+Basic violation/event detection.
 
-Advanced facial recognition or complex proctoring should remain optional future scope rather than the core product.
+Re-assessment after improvement.
 
-📌 Application Lifecycle
+Example:
+
+Java Assessment
+────────────────────
+Score : 78 / 100
+Level : Good
+
+👨‍🎓 Student Module
+
+The student is the primary participant in the SkillBridge workflow.
+
+STUDENT
+│
+├── Personal Profile
+├── Education
+├── Projects
+├── Interests
+├── Assessments
+├── Skills Overview
+├── Opportunities
+└── My Applications
+
+Personal Profile
+
+The profile can contain:
+
+Name
+
+Email
+
+Education
+
+Department / Branch
+
+Academic year
+
+Resume
+
+Projects
+
+Interests
+
+Skills Overview
+
+The student should be able to immediately answer:
+
+"What am I good at?"
+
+and:
+
+"What should I improve?"
+
+Example:
+
+Skill
+
+Score
+
+Status
+
+Java
+
+78
+
+Good
+
+SQL
+
+65
+
+Good
+
+Spring Boot
+
+42
+
+Developing
+
+Git
+
+72
+
+Good
+
+🏢 Company Module
+
+Companies define their requirements and publish opportunities.
+
+COMPANY
+│
+├── Company Profile
+├── Required Skills
+├── Internships
+└── Jobs
+
+Company Profile
+
+Contains information such as:
+
+Company name
+
+Description
+
+Industry
+
+Location
+
+Website
+
+Contact information
+
+Creating an Opportunity
+
+Example:
+
+Position:
+Java Backend Intern
+
+Required Skills:
+Java        ≥ 70
+SQL         ≥ 50
+Spring Boot ≥ 60
+Git         ≥ 50
+
+Additional opportunity information can include:
+
+Duration
+
+Location / Remote
+
+Stipend
+
+Number of positions
+
+Description
+
+Eligibility criteria
+
+The most important part is the skill requirement definition, because it becomes the input for the matching engine.
+
+📌 Application Workflow
+
+Opportunity
+     ↓
+Profile Check
+     ↓
+Skill Matching
+     ↓
+Eligible?
+   /     \
+ YES      NO
+ ↓        ↓
+Apply   Skill Gap
+ ↓        ↓
+Screen  Resources
+ ↓        ↓
+Recruit Re-assess
+          ↓
+       Match Again
+
+Application Status
+
+A typical application can move through:
 
 Applied
    ↓
-Under Review
+Shortlisted
    ↓
 Screening
    ↓
-Shortlisted
-   ↓
 Selected / Rejected
 
-The objective is to give students a clear view of every application they submit.
+The student should be able to track the current state of every application.
 
-🏫 Institution Analytics
+🧪 Company Screening
 
-The institution layer is primarily about visibility rather than manually managing every student action.
+After an eligible student applies, the company can optionally initiate a role-specific screening assessment.
+
+The screening can contain:
+
+MCQs
+
+Technical questions
+
+Aptitude
+
+Coding questions depending on the role
+
+Example:
+
+Screening Test
+20 Questions
+
+Score: 17 / 20
+        ↓
+     PASS
+        ↓
+Resume Submission
+
+Advanced facial recognition and proctoring are not core requirements for the MVP and can be explored later.
+
+🏫 Institution Module
+
+The institution acts as the monitoring and analytics layer.
+
+INSTITUTION
+│
+├── Students Overview
+├── Skill Overview
+├── Application Overview
+└── Placement Overview
+
+The institution can monitor:
+
+Total students.
+
+Active students.
+
+Assessment participation.
+
+Overall skill readiness.
+
+Skill proficiency distribution.
+
+Application progress.
+
+Placement statistics.
+
+Common skill gaps.
+
+Example:
 
 Skill Readiness
-────────────────────────────
-Java           ████████████  72%
-Python         █████████     55%
-SQL            ██████████    64%
-Communication  ███████       47%
 
-It can help answer:
+Java           ███████████████  65%
+Python         █████████        40%
+SQL            ███████████████  72%
+Communication  █████████        45%
 
-Which skills are strongest across students?
+This allows institutions to identify where additional training may be required.
 
-Which skills require training?
+👑 Admin Module
 
-How many students are assessment-ready?
+The administrator provides platform-level management.
 
-Which opportunities are receiving applications?
+Possible responsibilities include:
 
-How are placement outcomes progressing?
+User management.
 
-🔐 Security Principles
+Role management.
+
+Skill/category management.
+
+Assessment management.
+
+Question-bank management.
+
+Opportunity moderation.
+
+Platform monitoring.
 
 Primary roles:
 
@@ -630,234 +579,785 @@ COMPANY
 INSTITUTION
 ADMIN
 
-Security considerations:
+🏗️ Architecture & Data Flow
 
-Authentication
+graph TD
+    Client[Web Client] --> Security[Spring Security]
+    Security --> Controller[REST Controller Layer]
+    Controller --> Service[Service Layer]
+    Service --> Matching[Matching Engine]
+    Service --> Assessment[Assessment Service]
+    Service --> Application[Application Service]
+    Matching --> Repository[Repository Layer]
+    Assessment --> Repository
+    Application --> Repository
+    Repository --> Database[(MySQL)]
 
-Role-Based Access Control
+The backend follows a modular layered architecture:
 
-Input validation
+Client
+  ↓
+Controller
+  ↓
+Service
+  ↓
+Repository
+  ↓
+MySQL
 
-Password hashing
+Business-specific modules such as Matching, Assessment, and Application Management operate within the service layer.
 
-Ownership checks
+🗄️ Data Models
 
-Restricted administrative operations
+1. User
 
-Safe secret management
+Field
 
-Controlled access to student and company data
+Type
 
-🧭 MVP Scope
+Description
 
-Build first
+id
 
-Student
+Long / UUID
 
-Profile
+Primary identifier
 
-Assessment
+name
 
-Skill overview
+String
 
-Opportunities
+User's display name
 
-Applications
+email
 
-Company
+String
 
-Company profile
+Registered email
 
-Create opportunity
+password
 
-Required skills
+String
 
-View applications
+BCrypt-encoded password
 
-Matching
+role
 
-Skill comparison
+Enum
 
-Eligibility
+STUDENT, COMPANY, INSTITUTION, ADMIN
 
-Skill-gap explanation
+2. Student
 
-Assessment
+Field
 
-Questions
+Type
 
-Timer
+Description
 
-Score
+id
 
-Basic integrity checks
+Long / UUID
 
-Institution
+Student identifier
+
+education
+
+String
+
+Degree / academic information
+
+department
+
+String
+
+Department / branch
+
+year
+
+Integer
+
+Current academic year
+
+resume
+
+String
+
+Resume reference
+
+projects
+
+List
+
+Student projects
+
+interests
+
+List
+
+Preferred domains / roles
+
+3. Skill
+
+Field
+
+Type
+
+Description
+
+id
+
+Long / UUID
+
+Skill identifier
+
+name
+
+String
+
+Skill name
+
+category
+
+String
+
+Skill category
+
+4. StudentSkill
+
+Field
+
+Type
+
+Description
+
+studentId
+
+Long / UUID
+
+Student reference
+
+skillId
+
+Long / UUID
+
+Skill reference
+
+score
+
+Integer
+
+Assessed skill score
+
+level
+
+String
+
+Skill proficiency level
+
+5. Opportunity
+
+Field
+
+Type
+
+Description
+
+id
+
+Long / UUID
+
+Opportunity identifier
+
+companyId
+
+Long / UUID
+
+Company reference
+
+title
+
+String
+
+Job / internship title
+
+description
+
+String
+
+Opportunity description
+
+location
+
+String
+
+Location / remote
+
+duration
+
+String
+
+Internship/job duration
+
+6. OpportunitySkill
+
+Field
+
+Type
+
+Description
+
+opportunityId
+
+Long / UUID
+
+Opportunity reference
+
+skillId
+
+Long / UUID
+
+Required skill
+
+minimumScore
+
+Integer
+
+Minimum required score
+
+required
+
+Boolean
+
+Required / preferred skill
+
+7. Assessment
+
+Field
+
+Type
+
+Description
+
+id
+
+Long / UUID
+
+Assessment identifier
+
+skillId
+
+Long / UUID
+
+Skill being assessed
+
+title
+
+String
+
+Assessment title
+
+duration
+
+Integer
+
+Time limit
+
+8. Application
+
+Field
+
+Type
+
+Description
+
+id
+
+Long / UUID
+
+Application identifier
+
+studentId
+
+Long / UUID
+
+Student reference
+
+opportunityId
+
+Long / UUID
+
+Opportunity reference
+
+matchScore
+
+Double
+
+Matching result
+
+status
+
+Enum
+
+Current application status
+
+🌐 API Endpoints
+
+The API is organized around the major modules of the platform.
+
+[!NOTE]
+Endpoint names below represent the intended REST API structure. Keep this section synchronized with the actual controllers as implementation progresses.
+
+1. Authentication & Registration
+
+Method
+
+Endpoint
+
+Description
+
+
+
+/api/auth/register
+
+Register a new user
+
+
+
+/api/auth/login
+
+Authenticate a user
+
+
+
+/api/auth/me
+
+Retrieve authenticated user information
+
+2. Student Endpoints
+
+Method
+
+Endpoint
+
+Description
+
+
+
+/api/students/profile
+
+Fetch student profile
+
+
+
+/api/students/profile
+
+Update student profile
+
+
+
+/api/students/skills
+
+Fetch assessed skills
+
+
+
+/api/students/applications
+
+Fetch student's applications
+
+3. Assessment Endpoints
+
+Method
+
+Endpoint
+
+Description
+
+
+
+/api/assessments
+
+List available assessments
+
+
+
+/api/assessments/{id}
+
+Fetch an assessment
+
+
+
+/api/assessments/{id}/submit
+
+Submit assessment
+
+
+
+/api/assessments/results
+
+Fetch assessment results
+
+4. Company Endpoints
+
+Method
+
+Endpoint
+
+Description
+
+
+
+/api/companies/profile
+
+Fetch company profile
+
+
+
+/api/companies/profile
+
+Update company profile
+
+
+
+/api/opportunities
+
+Create an opportunity
+
+
+
+/api/opportunities
+
+List opportunities
+
+5. Matching Endpoints
+
+Method
+
+Endpoint
+
+Description
+
+
+
+/api/matching/opportunities
+
+Find suitable opportunities
+
+
+
+/api/matching/{opportunityId}
+
+Calculate student-opportunity match
+
+
+
+/api/matching/{opportunityId}/gaps
+
+Retrieve skill gaps
+
+6. Application Endpoints
+
+Method
+
+Endpoint
+
+Description
+
+
+
+/api/applications
+
+Submit an application
+
+
+
+/api/applications
+
+Fetch applications
+
+
+
+/api/applications/{id}/status
+
+Update application status
+
+7. Institution Endpoints
+
+Method
+
+Endpoint
+
+Description
+
+
+
+/api/institutions/students
 
 Student overview
 
-Skill overview
+
+
+/api/institutions/skills
+
+Skill readiness overview
+
+
+
+/api/institutions/placements
 
 Placement overview
 
-Future scope
+📥 Example Request
 
-Advanced recommendation models
+Create Student Profile
 
-Smarter opportunity ranking
+{
+  "name": "Rahul",
+  "email": "rahul@example.com",
+  "education": "B.Tech CSE",
+  "department": "Computer Science",
+  "year": 3,
+  "interests": [
+    "Backend Development",
+    "Cloud"
+  ]
+}
 
-Advanced assessment analytics
+Example Assessment Result
 
-LMS integration
+{
+  "skill": "Java",
+  "score": 78,
+  "level": "Good"
+}
 
-Certification integrations
+Example Opportunity
 
-Deeper placement prediction
+{
+  "title": "Java Backend Intern",
+  "requiredSkills": [
+    {
+      "skill": "Java",
+      "minimumScore": 70
+    },
+    {
+      "skill": "SQL",
+      "minimumScore": 50
+    },
+    {
+      "skill": "Spring Boot",
+      "minimumScore": 60
+    },
+    {
+      "skill": "Git",
+      "minimumScore": 50
+    }
+  ]
+}
 
-Enterprise HR integrations
+📂 Project Structure
 
-Advanced assessment monitoring
+src/main/java/
+└── .../
+    ├── ⚙️ config/
+    │   ├── SecurityConfig.java
+    │   └── ApplicationConfig.java
+    │
+    ├── 🎮 controller/
+    │   ├── AuthController.java
+    │   ├── StudentController.java
+    │   ├── CompanyController.java
+    │   ├── AssessmentController.java
+    │   ├── MatchingController.java
+    │   ├── ApplicationController.java
+    │   ├── InstitutionController.java
+    │   └── AdminController.java
+    │
+    ├── 📦 entity/
+    │   ├── User.java
+    │   ├── Student.java
+    │   ├── Company.java
+    │   ├── Institution.java
+    │   ├── Skill.java
+    │   ├── Assessment.java
+    │   ├── Opportunity.java
+    │   └── Application.java
+    │
+    ├── 📋 dto/
+    │   ├── StudentDTO.java
+    │   ├── CompanyDTO.java
+    │   ├── AssessmentDTO.java
+    │   ├── OpportunityDTO.java
+    │   └── ApplicationDTO.java
+    │
+    ├── 🗄️ repository/
+    │   ├── UserRepository.java
+    │   ├── StudentRepository.java
+    │   ├── CompanyRepository.java
+    │   ├── SkillRepository.java
+    │   ├── AssessmentRepository.java
+    │   ├── OpportunityRepository.java
+    │   └── ApplicationRepository.java
+    │
+    └── 🧠 service/
+        ├── AuthService.java
+        ├── StudentService.java
+        ├── CompanyService.java
+        ├── AssessmentService.java
+        ├── MatchingService.java
+        ├── ApplicationService.java
+        └── InstitutionService.java
 
-The prototype should prove one central question:
+🚀 Getting Started
 
-Can we assess a student's skills, compare them with industry requirements, identify the gap, and guide the student toward a suitable opportunity?
+📋 Prerequisites
 
-🗺️ Roadmap
+Java Development Kit (JDK): Version 21 or higher
 
-PHASE 1 — MVP
-Profile → Assessment → Skill Profile → Matching → Application
-                         │
-                         ▼
-PHASE 2 — IMPROVEMENT
-Skill Gap → Resources → Re-assessment → Better Matching
-                         │
-                         ▼
-PHASE 3 — SCALE
-Advanced intelligence → Analytics → Integrations
+Maven: Version 3.8+
 
-🎬 A Typical Student Journey
+MySQL: Version 8.0+ or compatible server
 
-B.Tech CSE Student
-       ↓
-Backend Development Interest
-       ↓
-Java Assessment
-       ↓
-Java          78
-SQL           68
-Spring Boot   43
-Git           75
-       ↓
-Java Backend Internship
-       ↓
-Java          70 ✓
-SQL           50 ✓
-Spring Boot   60 ✗
-Git           50 ✓
-       ↓
-Skill Gap: Spring Boot
-43 → 60
-       ↓
-Learning Resources
-       ↓
-Re-assessment
-       ↓
-Spring Boot: 64 ✓
-       ↓
-Eligible → Apply
-       ↓
-Company Screening
-       ↓
-Recruitment
+Git: Latest stable version
 
-The important part is the loop:
+An IDE such as IntelliJ IDEA, Eclipse, or VS Code
 
-Measure → Understand → Improve → Re-measure → Opportunity
+⚙️ Database Configuration
 
-🧠 Design Principles
+Create the database:
 
-Explainability over black-box decisions
+CREATE DATABASE skillbridge;
 
-Students should understand why they match or do not match an opportunity.
+Configure the database connection in:
 
-Improvement over rejection
-
-A skill gap should become actionable information.
-
-Measurable skills over unsupported claims
-
-Assessments can provide evidence for skill levels.
-
-Modular architecture
-
-Student, company, assessment, matching, application, and institution functionality should remain maintainable as separate areas.
-
-MVP first
-
-Build the smallest system that proves the core problem before adding complexity.
-
-🤝 Contributing
-
-Fork
-  ↓
-Create a branch
-  ↓
-Make changes
-  ↓
-Test
-  ↓
-Commit
-  ↓
-Push
-  ↓
-Pull Request
+src/main/resources/application.properties
 
 Example:
 
-git checkout -b feature/skill-matching
-git add .
-git commit -m "feat: add skill matching service"
-git push origin feature/skill-matching
+spring.datasource.url=jdbc:mysql://localhost:3306/skillbridge
+spring.datasource.username=<username>
+spring.datasource.password=<password>
 
-Keep commits focused, document meaningful changes, and avoid committing secrets.
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=false
 
-📚 Documentation
+[!WARNING]
+Never commit real database passwords, API keys, JWT secrets, or other credentials to GitHub. Use environment variables or a local configuration file that is excluded through .gitignore.
 
-Recommended documentation structure:
+💻 Running the Application
 
-docs/
-├── architecture/
-├── api/
-├── database/
-├── workflows/
-├── assessment/
-└── screenshots/
+Clone the repository:
 
-Useful documents to maintain:
+git clone <repository-url>
+cd skillbridge-student-industry-collaboration
 
-System architecture
+Build the project:
 
-ER diagram
+mvn clean install
 
-API documentation
+Run the application:
 
-Matching logic
+mvn spring-boot:run
 
-Assessment model
+The server will start on:
 
-Authentication flow
+http://localhost:8080
 
-Database schema
+🧪 Development Roadmap
 
-UI screenshots
+Phase 1 — MVP
 
-Deployment guide
+Student Profile
+      ↓
+Assessment
+      ↓
+Skill Score
+      ↓
+Skill Profile
+      ↓
+Matching
+      ↓
+Eligibility
+      ↓
+Application
 
-🌱 Vision
+Phase 2 — Improvement Loop
 
-SkillBridge is not intended to become just another job or internship listing website.
+Skill Gap
+    ↓
+Learning Resources
+    ↓
+Practice
+    ↓
+Re-assessment
+    ↓
+Updated Skill Profile
+    ↓
+Matching Again
 
-The larger vision is a continuous bridge between what academia teaches and what industry needs.
+Phase 3 — Advanced Capabilities
+
+Potential future additions:
+
+Smarter opportunity recommendations.
+
+Advanced assessment analytics.
+
+Advanced proctoring.
+
+LMS integration.
+
+External certification integration.
+
+Placement prediction.
+
+Enterprise HR integrations.
+
+Advanced institutional analytics.
+
+[!IMPORTANT]
+Complex AI recommendation models, facial recognition, advanced proctoring, blockchain certificates and large-scale integrations are intentionally kept outside the initial MVP. The first objective is to prove the skill assessment → skill matching → skill-gap improvement loop.
+
+🧭 Complete Student Journey
+
+Consider a student interested in backend development.
+
+1. Create Profile
+        ↓
+2. Take Skill Assessment
+        ↓
+3. Receive Skill Scores
+        ↓
+4. View Skill Profile
+        ↓
+5. Explore Matching Opportunities
+        ↓
+6. Check Eligibility
+        ↓
+   ┌────┴────┐
+   ↓         ↓
+Eligible   Not Eligible
+   ↓         ↓
+ Apply    Skill Gap
+             ↓
+         Resources
+             ↓
+         Re-assess
+             ↓
+        Match Again
+   ↓
+7. Company Screening
+        ↓
+8. Resume Submission
+        ↓
+9. Recruitment
+        ↓
+10. Placement
+
+🌱 Project Vision
+
+SkillBridge is designed around a larger idea:
 
                     ACADEMIA
                        │
@@ -883,9 +1383,80 @@ The larger vision is a continuous bridge between what academia teaches and what 
                        ▼
                    PLACEMENT
 
-The long-term goal
+The long-term goal is to build a bridge between:
 
-Connect student capability, industry requirements, targeted improvement, and real opportunities in one continuous system.
+What students know → What industry needs → What students should learn next.
+
+🔐 Security Principles
+
+The platform is designed around role-aware access.
+
+Authentication
+
+Secure user registration.
+
+Password hashing with BCrypt.
+
+Authenticated API access.
+
+Authorization
+
+Access is separated by role:
+
+STUDENT
+   ↓
+Own Profile + Assessments + Applications
+
+COMPANY
+   ↓
+Company Profile + Opportunities + Applications
+
+INSTITUTION
+   ↓
+Student / Skill / Placement Analytics
+
+ADMIN
+   ↓
+Platform Management
+
+Additional considerations
+
+Input validation.
+
+Ownership checks.
+
+Restricted administrative operations.
+
+Safe secret management.
+
+Controlled access to student and company data.
+
+🤝 Contributing
+
+Contributions and improvements are welcome.
+
+Fork
+  ↓
+Create Feature Branch
+  ↓
+Implement
+  ↓
+Test
+  ↓
+Commit
+  ↓
+Push
+  ↓
+Pull Request
+
+Example:
+
+git checkout -b feature/skill-matching
+git add .
+git commit -m "feat: implement skill matching"
+git push origin feature/skill-matching
+
+Please keep commits focused and use descriptive commit messages.
 
 👥 Team
 
@@ -897,15 +1468,15 @@ Project Lead
 
 Your Name
 
-Backend
+Backend Developer
 
 Team Member
 
-Frontend
+Frontend Developer
 
 Team Member
 
-Database
+Database / API
 
 Team Member
 
@@ -917,19 +1488,17 @@ Documentation
 
 Team Member
 
-Replace the placeholders before publishing.
-
 📄 License
 
-Add the license that matches the intended use of the project, for example:
+This project is currently developed as a prototype for student–industry collaboration and academic/hackathon purposes.
 
-MIT License
+Add the appropriate open-source license when the repository's licensing decision is finalized.
 
 <p align="center">
-  <strong>SkillBridge</strong><br>
-  <sub>Building a better bridge between student skills and industry opportunities.</sub>
+  <strong>🌉 SkillBridge</strong><br/>
+  <sub>Bridging the gap between student skills and industry opportunities.</sub>
 </p>
 
 <p align="center">
-  <code>Assess → Match → Improve → Re-assess → Apply → Place</code>
+  <code>Assess → Score → Match → Improve → Re-assess → Apply → Place</code>
 </p>
