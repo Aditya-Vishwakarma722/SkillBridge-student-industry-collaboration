@@ -1,0 +1,63 @@
+1. Skill Based Match Making :- Only the appropriate skilled student can apply for their respective skill set jobs, internships, workshops. No other student can apply for any random application that he don't have any knowledge. Skills will be assigned based on Assessments.
+The backend will work for when the student applies for any applications, before applying, they will be given a profile check, checking their skills and matching with the skills needed in the job application. If matched then, they can apply easy, if some of them not then they will be shown which skills they need to improve and what scores they actually need to match in order to apply for the position. Based on that, they will be given some resources to work on along with assessments to do.
+
+2. For the Assessment tests :- There will be two timers, one for which student can see for the entire assessment test and one which will stored in the background for each individual question. The tests will be of different aspects such as, for different fields there will be different questions, MCQ, coding, aptitude based on the field. If caught cheating in Assessment, the test will be closed along with skill scores deductions and a temporary ban of the account.
+
+3. For application applying session :- The student will send a request to the opportunity provided by the company, for with if the company accepts the request, they will conduct a small test (Real time Face Cam), with the same case as the assessment test (Two factor time recorder) and if the student passes the test (more than or equal 15 in the overall 20 questions), they will be eligible to send their resume to the company. Banned on Cheating [ 3 days, 30 days, 3 months, permanent] -- Tab switches, copy/paste actions.
+
+
+
+Complete Idea :- 
+
+                         STUDENT
+                            │
+                            ▼
+                    ┌──────────────┐
+                    │  ASSESSMENT  │
+                    └──────┬───────┘
+                           │
+                           ▼
+                     SKILL SCORE
+                           │
+                           ▼
+                   SKILL PROFILE
+                           │
+                           ▼
+                    ┌─────────────┐
+                    │   MATCHING  │◄──────── COMPANY
+                    └──────┬──────┘          │
+                           │             Required Skills
+                           ▼
+                     ELIGIBILITY
+                           │
+                  ┌────────┴────────┐
+                  │                 │
+               Eligible          Not Eligible
+                  │                 │
+                  ▼                 ▼
+              APPLY          SKILL GAP
+                  │                 │
+                  │                 ▼
+                  │           RESOURCES
+                  │                 │
+                  │                 ▼
+                  │            REASSESS
+                  │
+                  ▼
+           COMPANY SCREENING
+                  │
+             ┌────┴────┐
+             ▼         ▼
+           PASS       FAIL
+             │
+             ▼
+       RESUME SUBMISSION
+             │
+             ▼
+          RECRUITMENT
+             │
+             ▼
+         INSTITUTION
+             │
+             ▼
+       PLACEMENT DATA

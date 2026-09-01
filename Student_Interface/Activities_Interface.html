@@ -1,0 +1,523 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Midnight Academy - Activities</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-container": "#3f4459",
+                    "inverse-primary": "#735c00",
+                    "on-primary-fixed": "#241a00",
+                    "outline-variant": "#4d4635",
+                    "surface-tint": "#e9c349",
+                    "primary": "#f2ca50",
+                    "primary-fixed": "#ffe088",
+                    "surface-container-low": "#171b28",
+                    "error": "#ffb4ab",
+                    "surface-bright": "#353946",
+                    "inverse-on-surface": "#2c303d",
+                    "outline": "#99907c",
+                    "on-background": "#dfe2f3",
+                    "tertiary-fixed": "#dde1fc",
+                    "primary-container": "#d4af37",
+                    "background": "#0f131f",
+                    "inverse-surface": "#dfe2f3",
+                    "tertiary-container": "#aeb2cb",
+                    "on-primary": "#3c2f00",
+                    "on-tertiary": "#2b2f44",
+                    "on-tertiary-fixed": "#161b2e",
+                    "tertiary-fixed-dim": "#c1c5df",
+                    "on-secondary-fixed": "#2c0051",
+                    "on-surface": "#dfe2f3",
+                    "on-primary-container": "#554300",
+                    "surface-container-high": "#262a37",
+                    "secondary-fixed-dim": "#dcb8ff",
+                    "surface-container-highest": "#313442",
+                    "surface-container-lowest": "#0a0e1a",
+                    "on-error-container": "#ffdad6",
+                    "on-secondary": "#480081",
+                    "surface-dim": "#0f131f",
+                    "on-tertiary-fixed-variant": "#41465b",
+                    "surface-container": "#1b1f2c",
+                    "secondary-fixed": "#efdbff",
+                    "tertiary": "#c9cde7",
+                    "secondary-container": "#7701d0",
+                    "error-container": "#93000a",
+                    "on-primary-fixed-variant": "#574500",
+                    "secondary": "#dcb8ff",
+                    "on-secondary-fixed-variant": "#6700b5",
+                    "primary-fixed-dim": "#e9c349",
+                    "surface": "#0f131f",
+                    "on-error": "#690005",
+                    "surface-variant": "#313442",
+                    "on-surface-variant": "#d0c5af",
+                    "on-secondary-container": "#dcb7ff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "xs": "8px",
+                    "container-max": "1440px",
+                    "xl": "64px",
+                    "md": "24px",
+                    "lg": "40px",
+                    "sm": "16px",
+                    "base": "4px"
+            },
+            "fontFamily": {
+                    "body-sm": ["Inter"],
+                    "title-md": ["Inter"],
+                    "label-caps": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "headline-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "title-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #0A0E1A;
+            color: #dfe2f3;
+        }
+        .glass-pane {
+            background: rgba(22, 27, 46, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .glass-pane-floating {
+            background: rgba(28, 34, 55, 0.8);
+            backdrop-filter: blur(20px);
+            box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .glow-gold:hover {
+            box-shadow: 0 0 8px 2px rgba(212, 175, 55, 0.2);
+        }
+        .bg-heatmap-0 { background-color: rgba(212, 175, 55, 0.1); }
+        .bg-heatmap-1 { background-color: rgba(212, 175, 55, 0.3); }
+        .bg-heatmap-2 { background-color: rgba(212, 175, 55, 0.6); }
+        .bg-heatmap-3 { background-color: rgba(212, 175, 55, 1); }
+    </style>
+</head>
+<body class="font-body-lg min-h-screen flex flex-col theme-github" id="body-container">
+<!-- Top Navigation -->
+<nav class="bg-surface/60 backdrop-blur-xl fixed top-0 w-full z-50 border-b border-white/10 shadow-sm">
+<div class="flex justify-between items-center px-lg py-sm max-w-container-max mx-auto h-16">
+<!-- Left: Brand & Avatar -->
+<div class="flex items-center gap-md">
+<a href="Portal-Dashboard.html" class="flex items-center gap-2 text-primary font-bold hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-primary text-2xl" style="font-variation-settings: 'FILL' 1;">account_balance</span>
+<span class="text-white font-sans text-lg font-bold hidden sm:inline">Student Portal</span>
+</a>
+<a href="Profile_Interface.html" class="w-9 h-9 rounded-full overflow-hidden border border-white/20 block hover:border-primary transition-colors" title="Personal Profile">
+<img alt="Student avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCx-WH2ISM1JidrzeFpzW28qPVSMP7UVMhHcnS8TtCcQlf4IaOiO5aXtIdDCOTDSd6demG7XNQpCjj8viKASH-p_cxK7870gU_l39bhpNBkZ7tBAEVFLcOvWvw_0VeHDoUug242MQKRvp2keSGDblTmmZn-ZDTRupmCVFZVO1iLaWBlxnpkmB9sgps4BztKqDuyaHJiWBrAnKljGiD4a873hLyxGAvt2ZtxBqM-aqga98xQdlRSps6w8g">
+</a>
+</div>
+<!-- Center: Links -->
+<div class="hidden md:flex gap-lg absolute left-1/2 -translate-x-1/2">
+<a class="text-on-surface-variant hover:text-on-surface transition-colors font-title-md text-title-md" href="Portal-Dashboard.html">Dashboard</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors font-title-md text-title-md" href="Profile_Interface.html">Profile</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors font-title-md text-title-md" href="Skills_Overview.html">Skills</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors font-title-md text-title-md" href="Certificates_Interface.html">Certificates</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-title-md text-title-md" href="Activities_Interface.html">Activities</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors font-title-md text-title-md" href="My_Applications.html">Applications</a>
+</div>
+<!-- Right: Actions -->
+<div class="flex items-center gap-md text-on-surface-variant">
+<button class="hover:bg-white/5 transition-all p-2 rounded-full active:scale-95 duration-200">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="hover:bg-white/5 transition-all p-2 rounded-full active:scale-95 duration-200">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+</div>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="flex-grow pt-24 px-sm md:px-gutter max-w-container-max mx-auto w-full pb-xl flex flex-col gap-xl">
+<!-- Header Section -->
+<header class="flex flex-col gap-md items-center text-center">
+<h1 class="font-headline-lg text-headline-lg md:font-display-lg md:text-display-lg text-primary">Arjun Mehta</h1>
+<p class="font-body-lg text-on-surface-variant max-w-2xl">Computer Science Scholar focusing on Machine Learning and Systems Engineering.</p>
+<!-- Platform Action Buttons -->
+<div class="flex flex-wrap justify-center gap-sm mt-sm">
+<button id="tab-github" data-platform="github" class="platform-tab-btn bg-primary text-on-primary px-md py-xs rounded-full flex items-center gap-xs transition-all glow-gold cursor-pointer font-bold scale-105">
+<span class="material-symbols-outlined text-lg">code</span>
+<span class="font-title-md text-body-sm">Github</span>
+</button>
+<button id="tab-leetcode" data-platform="leetcode" class="platform-tab-btn glass-pane px-md py-xs rounded-full flex items-center gap-xs hover:bg-white/5 transition-all border-white/10 text-on-surface-variant cursor-pointer">
+<span class="material-symbols-outlined text-lg text-emerald-400">terminal</span>
+<span class="font-title-md text-body-sm">Leetcode</span>
+</button>
+<button id="tab-hackerrank" data-platform="hackerrank" class="platform-tab-btn glass-pane px-md py-xs rounded-full flex items-center gap-xs hover:bg-white/5 transition-all border-white/10 text-on-surface-variant cursor-pointer">
+<span class="material-symbols-outlined text-lg text-indigo-400">bug_report</span>
+<span class="font-title-md text-body-sm">HackerRank</span>
+</button>
+<button class="bg-primary-container/40 hover:bg-primary-container text-on-surface hover:text-on-primary-container px-md py-xs rounded-full flex items-center gap-xs transition-all cursor-pointer">
+<span class="material-symbols-outlined text-lg">add</span>
+<span class="font-title-md text-body-sm">Add more</span>
+</button>
+</div>
+</header>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-md transition-all duration-300" id="platform-content-wrapper">
+<!-- Activity Heatmap (Spans 2 columns on lg) -->
+<section class="glass-pane rounded-xl p-md lg:col-span-2 flex flex-col gap-md">
+<h2 class="font-title-md text-title-md text-primary flex items-center gap-xs" id="log-title">
+<span class="material-symbols-outlined">calendar_month</span> GitHub Activity Log
+</h2>
+<div class="overflow-x-auto pb-2">
+<div class="flex gap-1 min-w-max" id="heatmap-container">
+<!-- Javascript populates heatmap -->
+</div>
+</div>
+<div class="flex items-center justify-end gap-xs text-body-sm text-on-surface-variant mt-auto">
+<span class="">Less</span>
+<div class="w-3 h-3 rounded-sm bg-heatmap-0"></div>
+<div class="w-3 h-3 rounded-sm bg-heatmap-1"></div>
+<div class="w-3 h-3 rounded-sm bg-heatmap-2"></div>
+<div class="w-3 h-3 rounded-sm bg-heatmap-3"></div>
+<span class="">More</span>
+</div>
+</section>
+
+<!-- Stats/Highlights -->
+<section class="glass-pane rounded-xl p-md flex flex-col gap-md">
+<h2 class="font-title-md text-title-md text-primary flex items-center gap-xs">
+<span class="material-symbols-outlined">military_tech</span> Highlights
+</h2>
+<div id="platform-highlights" class="grid grid-cols-2 gap-sm flex-grow">
+<!-- Dynamic stats -->
+</div>
+</section>
+
+<!-- Project / Problem List (Spans full width) -->
+<section class="glass-pane rounded-xl p-md lg:col-span-3 flex flex-col gap-md">
+<h2 class="font-title-md text-title-md text-primary flex items-center gap-xs" id="featured-title">
+<span class="material-symbols-outlined">folder_open</span> Featured Projects
+</h2>
+<div class="flex flex-col gap-sm" id="featured-items-container">
+<!-- Dynamic list items -->
+</div>
+</section>
+</div>
+</main>
+
+<nav class="md:hidden fixed bottom-0 left-0 w-full bg-surface-container/90 backdrop-blur-xl border-t border-white/10 flex justify-around p-sm z-50">
+<a class="flex flex-col items-center gap-1 text-on-surface-variant" href="Portal-Dashboard.html">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-caps text-[10px]">Overview</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-on-surface-variant" href="Skills_Overview.html">
+<span class="material-symbols-outlined" data-icon="psychology">psychology</span>
+<span class="font-label-caps text-[10px]">Skills</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-primary" href="Activities_Interface.html">
+<span class="material-symbols-outlined" data-icon="assignment">assignment</span>
+<span class="font-label-caps text-[10px]">Activities</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-on-surface-variant" href="Profile_Interface.html">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-caps text-[10px]">Profile</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-on-surface-variant" href="Certificates_Interface.html">
+<span class="material-symbols-outlined" data-icon="workspace_premium">workspace_premium</span>
+<span class="font-label-caps text-[10px]">Certificates</span>
+</a>
+</nav>
+
+<script>
+    const platformData = {
+        github: {
+            themeClass: 'theme-github',
+            logTitle: 'GitHub Activity Log',
+            icon: 'code',
+            highlights: `
+                <div class="bg-surface-container-high rounded-lg p-sm flex flex-col justify-center items-center text-center border border-white/5 hover:border-primary/40 transition-all">
+                    <span class="font-display-lg text-headline-lg text-primary">42</span>
+                    <span class="font-label-caps text-label-caps text-on-surface-variant">Repositories</span>
+                </div>
+                <div class="bg-surface-container-high rounded-lg p-sm flex flex-col justify-center items-center text-center border border-white/5 hover:border-primary/40 transition-all">
+                    <span class="font-display-lg text-headline-lg text-secondary">89</span>
+                    <span class="font-label-caps text-label-caps text-on-surface-variant">Pull Requests</span>
+                </div>
+                <div class="bg-surface-container-high rounded-lg p-sm flex flex-col justify-center items-center text-center border border-white/5 col-span-2 hover:border-primary/40 transition-all">
+                    <span class="font-display-lg text-headline-lg text-primary-fixed">1,024</span>
+                    <span class="font-label-caps text-label-caps text-on-surface-variant">Contributions This Year</span>
+                </div>
+            `,
+            featuredTitle: 'Featured Repositories',
+            items: [
+                {
+                    title: 'Neural Network Visualizer',
+                    desc: 'An interactive web tool built with React and WebGL to visualize deep learning node activations in real-time.',
+                    badges: ['React', 'WebGL', 'TypeScript'],
+                    actionText: 'View on GitHub',
+                    icon: 'open_in_new',
+                    meta: '34 Stars • 12 Forks'
+                },
+                {
+                    title: 'Distributed Task Queue',
+                    desc: 'High-performance task queue implemented in Go, focusing on fault tolerance, raft consensus, and low latency.',
+                    badges: ['Go', 'Redis', 'gRPC'],
+                    actionText: 'View on GitHub',
+                    icon: 'open_in_new',
+                    meta: '82 Stars • 19 Forks'
+                },
+                {
+                    title: 'Midnight Academy Portal UI',
+                    desc: 'Frontend implementation of the scholarly student platform utilizing Glassmorphism and Tailwind CSS.',
+                    badges: ['HTML/CSS', 'Tailwind', 'JavaScript'],
+                    actionText: 'View on GitHub',
+                    icon: 'open_in_new',
+                    meta: '15 Stars • 4 Forks'
+                }
+            ]
+        },
+        leetcode: {
+            themeClass: 'theme-leetcode',
+            logTitle: 'LeetCode Submissions Log',
+            icon: 'terminal',
+            highlights: `
+                <div class="bg-surface-container-high rounded-lg p-sm flex flex-col justify-center items-center text-center border border-white/5 hover:border-emerald-400/40 transition-all">
+                    <span class="font-display-lg text-headline-lg text-emerald-400">458</span>
+                    <span class="font-label-caps text-label-caps text-on-surface-variant">Problems Solved</span>
+                </div>
+                <div class="bg-surface-container-high rounded-lg p-sm flex flex-col justify-center items-center text-center border border-white/5 hover:border-emerald-400/40 transition-all">
+                    <span class="font-display-lg text-headline-lg text-amber-300">1,890</span>
+                    <span class="font-label-caps text-label-caps text-on-surface-variant">Contest Rating</span>
+                </div>
+                <div class="bg-surface-container-high rounded-lg p-sm flex flex-col justify-center items-center text-center border border-white/5 col-span-2 hover:border-emerald-400/40 transition-all">
+                    <span class="font-display-lg text-headline-lg text-emerald-300">142 Days</span>
+                    <span class="font-label-caps text-label-caps text-on-surface-variant">Active Submission Streak (Top 4.2%)</span>
+                </div>
+            `,
+            featuredTitle: 'Recently Solved LeetCode Problems',
+            items: [
+                {
+                    title: '15. 3Sum',
+                    desc: 'Given an integer array nums, return all triplets [nums[i], nums[j], nums[k]] such that i != j != k and nums[i] + nums[j] + nums[k] == 0.',
+                    diffBadge: '<span class="bg-amber-500/20 text-amber-300 border border-amber-500/30 px-2.5 py-0.5 rounded-full text-xs font-bold">Medium</span>',
+                    meta: 'Runtime: 14ms (Beats 94.2% C++) • Solved 2 hours ago',
+                    badges: ['Two Pointers', 'Array', 'Sorting'],
+                    actionText: 'Open Problem',
+                    icon: 'terminal'
+                },
+                {
+                    title: '42. Trapping Rain Water',
+                    desc: 'Given n non-negative integers representing an elevation map where width of each bar is 1, compute how much water it can trap after raining.',
+                    diffBadge: '<span class="bg-rose-500/20 text-rose-300 border border-rose-500/30 px-2.5 py-0.5 rounded-full text-xs font-bold">Hard</span>',
+                    meta: 'Runtime: 8ms (Beats 98.1% C++) • Solved Yesterday',
+                    badges: ['Dynamic Programming', 'Monotonic Stack', 'Two Pointers'],
+                    actionText: 'Open Problem',
+                    icon: 'terminal'
+                },
+                {
+                    title: '210. Course Schedule II',
+                    desc: 'Return the ordering of courses you should take to finish all courses given prerequisite pairs.',
+                    diffBadge: '<span class="bg-amber-500/20 text-amber-300 border border-amber-500/30 px-2.5 py-0.5 rounded-full text-xs font-bold">Medium</span>',
+                    meta: 'Runtime: 12ms (Beats 91.5% Go) • Solved 3 days ago',
+                    badges: ['Graph', 'Topological Sort', 'BFS/DFS'],
+                    actionText: 'Open Problem',
+                    icon: 'terminal'
+                },
+                {
+                    title: '146. LRU Cache',
+                    desc: 'Design a data structure that follows the constraints of a Least Recently Used (LRU) cache with O(1) time complexity.',
+                    diffBadge: '<span class="bg-amber-500/20 text-amber-300 border border-amber-500/30 px-2.5 py-0.5 rounded-full text-xs font-bold">Medium</span>',
+                    meta: 'Runtime: 68ms (Beats 96.0% Python) • Solved 5 days ago',
+                    badges: ['Hash Table', 'Doubly Linked List'],
+                    actionText: 'Open Problem',
+                    icon: 'terminal'
+                }
+            ]
+        },
+        hackerrank: {
+            themeClass: 'theme-hackerrank',
+            logTitle: 'HackerRank Challenge Log',
+            icon: 'bug_report',
+            highlights: `
+                <div class="bg-surface-container-high rounded-lg p-sm flex flex-col justify-center items-center text-center border border-white/5 hover:border-indigo-400/40 transition-all">
+                    <span class="font-display-lg text-headline-lg text-indigo-300">6 ★</span>
+                    <span class="font-label-caps text-label-caps text-on-surface-variant">Problem Solving</span>
+                </div>
+                <div class="bg-surface-container-high rounded-lg p-sm flex flex-col justify-center items-center text-center border border-white/5 hover:border-indigo-400/40 transition-all">
+                    <span class="font-display-lg text-headline-lg text-secondary">5 ★</span>
+                    <span class="font-label-caps text-label-caps text-on-surface-variant">Python Badge</span>
+                </div>
+                <div class="bg-surface-container-high rounded-lg p-sm flex flex-col justify-center items-center text-center border border-white/5 col-span-2 hover:border-indigo-400/40 transition-all">
+                    <span class="font-display-lg text-headline-lg text-primary">48 Badges</span>
+                    <span class="font-label-caps text-label-caps text-on-surface-variant">Certifications & Competitions Completed</span>
+                </div>
+            `,
+            featuredTitle: 'HackerRank Badges & Skill Assessments',
+            items: [
+                {
+                    title: 'Problem Solving (Advanced)',
+                    desc: 'Demonstrated expert proficiency in advanced graph theory, dynamic programming, and data structures.',
+                    diffBadge: '<span class="bg-amber-500/20 text-amber-300 border border-amber-500/30 px-2.5 py-0.5 rounded-full text-xs font-bold">Gold Badge</span>',
+                    meta: 'Score: 100% (6 Stars) • Verified Aug 2024',
+                    badges: ['Algorithms', 'Data Structures'],
+                    actionText: 'View Certificate',
+                    icon: 'military_tech'
+                },
+                {
+                    title: 'REST API (Intermediate)',
+                    desc: 'Passed standard skill assessment covering HTTP methods, pagination, JSON handling, and API security.',
+                    diffBadge: '<span class="bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 px-2.5 py-0.5 rounded-full text-xs font-bold">Verified Skill</span>',
+                    meta: 'Score: 100% • Verified Jul 2024',
+                    badges: ['REST API', 'HTTP', 'Node.js'],
+                    actionText: 'View Certificate',
+                    icon: 'workspace_premium'
+                },
+                {
+                    title: 'Python (Advanced Skills)',
+                    desc: 'Completed all Python domain challenges, iterators, decorators, generators, and metaprogramming.',
+                    diffBadge: '<span class="bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 px-2.5 py-0.5 rounded-full text-xs font-bold">5-Star Rank</span>',
+                    meta: 'Score: 980 / 1000 pts • Verified Jun 2024',
+                    badges: ['Python 3', 'Decorators'],
+                    actionText: 'View Badge',
+                    icon: 'bug_report'
+                }
+            ]
+        }
+    };
+
+    function renderHeatmap(platformKey) {
+        const heatmapContainer = document.getElementById('heatmap-container');
+        if (!heatmapContainer) return;
+        heatmapContainer.innerHTML = '';
+        
+        const weeks = 52;
+        const daysPerWeek = 7;
+
+        for (let w = 0; w < weeks; w++) {
+            const column = document.createElement('div');
+            column.className = 'flex flex-col gap-1';
+            for (let d = 0; d < daysPerWeek; d++) {
+                const cell = document.createElement('div');
+                let intensity = 0;
+                
+                // Deterministic activity distribution per platform
+                const rand = (w * 7 + d * 13) % 100;
+                if (platformKey === 'github') {
+                    intensity = rand > 40 ? (rand > 75 ? (rand > 90 ? 3 : 2) : 1) : 0;
+                } else if (platformKey === 'leetcode') {
+                    intensity = rand > 30 ? (rand > 65 ? (rand > 85 ? 3 : 2) : 1) : 0;
+                } else {
+                    intensity = rand > 50 ? (rand > 80 ? (rand > 92 ? 3 : 2) : 1) : 0;
+                }
+
+                cell.className = `w-3 h-3 rounded-sm bg-heatmap-${intensity} transition-all hover:scale-125 cursor-pointer`;
+                cell.title = `${intensity > 0 ? intensity * 3 : 'No'} submissions on day ${w * 7 + d + 1}`;
+                column.appendChild(cell);
+            }
+            heatmapContainer.appendChild(column);
+        }
+    }
+
+    function switchPlatform(platformKey) {
+        const data = platformData[platformKey];
+        if (!data) return;
+
+        if (document.body) {
+            document.body.className = `font-body-lg min-h-screen flex flex-col ${data.themeClass}`;
+        }
+
+        // Update Tab Button Styles
+        document.querySelectorAll('.platform-tab-btn').forEach(btn => {
+            const isSelected = btn.getAttribute('data-platform') === platformKey;
+            if (isSelected) {
+                btn.className = 'platform-tab-btn bg-primary text-on-primary px-md py-xs rounded-full flex items-center gap-xs transition-all glow-gold cursor-pointer font-bold scale-105';
+            } else {
+                btn.className = 'platform-tab-btn glass-pane px-md py-xs rounded-full flex items-center gap-xs hover:bg-white/5 transition-all border-white/10 text-on-surface-variant cursor-pointer';
+            }
+        });
+
+        const wrapper = document.getElementById('platform-content-wrapper');
+        if (wrapper) {
+            wrapper.classList.add('opacity-0', 'translate-y-2');
+        }
+
+        setTimeout(() => {
+            const logTitle = document.getElementById('log-title');
+            if (logTitle) {
+                logTitle.innerHTML = `<span class="material-symbols-outlined">calendar_month</span> ${data.logTitle}`;
+            }
+            renderHeatmap(platformKey);
+
+            const highlights = document.getElementById('platform-highlights');
+            if (highlights) {
+                highlights.innerHTML = data.highlights;
+            }
+
+            const featuredTitle = document.getElementById('featured-title');
+            if (featuredTitle) {
+                featuredTitle.innerHTML = `<span class="material-symbols-outlined">${data.icon}</span> ${data.featuredTitle}`;
+            }
+            
+            const itemsContainer = document.getElementById('featured-items-container');
+            if (itemsContainer) {
+                itemsContainer.innerHTML = data.items.map(item => `
+                    <div class="bg-surface-container-highest rounded-lg p-md flex flex-col md:flex-row justify-between items-start md:items-center gap-md border border-white/5 hover:bg-white/5 hover:border-primary/30 transition-all group">
+                        <div class="flex flex-col gap-xs flex-grow">
+                            <div class="flex items-center gap-2">
+                                <h3 class="font-title-md text-body-lg text-on-surface group-hover:text-primary transition-colors font-bold">${item.title}</h3>
+                                ${item.diffBadge || ''}
+                            </div>
+                            <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">${item.desc}</p>
+                            <p class="font-label-caps text-xs text-primary/80 font-medium">${item.meta}</p>
+                            <div class="flex gap-2 mt-1">
+                                ${item.badges.map(b => `<span class="bg-[#8A2BE2]/15 text-[#8A2BE2] border border-[#8A2BE2]/30 px-2.5 py-0.5 rounded-full font-label-caps text-[10px] font-semibold">${b}</span>`).join('')}
+                            </div>
+                        </div>
+                        <a class="flex items-center gap-xs text-on-surface-variant hover:text-primary transition-colors shrink-0 glass-pane px-3 py-1.5 rounded-lg border-white/10 hover:border-primary/40 text-xs font-semibold" href="${item.link || '#'}">
+                            <span class="font-label-caps">${item.actionText}</span>
+                            <span class="material-symbols-outlined text-sm">${item.icon}</span>
+                        </a>
+                    </div>
+                `).join('');
+            }
+
+            if (wrapper) {
+                wrapper.classList.remove('opacity-0', 'translate-y-2');
+            }
+        }, 150);
+    }
+
+    document.querySelectorAll('.platform-tab-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const platform = btn.getAttribute('data-platform');
+            switchPlatform(platform);
+        });
+    });
+
+    // Initial render
+    switchPlatform('github');
+</script>
+<script src="../js/store.js"></script>
+<script src="../js/nav.js"></script>
+</body></html>

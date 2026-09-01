@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SkillBridge — Skill-Based Opportunities & Matching Engine</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
+<script>
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          primary: "#D4AF37",
+          "primary-dark": "#9F7928",
+          surface: "#0A0E1A"
+        }
+      }
+    }
+  };
+</script>
+<style>
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #0A0E1A;
+    color: #fff;
+  }
+  .glass-panel {
+    background: rgba(22, 27, 46, 0.7);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .card-hover {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 35px rgba(212, 175, 55, 0.15);
+    border-color: rgba(212, 175, 55, 0.4);
+  }
+</style>
+</head>
+<body class="min-h-screen bg-[#0A0E1A] text-white flex flex-col">
+
+<div class="relative z-10 max-w-[1200px] w-full mx-auto px-4 sm:px-6 py-6 space-y-6">
+
+  <!-- Minimal Header -->
+  <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/10 pb-4">
+    <div>
+      <h1 class="text-2xl font-bold font-serif text-amber-400">Opportunities & Skill Matching Engine</h1>
+      <p class="text-zinc-400 text-xs">Real-time skill qualification evaluation, explainable gap feedback, and zero random applications.</p>
+    </div>
+    
+    <div class="bg-amber-500/10 border border-amber-500/30 px-3 py-1.5 rounded-xl text-xs flex items-center gap-2 self-start sm:self-auto">
+      <span class="material-symbols-outlined text-amber-400 text-base">verified_user</span>
+      <div>
+        <span class="text-zinc-400 block text-[10px] uppercase">Active Profile</span>
+        <strong id="active-student-name" class="text-amber-300 font-bold">Rahul Sharma (Aditya Univ)</strong>
+      </div>
+    </div>
+  </div>
+
+  <!-- Category Pills & Search Bar -->
+  <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+    <div class="flex items-center gap-2 bg-black/40 p-1 rounded-xl border border-white/10 text-xs">
+      <button id="cat-all" onclick="selectCat('all')" class="px-4 py-1.5 rounded-lg font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30">All Positions</button>
+      <button id="cat-internships" onclick="selectCat('internships')" class="px-4 py-1.5 rounded-lg font-semibold text-zinc-400 hover:text-white">Internships</button>
+      <button id="cat-jobs" onclick="selectCat('jobs')" class="px-4 py-1.5 rounded-lg font-semibold text-zinc-400 hover:text-white">Full-Time Jobs</button>
+    </div>
+
+    <div class="relative w-full sm:w-72">
+      <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-zinc-400 text-base">search</span>
+      <input id="searchInput" oninput="renderOpportunities()" placeholder="Search position or skill..." class="w-full pl-9 pr-4 py-2 bg-white/5 border border-white/10 rounded-xl text-xs text-white focus:outline-none focus:border-amber-400/50">
+    </div>
+  </div>
+
+  <!-- Opportunities Grid -->
+  <div id="opportunities-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <!-- Populated via store.js -->
+  </div>
+
+</div>
+
+<!-- Application Action Modal -->
+<div id="action-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/80 backdrop-blur-md">
+  <div class="glass-panel w-full max-w-md rounded-2xl p-6 relative bg-[#161B2E] border border-amber-500/30 text-center space-y-4">
+    <div id="modal-icon" class="w-16 h-16 rounded-full mx-auto flex items-center justify-center"></div>
+    <h3 id="modal-title" class="font-bold text-lg text-white"></h3>
+    <p id="modal-desc" class="text-xs text-zinc-300"></p>
+    <div id="modal-actions" class="flex justify-center gap-3 pt-2"></div>
+  </div>
+</div>
+
+<script src="../js/store.js"></script>
+<script src="../js/nav.js"></script>
+<script>
+  let activeCat = 'all';
+
+  function selectCat(cat) {
+    activeCat = cat;
+    ['all', 'internships', 'jobs'].forEach(c => {
+      const btn = document.getElementById(`cat-${c}`);
+      if (c === cat) {
+        btn.className = 'px-4 py-1.5 rounded-lg font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30';
+      } else {
+        btn.className = 'px-4 py-1.5 rounded-lg font-semibold text-zinc-400 hover:text-white';
+      }
+    });
+    renderOpportunities();
+  }
+
+  function renderOpportunities() {
+    if (!window.SkillBridgeStore) return;
+
+    const student = window.SkillBridgeStore.getCurrentStudent();
+    document.getElementById('active-student-name').innerText = `${student.name} (${student.college || 'Aditya Univ'})`;
+
+    const state = window.SkillBridgeStore.getState();
+    const search = document.getElementById('searchInput').value.toLowerCase().trim();
+
+    const grid = document.getElementById('opportunities-grid');
+    grid.innerHTML = '';
+
+    const opps = state.opportunities.filter(o => {
+      const matchSearch = !search || o.title.toLowerCase().includes(search) || o.companyName.toLowerCase().includes(search) || Object.keys(o.requiredSkills || {}).some(k => k.toLowerCase().includes(search));
+      const matchCat = activeCat === 'all' || (o.category || '').toLowerCase() === activeCat;
+      return matchSearch && matchCat;
+    });
+
+    if (opps.length === 0) {
+      grid.innerHTML = `
+        <div class="col-span-full text-center py-12 glass-panel rounded-2xl">
+          <span class="material-symbols-outlined text-4xl text-zinc-500 mb-2">work_off</span>
+          <p class="text-xs text-zinc-400">No opportunities match your filter.</p>
+        </div>
+      `;
+      return;
+    }
+
+    opps.forEach(opp => {
+      const evalRes = window.SkillBridgeStore.evaluateEligibility(student.skills, opp.requiredSkills);
+      const isApplied = (state.applications || []).some(a => a.studentId === student.id && a.opportunityId === opp.id);
+
+      let skillsBadgesHTML = '';
+      if (opp.requiredSkills) {
+        for (const [skill, reqScore] of Object.entries(opp.requiredSkills)) {
+          const studentScore = (student.skills && student.skills[skill]) !== undefined ? student.skills[skill] : 0;
+          const isPassed = studentScore >= reqScore;
+          skillsBadgesHTML += `
+            <div class="flex items-center justify-between text-xs px-2.5 py-1 rounded-lg ${isPassed ? 'bg-emerald-500/10 border border-emerald-500/30 text-emerald-300' : 'bg-rose-500/10 border border-rose-500/30 text-rose-300'}">
+              <span>${skill} (Req: ${reqScore})</span>
+              <span class="font-bold">${studentScore}/100 ${isPassed ? '✓' : '✗'}</span>
+            </div>
+          `;
+        }
+      }
+
+      let ctaHTML = '';
+      if (isApplied) {
+        ctaHTML = `
+          <button disabled class="w-full py-2 bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 cursor-default">
+            <span class="material-symbols-outlined text-base">check_circle</span>
+            <span>Application Submitted</span>
+          </button>
+        `;
+      } else if (evalRes.isEligible) {
+        ctaHTML = `
+          <button onclick="handleApply('${opp.id}')" class="w-full py-2 bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-black rounded-xl text-xs font-bold shadow-md flex items-center justify-center gap-1.5 transition-all">
+            <span class="material-symbols-outlined text-base">send</span>
+            <span>Eligible — Apply Now (${evalRes.matchPercentage}% Match)</span>
+          </button>
+        `;
+      } else {
+        const topGap = evalRes.gaps[0];
+        ctaHTML = `
+          <div class="space-y-1.5">
+            <div class="bg-rose-500/10 border border-rose-500/30 p-2 rounded-xl text-[11px] text-rose-300 text-center font-medium">
+              ⚠️ Skill Gap: ${topGap.skill} (Current: ${topGap.currentScore} / Req: ${topGap.requiredScore} — Gap: ${topGap.gap} pts)
+            </div>
+            <button onclick="startAssessmentForSkill('${topGap.skill}')" class="w-full py-2 bg-indigo-500/20 hover:bg-indigo-500/30 text-indigo-300 border border-indigo-500/40 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 transition-all">
+              <span class="material-symbols-outlined text-base">school</span>
+              <span>Take ${topGap.skill} Assessment to Qualify</span>
+            </button>
+          </div>
+        `;
+      }
+
+      grid.innerHTML += `
+        <div class="glass-panel rounded-2xl p-5 card-hover flex flex-col justify-between space-y-4">
+          <div class="space-y-3">
+            <div class="flex items-start justify-between gap-3">
+              <div>
+                <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30 uppercase tracking-wider">${opp.type}</span>
+                <h3 class="text-base font-bold text-white mt-1">${opp.title}</h3>
+                <p class="text-xs text-amber-400 font-medium">${opp.companyName} • ${opp.location}</p>
+              </div>
+              <div class="w-9 h-9 rounded-xl bg-white/10 flex items-center justify-center shrink-0 border border-white/10">
+                <span class="material-symbols-outlined text-amber-400 text-lg">${opp.companyLogo || 'work'}</span>
+              </div>
+            </div>
+
+            <p class="text-xs text-zinc-300 line-clamp-2">${opp.description}</p>
+
+            <div class="flex items-center justify-between text-xs text-zinc-400 pt-1 border-t border-white/5">
+              <span>Stipend: <strong class="text-white">${opp.stipend}</strong></span>
+              <span>Openings: <strong class="text-white">${opp.openings}</strong></span>
+            </div>
+
+            <div class="space-y-1">
+              <span class="text-[10px] font-semibold text-zinc-400 uppercase tracking-wider block">Required Skill Thresholds:</span>
+              <div class="space-y-1">
+                ${skillsBadgesHTML}
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-2 border-t border-white/10">
+            ${ctaHTML}
+          </div>
+        </div>
+      `;
+    });
+  }
+
+  function handleApply(oppId) {
+    if (!window.SkillBridgeStore) return;
+    const res = window.SkillBridgeStore.applyToOpportunity(oppId);
+    
+    const modal = document.getElementById('action-modal');
+    const icon = document.getElementById('modal-icon');
+    const title = document.getElementById('modal-title');
+    const desc = document.getElementById('modal-desc');
+    const actions = document.getElementById('modal-actions');
+
+    if (res.success) {
+      icon.className = 'w-16 h-16 rounded-full mx-auto flex items-center justify-center bg-emerald-500/20 text-emerald-400 border border-emerald-500/30';
+      icon.innerHTML = '<span class="material-symbols-outlined text-3xl">check_circle</span>';
+      title.innerText = 'Application Submitted!';
+      desc.innerText = `Your application for ${res.application.opportunityTitle} at ${res.application.companyName} has been received. Your status is currently: Screening.`;
+      actions.innerHTML = `
+        <a href="../Student_Interface/My_Applications.html" class="px-4 py-2 bg-amber-500 text-black font-bold rounded-xl text-xs">View Applications</a>
+        <button onclick="closeModal()" class="px-4 py-2 bg-white/10 text-white rounded-xl text-xs">Close</button>
+      `;
+    } else {
+      icon.className = 'w-16 h-16 rounded-full mx-auto flex items-center justify-center bg-rose-500/20 text-rose-400 border border-rose-500/30';
+      icon.innerHTML = '<span class="material-symbols-outlined text-3xl">warning</span>';
+      title.innerText = 'Application Blocked';
+      desc.innerText = res.message;
+      actions.innerHTML = `
+        <button onclick="closeModal()" class="px-4 py-2 bg-white/10 text-white rounded-xl text-xs">Understood</button>
+      `;
+    }
+
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+    renderOpportunities();
+  }
+
+  function startAssessmentForSkill(skillName) {
+    window.location.href = `../Assessment_Interface/index.html?skill=${encodeURIComponent(skillName)}`;
+  }
+
+  function closeModal() {
+    const modal = document.getElementById('action-modal');
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    renderOpportunities();
+    window.addEventListener('skillbridge-state-change', renderOpportunities);
+  });
+</script>
+</body>
+</html>

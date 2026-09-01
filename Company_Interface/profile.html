@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Company Profile - Industry Portal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "outline": "#99907c",
+                "secondary-container": "#7701d0",
+                "background": "#0f131f",
+                "on-surface": "#dfe2f3",
+                "on-secondary-container": "#dbb8ff",
+                "secondary": "#dcb8ff",
+                "on-primary": "#3c2f00",
+                "on-surface-variant": "#d0c5af",
+                "error": "#ffb4ab",
+                "primary-container": "#d4af37",
+                "inverse-surface": "#dfe2f3",
+                "secondary-fixed-dim": "#dcb8ff",
+                "surface-container-high": "#262a37",
+                "inverse-primary": "#735c00",
+                "tertiary": "#cacdde",
+                "on-secondary-fixed-variant": "#6700b5",
+                "on-tertiary-container": "#414552",
+                "primary-fixed": "#ffe088",
+                "on-tertiary": "#2c303d",
+                "primary": "#f2ca50",
+                "surface-container-low": "#171b28",
+                "on-background": "#dfe2f3",
+                "primary-fixed-dim": "#e9c349",
+                "surface-container": "#1b1f2c",
+                "tertiary-fixed-dim": "#c3c6d6",
+                "surface-container-highest": "#313442",
+                "inverse-on-surface": "#2c303d",
+                "on-primary-container": "#554300",
+                "surface-tint": "#e9c349",
+                "on-primary-fixed-variant": "#574500",
+                "surface-container-lowest": "#0a0e1a",
+                "on-tertiary-fixed-variant": "#424654",
+                "on-tertiary-fixed": "#171b27",
+                "surface-variant": "#313442",
+                "surface-dim": "#0f131f",
+                "tertiary-container": "#afb2c2",
+                "error-container": "#93000a",
+                "surface": "#0f131f",
+                "surface-bright": "#353946",
+                "on-error-container": "#ffdad6",
+                "secondary-fixed": "#efdbff",
+                "tertiary-fixed": "#dfe2f3",
+                "on-primary-fixed": "#241a00",
+                "on-error": "#690005",
+                "outline-variant": "#4d4635",
+                "on-secondary-fixed": "#2b0052",
+                "on-secondary": "#480082"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+        },
+        "spacing": {
+                "margin-mobile": "16px",
+                "margin-desktop": "64px",
+                "gutter": "24px",
+                "unit": "8px",
+                "container-padding": "32px",
+                "sidebar-width": "260px"
+        },
+        "fontFamily": {
+                "label-lg": [
+                        "Inter"
+                ],
+                "headline-lg-mobile": [
+                        "EB Garamond"
+                ],
+                "body-lg": [
+                        "Inter"
+                ],
+                "display-lg": [
+                        "EB Garamond"
+                ],
+                "label-sm": [
+                        "Inter"
+                ],
+                "title-lg": [
+                        "Inter"
+                ],
+                "headline-lg": [
+                        "EB Garamond"
+                ],
+                "body-md": [
+                        "Inter"
+                ],
+                "display-md": [
+                        "EB Garamond"
+                ],
+                "label-caps": [
+                        "Inter"
+                ]
+        },
+        "fontSize": {
+                "label-lg": [
+                        "12px",
+                        {
+                                "lineHeight": "16px",
+                                "letterSpacing": "0.08em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "headline-lg-mobile": [
+                        "28px",
+                        {
+                                "lineHeight": "36px",
+                                "letterSpacing": "0em",
+                                "fontWeight": "500"
+                        }
+                ],
+                "body-lg": [
+                        "16px",
+                        {
+                                "lineHeight": "24px",
+                                "letterSpacing": "0.01em",
+                                "fontWeight": "400"
+                        }
+                ],
+                "display-lg": [
+                        "56px",
+                        {
+                                "lineHeight": "64px",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "label-sm": [
+                        "10px",
+                        {
+                                "lineHeight": "14px",
+                                "letterSpacing": "0.05em",
+                                "fontWeight": "500"
+                        }
+                ],
+                "title-lg": [
+                        "20px",
+                        {
+                                "lineHeight": "28px",
+                                "letterSpacing": "0.01em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "headline-lg": [
+                        "32px",
+                        {
+                                "lineHeight": "40px",
+                                "letterSpacing": "0em",
+                                "fontWeight": "500"
+                        }
+                ],
+                "body-md": [
+                        "14px",
+                        {
+                                "lineHeight": "20px",
+                                "letterSpacing": "0.01em",
+                                "fontWeight": "400"
+                        }
+                ],
+                "display-md": [
+                        "44px",
+                        {
+                                "lineHeight": "52px",
+                                "letterSpacing": "-0.01em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "label-caps": [
+                        "12px",
+                        {
+                                "lineHeight": "16px",
+                                "letterSpacing": "0.05em",
+                                "fontWeight": "500"
+                        }
+                ],
+                "headline-sm": [
+                        "18px",
+                        {
+                                "lineHeight": "24px",
+                                "fontWeight": "600"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        /* Ambient Shadow Layering */
+        .card-level-1 {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        
+        /* Custom Scrollbar for textareas */
+        textarea::-webkit-scrollbar {
+            width: 8px;
+        }
+        textarea::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05); 
+            border-radius: 4px;
+        }
+        textarea::-webkit-scrollbar-thumb {
+            background: rgba(212, 175, 55, 0.3); 
+            border-radius: 4px;
+        }
+        textarea::-webkit-scrollbar-thumb:hover {
+            background: rgba(212, 175, 55, 0.6); 
+        }
+        
+        .glass-panel {
+            background: rgba(38, 42, 55, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .ambient-glow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: -1;
+            background: 
+                radial-gradient(circle at 15% 50%, rgba(119, 1, 208, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 85% 30%, rgba(212, 175, 55, 0.05) 0%, transparent 50%);
+        }
+    </style>
+</head>
+<body class="bg-surface-container-lowest text-on-surface font-body-md min-h-screen flex flex-col relative overflow-x-hidden">
+<div class="ambient-glow"></div>
+
+<!-- Unified Top Navigation Header -->
+<header class="sticky top-0 z-50 w-full bg-[#0a0e1a]/95 backdrop-blur-xl border-b border-[#f2ca50]/15 shadow-[0_4px_25px_rgba(0,0,0,0.6)]">
+  <div class="max-w-[1720px] mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
+    <!-- Brand Logo -->
+    <a href="index.html" class="flex items-center gap-2.5 shrink-0 group">
+      <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-[#f2ca50]/20 to-[#7701d0]/20 border border-[#f2ca50]/30 flex items-center justify-center shadow-[0_0_12px_rgba(242,202,80,0.15)] group-hover:border-[#f2ca50]/60 transition-all">
+        <span class="material-symbols-outlined text-[#f2ca50] text-[18px]" style="font-variation-settings: 'FILL' 1;">hub</span>
+      </div>
+      <span class="font-display-lg text-lg font-bold text-[#f2ca50] tracking-wide group-hover:brightness-110 transition-all">SkillBridge</span>
+    </a>
+
+    <!-- Center Navigation Tabs -->
+    <nav class="flex items-center gap-1 overflow-x-auto py-1 max-w-full">
+      <a href="index.html" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all whitespace-nowrap text-[#d0c5af]/80 hover:text-[#dfe2f3] hover:bg-white/5">
+        <span class="material-symbols-outlined text-[17px]">dashboard</span>
+        <span>Dashboard</span>
+      </a>
+      <a href="profile.html" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all whitespace-nowrap bg-[#f2ca50]/15 text-[#f2ca50] border border-[#f2ca50]/30 shadow-[0_0_15px_rgba(242,202,80,0.2)]">
+        <span class="material-symbols-outlined text-[17px]">person</span>
+        <span>Profile</span>
+      </a>
+      <a href="opportunities.html" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all whitespace-nowrap text-[#d0c5af]/80 hover:text-[#dfe2f3] hover:bg-white/5">
+        <span class="material-symbols-outlined text-[17px]">work</span>
+        <span>Opportunities</span>
+      </a>
+      <a href="applicants.html" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all whitespace-nowrap text-[#d0c5af]/80 hover:text-[#dfe2f3] hover:bg-white/5">
+        <span class="material-symbols-outlined text-[17px]">groups</span>
+        <span>Applicants</span>
+      </a>
+      <a href="assessments.html" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all whitespace-nowrap text-[#d0c5af]/80 hover:text-[#dfe2f3] hover:bg-white/5">
+        <span class="material-symbols-outlined text-[17px]">assignment</span>
+        <span>Assessments</span>
+      </a>
+      <a href="shortlisted.html" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all whitespace-nowrap text-[#d0c5af]/80 hover:text-[#dfe2f3] hover:bg-white/5">
+        <span class="material-symbols-outlined text-[17px]">star</span>
+        <span>Shortlisted</span>
+      </a>
+      <a href="settings.html" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all whitespace-nowrap text-[#d0c5af]/80 hover:text-[#dfe2f3] hover:bg-white/5">
+        <span class="material-symbols-outlined text-[17px]">settings</span>
+        <span>Settings</span>
+      </a>
+    </nav>
+
+    <!-- Right Action Items -->
+    <div class="flex items-center gap-3 shrink-0">
+      <button class="flex items-center gap-1.5 bg-[#f2ca50] text-[#0a0e1a] font-bold text-xs px-3.5 py-1.5 rounded-lg hover:brightness-110 shadow-[0_0_15px_rgba(242,202,80,0.25)] transition-all">
+        <span class="material-symbols-outlined text-[16px]">add</span>
+        <span>Post Opportunity</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Main Content Canvas -->
+<main class="flex-1 min-h-screen w-full">
+<div class="p-container-padding max-w-[1680px] mx-auto">
+<div class="mb-8 flex justify-between items-end">
+  <div>
+    <h1 class="font-display-md text-[32px] font-semibold text-on-surface">Company Profile Settings</h1>
+    <p class="font-body-md text-on-surface-variant">Manage organization identity, public credentials, and active recruiting parameters.</p>
+  </div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- LEFT COLUMN (Settings/Form) - Span 7 cols -->
+<div class="lg:col-span-7 flex flex-col gap-8">
+<!-- Company Identity Card -->
+<div class="glass-panel rounded-xl p-6 transition-all duration-300 hover:shadow-[0_8px_30px_rgba(0,0,0,0.2)] hover:-translate-y-1">
+<div class="flex items-center justify-between mb-6 pb-4 border-b border-outline-variant/30">
+<h3 class="font-title-lg text-title-lg text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container">badge</span>
+                                 Company Identity
+                             </h3>
+</div>
+<div class="grid grid-cols-1 gap-6">
+<!-- Logo Upload -->
+<div class="flex items-start gap-6">
+<div class="w-24 h-24 rounded-lg bg-surface-container/50 border border-outline-variant/50 flex items-center justify-center relative overflow-hidden group">
+<img alt="ABC Technologies Logo" class="absolute inset-0 w-full h-full object-cover z-0" data-alt="A sleek, modern corporate logo for 'ABC Technologies', featuring minimalist blue and silver geometric shapes resembling nodes in a network on a pure white background. It represents stability and technological innovation." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWw7-l-TFX-koQ7opSaF8sKjSdrETOVr3RyRZbLJ4jFhhX56M9tCvo5hCQsJS-k6KMJMT7vSx6sbb_AiRcqjyd49fUNc7ZGP00nljzW7uePbO8AnDVHX_m76qqRp8PcKZ97OiImlz0y2fPQLrcSJSMY7nuICX79B9TwhGNF5uIpvULeZVJvb27lHSI6RnPmQo66yCl3b94MkC9YTR0GWyWO6eC2ecloKW-v2NNhJc1BIGlV5ZzYRKXYQ"/>
+<div class="absolute inset-0 bg-black/60 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity z-10 cursor-pointer backdrop-blur-sm">
+<span class="material-symbols-outlined text-primary-container">upload</span>
+<span class="font-body-md text-body-md text-primary-container mt-1 font-medium">Update</span>
+</div>
+</div>
+<div class="flex-1">
+<h4 class="font-body-md font-medium text-body-md text-on-surface mb-1">Company Logo</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-3 text-[13px]">Recommended size: 400x400px. Formats: JPG, PNG, SVG.</p>
+<button class="px-4 py-2 bg-surface-container/30 border border-outline-variant/50 rounded-lg font-body-md text-body-md font-medium text-on-surface hover:bg-primary-container/10 hover:border-primary-container/50 hover:text-primary-container transition-all duration-300">
+                                        Upload New Logo
+                                    </button>
+</div>
+</div>
+<!-- Form Fields -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="flex flex-col gap-1">
+<label class="font-body-md font-medium text-body-md text-on-surface">Company Name</label>
+<input class="w-full px-3 py-2 bg-surface-container-lowest/50 border border-outline-variant/50 rounded-lg font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-all backdrop-blur-sm" type="text" value="ABC Technologies"/>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-body-md font-medium text-body-md text-on-surface">Industry</label>
+<select class="w-full px-3 py-2 bg-surface-container-lowest/50 border border-outline-variant/50 rounded-lg font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-all appearance-none backdrop-blur-sm">
+<option selected="" value="it">Information Technology</option>
+<option value="finance">Finance &amp; FinTech</option>
+<option value="health">Healthcare Tech</option>
+<option value="mfg">Advanced Manufacturing</option>
+</select>
+</div>
+</div>
+</div>
+</div>
+<!-- Company Details Card -->
+<div class="glass-panel rounded-xl p-6 transition-all duration-300 hover:shadow-[0_8px_30px_rgba(0,0,0,0.2)] hover:-translate-y-1">
+<div class="flex items-center justify-between mb-6 pb-4 border-b border-outline-variant/30">
+<h3 class="font-title-lg text-title-lg text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container">info</span>
+                                 Company Details
+                             </h3>
+</div>
+<div class="grid grid-cols-1 gap-6">
+<div class="flex flex-col gap-1">
+<label class="font-body-md font-medium text-body-md text-on-surface">Description</label>
+<textarea class="w-full px-3 py-2 bg-surface-container-lowest/50 border border-outline-variant/50 rounded-lg font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-all resize-none backdrop-blur-sm" rows="4">ABC Technologies is a leading provider of innovative software solutions, specializing in cloud computing, artificial intelligence, and enterprise digital transformation. We partner with top universities to foster next-generation talent and drive forward-thinking research.</textarea>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="flex flex-col gap-1">
+<label class="font-body-md font-medium text-body-md text-on-surface">Website</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline" style="font-size: 18px;">language</span>
+<input class="w-full pl-9 pr-3 py-2 bg-surface-container-lowest/50 border border-outline-variant/50 rounded-lg font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-all backdrop-blur-sm" type="url" value="https://www.abctech.example.com"/>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-body-md font-medium text-body-md text-on-surface">Company Size</label>
+<select class="w-full px-3 py-2 bg-surface-container-lowest/50 border border-outline-variant/50 rounded-lg font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-all appearance-none backdrop-blur-sm">
+<option value="1-50">1-50 employees</option>
+<option value="51-200">51-200 employees</option>
+<option value="201-500">201-500 employees</option>
+<option selected="" value="501-1000">501-1000 employees</option>
+<option value="1000+">1000+ employees</option>
+</select>
+</div>
+<div class="flex flex-col gap-1 md:col-span-2">
+<label class="font-body-md font-medium text-body-md text-on-surface">Headquarters Location</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline" style="font-size: 18px;">location_on</span>
+<input class="w-full pl-9 pr-3 py-2 bg-surface-container-lowest/50 border border-outline-variant/50 rounded-lg font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-all backdrop-blur-sm" type="text" value="San Jose, California, USA"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Contact & Hiring Focus Card -->
+<div class="glass-panel rounded-xl p-6 transition-all duration-300 hover:shadow-[0_8px_30px_rgba(0,0,0,0.2)] hover:-translate-y-1">
+<div class="flex items-center justify-between mb-6 pb-4 border-b border-outline-variant/30">
+<h3 class="font-title-lg text-title-lg text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container">contact_mail</span>
+                                 Recruiter Contact &amp; Focus
+                             </h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Contact Details -->
+<div class="flex flex-col gap-4">
+<h4 class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">Primary Contact</h4>
+<div class="flex flex-col gap-1">
+<label class="font-body-md font-medium text-body-md text-on-surface">Contact Person</label>
+<input class="w-full px-3 py-2 bg-surface-container-lowest/50 border border-outline-variant/50 rounded-lg font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-all backdrop-blur-sm" type="text" value="Sarah Jenkins"/>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-body-md font-medium text-body-md text-on-surface">Role</label>
+<input class="w-full px-3 py-2 bg-surface-container-lowest/50 border border-outline-variant/50 rounded-lg font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-all backdrop-blur-sm" type="text" value="HR Manager - University Relations"/>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-body-md font-medium text-body-md text-on-surface">Email Address</label>
+<input class="w-full px-3 py-2 bg-surface-container-lowest/50 border border-outline-variant/50 rounded-lg font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-all backdrop-blur-sm" type="email" value="s.jenkins@abctech.example.com"/>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-body-md font-medium text-body-md text-on-surface">Phone Number</label>
+<input class="w-full px-3 py-2 bg-surface-container-lowest/50 border border-outline-variant/50 rounded-lg font-body-md text-body-md text-on-surface focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-all backdrop-blur-sm" type="tel" value="+1 (555) 123-4567"/>
+</div>
+</div>
+<!-- Hiring Focus -->
+<div class="flex flex-col gap-4 border-l border-outline-variant/30 pl-6">
+<h4 class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">Hiring Objectives</h4>
+<div class="flex flex-col gap-1">
+<label class="font-body-md font-medium text-body-md text-on-surface">Areas of Hiring</label>
+<div class="flex flex-wrap gap-2 mt-1">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container-high/50 text-on-surface font-body-md text-[13px] border border-outline-variant/50 backdrop-blur-sm">
+                                            Software Development <span class="material-symbols-outlined cursor-pointer hover:text-error transition-colors" style="font-size: 14px;">close</span>
+</span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container-high/50 text-on-surface font-body-md text-[13px] border border-outline-variant/50 backdrop-blur-sm">
+                                            AI / Machine Learning <span class="material-symbols-outlined cursor-pointer hover:text-error transition-colors" style="font-size: 14px;">close</span>
+</span>
+<button class="inline-flex items-center justify-center w-7 h-7 rounded-full border border-dashed border-outline text-outline hover:text-primary-container hover:border-primary-container hover:bg-primary-container/10 transition-colors">
+<span class="material-symbols-outlined" style="font-size: 16px;">add</span>
+</button>
+</div>
+</div>
+<div class="flex flex-col gap-1 mt-4">
+<label class="font-body-md font-medium text-body-md text-on-surface">Required Skill Categories</label>
+<div class="flex flex-wrap gap-2 mt-1">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-primary-container/20 text-primary-container border border-primary-container/30 font-body-md text-[13px] backdrop-blur-sm">
+                                            Python <span class="material-symbols-outlined cursor-pointer hover:text-error transition-colors" style="font-size: 14px;">close</span>
+</span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-primary-container/20 text-primary-container border border-primary-container/30 font-body-md text-[13px] backdrop-blur-sm">
+                                            Java <span class="material-symbols-outlined cursor-pointer hover:text-error transition-colors" style="font-size: 14px;">close</span>
+</span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-primary-container/20 text-primary-container border border-primary-container/30 font-body-md text-[13px] backdrop-blur-sm">
+                                            React <span class="material-symbols-outlined cursor-pointer hover:text-error transition-colors" style="font-size: 14px;">close</span>
+</span>
+<button class="inline-flex items-center justify-center w-7 h-7 rounded-full border border-dashed border-outline text-outline hover:text-primary-container hover:border-primary-container hover:bg-primary-container/10 transition-colors">
+<span class="material-symbols-outlined" style="font-size: 16px;">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="flex items-center justify-end gap-4 mt-2">
+<button class="px-6 py-2.5 rounded-lg border border-outline-variant/50 font-body-md text-body-md font-medium text-on-surface hover:bg-surface-container/50 hover:border-outline-variant transition-colors backdrop-blur-sm">
+                            Cancel
+                        </button>
+<button class="px-6 py-2.5 rounded-lg bg-primary-container text-on-primary font-body-md text-body-md font-semibold hover:bg-primary-container/90 transition-all duration-300 shadow-[0_4px_12px_rgba(212,175,55,0.3)] hover:shadow-[0_6px_16px_rgba(212,175,55,0.4)] hover:-translate-y-0.5">
+                            Save Changes
+                        </button>
+</div>
+</div>
+<!-- RIGHT COLUMN (Live Preview) - Span 5 cols -->
+<div class="lg:col-span-5 hidden lg:block">
+<div class="sticky top-24">
+<div class="flex items-center justify-between mb-4">
+<h3 class="font-display-md text-[24px] font-semibold text-on-surface">Live Preview</h3>
+<span class="px-2.5 py-1 rounded-full bg-surface-container/50 border border-outline-variant/30 text-on-surface-variant font-label-caps text-label-caps flex items-center gap-1 backdrop-blur-sm">
+<span class="material-symbols-outlined" style="font-size: 14px;">visibility</span> Public View
+                            </span>
+</div>
+<!-- Preview Card -->
+<div class="glass-panel rounded-xl overflow-hidden transition-all duration-300 hover:shadow-[0_8px_30px_rgba(0,0,0,0.2)]">
+<!-- Banner Area -->
+<div class="h-32 bg-surface-container relative" data-alt="A stylized, abstract corporate banner background featuring subtle, flowing geometric lines and gradients in shades of deep indigo and soft white, communicating technology, data flow, and modern enterprise connectivity." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBu31iOpQc1ZuSNf7Bthk5qoABn5GZNnq5B6hOBGvh-p3wpl1Ca808CLmRC7BODS_7B1YvZUohaMt0nhJJ0pfCiepoLX6Iw1LY1ikthKDfAmm2wQKf5U_i5OGxLTF4YNjOTzvQb2kq_7xv6FCrPng3ymmJUqy9h7A__F5_FPaC9yqwSvCotPOP-6b8shVG0i0XEcXfg9bsbF7li-XO2kPb3tmu2MOO9PVjlCjnI7_YjqC3aTxzIoCPqIg'); background-size: cover; background-position: center;">
+<button class="absolute top-4 right-4 p-2 bg-surface-container-lowest/80 backdrop-blur-sm rounded-full text-on-surface hover:text-primary-container hover:bg-surface-container-lowest transition-colors shadow-sm border border-outline-variant/30" title="Edit Profile Header">
+<span class="material-symbols-outlined" style="font-size: 18px;">edit</span>
+</button>
+</div>
+<!-- Profile Header -->
+<div class="px-6 pb-6 relative">
+<div class="flex justify-between items-end -mt-10 mb-4">
+<div class="w-20 h-20 rounded-xl bg-surface-container-lowest border-4 border-surface-container-lowest shadow-sm overflow-hidden z-10 flex-shrink-0">
+<img alt="Company Logo Preview" class="w-full h-full object-cover bg-white" data-alt="A small, crisp logo for 'ABC Technologies', featuring minimalist blue and silver geometric shapes, on a solid white background, optimized for a profile picture frame." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDE6L1y0xvXPDhGUf3PSsX5mpMDGr6iMNHFzaoByGkv-hhNa2MzGucEeJhTnZVppclkQMhNBwhNfKDAjN8zPI-D5Y9K2yxA6fMtzmes2gVRVpRnkAvA_idAbBbSJYxEhbT-6Ke6lvOL4UTOXH27YDnhnqgLGhZaqxreQfa85eK9qYBP8nmCi5jm39w33-Jb3SNXLb8Oii1zEANhCEpLOYgZCm_S2V1mw1BsQAvpRaB8pVCCs14jTedLkA"/>
+</div>
+<button class="px-4 py-1.5 rounded-lg border border-primary-container text-primary-container font-body-md text-body-md font-medium hover:bg-primary-container/10 transition-colors shadow-[0_0_10px_rgba(212,175,55,0.1)] hover:shadow-[0_0_15px_rgba(212,175,55,0.2)]">
+                                        Follow
+                                    </button>
+</div>
+<div class="mb-5">
+<h2 class="font-title-lg text-title-lg text-on-surface flex items-center gap-2">
+                                        ABC Technologies
+                                        <span class="material-symbols-outlined text-primary-container fill" style="font-size: 20px;" title="Verified Partner">verified</span>
+</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Innovating the future of enterprise cloud solutions.</p>
+</div>
+<!-- Summary Info -->
+<div class="flex flex-col gap-2 mb-6 border-b border-outline-variant/30 pb-6">
+<div class="flex items-center gap-2 text-on-surface-variant font-body-md text-[13px]">
+<span class="material-symbols-outlined" style="font-size: 16px;">domain</span>
+<span>Information Technology</span>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant font-body-md text-[13px]">
+<span class="material-symbols-outlined" style="font-size: 16px;">group</span>
+<span>501-1000 employees</span>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant font-body-md text-[13px]">
+<span class="material-symbols-outlined" style="font-size: 16px;">location_on</span>
+<span>San Jose, California, USA</span>
+</div>
+<div class="flex items-center gap-2 text-primary-container font-body-md text-[13px] mt-1">
+<span class="material-symbols-outlined" style="font-size: 16px;">link</span>
+<a class="hover:underline hover:text-primary-container/80 transition-colors" href="#">abctech.example.com</a>
+</div>
+</div>
+<!-- About Section -->
+<div class="mb-6">
+<h4 class="font-body-md font-medium text-body-md text-on-surface mb-2">About Us</h4>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-4">
+                                        ABC Technologies is a leading provider of innovative software solutions, specializing in cloud computing, artificial intelligence, and enterprise digital transformation. We partner with top universities to foster next-generation talent and drive forward-thinking research.
+                                    </p>
+<a class="text-primary-container font-body-md text-[13px] font-medium mt-1 inline-block hover:underline" href="#">Read more</a>
+</div>
+<!-- Hiring Now Section -->
+<div class="bg-surface-container-high/30 rounded-lg p-4 border border-outline-variant/30 backdrop-blur-sm">
+<h4 class="font-body-md font-medium text-body-md text-on-surface mb-3 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container" style="font-size: 18px;">campaign</span>
+                                        Hiring Now
+                                    </h4>
+<div class="mb-3">
+<span class="font-body-md text-body-md text-on-surface-variant block mb-1 text-[13px]">Roles:</span>
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2 py-0.5 rounded bg-surface-container/50 border border-outline-variant/30 text-on-surface font-body-md text-[11px]">Software Development</span>
+<span class="px-2 py-0.5 rounded bg-surface-container/50 border border-outline-variant/30 text-on-surface font-body-md text-[11px]">AI / ML</span>
+</div>
+</div>
+<div>
+<span class="font-body-md text-body-md text-on-surface-variant block mb-1 text-[13px]">Key Skills:</span>
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2 py-0.5 rounded border border-primary-container/30 text-primary-container font-body-md text-[11px] bg-primary-container/10">Python</span>
+<span class="px-2 py-0.5 rounded border border-primary-container/30 text-primary-container font-body-md text-[11px] bg-primary-container/10">Java</span>
+<span class="px-2 py-0.5 rounded border border-primary-container/30 text-primary-container font-body-md text-[11px] bg-primary-container/10">React</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full glass-panel border-t border-outline-variant/30 flex justify-around items-center h-16 z-50 pb-safe">
+<a class="flex flex-col items-center gap-1 p-2 text-on-surface-variant hover:text-primary-container transition-colors" href="index.html">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-body-md text-[10px]">Dashboard</span>
+</a>
+<a class="flex flex-col items-center gap-1 p-2 text-primary-container font-bold border-t-2 border-primary-container pt-1.5 shadow-[0_-4px_8px_-4px_rgba(212,175,55,0.5)]" href="profile.html">
+<span class="material-symbols-outlined fill" data-icon="business">business</span>
+<span class="font-body-md text-[10px]">Profile</span>
+</a>
+<a class="flex flex-col items-center gap-1 p-2 text-on-surface-variant hover:text-primary-container transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="science">science</span>
+<span class="font-body-md text-[10px]">Projects</span>
+</a>
+<a class="flex flex-col items-center gap-1 p-2 text-on-surface-variant hover:text-primary-container transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-body-md text-[10px]">Talent</span>
+</a>
+</nav>
+</body></html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SkillBridge — Standardized Skill Assessment</title>
+  <meta name="description" content="SkillBridge helps learners assess skills, identify gaps, and build personalized career roadmaps.">
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background: #0A0E1A;
+      color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header class="top" id="main-header">
+      <div class="brand-group">
+        <div class="brand" id="brand-logo">Skill<span>Bridge</span></div>
+        <div class="tagline" id="tagline-primary">Assess. Analyze. Improve. Achieve.</div>
+      </div>
+      <div class="tagline demo-meta" id="tagline-secondary">Proctored Assessment Engine & Dual Timer Tracking</div>
+    </header>
+
+    <nav class="module-rail" id="rail" aria-label="Assessment Progress"></nav>
+    <main id="app" aria-live="polite"></main>
+  </div>
+
+  <script src="../js/store.js"></script>
+  <script src="../js/nav.js"></script>
+  <script src="questions.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>

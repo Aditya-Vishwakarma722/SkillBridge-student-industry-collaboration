@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Institution Profile - SkillBridge Elite</title>
+  <meta name="description" content="SkillBridge Elite Institution Profile - Manage your institution, campus location, and admin preferences."/>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-primary-container": "#554300",
+            "on-tertiary-fixed": "#00174b",
+            "on-secondary": "#480082",
+            "on-error": "#690005",
+            "on-primary-fixed-variant": "#574500",
+            "inverse-primary": "#735c00",
+            "surface-bright": "#3d392f",
+            "primary-container": "#d4af37",
+            "surface-container-highest": "#38342b",
+            "surface-variant": "#38342b",
+            "surface-tint": "#e9c349",
+            "on-tertiary": "#082b72",
+            "on-primary-fixed": "#241a00",
+            "on-tertiary-fixed-variant": "#27438a",
+            "inverse-surface": "#eae1d4",
+            "surface-dim": "#16130b",
+            "secondary-fixed-dim": "#dcb8ff",
+            "tertiary-container": "#97b0ff",
+            "on-error-container": "#ffdad6",
+            "secondary-container": "#7701d0",
+            "on-surface": "#eae1d4",
+            "tertiary-fixed": "#dbe1ff",
+            "error-container": "#93000a",
+            "primary-fixed-dim": "#e9c349",
+            "tertiary-fixed-dim": "#b4c5ff",
+            "outline": "#99907c",
+            "on-primary": "#3c2f00",
+            "secondary": "#dcb8ff",
+            "on-secondary-fixed-variant": "#6700b5",
+            "primary-fixed": "#ffe088",
+            "surface-container-high": "#2d2a21",
+            "tertiary": "#bfcdff",
+            "surface-container": "#231f17",
+            "background": "#0a0e1a",
+            "surface": "#0a0e1a",
+            "primary": "#d4af37",
+            "on-tertiary-container": "#254188",
+            "on-surface-variant": "#d0c5af",
+            "secondary-fixed": "#efdbff",
+            "on-background": "#eae1d4",
+            "on-secondary-fixed": "#2b0052",
+            "surface-container-lowest": "#05070d",
+            "inverse-on-surface": "#343027",
+            "error": "#ffb4ab",
+            "outline-variant": "#4d4635",
+            "on-secondary-container": "#dbb8ff",
+            "surface-container-low": "#080b14"
+          },
+          borderRadius: {
+            DEFAULT: "0.25rem",
+            lg: "0.5rem",
+            xl: "0.75rem",
+            full: "9999px"
+          },
+          spacing: {
+            "container-max": "1280px",
+            unit: "4px",
+            "margin-desktop": "64px",
+            gutter: "24px",
+            "margin-mobile": "16px",
+            lg: "2rem",
+            base: "4px",
+            xl: "3rem",
+            sm: "1rem",
+            md: "1.5rem",
+            xs: "0.5rem"
+          },
+          fontFamily: {
+            "body-lg": ["Inter"],
+            "display-md": ["EB Garamond"],
+            "headline-lg-mobile": ["Inter"],
+            "display-lg": ["EB Garamond"],
+            "label-md": ["Inter"],
+            "body-md": ["Inter"],
+            "headline-lg": ["Inter"],
+            "headline-sm": ["Inter"],
+            "body-sm": ["Inter"],
+            "headline-md": ["Inter"]
+          },
+          fontSize: {
+            "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+            "display-md": ["48px", { lineHeight: "56px", letterSpacing: "-0.01em", fontWeight: "500" }],
+            "headline-lg-mobile": ["28px", { lineHeight: "36px", letterSpacing: "-0.01em", fontWeight: "600" }],
+            "display-lg": ["64px", { lineHeight: "72px", letterSpacing: "-0.02em", fontWeight: "500" }],
+            "label-md": ["14px", { lineHeight: "20px", letterSpacing: "0.05em", fontWeight: "500" }],
+            "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+            "headline-lg": ["32px", { lineHeight: "40px", letterSpacing: "-0.01em", fontWeight: "600" }],
+            "headline-sm": ["20px", { lineHeight: "28px", fontWeight: "600" }],
+            "body-sm": ["14px", { lineHeight: "20px", fontWeight: "400" }],
+            "headline-md": ["24px", { lineHeight: "32px", fontWeight: "600" }]
+          }
+        },
+      },
+    }
+  </script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    .glass-panel {
+      background: rgba(10, 14, 26, 0.6);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(212, 175, 55, 0.15);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    }
+    .glass-panel-hover {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .glass-panel-hover:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(212, 175, 55, 0.08), 0 8px 32px rgba(0, 0, 0, 0.37);
+    }
+    .premium-bg {
+      background-color: #0a0e1a;
+      background-image: radial-gradient(circle at top right, rgba(212, 175, 55, 0.05) 0%, transparent 40%), radial-gradient(circle at bottom left, rgba(212, 175, 55, 0.03) 0%, transparent 40%);
+    }
+    @keyframes gold-glow-text {
+      0%, 100% { text-shadow: 0 0 2px rgba(212, 175, 55, 0.2), 0 0 4px rgba(212, 175, 55, 0.1); }
+      50% { text-shadow: 0 0 6px rgba(212, 175, 55, 0.5), 0 0 12px rgba(212, 175, 55, 0.3); }
+    }
+    .gold-glow-text { animation: gold-glow-text 3.5s ease-in-out infinite; }
+  </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col antialiased overflow-x-hidden premium-bg">
+
+  <!-- TopNavBar (Consistent across the system) -->
+  <header id="top-navbar" class="fixed top-0 left-0 right-0 h-16 bg-surface/80 backdrop-blur-md border-b border-primary-container/20 shadow-sm flex items-center px-gutter z-50 transition-all duration-200 ease-in-out">
+    <div class="flex items-center gap-4 mr-lg">
+      <a href="index.html" class="flex items-center gap-2">
+        <span class="material-symbols-outlined text-primary text-3xl">school</span>
+        <h1 class="font-display-md text-[28px] font-bold text-primary-container">SkillBridge</h1>
+      </a>
+    </div>
+    <nav id="main-nav" class="flex-1 flex justify-center gap-md">
+      <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary-container transition-colors" href="index.html">Dashboard</a>
+      <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary-container transition-colors" href="students.html">Students</a>
+      <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary-container transition-colors" href="skill-overview.html">Skill Overview</a>
+      <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary-container transition-colors" href="department-performance.html">Placement Overview</a>
+      <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary-container transition-colors" href="opportunities.html">Opportunities</a>
+      <a class="font-label-md text-label-md text-primary-container font-bold border-b-2 border-primary-container pb-1" href="profile.html">Profile</a>
+    </nav>
+    <div class="flex items-center gap-4 ml-lg">
+      <button id="notifications-btn" class="p-2 text-on-surface-variant hover:bg-surface-variant/50 rounded-full transition-all duration-200 ease-in-out">
+        <span class="material-symbols-outlined">notifications</span>
+      </button>
+      <button id="settings-btn" class="p-2 text-on-surface-variant hover:bg-surface-variant/50 rounded-full transition-all duration-200 ease-in-out">
+        <span class="material-symbols-outlined">settings</span>
+      </button>
+      <a href="profile.html" class="h-8 w-8 rounded-full overflow-hidden border border-primary-container/30 ml-2 hover:ring-2 hover:ring-primary/50 transition-all block">
+        <img alt="Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKIEx4nhfcPOG4ntdX5A4oDASuhh6T-wWFZeUP_8zuCu-Nbs8rPn9pjXHTm9q-D7554xFf5NbIxMZD0whxgP9IBEzG2ZUWF1jjFjoV6iXptaM-2Ocg5GqH6SJMMOk7_I9tz0w_KTX_bcAkFL2VIhk73suODZR7-MRMKEkoyxAczEvGT4G2wBRQ5Xhw7BBBoGeOheyGKMXvXZHNcf7scNB5kgKQ9EwNgzw3W1K-bQDJFiTx4d1ccDOo"/>
+      </a>
+    </div>
+  </header>
+
+  <!-- Canvas -->
+  <main class="flex-1 p-sm pt-24 md:p-lg md:pt-32 max-w-container-max mx-auto w-full max-w-[1200px]">
+    <!-- 1. Header Section -->
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-xl">
+      <div>
+        <h2 class="font-display-md text-display-md text-primary-container mb-2 leading-tight">Institution Profile</h2>
+        <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Manage your institution and administrator information to keep your academic profile current.</p>
+      </div>
+      <button class="inline-flex items-center justify-center gap-2 bg-primary text-[#0A0E1A] rounded-lg px-6 py-2.5 font-label-md text-label-md hover:bg-primary/90 transition-all shadow-[0_0_15px_rgba(212,175,55,0.2)] shrink-0 font-bold">
+        <span class="material-symbols-outlined text-[18px]">edit</span>
+        Edit Profile
+      </button>
+    </div>
+
+    <!-- 2. Identity Card -->
+    <div class="glass-panel rounded-xl p-lg flex flex-col md:flex-row items-center gap-xl mb-lg relative overflow-hidden group">
+      <div class="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-bl-[100px] -z-10 transition-transform group-hover:scale-105 duration-700 ease-out blur-2xl"></div>
+      <!-- Left: Avatar -->
+      <div class="w-32 h-32 rounded-full bg-surface-container border-2 border-primary/30 shadow-[0_0_20px_rgba(212,175,55,0.15)] flex items-center justify-center relative overflow-hidden shrink-0">
+        <img class="w-full h-full object-cover opacity-80 mix-blend-luminosity" alt="Campus Building" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAitACUsiOEuiiK1fByx6NVTRimmwvUAPgKSug8EWlEnVs1ryEliQ6w1Wvg4KtmQYhptI13mB4PP0h5KZ-fMjpY4Mx5fl2eQse7n_Czhlkk0NKUMFdOhjObkbdNqIbmiueVRmW6l3FpaKdeIByc-fu1MJEOjoCRPaSXszEzXLWGiT5fjGBQ6v8ncxPptO7WA44cMoGsVHD_l18KAZzTO5kjOS6OxgQnU4i_jl5u_v4_eQkh1_y1wAJs"/>
+        <div class="absolute inset-0 flex items-center justify-center bg-black/50 backdrop-blur-[1px]">
+          <span class="font-display-md text-headline-lg text-primary font-bold tracking-wider">ACET</span>
+        </div>
+      </div>
+      <!-- Middle: Information -->
+      <div class="flex-1 text-center md:text-left space-y-4 z-10">
+        <div class="flex flex-col md:flex-row items-center gap-4 mb-1">
+          <h3 class="font-display-md text-[28px] text-on-surface">Aditya College of Engineering and Technology</h3>
+          <div class="inline-flex items-center gap-1.5 bg-primary/10 text-primary px-4 py-1.5 rounded-full border border-primary/30 backdrop-blur-sm shadow-[0_0_10px_rgba(212,175,55,0.1)]">
+            <span class="material-symbols-outlined text-[16px] fill">verified</span>
+            <span class="font-label-md text-[12px] uppercase tracking-wider font-bold">Verified Institution</span>
+          </div>
+        </div>
+        <div class="flex flex-wrap items-center justify-center md:justify-start gap-x-8 gap-y-3 text-on-surface-variant font-body-sm text-body-sm">
+          <div class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-[18px] text-primary/70">fingerprint</span>
+            <span class="">ID: <strong class="text-primary font-medium tracking-wider">ACET001</strong></span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-[18px] text-primary/70">domain</span>
+            <span class="">Engineering College</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-[18px] text-primary/70">location_on</span>
+            <span class="">Kakinada, Andhra Pradesh</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. Main Content Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-lg mb-lg">
+      <!-- Left Card: Institution Information -->
+      <div class="glass-panel glass-panel-hover rounded-xl p-lg flex flex-col h-full relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary/30 to-transparent"></div>
+        <div class="flex items-center gap-4 border-b border-primary/10 pb-md mb-md">
+          <div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary border border-primary/20">
+            <span class="material-symbols-outlined text-[22px]">account_balance</span>
+          </div>
+          <h4 class="font-display-md text-headline-md text-on-surface">Institution Information</h4>
+        </div>
+        <div class="flex-1 space-y-5">
+          <div class="grid grid-cols-1 md:grid-cols-[160px_1fr] items-center gap-4 py-1">
+            <div class="flex items-center gap-3 text-on-surface-variant">
+              <span class="material-symbols-outlined text-[18px] text-primary/50">badge</span>
+              <span class="font-label-md text-[12px] uppercase tracking-wider">Official Name</span>
+            </div>
+            <div class="font-body-md text-body-md text-on-surface pl-11 md:pl-0">Aditya College of Engineering and Technology</div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-[160px_1fr] items-center gap-4 py-1">
+            <div class="flex items-center gap-3 text-on-surface-variant">
+              <span class="material-symbols-outlined text-[18px] text-primary/50">mail</span>
+              <span class="font-label-md text-[12px] uppercase tracking-wider">Official Email</span>
+            </div>
+            <div class="font-body-md text-body-md text-on-surface pl-11 md:pl-0">admin@acet.edu.in</div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-[160px_1fr] items-center gap-4 py-1">
+            <div class="flex items-center gap-3 text-on-surface-variant">
+              <span class="material-symbols-outlined text-[18px] text-primary/50">call</span>
+              <span class="font-label-md text-[12px] uppercase tracking-wider">Contact Number</span>
+            </div>
+            <div class="font-body-md text-body-md text-on-surface pl-11 md:pl-0">+91 884 2326202</div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-[160px_1fr] items-center gap-4 py-1">
+            <div class="flex items-center gap-3 text-on-surface-variant">
+              <span class="material-symbols-outlined text-[18px] text-primary/50">language</span>
+              <span class="font-label-md text-[12px] uppercase tracking-wider">Website</span>
+            </div>
+            <div class="font-body-md text-body-md text-primary pl-11 md:pl-0 hover:underline cursor-pointer">www.acet.edu.in</div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-[160px_1fr] items-center gap-4 py-1">
+            <div class="flex items-center gap-3 text-on-surface-variant">
+              <span class="material-symbols-outlined text-[18px] text-primary/50">map</span>
+              <span class="font-label-md text-[12px] uppercase tracking-wider">Campus Location</span>
+            </div>
+            <div class="font-body-md text-body-md text-on-surface pl-11 md:pl-0 leading-relaxed text-on-surface/90">Aditya Nagar, Surampalem, Kakinada, AP 533437</div>
+          </div>
+        </div>
+        <div class="mt-xl pt-md border-t border-primary/10">
+          <button class="text-primary font-label-md text-label-md flex items-center gap-2 hover:gap-3 transition-all group uppercase tracking-widest text-[12px] font-bold">
+            Edit Institution Details
+            <span class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+          </button>
+        </div>
+      </div>
+      <!-- Right Card: Administrator -->
+      <div class="glass-panel glass-panel-hover rounded-xl p-lg flex flex-col h-full relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary/30 to-transparent"></div>
+        <div class="flex items-center gap-4 border-b border-primary/10 pb-md mb-md">
+          <div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary border border-primary/20">
+            <span class="material-symbols-outlined text-[22px]">manage_accounts</span>
+          </div>
+          <h4 class="font-display-md text-headline-md text-on-surface">Administrator</h4>
+        </div>
+        <div class="flex items-center gap-md mb-xl bg-white/5 p-4 rounded-lg border border-white/5">
+          <div class="w-16 h-16 rounded-full bg-surface-container border-2 border-primary/30 overflow-hidden shrink-0 shadow-[0_0_15px_rgba(212,175,55,0.1)]">
+            <img class="w-full h-full object-cover mix-blend-luminosity opacity-90" alt="Principal" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMyMCkWYEXXEKLF06JNrLa_2w9uPij38GHkrSE_pi78vaqzFq9MvUjQiuK_elh24FaWJSm-1goi3wsKCd4IH-CEIyvOtifYjaSiXfHiU6WfF-6PfCr_8XkivNLVgHLYCoNf5ZQWjWjVXYzCnK25mGpN-KnaeXcGiFXnKo8vGsFfehhI5q4M6Fu4cLzCVcglK3sAWd1pOG8XhYnCqV2J0prufoDAhsX8HLH1Wxvo9gW6_BbTKQnUFTL"/>
+          </div>
+          <div>
+            <div class="font-display-md text-headline-sm text-on-surface leading-tight mb-1">Institution Administrator</div>
+            <div class="font-label-md text-[12px] uppercase tracking-wider text-primary">Primary Contact</div>
+          </div>
+        </div>
+        <div class="flex-1 space-y-5">
+          <div class="grid grid-cols-1 md:grid-cols-[140px_1fr] items-center gap-4 py-1">
+            <div class="flex items-center gap-3 text-on-surface-variant">
+              <span class="material-symbols-outlined text-[18px] text-primary/50">work</span>
+              <span class="font-label-md text-[12px] uppercase tracking-wider">Role</span>
+            </div>
+            <div class="font-body-md text-body-md text-on-surface pl-11 md:pl-0">Institution Admin</div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-[140px_1fr] items-center gap-4 py-1">
+            <div class="flex items-center gap-3 text-on-surface-variant">
+              <span class="material-symbols-outlined text-[18px] text-primary/50">mail</span>
+              <span class="font-label-md text-[12px] uppercase tracking-wider">Admin Email</span>
+            </div>
+            <div class="font-body-md text-body-md text-on-surface pl-11 md:pl-0">principal@acet.edu.in</div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-[140px_1fr] items-center gap-4 py-1">
+            <div class="flex items-center gap-3 text-on-surface-variant">
+              <span class="material-symbols-outlined text-[18px] text-primary/50">toggle_on</span>
+              <span class="font-label-md text-[12px] uppercase tracking-wider">Status</span>
+            </div>
+            <div class="pl-11 md:pl-0 flex items-center">
+              <div class="inline-flex items-center gap-1.5 text-[#4edea3] bg-[#4edea3]/10 px-3 py-1 rounded border border-[#4edea3]/20 shadow-[0_0_10px_rgba(78,222,163,0.1)]">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#4edea3] shadow-[0_0_5px_#4edea3]"></span>
+                <span class="text-[12px] uppercase tracking-wider font-bold">Active</span>
+              </div>
+            </div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-[140px_1fr] items-center gap-4 py-1">
+            <div class="flex items-center gap-3 text-on-surface-variant">
+              <span class="material-symbols-outlined text-[18px] text-primary/50">history</span>
+              <span class="font-label-md text-[12px] uppercase tracking-wider">Last Login</span>
+            </div>
+            <div class="font-body-md text-body-md text-on-surface-variant pl-11 md:pl-0">Today, 09:42 AM</div>
+          </div>
+        </div>
+        <div class="mt-xl pt-md border-t border-primary/10">
+          <button class="text-primary font-label-md text-label-md flex items-center gap-2 hover:gap-3 transition-all group uppercase tracking-widest text-[12px] font-bold">
+            Edit Account Information
+            <span class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. Security Section -->
+    <div class="glass-panel glass-panel-hover rounded-xl p-lg w-full relative overflow-hidden group">
+      <div class="absolute inset-y-0 left-0 w-1 bg-gradient-to-b from-primary/50 to-transparent"></div>
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-xl">
+        <div class="flex items-start gap-md">
+          <div class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-primary shrink-0 mt-1 border border-primary/20 shadow-[0_0_15px_rgba(212,175,55,0.1)]">
+            <span class="material-symbols-outlined text-[24px]">security</span>
+          </div>
+          <div>
+            <h4 class="font-display-md text-headline-sm text-on-surface mb-2">Account Security</h4>
+            <p class="font-body-sm text-body-sm text-on-surface-variant max-w-md mb-5 leading-relaxed">Manage your password and security preferences. We recommend updating your password every 90 days.</p>
+            <div class="flex flex-col sm:flex-row sm:items-center gap-x-8 gap-y-3 bg-white/5 p-3 rounded-lg border border-white/5 w-fit">
+              <div class="flex items-center gap-3">
+                <span class="font-label-md text-primary uppercase tracking-widest text-[10px] font-bold">Password</span>
+                <span class="font-body-md text-on-surface tracking-[0.3em] pt-1 text-lg">••••••••••</span>
+              </div>
+              <div class="hidden sm:block w-px h-6 bg-white/10"></div>
+              <div class="flex items-center gap-2 text-on-surface-variant/80 font-body-sm text-[12px]">
+                <span class="material-symbols-outlined text-[16px] text-primary/50">update</span>
+                Last updated: Recently
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-col sm:flex-row items-center gap-3 shrink-0 pt-6 md:pt-0 border-t md:border-t-0 border-primary/10 mt-4 md:mt-0 w-full md:w-auto">
+          <button class="w-full sm:w-auto px-6 py-2.5 rounded-lg border border-primary/40 bg-transparent text-primary font-label-md text-[13px] uppercase tracking-wider font-bold hover:bg-primary/10 transition-colors shadow-[0_0_10px_rgba(212,175,55,0.05)]">
+            Change Password
+          </button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer id="footer" class="mt-auto w-full border-t border-primary/20 bg-surface/80 backdrop-blur-md py-md px-lg">
+    <div class="max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-sm">
+      <div class="flex items-center gap-2">
+        <span class="material-symbols-outlined text-primary text-2xl">school</span>
+        <span class="font-display-md text-[20px] text-primary-container tracking-tight">SkillBridge Elite</span>
+      </div>
+      <div class="flex items-center gap-6">
+        <a class="text-on-surface-variant hover:text-primary font-label-md text-[12px] uppercase tracking-wider flex items-center gap-1.5 transition-colors" href="#">
+          <span class="material-symbols-outlined text-[18px]">settings</span> Settings
+        </a>
+        <a class="text-on-surface-variant hover:text-primary font-label-md text-[12px] uppercase tracking-wider flex items-center gap-1.5 transition-colors" href="#">
+          <span class="material-symbols-outlined text-[18px]">help</span> Help
+        </a>
+        <a class="text-error/80 hover:text-error font-label-md text-[12px] uppercase tracking-wider flex items-center gap-1.5 transition-colors" href="#">
+          <span class="material-symbols-outlined text-[18px]">logout</span> Logout
+        </a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

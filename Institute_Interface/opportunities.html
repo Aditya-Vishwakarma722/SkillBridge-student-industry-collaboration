@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Opportunities & Applications Tracking - SkillBridge Elite</title>
+  <meta name="description" content="SkillBridge Elite Opportunity Tracker - Monitor active recruitment drives and real-time student application statuses."/>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-primary-container": "#554300",
+            "on-tertiary-fixed": "#00174b",
+            "on-secondary": "#480082",
+            "on-error": "#690005",
+            "on-primary-fixed-variant": "#574500",
+            "inverse-primary": "#735c00",
+            "surface-bright": "#3d392f",
+            "primary-container": "#d4af37",
+            "surface-container-highest": "#38342b",
+            "surface-variant": "#38342b",
+            "surface-tint": "#e9c349",
+            "on-tertiary": "#082b72",
+            "on-primary-fixed": "#241a00",
+            "on-tertiary-fixed-variant": "#27438a",
+            "inverse-surface": "#eae1d4",
+            "surface-dim": "#16130b",
+            "secondary-fixed-dim": "#dcb8ff",
+            "tertiary-container": "#97b0ff",
+            "on-error-container": "#ffdad6",
+            "secondary-container": "#7701d0",
+            "on-surface": "#eae1d4",
+            "tertiary-fixed": "#dbe1ff",
+            "error-container": "#93000a",
+            "primary-fixed-dim": "#e9c349",
+            "tertiary-fixed-dim": "#b4c5ff",
+            "outline": "#99907c",
+            "on-primary": "#3c2f00",
+            "secondary": "#dcb8ff",
+            "on-secondary-fixed-variant": "#6700b5",
+            "primary-fixed": "#ffe088",
+            "surface-container-high": "#2d2a21",
+            "tertiary": "#bfcdff",
+            "surface-container": "#231f17",
+            "background": "#0a0e1a",
+            "surface": "#0a0e1a",
+            "primary": "#d4af37",
+            "on-tertiary-container": "#254188",
+            "on-surface-variant": "#d0c5af",
+            "secondary-fixed": "#efdbff",
+            "on-background": "#eae1d4",
+            "on-secondary-fixed": "#2b0052",
+            "surface-container-lowest": "#05070d",
+            "inverse-on-surface": "#343027",
+            "error": "#ffb4ab",
+            "outline-variant": "#4d4635",
+            "on-secondary-container": "#dbb8ff",
+            "surface-container-low": "#080b14"
+          },
+          borderRadius: {
+            DEFAULT: "0.25rem",
+            lg: "0.5rem",
+            xl: "0.75rem",
+            full: "9999px"
+          },
+          spacing: {
+            "container-max": "1280px",
+            unit: "4px",
+            "margin-desktop": "64px",
+            gutter: "24px",
+            "margin-mobile": "16px",
+            lg: "2rem",
+            base: "4px",
+            xl: "3rem",
+            sm: "1rem",
+            md: "1.5rem",
+            xs: "0.5rem"
+          },
+          fontFamily: {
+            "body-lg": ["Inter"],
+            "display-md": ["EB Garamond"],
+            "headline-lg-mobile": ["Inter"],
+            "display-lg": ["EB Garamond"],
+            "label-md": ["Inter"],
+            "body-md": ["Inter"],
+            "headline-lg": ["Inter"],
+            "headline-sm": ["Inter"],
+            "body-sm": ["Inter"],
+            "headline-md": ["Inter"]
+          },
+          fontSize: {
+            "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+            "display-md": ["48px", { lineHeight: "56px", letterSpacing: "-0.01em", fontWeight: "500" }],
+            "headline-lg-mobile": ["28px", { lineHeight: "36px", letterSpacing: "-0.01em", fontWeight: "600" }],
+            "display-lg": ["64px", { lineHeight: "72px", letterSpacing: "-0.02em", fontWeight: "500" }],
+            "label-md": ["14px", { lineHeight: "20px", letterSpacing: "0.05em", fontWeight: "500" }],
+            "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+            "headline-lg": ["32px", { lineHeight: "40px", letterSpacing: "-0.01em", fontWeight: "600" }],
+            "headline-sm": ["24px", { lineHeight: "32px", fontWeight: "600" }],
+            "body-sm": ["14px", { lineHeight: "20px", fontWeight: "400" }],
+            "headline-md": ["24px", { lineHeight: "32px", fontWeight: "600" }]
+          }
+        },
+      },
+    }
+  </script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    .glass-card {
+      background: rgba(22, 19, 11, 0.4);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(212, 175, 55, 0.15);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    }
+    .glass-card-hover {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .glass-card-hover:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(212, 175, 55, 0.08), 0 8px 32px rgba(0, 0, 0, 0.37);
+    }
+    .status-badge-applied { background-color: rgba(99, 102, 241, 0.15); color: #818cf8; border: 1px solid rgba(129, 140, 248, 0.3); }
+    .status-badge-shortlisted { background-color: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(251, 191, 36, 0.3); }
+    .status-badge-interview { background-color: rgba(59, 130, 246, 0.15); color: #60a5fa; border: 1px solid rgba(96, 165, 250, 0.3); }
+    .status-badge-selected { background-color: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(52, 211, 153, 0.3); }
+    .status-badge-rejected { background-color: rgba(225, 29, 72, 0.15); color: #fb7185; border: 1px solid rgba(251, 113, 133, 0.3); }
+    
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.02); }
+    ::-webkit-scrollbar-thumb { background: rgba(212, 175, 55, 0.2); border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: rgba(212, 175, 55, 0.4); }
+
+    @keyframes gold-glow-text {
+      0%, 100% { text-shadow: 0 0 2px rgba(212, 175, 55, 0.2), 0 0 4px rgba(212, 175, 55, 0.1); }
+      50% { text-shadow: 0 0 6px rgba(212, 175, 55, 0.5), 0 0 12px rgba(212, 175, 55, 0.3); }
+    }
+    @keyframes gold-glow-box {
+      0%, 100% { box-shadow: 0 0 5px rgba(212, 175, 55, 0.2); }
+      50% { box-shadow: 0 0 15px rgba(212, 175, 55, 0.6); }
+    }
+    .gold-glow-text { animation: gold-glow-text 3.5s ease-in-out infinite; }
+    .gold-glow-box { animation: gold-glow-box 3.5s ease-in-out infinite; }
+    
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .fade-in { animation: fadeInUp 0.5s ease-out forwards; }
+  </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col antialiased overflow-x-hidden">
+
+  <!-- TopNavBar (Consistent across the system) -->
+  <header id="top-navbar" class="fixed top-0 left-0 right-0 h-16 bg-surface/80 backdrop-blur-md border-b border-primary-container/20 shadow-sm flex items-center px-gutter z-50 transition-all duration-200 ease-in-out">
+    <div class="flex items-center gap-4 mr-lg">
+      <a href="index.html" class="flex items-center gap-2">
+        <span class="material-symbols-outlined text-primary text-3xl">school</span>
+        <h1 class="font-display-md text-[28px] font-bold text-primary-container">SkillBridge</h1>
+      </a>
+    </div>
+    <nav id="main-nav" class="flex-1 flex justify-center gap-md">
+      <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary-container transition-colors" href="index.html">Dashboard</a>
+      <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary-container transition-colors" href="students.html">Students</a>
+      <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary-container transition-colors" href="skill-overview.html">Skill Overview</a>
+      <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary-container transition-colors" href="department-performance.html">Placement Overview</a>
+      <a class="font-label-md text-label-md text-primary-container font-bold border-b-2 border-primary-container pb-1" href="opportunities.html">Opportunities</a>
+      <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary-container transition-colors" href="profile.html">Profile</a>
+    </nav>
+    <div class="flex items-center gap-4 ml-lg">
+      <button id="notifications-btn" class="p-2 text-on-surface-variant hover:bg-surface-variant/50 rounded-full transition-all duration-200 ease-in-out">
+        <span class="material-symbols-outlined">notifications</span>
+      </button>
+      <button id="settings-btn" class="p-2 text-on-surface-variant hover:bg-surface-variant/50 rounded-full transition-all duration-200 ease-in-out">
+        <span class="material-symbols-outlined">settings</span>
+      </button>
+      <a href="profile.html" class="h-8 w-8 rounded-full overflow-hidden border border-primary-container/30 ml-2 hover:ring-2 hover:ring-primary/50 transition-all block">
+        <img alt="Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKIEx4nhfcPOG4ntdX5A4oDASuhh6T-wWFZeUP_8zuCu-Nbs8rPn9pjXHTm9q-D7554xFf5NbIxMZD0whxgP9IBEzG2ZUWF1jjFjoV6iXptaM-2Ocg5GqH6SJMMOk7_I9tz0w_KTX_bcAkFL2VIhk73suODZR7-MRMKEkoyxAczEvGT4G2wBRQ5Xhw7BBBoGeOheyGKMXvXZHNcf7scNB5kgKQ9EwNgzw3W1K-bQDJFiTx4d1ccDOo"/>
+      </a>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="flex-1 w-full max-w-container-max mx-auto p-sm pt-24 md:p-lg md:pt-32 relative z-10">
+    <!-- Header & Controls -->
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-lg gap-4">
+      <div>
+        <h2 class="font-display-md text-display-md text-primary-container font-semibold tracking-tight gold-glow-text">Opportunity Tracker</h2>
+        <p class="font-body-md text-on-surface-variant mt-2 font-light tracking-wide">Monitor active drives and real-time application statuses.</p>
+      </div>
+      <div class="flex flex-wrap items-center gap-3 w-full md:w-auto">
+        <div class="relative flex-1 md:flex-none group">
+          <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm group-focus-within:text-primary transition-colors">search</span>
+          <input class="w-full pl-10 pr-4 py-2.5 bg-surface-container-lowest/50 border border-outline-variant/30 rounded-lg focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/50 transition-all font-body-sm text-on-background placeholder:text-on-surface-variant/50" placeholder="Search companies, roles..." type="text"/>
+        </div>
+        <button class="glass-card px-5 py-2.5 rounded-lg flex items-center gap-2 font-label-md text-label-md text-on-background hover:bg-white/5 hover:border-primary/40 transition-all">
+          <span class="material-symbols-outlined text-sm text-primary gold-glow-text">filter_list</span> Filter
+        </button>
+        <button class="bg-primary text-[#0a0e1a] px-5 py-2.5 rounded-lg flex items-center gap-2 font-label-md text-label-md font-semibold hover:bg-primary/90 transition-colors hover:shadow-[0_0_20px_rgba(212,175,55,0.5)] uppercase tracking-wider text-xs gold-glow-box">
+          <span class="material-symbols-outlined text-sm">add</span> New Drive
+        </button>
+      </div>
+    </div>
+
+    <!-- Dual View Layout -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+      <!-- Recent Company Opportunities (5 cols) -->
+      <div class="lg:col-span-5 glass-card rounded-xl flex flex-col h-[600px] overflow-hidden fade-in">
+        <div class="p-md border-b border-primary/20 flex justify-between items-center bg-white/5">
+          <h3 class="font-headline-sm text-2xl text-on-background font-medium">Active Opportunities</h3>
+          <button class="text-primary font-label-md text-label-md hover:text-primary/80 uppercase tracking-widest text-xs transition-colors flex items-center gap-1 gold-glow-text">
+            View All <span class="material-symbols-outlined text-sm">arrow_forward</span>
+          </button>
+        </div>
+        <div class="flex-1 overflow-y-auto p-4 space-y-3">
+          <!-- Opp Item 1 -->
+          <div class="p-5 bg-black/20 hover:bg-white/5 border border-white/5 hover:border-primary/30 rounded-xl transition-all cursor-pointer group">
+            <div class="flex justify-between items-start mb-4">
+              <div class="flex items-center gap-4">
+                <div class="w-12 h-12 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-primary font-display-md text-2xl font-bold group-hover:border-primary/50 transition-colors shadow-inner gold-glow-text">T</div>
+                <div>
+                  <h4 class="font-body-lg text-on-background font-medium">Tata Consultancy Services</h4>
+                  <p class="font-body-sm text-on-surface-variant mt-0.5">SDE-1 (Ninja)</p>
+                </div>
+              </div>
+              <span class="font-label-md text-xs bg-primary/10 border border-primary/20 px-3 py-1.5 rounded-full text-primary flex items-center gap-1.5 shadow-sm">
+                <span class="material-symbols-outlined text-[14px]">group</span> 245
+              </span>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2.5 py-1 rounded bg-white/5 border border-white/10 text-xs font-medium text-on-surface-variant">Java</span>
+              <span class="px-2.5 py-1 rounded bg-white/5 border border-white/10 text-xs font-medium text-on-surface-variant">Spring Boot</span>
+              <span class="px-2.5 py-1 rounded bg-white/5 border border-white/10 text-xs font-medium text-on-surface-variant">SQL</span>
+            </div>
+          </div>
+          <!-- Opp Item 2 -->
+          <div class="p-5 bg-black/20 hover:bg-white/5 border border-white/5 hover:border-primary/30 rounded-xl transition-all cursor-pointer group">
+            <div class="flex justify-between items-start mb-4">
+              <div class="flex items-center gap-4">
+                <div class="w-12 h-12 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-primary font-display-md text-2xl font-bold group-hover:border-primary/50 transition-colors shadow-inner gold-glow-text">D</div>
+                <div>
+                  <h4 class="font-body-lg text-on-background font-medium">Deloitte</h4>
+                  <p class="font-body-sm text-on-surface-variant mt-0.5">Data Analyst</p>
+                </div>
+              </div>
+              <span class="font-label-md text-xs bg-primary/10 border border-primary/20 px-3 py-1.5 rounded-full text-primary flex items-center gap-1.5 shadow-sm">
+                <span class="material-symbols-outlined text-[14px]">group</span> 180
+              </span>
+            </div>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2.5 py-1 rounded bg-white/5 border border-white/10 text-xs font-medium text-on-surface-variant">Python</span>
+              <span class="px-2.5 py-1 rounded bg-white/5 border border-white/10 text-xs font-medium text-on-surface-variant">Tableau</span>
+              <span class="px-2.5 py-1 rounded bg-white/5 border border-white/10 text-xs font-medium text-on-surface-variant">Excel</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recent Applications Table (7 cols) -->
+      <div class="lg:col-span-7 glass-card rounded-xl flex flex-col h-[600px] overflow-hidden fade-in">
+        <div class="p-md border-b border-primary/20 flex justify-between items-center bg-white/5">
+          <h3 class="font-headline-sm text-2xl text-on-background font-medium">Application Tracker</h3>
+          <div class="flex items-center gap-2 px-3 py-1 bg-emerald-500/10 border border-emerald-500/20 rounded-full">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_rgba(52,211,153,0.8)]"></span>
+            <span class="font-label-md text-[11px] text-emerald-400 uppercase tracking-widest font-semibold">Live</span>
+          </div>
+        </div>
+        <div class="flex-1 overflow-auto">
+          <table class="w-full text-left border-collapse">
+            <thead class="sticky top-0 bg-background/95 backdrop-blur-md z-10 border-b border-white/10">
+              <tr>
+                <th class="px-6 py-4 font-label-md text-xs uppercase tracking-widest text-on-surface-variant font-semibold">Student</th>
+                <th class="px-6 py-4 font-label-md text-xs uppercase tracking-widest text-on-surface-variant font-semibold">Company & Role</th>
+                <th class="px-6 py-4 font-label-md text-xs uppercase tracking-widest text-on-surface-variant font-semibold">Status</th>
+              </tr>
+            </thead>
+            <tbody class="font-body-sm text-body-sm">
+              <tr class="border-b border-white/5 hover:bg-white/5 transition-colors group">
+                <td class="px-6 py-5">
+                  <div class="font-medium text-on-background text-base mb-1">Rahul Sharma</div>
+                  <div class="text-xs text-on-surface-variant/80 tracking-wide">Computer Science</div>
+                </td>
+                <td class="px-6 py-5">
+                  <div class="font-medium text-on-background text-base mb-1">TCS</div>
+                  <div class="text-xs text-on-surface-variant/80 tracking-wide">SDE-1</div>
+                </td>
+                <td class="px-6 py-5">
+                  <span class="px-3 py-1.5 rounded-full text-[11px] uppercase tracking-wider font-semibold status-badge-interview inline-flex items-center gap-1.5 shadow-sm">
+                    <span class="material-symbols-outlined text-[14px]">record_voice_over</span> Interview
+                  </span>
+                </td>
+              </tr>
+              <tr class="border-b border-white/5 hover:bg-white/5 transition-colors group">
+                <td class="px-6 py-5">
+                  <div class="font-medium text-on-background text-base mb-1">Priya Patel</div>
+                  <div class="text-xs text-on-surface-variant/80 tracking-wide">Information Tech</div>
+                </td>
+                <td class="px-6 py-5">
+                  <div class="font-medium text-on-background text-base mb-1">Deloitte</div>
+                  <div class="text-xs text-on-surface-variant/80 tracking-wide">Data Analyst</div>
+                </td>
+                <td class="px-6 py-5">
+                  <span class="px-3 py-1.5 rounded-full text-[11px] uppercase tracking-wider font-semibold status-badge-shortlisted inline-flex items-center gap-1.5 shadow-sm">
+                    <span class="material-symbols-outlined text-[14px]">checklist</span> Shortlisted
+                  </span>
+                </td>
+              </tr>
+              <tr class="border-b border-white/5 hover:bg-white/5 transition-colors group">
+                <td class="px-6 py-5">
+                  <div class="font-medium text-on-background text-base mb-1">Amit Kumar</div>
+                  <div class="text-xs text-on-surface-variant/80 tracking-wide">Electronics</div>
+                </td>
+                <td class="px-6 py-5">
+                  <div class="font-medium text-on-background text-base mb-1">Wipro</div>
+                  <div class="text-xs text-on-surface-variant/80 tracking-wide">Systems Engineer</div>
+                </td>
+                <td class="px-6 py-5">
+                  <span class="px-3 py-1.5 rounded-full text-[11px] uppercase tracking-wider font-semibold status-badge-selected inline-flex items-center gap-1.5 shadow-sm">
+                    <span class="material-symbols-outlined text-[14px]">task_alt</span> Selected
+                  </span>
+                </td>
+              </tr>
+              <tr class="border-b border-white/5 hover:bg-white/5 transition-colors group">
+                <td class="px-6 py-5">
+                  <div class="font-medium text-on-background text-base mb-1">Neha Singh</div>
+                  <div class="text-xs text-on-surface-variant/80 tracking-wide">Computer Science</div>
+                </td>
+                <td class="px-6 py-5">
+                  <div class="font-medium text-on-background text-base mb-1">Amazon</div>
+                  <div class="text-xs text-on-surface-variant/80 tracking-wide">SDE-1</div>
+                </td>
+                <td class="px-6 py-5">
+                  <span class="px-3 py-1.5 rounded-full text-[11px] uppercase tracking-wider font-semibold status-badge-applied inline-flex items-center gap-1.5 shadow-sm">
+                    <span class="material-symbols-outlined text-[14px]">send</span> Applied
+                  </span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer id="footer" class="mt-auto w-full border-t border-primary/20 bg-surface/80 backdrop-blur-md py-md px-lg">
+    <div class="max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-sm">
+      <div class="flex items-center gap-2">
+        <span class="material-symbols-outlined text-primary text-2xl">school</span>
+        <span class="font-display-md text-[20px] text-primary-container tracking-tight">SkillBridge Elite</span>
+      </div>
+      <div class="flex items-center gap-md">
+        <a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md flex items-center gap-1" href="#">
+          <span class="material-symbols-outlined text-sm">help</span> Help Center
+        </a>
+        <a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md flex items-center gap-1" href="#">
+          <span class="material-symbols-outlined text-sm">download</span> Export Reports
+        </a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

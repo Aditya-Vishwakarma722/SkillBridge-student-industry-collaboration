@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Student Portal — Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
+<script>
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          primary: "#f2ca50",
+          "primary-container": "#d4af37",
+          surface: "#0f131f",
+          "surface-container": "#1b1f2c"
+        }
+      }
+    }
+  };
+</script>
+<style>
+  body {
+    background: #0f131f;
+    color: #dfe2f3;
+    font-family: 'Inter', sans-serif;
+  }
+  .glass-pane {
+    background-color: rgba(22, 27, 46, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+</style>
+</head>
+<body class="min-h-screen bg-[#0f131f] text-[#dfe2f3] flex flex-col">
+
+<main class="flex-1 p-4 md:p-8 max-w-[1200px] mx-auto w-full space-y-6">
+
+  <!-- Welcome Hero -->
+  <div class="glass-pane rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden">
+    <div class="space-y-2 text-center md:text-left z-10">
+      <div class="flex items-center justify-center md:justify-start gap-2">
+        <span class="px-3 py-0.5 rounded-full text-xs font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30">Verified Skill Profile</span>
+        <span id="dash-college-tag" class="px-3 py-0.5 rounded-full text-xs font-bold bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">Aditya University</span>
+      </div>
+      <h1 id="dash-greeting" class="text-3xl font-bold font-serif text-amber-400">Welcome Back, Rahul Sharma!</h1>
+      <p class="text-xs text-zinc-300 max-w-xl">Skill scores determine opportunity eligibility in real time. Take field assessments, bridge gaps, and apply.</p>
+    </div>
+
+    <div class="shrink-0 flex gap-3 z-10">
+      <a href="../Opportunity_Interface/index.html" class="px-5 py-2.5 bg-amber-500 hover:bg-amber-400 text-black font-bold rounded-xl text-xs shadow-md transition-all flex items-center gap-2">
+        <span class="material-symbols-outlined text-base">work</span>
+        <span>Matching Opportunities</span>
+      </a>
+      <a href="../Assessment_Interface/index.html" class="px-5 py-2.5 bg-white/10 hover:bg-white/15 text-white font-semibold rounded-xl text-xs border border-white/15 transition-all flex items-center gap-2">
+        <span class="material-symbols-outlined text-base">school</span>
+        <span>Take Assessment</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Minimal 4 Grid Navigation Cards -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+    
+    <a href="Profile_Interface.html" class="glass-pane p-5 rounded-2xl space-y-2 hover:border-amber-500/40 transition-all group">
+      <div class="w-10 h-10 rounded-xl bg-amber-500/20 flex items-center justify-center text-amber-400 border border-amber-500/30 group-hover:scale-105 transition-transform">
+        <span class="material-symbols-outlined">person</span>
+      </div>
+      <h3 class="text-base font-bold text-white group-hover:text-amber-300 transition-colors">Personal Profile</h3>
+      <p class="text-xs text-zinc-400">Aditya University • CSE • 3rd Year</p>
+    </a>
+
+    <a href="Skills_Overview.html" class="glass-pane p-5 rounded-2xl space-y-2 hover:border-amber-500/40 transition-all group">
+      <div class="w-10 h-10 rounded-xl bg-emerald-500/20 flex items-center justify-center text-emerald-400 border border-emerald-500/30 group-hover:scale-105 transition-transform">
+        <span class="material-symbols-outlined">psychology</span>
+      </div>
+      <h3 class="text-base font-bold text-white group-hover:text-amber-300 transition-colors">Skills Overview</h3>
+      <p id="dash-skills-summary" class="text-xs text-zinc-400">Java: 78 | SQL: 65 | Spring Boot: 42</p>
+    </a>
+
+    <a href="../Opportunity_Interface/index.html" class="glass-pane p-5 rounded-2xl space-y-2 hover:border-amber-500/40 transition-all group">
+      <div class="w-10 h-10 rounded-xl bg-indigo-500/20 flex items-center justify-center text-indigo-400 border border-indigo-500/30 group-hover:scale-105 transition-transform">
+        <span class="material-symbols-outlined">explore</span>
+      </div>
+      <h3 class="text-base font-bold text-white group-hover:text-amber-300 transition-colors">Skill-Matched Roles</h3>
+      <p class="text-xs text-zinc-400">Real-time vector matching & gap feedback</p>
+    </a>
+
+    <a href="My_Applications.html" class="glass-pane p-5 rounded-2xl space-y-2 hover:border-amber-500/40 transition-all group">
+      <div class="w-10 h-10 rounded-xl bg-rose-500/20 flex items-center justify-center text-rose-400 border border-rose-500/30 group-hover:scale-105 transition-transform">
+        <span class="material-symbols-outlined">assignment</span>
+      </div>
+      <h3 class="text-base font-bold text-white group-hover:text-amber-300 transition-colors">My Applications</h3>
+      <p id="dash-apps-count" class="text-xs text-zinc-400">Track screening & shortlist stage</p>
+    </a>
+
+  </div>
+
+  <!-- Assessed Skill Readiness Cards -->
+  <section class="glass-pane rounded-2xl p-6 space-y-4">
+    <div class="flex items-center justify-between border-b border-white/10 pb-3">
+      <h2 class="text-base font-bold text-white flex items-center gap-2">
+        <span class="material-symbols-outlined text-amber-400">verified</span>
+        Current Verified Skill Readiness Scores
+      </h2>
+      <a href="Skills_Overview.html" class="text-xs text-amber-400 hover:underline">Full Skill Overview →</a>
+    </div>
+
+    <div id="dash-skills-grid" class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+      <!-- Populated via store.js -->
+    </div>
+  </section>
+
+</main>
+
+<script src="../js/store.js"></script>
+<script src="../js/nav.js"></script>
+<script>
+  function renderStudentDashboard() {
+    if (!window.SkillBridgeStore) return;
+
+    const student = window.SkillBridgeStore.getCurrentStudent();
+    const state = window.SkillBridgeStore.getState();
+    const myApps = (state.applications || []).filter(a => a.studentId === student.id);
+
+    document.getElementById('dash-greeting').innerText = `Welcome Back, ${student.name}!`;
+    document.getElementById('dash-college-tag').innerText = student.college || 'Aditya University';
+    document.getElementById('dash-apps-count').innerText = `${myApps.length} Active Applications`;
+
+    // Skills grid
+    const grid = document.getElementById('dash-skills-grid');
+    grid.innerHTML = '';
+
+    let summaryText = [];
+    if (student.skills) {
+      for (const [skill, score] of Object.entries(student.skills)) {
+        summaryText.push(`${skill}: ${score}`);
+        const status = score >= 80 ? 'Strong' : score >= 60 ? 'Good' : 'Needs Improvement';
+        const color = score >= 80 ? 'text-emerald-400' : score >= 60 ? 'text-amber-400' : 'text-rose-400';
+        
+        grid.innerHTML += `
+          <div class="bg-black/30 border border-white/10 p-4 rounded-xl space-y-2">
+            <div class="flex justify-between items-center text-xs font-bold">
+              <span class="text-white">${skill}</span>
+              <span class="${color}">${score}/100</span>
+            </div>
+            <div class="w-full bg-white/10 h-2 rounded-full overflow-hidden">
+              <div class="h-full ${score >= 80 ? 'bg-emerald-400' : score >= 60 ? 'bg-amber-400' : 'bg-rose-400'}" style="width: ${score}%"></div>
+            </div>
+            <div class="flex justify-between text-[10px] text-zinc-400">
+              <span>Status: <strong class="${color}">${status}</strong></span>
+              <a href="../Assessment_Interface/index.html?skill=${encodeURIComponent(skill)}" class="text-amber-400 hover:underline">Re-assess</a>
+            </div>
+          </div>
+        `;
+      }
+    }
+    document.getElementById('dash-skills-summary').innerText = summaryText.slice(0, 3).join(' | ');
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    renderStudentDashboard();
+    window.addEventListener('skillbridge-state-change', renderStudentDashboard);
+  });
+</script>
+</body>
+</html>

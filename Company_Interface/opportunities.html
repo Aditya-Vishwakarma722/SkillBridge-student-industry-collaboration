@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manage Positions & Post Opportunity — SkillBridge</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
+<script>
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          primary: "#f2ca50",
+          "primary-container": "#d4af37",
+          surface: "#0f131f",
+          "surface-container": "#1b1f2c"
+        }
+      }
+    }
+  };
+</script>
+<style>
+  body {
+    background: #0f131f;
+    color: #dfe2f3;
+    font-family: 'Inter', sans-serif;
+  }
+  .glass-pane {
+    background-color: rgba(22, 27, 46, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+</style>
+</head>
+<body class="min-h-screen bg-[#0f131f] text-[#dfe2f3] flex flex-col">
+
+<main class="flex-1 p-4 md:p-8 max-w-[1200px] mx-auto w-full space-y-6">
+
+  <!-- Header Banner -->
+  <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/10 pb-4">
+    <div>
+      <h1 class="text-2xl font-bold font-serif text-emerald-400">Position Listings & Skill Criteria Manager</h1>
+      <p class="text-xs text-zinc-400">Define precise minimum skill threshold vectors for internships and full-time positions.</p>
+    </div>
+    <button onclick="toggleCreateModal(true)" class="px-4 py-2 bg-emerald-500 text-black font-bold rounded-xl text-xs flex items-center gap-1.5 hover:bg-emerald-400 transition-all shadow-md">
+      <span class="material-symbols-outlined text-base">add_circle</span>
+      <span>Post New Opportunity</span>
+    </button>
+  </div>
+
+  <!-- Opportunities Grid -->
+  <div id="company-opps-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <!-- Populated via store.js -->
+  </div>
+
+</main>
+
+<!-- Create Position Modal -->
+<div id="create-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/80 backdrop-blur-md">
+  <div class="glass-pane w-full max-w-xl rounded-2xl p-6 relative bg-[#161B2E] border border-emerald-500/30 space-y-4 max-h-[90vh] overflow-y-auto">
+    <button onclick="toggleCreateModal(false)" class="absolute top-4 right-4 text-zinc-400 hover:text-white">
+      <span class="material-symbols-outlined">close</span>
+    </button>
+
+    <h3 class="font-bold text-lg text-emerald-400 border-b border-white/10 pb-3 flex items-center gap-2">
+      <span class="material-symbols-outlined">post_add</span>
+      Post New Opportunity with Required Skill Thresholds
+    </h3>
+
+    <form onsubmit="handlePostOpportunity(event)" class="space-y-4 text-xs">
+      <div>
+        <label class="block font-semibold text-zinc-300 mb-1">Position Title</label>
+        <input id="opp-title" type="text" required placeholder="e.g. Java Backend Engineer Intern" class="w-full bg-black/50 border border-white/15 rounded-xl px-3 py-2 text-white">
+      </div>
+
+      <div class="grid grid-cols-2 gap-3">
+        <div>
+          <label class="block font-semibold text-zinc-300 mb-1">Type</label>
+          <select id="opp-type" class="w-full bg-[#0A0E1A] border border-white/15 rounded-xl px-3 py-2 text-white">
+            <option value="Internship">Internship</option>
+            <option value="Job">Full-Time Job</option>
+          </select>
+        </div>
+        <div>
+          <label class="block font-semibold text-zinc-300 mb-1">Stipend / Package</label>
+          <input id="opp-stipend" type="text" required placeholder="e.g. ₹25,000 / mo" class="w-full bg-black/50 border border-white/15 rounded-xl px-3 py-2 text-white">
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 gap-3">
+        <div>
+          <label class="block font-semibold text-zinc-300 mb-1">Location</label>
+          <input id="opp-location" type="text" required placeholder="e.g. Remote / Hyderabad" class="w-full bg-black/50 border border-white/15 rounded-xl px-3 py-2 text-white">
+        </div>
+        <div>
+          <label class="block font-semibold text-zinc-300 mb-1">Number of Openings</label>
+          <input id="opp-openings" type="number" min="1" value="5" class="w-full bg-black/50 border border-white/15 rounded-xl px-3 py-2 text-white">
+        </div>
+      </div>
+
+      <!-- Required Skill Score Thresholds -->
+      <div class="space-y-2 bg-black/40 p-4 rounded-xl border border-white/10">
+        <label class="block font-bold text-amber-300 uppercase tracking-wider text-[10px]">Required Minimum Skill Scores (0–100)</label>
+        <p class="text-[11px] text-zinc-400">Students must score at or above these thresholds to qualify for one-click application.</p>
+        
+        <div class="grid grid-cols-2 gap-3 pt-2">
+          <div>
+            <label class="block text-[11px] text-zinc-300">Java Minimum Score</label>
+            <input id="score-java" type="number" min="0" max="100" value="70" class="w-full bg-black border border-amber-500/30 rounded-lg px-2.5 py-1.5 text-amber-300 font-bold">
+          </div>
+          <div>
+            <label class="block text-[11px] text-zinc-300">SQL Minimum Score</label>
+            <input id="score-sql" type="number" min="0" max="100" value="50" class="w-full bg-black border border-amber-500/30 rounded-lg px-2.5 py-1.5 text-amber-300 font-bold">
+          </div>
+          <div>
+            <label class="block text-[11px] text-zinc-300">Spring Boot Minimum Score</label>
+            <input id="score-springboot" type="number" min="0" max="100" value="60" class="w-full bg-black border border-amber-500/30 rounded-lg px-2.5 py-1.5 text-amber-300 font-bold">
+          </div>
+          <div>
+            <label class="block text-[11px] text-zinc-300">Git Minimum Score</label>
+            <input id="score-git" type="number" min="0" max="100" value="50" class="w-full bg-black border border-amber-500/30 rounded-lg px-2.5 py-1.5 text-amber-300 font-bold">
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <label class="block font-semibold text-zinc-300 mb-1">Description & Requirements</label>
+        <textarea id="opp-desc" rows="3" required placeholder="Describe role requirements, tools used, and team environment..." class="w-full bg-black/50 border border-white/15 rounded-xl px-3 py-2 text-white"></textarea>
+      </div>
+
+      <div class="flex justify-end gap-3 pt-3 border-t border-white/10">
+        <button type="button" onclick="toggleCreateModal(false)" class="px-4 py-2 border border-white/20 rounded-xl text-zinc-300 font-semibold">Cancel</button>
+        <button type="submit" class="px-5 py-2 bg-emerald-500 text-black font-bold rounded-xl hover:bg-emerald-400">Publish Position</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="../js/store.js"></script>
+<script src="../js/nav.js"></script>
+<script>
+  function renderCompanyOpps() {
+    if (!window.SkillBridgeStore) return;
+    const state = window.SkillBridgeStore.getState();
+    const user = window.SkillBridgeStore.getCurrentUser();
+
+    const myOpps = state.opportunities.filter(o => o.companyId === user.id || user.role === 'company');
+    const grid = document.getElementById('company-opps-grid');
+    grid.innerHTML = '';
+
+    myOpps.forEach(opp => {
+      let skillReqHTML = '';
+      if (opp.requiredSkills) {
+        for (const [skill, score] of Object.entries(opp.requiredSkills)) {
+          skillReqHTML += `<span class="px-2 py-0.5 rounded bg-amber-500/10 text-amber-300 border border-amber-500/20 text-[10px]">${skill} ≥ ${score}</span> `;
+        }
+      }
+
+      grid.innerHTML += `
+        <div class="glass-pane rounded-2xl p-5 space-y-3 border border-white/10 hover:border-emerald-500/30 transition-all">
+          <div class="flex items-start justify-between">
+            <div>
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 uppercase tracking-wider">${opp.type}</span>
+              <h3 class="text-lg font-bold text-white mt-1">${opp.title}</h3>
+              <p class="text-xs text-amber-400">${opp.companyName} • ${opp.location}</p>
+            </div>
+            <span class="text-xs text-zinc-400">${opp.stipend}</span>
+          </div>
+
+          <p class="text-xs text-zinc-300 line-clamp-2">${opp.description}</p>
+
+          <div class="space-y-1">
+            <span class="text-[10px] font-semibold text-zinc-400 uppercase tracking-wider block">Required Skill Score Vectors:</span>
+            <div>${skillReqHTML}</div>
+          </div>
+        </div>
+      `;
+    });
+  }
+
+  function toggleCreateModal(show) {
+    const modal = document.getElementById('create-modal');
+    if (show) {
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    } else {
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+  }
+
+  function handlePostOpportunity(e) {
+    e.preventDefault();
+    const data = {
+      title: document.getElementById('opp-title').value,
+      type: document.getElementById('opp-type').value,
+      stipend: document.getElementById('opp-stipend').value,
+      location: document.getElementById('opp-location').value,
+      openings: document.getElementById('opp-openings').value,
+      description: document.getElementById('opp-desc').value,
+      requiredSkills: {
+        'Java': parseInt(document.getElementById('score-java').value || 70, 10),
+        'SQL': parseInt(document.getElementById('score-sql').value || 50, 10),
+        'Spring Boot': parseInt(document.getElementById('score-springboot').value || 60, 10),
+        'Git': parseInt(document.getElementById('score-git').value || 50, 10)
+      }
+    };
+
+    window.SkillBridgeStore.createOpportunity(data);
+    toggleCreateModal(false);
+    renderCompanyOpps();
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    renderCompanyOpps();
+    window.addEventListener('skillbridge-state-change', renderCompanyOpps);
+  });
+</script>
+</body>
+</html>

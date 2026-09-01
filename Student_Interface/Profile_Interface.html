@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Student Personal Profile — SkillBridge</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+        darkMode: "class",
+        theme: {
+            extend: {
+                colors: {
+                    primary: "#f2ca50",
+                    "primary-container": "#d4af37",
+                    surface: "#0f131f",
+                    "surface-container": "#1b1f2c",
+                    "surface-container-low": "#171b28",
+                    "surface-bright": "#353946"
+                }
+            }
+        }
+    }
+</script>
+<style>
+    body {
+        background: #0f131f;
+        color: #dfe2f3;
+        font-family: 'Inter', sans-serif;
+    }
+    .glass-pane {
+        background-color: rgba(22, 27, 46, 0.7);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .avatar-glow {
+        box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+        border: 2px solid #f2ca50;
+    }
+    .academic-chip {
+        background-color: rgba(138, 43, 226, 0.15);
+        color: #dcb8ff;
+        border: 1px solid rgba(138, 43, 226, 0.3);
+    }
+</style>
+</head>
+<body class="min-h-screen bg-[#0f131f] text-[#dfe2f3] antialiased flex flex-col">
+
+<!-- Main Profile Content -->
+<main class="flex-1 p-4 md:p-8 max-w-[1200px] mx-auto w-full space-y-6">
+
+    <!-- Profile Header Hero Card -->
+    <section class="glass-pane rounded-2xl p-6 md:p-8 flex flex-col md:flex-row gap-6 items-center relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        
+        <div class="relative shrink-0">
+            <img id="profile-avatar" src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=300&auto=format&fit=crop&q=80" alt="Student Profile Avatar" class="w-32 h-32 md:w-40 md:h-40 rounded-full avatar-glow object-cover">
+        </div>
+
+        <div class="flex flex-col items-center md:items-start flex-grow text-center md:text-left">
+            <div class="flex items-center gap-3 mb-1">
+                <h1 id="profile-name" class="text-2xl md:text-3xl font-bold font-serif text-amber-400">Rahul Sharma</h1>
+                <span id="profile-dept-badge" class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-amber-500/20 text-amber-300 border border-amber-500/30">CSE</span>
+            </div>
+            
+            <p id="profile-bio" class="text-sm text-zinc-300 mb-4 max-w-2xl">Passionate Backend Engineering student exploring microservices, Spring Boot, and cloud architecture.</p>
+
+            <!-- College & Education Metadata Card -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 w-full bg-black/40 p-4 rounded-xl border border-white/10 text-xs">
+                <div>
+                    <span class="text-zinc-400 block uppercase text-[10px] tracking-wider mb-0.5">College / Institution</span>
+                    <strong id="profile-college-display" class="text-amber-300 text-sm font-semibold flex items-center gap-1">
+                        <span class="material-symbols-outlined text-base">account_balance</span>
+                        Aditya University
+                    </strong>
+                </div>
+                <div>
+                    <span class="text-zinc-400 block uppercase text-[10px] tracking-wider mb-0.5">Department & Year</span>
+                    <strong id="profile-dept-year" class="text-white text-sm font-semibold">CSE | 3rd Year</strong>
+                </div>
+                <div>
+                    <span class="text-zinc-400 block uppercase text-[10px] tracking-wider mb-0.5">Academic CGPA</span>
+                    <strong id="profile-cgpa" class="text-white text-sm font-semibold">8.7 / 10.0</strong>
+                </div>
+                <div>
+                    <span class="text-zinc-400 block uppercase text-[10px] tracking-wider mb-0.5">Verified Assessed Skills</span>
+                    <strong id="profile-skills-count" class="text-emerald-400 text-sm font-semibold">6 Skills Verified</strong>
+                </div>
+            </div>
+
+            <!-- Action Controls -->
+            <div class="flex gap-3 mt-4">
+                <button onclick="toggleEditModal(true)" class="px-4 py-2 bg-amber-500 text-black font-bold rounded-xl text-xs flex items-center gap-1.5 hover:bg-amber-400 transition-all shadow-md">
+                    <span class="material-symbols-outlined text-base">edit</span>
+                    <span>Edit Profile & College</span>
+                </button>
+                <a href="Skills_Overview.html" class="px-4 py-2 bg-white/10 text-white font-semibold rounded-xl text-xs flex items-center gap-1.5 hover:bg-white/15 border border-white/15 transition-all">
+                    <span class="material-symbols-outlined text-base">psychology</span>
+                    <span>View Verified Skills</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Grid: Left Details & Right Portfolio -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        
+        <!-- Left Column: Skills, College Info, Contact -->
+        <div class="space-y-6">
+            
+            <!-- Skills & Readiness -->
+            <section class="glass-pane rounded-2xl p-5 space-y-4">
+                <h2 class="text-base font-bold text-white flex items-center gap-2">
+                    <span class="material-symbols-outlined text-amber-400">bolt</span>
+                    Verified Skills & Scores
+                </h2>
+                <div id="profile-skills-list" class="space-y-3">
+                    <!-- Populated via store.js -->
+                </div>
+            </section>
+
+            <!-- Education Timeline -->
+            <section class="glass-pane rounded-2xl p-5 space-y-4">
+                <h2 class="text-base font-bold text-white flex items-center gap-2">
+                    <span class="material-symbols-outlined text-amber-400">school</span>
+                    Academic Institution
+                </h2>
+                <div class="border-l-2 border-amber-500/40 pl-4 space-y-3">
+                    <div>
+                        <h3 id="timeline-college" class="text-sm font-bold text-amber-300">Aditya University</h3>
+                        <p class="text-xs text-zinc-300">B.Tech in Computer Science & Engineering</p>
+                        <p class="text-[11px] text-zinc-400">2023 - 2027 (Expected)</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Information -->
+            <section class="glass-pane rounded-2xl p-5 space-y-3">
+                <h2 class="text-base font-bold text-white flex items-center gap-2">
+                    <span class="material-symbols-outlined text-amber-400">contact_page</span>
+                    Contact & Profiles
+                </h2>
+                <div class="space-y-2 text-xs">
+                    <div class="flex items-center gap-2 text-zinc-300">
+                        <span class="material-symbols-outlined text-amber-400 text-base">mail</span>
+                        <span id="profile-email">student@gmail.com</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-zinc-300">
+                        <span class="material-symbols-outlined text-amber-400 text-base">call</span>
+                        <span id="profile-phone">+91 98765 43210</span>
+                    </div>
+                    <div class="flex items-center gap-2 text-zinc-300">
+                        <span class="material-symbols-outlined text-amber-400 text-base">description</span>
+                        <span id="profile-resume">Rahul_Sharma_Resume.pdf</span>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+        <!-- Right Column: Projects & Certificates -->
+        <div class="lg:col-span-2 space-y-6">
+            
+            <!-- Featured Projects -->
+            <section class="glass-pane rounded-2xl p-6 space-y-4">
+                <h2 class="text-base font-bold text-white flex items-center justify-between">
+                    <span class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-amber-400">rocket_launch</span>
+                        Featured Engineering Projects
+                    </span>
+                    <span class="text-xs text-amber-400 font-normal">2 Projects Active</span>
+                </h2>
+
+                <div class="space-y-4">
+                    <div class="bg-black/30 border border-white/10 rounded-xl p-4 flex flex-col md:flex-row gap-4 items-start">
+                        <div class="w-12 h-12 rounded-xl bg-amber-500/20 border border-amber-500/30 flex items-center justify-center shrink-0">
+                            <span class="material-symbols-outlined text-amber-400 text-2xl">dns</span>
+                        </div>
+                        <div class="flex-grow space-y-1">
+                            <h3 class="text-sm font-bold text-amber-300">Microservices Order Processing API</h3>
+                            <p class="text-xs text-zinc-300">Scalable REST API built with Java 17 and Spring Boot microservices, containerized with Docker and MySQL query tuning.</p>
+                            <div class="flex gap-2 pt-1">
+                                <span class="px-2 py-0.5 rounded bg-white/10 text-[10px] text-zinc-300">Java</span>
+                                <span class="px-2 py-0.5 rounded bg-white/10 text-[10px] text-zinc-300">Spring Boot</span>
+                                <span class="px-2 py-0.5 rounded bg-white/10 text-[10px] text-zinc-300">SQL</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-black/30 border border-white/10 rounded-xl p-4 flex flex-col md:flex-row gap-4 items-start">
+                        <div class="w-12 h-12 rounded-xl bg-indigo-500/20 border border-indigo-500/30 flex items-center justify-center shrink-0">
+                            <span class="material-symbols-outlined text-indigo-400 text-2xl">analytics</span>
+                        </div>
+                        <div class="flex-grow space-y-1">
+                            <h3 class="text-sm font-bold text-amber-300">Smart Campus Attendance & Skill Dashboard</h3>
+                            <p class="text-xs text-zinc-300">Full-stack web application visualizing departmental skill readiness for placement drives using React and RESTful services.</p>
+                            <div class="flex gap-2 pt-1">
+                                <span class="px-2 py-0.5 rounded bg-white/10 text-[10px] text-zinc-300">React</span>
+                                <span class="px-2 py-0.5 rounded bg-white/10 text-[10px] text-zinc-300">JavaScript</span>
+                                <span class="px-2 py-0.5 rounded bg-white/10 text-[10px] text-zinc-300">Tailwind</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Verified Certificates -->
+            <section class="glass-pane rounded-2xl p-6 space-y-4">
+                <h2 class="text-base font-bold text-white flex items-center gap-2">
+                    <span class="material-symbols-outlined text-amber-400">workspace_premium</span>
+                    Verified Industry Certifications
+                </h2>
+                <div id="profile-certificates-list" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <!-- Populated via store.js -->
+                </div>
+            </section>
+
+        </div>
+    </div>
+</main>
+
+<!-- Edit Profile Modal -->
+<div id="edit-profile-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/80 backdrop-blur-md">
+    <div class="glass-pane w-full max-w-lg rounded-2xl p-6 relative bg-[#161B2E] border border-amber-500/30 space-y-4">
+        <button onclick="toggleEditModal(false)" class="absolute top-4 right-4 text-zinc-400 hover:text-white">
+            <span class="material-symbols-outlined">close</span>
+        </button>
+        
+        <h3 class="font-bold text-lg text-amber-400 border-b border-white/10 pb-3 flex items-center gap-2">
+            <span class="material-symbols-outlined">edit_square</span>
+            Edit Student & College Info
+        </h3>
+
+        <form onsubmit="saveProfileChanges(event)" class="space-y-3 text-xs">
+            <div>
+                <label class="block font-semibold text-zinc-300 mb-1">Full Name</label>
+                <input id="edit-name" type="text" required class="w-full bg-black/50 border border-white/15 rounded-xl px-3 py-2 text-white">
+            </div>
+
+            <div>
+                <label class="block font-semibold text-amber-300 mb-1">College / Institution</label>
+                <select id="edit-college" class="w-full bg-[#0A0E1A] border border-amber-500/40 rounded-xl px-3 py-2 text-amber-200 font-bold">
+                    <option value="Aditya University">Aditya University</option>
+                    <option value="IIT Hyderabad">IIT Hyderabad</option>
+                    <option value="NIT Warangal">NIT Warangal</option>
+                </select>
+            </div>
+
+            <div class="grid grid-cols-2 gap-3">
+                <div>
+                    <label class="block font-semibold text-zinc-300 mb-1">Department</label>
+                    <input id="edit-dept" type="text" required class="w-full bg-black/50 border border-white/15 rounded-xl px-3 py-2 text-white">
+                </div>
+                <div>
+                    <label class="block font-semibold text-zinc-300 mb-1">Academic Year</label>
+                    <input id="edit-year" type="text" required class="w-full bg-black/50 border border-white/15 rounded-xl px-3 py-2 text-white">
+                </div>
+            </div>
+
+            <div>
+                <label class="block font-semibold text-zinc-300 mb-1">Bio</label>
+                <textarea id="edit-bio" rows="2" class="w-full bg-black/50 border border-white/15 rounded-xl px-3 py-2 text-white"></textarea>
+            </div>
+
+            <div class="flex justify-end gap-3 pt-3 border-t border-white/10">
+                <button type="button" onclick="toggleEditModal(false)" class="px-4 py-2 border border-white/20 rounded-xl text-zinc-300 font-semibold">Cancel</button>
+                <button type="submit" class="px-5 py-2 bg-amber-500 text-black font-bold rounded-xl hover:bg-amber-400">Save Changes</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="../js/store.js"></script>
+<script src="../js/nav.js"></script>
+<script>
+    function renderProfile() {
+        if (!window.SkillBridgeStore) return;
+        const student = window.SkillBridgeStore.getCurrentStudent();
+
+        document.getElementById('profile-name').innerText = student.name;
+        document.getElementById('profile-dept-badge').innerText = student.department || 'CSE';
+        document.getElementById('profile-bio').innerText = student.bio || 'Backend engineering scholar.';
+        document.getElementById('profile-college-display').innerHTML = `<span class="material-symbols-outlined text-base">account_balance</span> ${student.college || 'Aditya University'}`;
+        document.getElementById('profile-dept-year').innerText = `${student.department || 'CSE'} | ${student.year || '3rd Year'}`;
+        document.getElementById('profile-cgpa').innerText = `${student.cgpa || '8.7'} / 10.0`;
+        document.getElementById('profile-email').innerText = student.email;
+        document.getElementById('profile-phone').innerText = student.phone || '+91 98765 43210';
+        document.getElementById('profile-resume').innerText = student.resume || 'Resume.pdf';
+        document.getElementById('timeline-college').innerText = student.college || 'Aditya University';
+
+        // Skills List
+        const skillsList = document.getElementById('profile-skills-list');
+        skillsList.innerHTML = '';
+        let skillCount = 0;
+
+        if (student.skills) {
+            for (const [skill, score] of Object.entries(student.skills)) {
+                skillCount++;
+                const barColor = score >= 75 ? 'bg-emerald-400' : score >= 60 ? 'bg-amber-400' : 'bg-rose-400';
+                skillsList.innerHTML += `
+                    <div class="bg-black/30 p-2.5 rounded-xl border border-white/5 space-y-1">
+                        <div class="flex justify-between text-xs font-semibold">
+                            <span class="text-zinc-200">${skill}</span>
+                            <span class="text-amber-400">${score}/100</span>
+                        </div>
+                        <div class="w-full bg-white/10 h-1.5 rounded-full overflow-hidden">
+                            <div class="h-full ${barColor}" style="width: ${score}%"></div>
+                        </div>
+                    </div>
+                `;
+            }
+        }
+        document.getElementById('profile-skills-count').innerText = `${skillCount} Verified Skills`;
+
+        // Certificates
+        const certList = document.getElementById('profile-certificates-list');
+        certList.innerHTML = '';
+        const certs = student.certificates || [
+            { name: 'Java SE Developer Certification', issuer: 'Oracle', date: '2026' }
+        ];
+        certs.forEach(c => {
+            certList.innerHTML += `
+                <div class="bg-black/30 border border-white/10 p-3 rounded-xl flex items-center gap-3">
+                    <span class="material-symbols-outlined text-amber-400 text-2xl">verified</span>
+                    <div>
+                        <h4 class="text-xs font-bold text-white">${c.name}</h4>
+                        <p class="text-[11px] text-zinc-400">${c.issuer} • ${c.date}</p>
+                    </div>
+                </div>
+            `;
+        });
+    }
+
+    function toggleEditModal(show) {
+        const modal = document.getElementById('edit-profile-modal');
+        if (show) {
+            const student = window.SkillBridgeStore.getCurrentStudent();
+            document.getElementById('edit-name').value = student.name;
+            document.getElementById('edit-college').value = student.college || 'Aditya University';
+            document.getElementById('edit-dept').value = student.department || 'CSE';
+            document.getElementById('edit-year').value = student.year || '3rd Year';
+            document.getElementById('edit-bio').value = student.bio || '';
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        } else {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+    }
+
+    function saveProfileChanges(e) {
+        e.preventDefault();
+        const updated = {
+            name: document.getElementById('edit-name').value,
+            college: document.getElementById('edit-college').value,
+            department: document.getElementById('edit-dept').value,
+            year: document.getElementById('edit-year').value,
+            bio: document.getElementById('edit-bio').value
+        };
+
+        window.SkillBridgeStore.updateStudentProfile(updated);
+        toggleEditModal(false);
+        renderProfile();
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        renderProfile();
+        window.addEventListener('skillbridge-state-change', renderProfile);
+    });
+</script>
+</body>
+</html>

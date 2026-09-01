@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SkillBridge - Final Selection &amp; Offers</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error": "#ffb4ab",
+                        "on-secondary": "#480082",
+                        "on-primary-fixed-variant": "#574500",
+                        "on-tertiary-fixed-variant": "#424654",
+                        "on-tertiary-fixed": "#171b27",
+                        "on-background": "#dfe2f3",
+                        "on-primary-container": "#554300",
+                        "tertiary-fixed-dim": "#c3c6d6",
+                        "on-tertiary-container": "#414552",
+                        "secondary": "#dcb8ff",
+                        "surface-container-high": "#262a37",
+                        "on-primary-fixed": "#241a00",
+                        "on-surface": "#dfe2f3",
+                        "on-secondary-container": "#dbb8ff",
+                        "primary": "#f2ca50",
+                        "on-tertiary": "#2c303d",
+                        "surface-container": "#1b1f2c",
+                        "background": "#0f131f",
+                        "surface-bright": "#353946",
+                        "secondary-fixed-dim": "#dcb8ff",
+                        "secondary-fixed": "#efdbff",
+                        "primary-fixed-dim": "#e9c349",
+                        "surface-dim": "#0f131f",
+                        "on-surface-variant": "#d0c5af",
+                        "surface-container-highest": "#313442",
+                        "primary-fixed": "#ffe088",
+                        "tertiary-container": "#afb2c2",
+                        "on-secondary-fixed": "#2b0052",
+                        "on-secondary-fixed-variant": "#6700b5",
+                        "error-container": "#93000a",
+                        "tertiary-fixed": "#dfe2f3",
+                        "tertiary": "#cacdde",
+                        "on-error": "#690005",
+                        "on-primary": "#3c2f00",
+                        "primary-container": "#d4af37",
+                        "surface": "#0f131f",
+                        "on-error-container": "#ffdad6",
+                        "surface-container-low": "#171b28",
+                        "inverse-surface": "#dfe2f3",
+                        "outline": "#99907c",
+                        "secondary-container": "#7701d0",
+                        "inverse-primary": "#735c00",
+                        "inverse-on-surface": "#2c303d",
+                        "surface-container-lowest": "#0a0e1a",
+                        "outline-variant": "#4d4635",
+                        "surface-variant": "#313442",
+                        "surface-tint": "#e9c349"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "gutter": "24px",
+                        "unit": "8px",
+                        "margin-desktop": "64px",
+                        "container-padding": "32px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["EB Garamond", "serif"],
+                        "label-sm": ["Inter", "sans-serif"],
+                        "headline-lg-mobile": ["EB Garamond", "serif"],
+                        "headline-lg": ["EB Garamond", "serif"],
+                        "label-lg": ["Inter", "sans-serif"],
+                        "title-lg": ["Inter", "sans-serif"],
+                        "display-md": ["EB Garamond", "serif"],
+                        "body-lg": ["Inter", "sans-serif"],
+                        "body-md": ["Inter", "sans-serif"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "label-sm": ["10px", { "lineHeight": "14px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "letterSpacing": "0em", "fontWeight": "500" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "0em", "fontWeight": "500" }],
+                        "label-lg": ["12px", { "lineHeight": "16px", "letterSpacing": "0.08em", "fontWeight": "600" }],
+                        "title-lg": ["20px", { "lineHeight": "28px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+                        "display-md": ["44px", { "lineHeight": "52px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0.01em", "fontWeight": "400" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body { background-color: #0A0E1A; }
+        .glass-panel {
+            background-color: rgba(38, 42, 55, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(212, 175, 55, 0.15);
+            border-left: 1px solid rgba(212, 175, 55, 0.15);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .glow-hover:hover {
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+            border-color: rgba(212, 175, 55, 0.4);
+            transform: translateY(-2px);
+        }
+        .ambient-glow {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at 20% 30%, rgba(119, 1, 208, 0.08) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 70%, rgba(212, 175, 55, 0.05) 0%, transparent 50%);
+            z-index: -1;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="text-on-surface font-body-md antialiased min-h-screen flex flex-col relative overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
+<div class="ambient-glow"></div>
+
+<!-- Unified Top Navigation Header -->
+<header class="sticky top-0 z-50 w-full bg-[#0a0e1a]/95 backdrop-blur-xl border-b border-[#f2ca50]/15 shadow-[0_4px_25px_rgba(0,0,0,0.6)]">
+  <div class="max-w-[1720px] mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
+    <!-- Brand Logo -->
+    <a href="index.html" class="flex items-center gap-2.5 shrink-0 group">
+      <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-[#f2ca50]/20 to-[#7701d0]/20 border border-[#f2ca50]/30 flex items-center justify-center shadow-[0_0_12px_rgba(242,202,80,0.15)] group-hover:border-[#f2ca50]/60 transition-all">
+        <span class="material-symbols-outlined text-[#f2ca50] text-[18px]" style="font-variation-settings: 'FILL' 1;">hub</span>
+      </div>
+      <span class="font-display-lg text-lg font-bold text-[#f2ca50] tracking-wide group-hover:brightness-110 transition-all">SkillBridge</span>
+    </a>
+
+    <!-- Center Navigation Tabs -->
+    <nav class="flex items-center gap-1 overflow-x-auto py-1 max-w-full">
+      <a href="index.html" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all whitespace-nowrap text-[#d0c5af]/80 hover:text-[#dfe2f3] hover:bg-white/5">
+        <span class="material-symbols-outlined text-[17px]">dashboard</span>
+        <span>Dashboard</span>
+      </a>
+      <a href="profile.html" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all whitespace-nowrap text-[#d0c5af]/80 hover:text-[#dfe2f3] hover:bg-white/5">
+        <span class="material-symbols-outlined text-[17px]">person</span>
+        <span>Profile</span>
+      </a>
+      <a href="opportunities.html" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all whitespace-nowrap text-[#d0c5af]/80 hover:text-[#dfe2f3] hover:bg-white/5">
+        <span class="material-symbols-outlined text-[17px]">work</span>
+        <span>Opportunities</span>
+      </a>
+      <a href="applicants.html" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all whitespace-nowrap text-[#d0c5af]/80 hover:text-[#dfe2f3] hover:bg-white/5">
+        <span class="material-symbols-outlined text-[17px]">groups</span>
+        <span>Applicants</span>
+      </a>
+      <a href="assessments.html" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all whitespace-nowrap text-[#d0c5af]/80 hover:text-[#dfe2f3] hover:bg-white/5">
+        <span class="material-symbols-outlined text-[17px]">assignment</span>
+        <span>Assessments</span>
+      </a>
+      <a href="shortlisted.html" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all whitespace-nowrap text-[#d0c5af]/80 hover:text-[#dfe2f3] hover:bg-white/5">
+        <span class="material-symbols-outlined text-[17px]">star</span>
+        <span>Shortlisted</span>
+      </a>
+      <a href="settings.html" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all whitespace-nowrap text-[#d0c5af]/80 hover:text-[#dfe2f3] hover:bg-white/5">
+        <span class="material-symbols-outlined text-[17px]">settings</span>
+        <span>Settings</span>
+      </a>
+    </nav>
+
+    <!-- Right Action Items -->
+    <div class="flex items-center gap-3 shrink-0">
+      <button class="flex items-center gap-1.5 bg-[#f2ca50] text-[#0a0e1a] font-bold text-xs px-3.5 py-1.5 rounded-lg hover:brightness-110 shadow-[0_0_15px_rgba(242,202,80,0.25)] transition-all">
+        <span class="material-symbols-outlined text-[16px]">add</span>
+        <span>Post Opportunity</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Main Content Area -->
+<main class="flex-1 p-margin-mobile md:p-margin-desktop min-h-screen flex flex-col gap-8 relative z-10 w-full max-w-[1680px] mx-auto">
+<!-- Header -->
+<header class="flex flex-col gap-2 max-w-4xl">
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface font-bold tracking-tight">Final Selection &amp; Offers</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Review final evaluation outcomes and issue candidate selection certificates/offers.</p>
+</header>
+<!-- Actions / Filters Bar -->
+<div class="flex flex-wrap items-center justify-between gap-4 glass-panel p-4 rounded-xl">
+<div class="flex items-center gap-4">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant/70 text-[20px]">search</span>
+<input class="bg-surface-container/50 border border-primary/20 rounded-lg py-2 pl-10 pr-4 text-body-md focus:border-primary/50 focus:outline-none focus:ring-1 focus:ring-primary/50 transition-all text-on-surface placeholder-on-surface-variant/50 w-64" placeholder="Search candidates..." type="text"/>
+</div>
+<button class="flex items-center gap-2 px-4 py-2 rounded-lg glass-panel text-on-surface-variant hover:text-primary transition-colors text-label-lg font-label-lg">
+<span class="material-symbols-outlined text-[18px]">filter_list</span> Filter
+                </button>
+</div>
+<button class="bg-primary text-on-primary font-label-lg text-label-lg px-6 py-2.5 rounded hover:bg-primary-fixed-dim transition-colors flex items-center gap-2 shadow-[0_0_20px_rgba(212,175,55,0.2)]">
+<span class="material-symbols-outlined text-[18px]">send</span> Issue All Pending Offers
+            </button>
+</div>
+<!-- Candidates Grid -->
+<div class="grid grid-cols-1 xl:grid-cols-2 gap-6">
+<!-- Candidate Card 1 -->
+<div class="glass-panel rounded-xl p-6 flex flex-col gap-6 transition-all duration-300 glow-hover group relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-3xl -mr-10 -mt-10 pointer-events-none transition-opacity opacity-0 group-hover:opacity-100"></div>
+<!-- Card Header -->
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-4">
+<div class="w-16 h-16 rounded-full overflow-hidden border border-primary/20 shrink-0">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a young male software developer candidate named Aarav Patel, smiling subtly. High-end lighting, futuristic minimalistic office background, high contrast navy and gold aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDceYHgZFC2O3S8JzuPkLy2tWGQ3uwB51uK8C0_WgW38O29HT8Zw2NVF-6RRMrFQkpwRTBifCWmfMiUfUigZ8tMScZtEVklhyKzZ30YvP4RrEazVcgUYYEFkbJpvbK0_EWTUkhF0vFYh5OhMZb--0FrHx76R-36yfA_F-b9CMU5xDbpterK_jDnRNfAPeRC_9JSBwHml5EWLUGpfCVGWsCbiUbtYrI0wLDjV_lzyubp8PEJu-KCnZGrgw"/>
+</div>
+<div>
+<h3 class="font-title-lg text-title-lg text-on-surface font-semibold">Aarav Patel</h3>
+<p class="font-body-md text-body-md text-on-surface-variant/80">XYZ University</p>
+<div class="flex items-center gap-2 mt-1">
+<span class="material-symbols-outlined text-primary/70 text-[16px]">code</span>
+<span class="font-label-sm text-label-sm text-primary/80 uppercase">Software Developer Intern</span>
+</div>
+</div>
+</div>
+<div class="px-3 py-1 rounded bg-[#0f2e1b]/80 border border-[#1b5e20]/50 flex items-center gap-2 shadow-[0_0_15px_rgba(46,125,50,0.2)]">
+<span class="w-2 h-2 rounded-full bg-[#4caf50] animate-pulse"></span>
+<span class="font-label-sm text-label-sm text-[#81c784] uppercase tracking-wider">[ OFFER EXTENDED ]</span>
+</div>
+</div>
+<!-- Performance Recap -->
+<div class="bg-surface-container-highest/40 rounded-lg p-4 border border-white/5 grid grid-cols-3 gap-4">
+<div class="flex flex-col items-center justify-center p-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant mb-1 uppercase tracking-widest text-center">Match Score</span>
+<div class="flex items-baseline gap-1 text-primary">
+<span class="font-display-md text-headline-lg font-bold">94</span><span class="font-body-md">%</span>
+</div>
+</div>
+<div class="flex flex-col items-center justify-center p-2 border-l border-r border-white/5">
+<span class="font-label-sm text-label-sm text-on-surface-variant mb-1 uppercase tracking-widest text-center">Test Score</span>
+<div class="flex items-baseline gap-1 text-on-surface">
+<span class="font-display-md text-headline-lg font-bold">91</span><span class="font-body-md text-on-surface-variant/50">/100</span>
+</div>
+</div>
+<div class="flex flex-col items-center justify-center p-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant mb-1 uppercase tracking-widest text-center">Interview</span>
+<div class="flex items-baseline gap-1 text-on-surface">
+<span class="font-display-md text-headline-lg font-bold">88</span><span class="font-body-md text-on-surface-variant/50">/100</span>
+</div>
+</div>
+</div>
+<!-- Actions -->
+<div class="flex items-center justify-between pt-2 border-t border-white/5">
+<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors flex items-center gap-1" href="#">
+<span class="material-symbols-outlined text-[16px]">history</span> View Complete Audit Trail
+                    </a>
+<button class="px-4 py-2 rounded glass-panel border border-primary/30 text-primary font-label-lg text-label-lg hover:bg-primary/5 transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">download</span> Download Summary
+                    </button>
+</div>
+</div>
+<!-- Candidate Card 2 (Pending) -->
+<div class="glass-panel rounded-xl p-6 flex flex-col gap-6 transition-all duration-300 glow-hover group relative overflow-hidden opacity-90">
+<!-- Card Header -->
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-4">
+<div class="w-16 h-16 rounded-full overflow-hidden border border-primary/20 shrink-0">
+<img class="w-full h-full object-cover" data-alt="A professional headshot of a young female data scientist candidate named Priya Sharma. High-end lighting, futuristic minimalistic office background, high contrast navy and gold aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6uyinww39iqlQDwosRHBga_LyJwwgwkf8q6-2WaHumB1uFdZev_l5KQLP0Wcxfaz--LcBHIjdKLAncrLNZ_kvaRnR5k0yU6oR6zjlm5055-3VicaJhBnH5E2cGXaqGMn-cxZvwotoGBUUdqKfWINyLB2kUGAVRQD7ZIcXFoVy_dfiSG3fBVVe84ISVI0TqpR5UVSKp8Nyjo0e9-EnVroIUeA4aKp_tvAwSKBHn1Y2FG7-XomEqVqtyA"/>
+</div>
+<div>
+<h3 class="font-title-lg text-title-lg text-on-surface font-semibold">Priya Sharma</h3>
+<p class="font-body-md text-body-md text-on-surface-variant/80">Tech Institute of Excellence</p>
+<div class="flex items-center gap-2 mt-1">
+<span class="material-symbols-outlined text-primary/70 text-[16px]">monitoring</span>
+<span class="font-label-sm text-label-sm text-primary/80 uppercase">Data Analyst Intern</span>
+</div>
+</div>
+</div>
+<div class="px-3 py-1 rounded bg-[#3e2723]/80 border border-[#5d4037]/50 flex items-center gap-2 shadow-[0_0_15px_rgba(255,152,0,0.1)]">
+<span class="w-2 h-2 rounded-full bg-[#ff9800]"></span>
+<span class="font-label-sm text-label-sm text-[#ffb74d] uppercase tracking-wider">Pending Decision</span>
+</div>
+</div>
+<!-- Performance Recap -->
+<div class="bg-surface-container-highest/40 rounded-lg p-4 border border-white/5 grid grid-cols-3 gap-4">
+<div class="flex flex-col items-center justify-center p-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant mb-1 uppercase tracking-widest text-center">Match Score</span>
+<div class="flex items-baseline gap-1 text-primary">
+<span class="font-display-md text-headline-lg font-bold">89</span><span class="font-body-md">%</span>
+</div>
+</div>
+<div class="flex flex-col items-center justify-center p-2 border-l border-r border-white/5">
+<span class="font-label-sm text-label-sm text-on-surface-variant mb-1 uppercase tracking-widest text-center">Test Score</span>
+<div class="flex items-baseline gap-1 text-on-surface">
+<span class="font-display-md text-headline-lg font-bold">95</span><span class="font-body-md text-on-surface-variant/50">/100</span>
+</div>
+</div>
+<div class="flex flex-col items-center justify-center p-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant mb-1 uppercase tracking-widest text-center">Interview</span>
+<div class="flex items-baseline gap-1 text-on-surface">
+<span class="font-display-md text-headline-lg font-bold">82</span><span class="font-body-md text-on-surface-variant/50">/100</span>
+</div>
+</div>
+</div>
+<!-- Actions -->
+<div class="flex items-center justify-between pt-2 border-t border-white/5">
+<a class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors flex items-center gap-1" href="#">
+<span class="material-symbols-outlined text-[16px]">history</span> View Complete Audit Trail
+                    </a>
+<button class="px-4 py-2 rounded bg-primary text-on-primary font-label-lg text-label-lg hover:bg-primary-fixed-dim transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">verified</span> Issue Offer
+                    </button>
+</div>
+</div>
+</div>
+</main>
+</body></html>

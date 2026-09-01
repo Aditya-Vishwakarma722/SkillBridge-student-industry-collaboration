@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<script>window.location.replace("opportunities.html?tab=workshops");</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Workshops &amp; Industrial Training - SkillBridge Opportunities</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "surface-container": "#1b1f2c",
+                "on-primary-container": "#554300",
+                "on-background": "#dfe2f3",
+                "on-secondary-container": "#dbb8ff",
+                "on-surface": "#dfe2f3",
+                "surface": "#0f131f",
+                "on-tertiary-fixed-variant": "#424654",
+                "background": "#0f131f",
+                "secondary-fixed-dim": "#dcb8ff",
+                "primary-fixed-dim": "#e9c349",
+                "on-primary-fixed-variant": "#574500",
+                "secondary-fixed": "#efdbff",
+                "surface-container-low": "#171b28",
+                "tertiary-fixed": "#dfe2f3",
+                "on-surface-variant": "#d0c5af",
+                "on-secondary": "#480082",
+                "on-tertiary-fixed": "#171b27",
+                "surface-container-highest": "#313442",
+                "on-secondary-fixed-variant": "#6700b5",
+                "tertiary-fixed-dim": "#c3c6d6",
+                "on-error": "#690005",
+                "tertiary": "#cacdde",
+                "surface-container-high": "#262a37",
+                "outline": "#99907c",
+                "inverse-on-surface": "#2c303d",
+                "surface-dim": "#0f131f",
+                "secondary-container": "#7701d0",
+                "inverse-primary": "#735c00",
+                "on-error-container": "#ffdad6",
+                "on-primary-fixed": "#241a00",
+                "inverse-surface": "#dfe2f3",
+                "error": "#ffb4ab",
+                "primary-fixed": "#ffe088",
+                "on-tertiary": "#2c303d",
+                "outline-variant": "#4d4635",
+                "surface-variant": "#313442",
+                "surface-tint": "#e9c349",
+                "on-tertiary-container": "#414552",
+                "on-secondary-fixed": "#2b0052",
+                "tertiary-container": "#afb2c2",
+                "error-container": "#93000a",
+                "surface-bright": "#353946",
+                "secondary": "#dcb8ff",
+                "primary-container": "#d4af37",
+                "on-primary": "#3c2f00",
+                "surface-container-lowest": "#0a0e1a",
+                "primary": "#f2ca50"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+        },
+        "spacing": {
+                "margin-mobile": "16px",
+                "margin-desktop": "64px",
+                "unit": "8px",
+                "gutter": "24px",
+                "container-padding": "32px",
+                "stack-md": "16px",
+                "stack-sm": "8px",
+                "sidebar-width": "260px",
+                "container-max-width": "1440px",
+                "stack-lg": "24px",
+        },
+        "fontFamily": {
+                "headline-lg": [
+                        "EB Garamond"
+                ],
+                "headline-lg-mobile": [
+                        "EB Garamond"
+                ],
+                "body-md": [
+                        "Inter"
+                ],
+                "body-lg": [
+                        "Inter"
+                ],
+                "body-sm": [
+                        "Inter"
+                ],
+                "display-md": [
+                        "EB Garamond"
+                ],
+                "label-sm": [
+                        "Inter"
+                ],
+                "display-lg": [
+                        "EB Garamond"
+                ],
+                "label-lg": [
+                        "Inter"
+                ],
+                "label-md": [
+                        "Inter"
+                ],
+                "title-lg": [
+                        "Inter"
+                ],
+                "headline-md": [
+                        "Inter"
+                ]
+        },
+        "fontSize": {
+                "headline-lg": [
+                        "32px",
+                        {
+                                "lineHeight": "40px",
+                                "letterSpacing": "0em",
+                                "fontWeight": "500"
+                        }
+                ],
+                "headline-lg-mobile": [
+                        "28px",
+                        {
+                                "lineHeight": "36px",
+                                "letterSpacing": "0em",
+                                "fontWeight": "500"
+                        }
+                ],
+                "body-md": [
+                        "14px",
+                        {
+                                "lineHeight": "20px",
+                                "letterSpacing": "0.01em",
+                                "fontWeight": "400"
+                        }
+                ],
+                "body-sm": [
+                        "12px", 
+                        {
+                                "lineHeight": "18px", 
+                                "fontWeight": "400"
+                        }
+                ],
+                "body-lg": [
+                        "16px",
+                        {
+                                "lineHeight": "24px",
+                                "letterSpacing": "0.01em",
+                                "fontWeight": "400"
+                        }
+                ],
+                "display-md": [
+                        "44px",
+                        {
+                                "lineHeight": "52px",
+                                "letterSpacing": "-0.01em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "label-sm": [
+                        "10px",
+                        {
+                                "lineHeight": "14px",
+                                "letterSpacing": "0.05em",
+                                "fontWeight": "500"
+                        }
+                ],
+                "display-lg": [
+                        "56px",
+                        {
+                                "lineHeight": "64px",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "label-lg": [
+                        "12px",
+                        {
+                                "lineHeight": "16px",
+                                "letterSpacing": "0.08em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "label-md": [
+                        "12px", 
+                        {
+                                "lineHeight": "16px", 
+                                "letterSpacing": "0.05em", 
+                                "fontWeight": "600"
+                        }
+                ],
+                "title-lg": [
+                        "20px",
+                        {
+                                "lineHeight": "28px",
+                                "letterSpacing": "0.01em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "headline-md": [
+                        "20px", 
+                        {
+                                "lineHeight": "28px", 
+                                "fontWeight": "600"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+<style>
+        body {
+            background-color: #0A0E1A;
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(119, 1, 208, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 85% 30%, rgba(212, 175, 55, 0.05) 0%, transparent 50%);
+            background-attachment: fixed;
+        }
+        .glass-panel {
+            background: rgba(15, 19, 31, 0.6);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+        .glass-panel-glow {
+            box-shadow: 0 0 20px rgba(119, 1, 208, 0.1), inset 0 0 0 1px rgba(212, 175, 55, 0.1);
+        }
+    </style>
+</head>
+<body class="dark antialiased text-on-surface min-h-screen flex flex-col selection:bg-primary-container selection:text-on-primary-container">
+
+<!-- Unified Top Navigation Header -->
+<header class="sticky top-0 z-50 w-full bg-[#0a0e1a]/95 backdrop-blur-xl border-b border-[#f2ca50]/15 shadow-[0_4px_25px_rgba(0,0,0,0.6)]">
+  <div class="max-w-[1720px] mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
+    <!-- Brand Logo -->
+    <a href="index.html" class="flex items-center gap-2.5 shrink-0 group">
+      <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-[#f2ca50]/20 to-[#7701d0]/20 border border-[#f2ca50]/30 flex items-center justify-center shadow-[0_0_12px_rgba(242,202,80,0.15)] group-hover:border-[#f2ca50]/60 transition-all">
+        <span class="material-symbols-outlined text-[#f2ca50] text-[18px]" style="font-variation-settings: 'FILL' 1;">hub</span>
+      </div>
+      <span class="font-display-lg text-lg font-bold text-[#f2ca50] tracking-wide group-hover:brightness-110 transition-all">SkillBridge</span>
+    </a>
+
+    <!-- Center Navigation Tabs -->
+    <nav class="flex items-center gap-1 overflow-x-auto py-1 max-w-full">
+      <a href="index.html" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all whitespace-nowrap text-[#d0c5af]/80 hover:text-[#dfe2f3] hover:bg-white/5">
+        <span class="material-symbols-outlined text-[17px]">dashboard</span>
+        <span>Dashboard</span>
+      </a>
+      <a href="profile.html" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all whitespace-nowrap text-[#d0c5af]/80 hover:text-[#dfe2f3] hover:bg-white/5">
+        <span class="material-symbols-outlined text-[17px]">person</span>
+        <span>Profile</span>
+      </a>
+      <a href="internships.html" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all whitespace-nowrap text-[#d0c5af]/80 hover:text-[#dfe2f3] hover:bg-white/5">
+        <span class="material-symbols-outlined text-[17px]">school</span>
+        <span>Internships</span>
+      </a>
+      <a href="jobs.html" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all whitespace-nowrap text-[#d0c5af]/80 hover:text-[#dfe2f3] hover:bg-white/5">
+        <span class="material-symbols-outlined text-[17px]">work</span>
+        <span>Jobs</span>
+      </a>
+      <a href="workshops.html" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all whitespace-nowrap bg-[#f2ca50]/15 text-[#f2ca50] border border-[#f2ca50]/30 shadow-[0_0_15px_rgba(242,202,80,0.2)]">
+        <span class="material-symbols-outlined text-[17px]">event_available</span>
+        <span>Workshops</span>
+      </a>
+      <a href="applicants.html" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all whitespace-nowrap text-[#d0c5af]/80 hover:text-[#dfe2f3] hover:bg-white/5">
+        <span class="material-symbols-outlined text-[17px]">groups</span>
+        <span>Applicants</span>
+      </a>
+      <a href="assessments.html" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all whitespace-nowrap text-[#d0c5af]/80 hover:text-[#dfe2f3] hover:bg-white/5">
+        <span class="material-symbols-outlined text-[17px]">assignment</span>
+        <span>Assessments</span>
+      </a>
+      <a href="shortlisted.html" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all whitespace-nowrap text-[#d0c5af]/80 hover:text-[#dfe2f3] hover:bg-white/5">
+        <span class="material-symbols-outlined text-[17px]">star</span>
+        <span>Shortlisted</span>
+      </a>
+      <a href="settings.html" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all whitespace-nowrap text-[#d0c5af]/80 hover:text-[#dfe2f3] hover:bg-white/5">
+        <span class="material-symbols-outlined text-[17px]">settings</span>
+        <span>Settings</span>
+      </a>
+    </nav>
+
+    <!-- Right Action Items -->
+    <div class="flex items-center gap-3 shrink-0">
+      <button class="flex items-center gap-1.5 bg-[#f2ca50] text-[#0a0e1a] font-bold text-xs px-3.5 py-1.5 rounded-lg hover:brightness-110 shadow-[0_0_15px_rgba(242,202,80,0.25)] transition-all">
+        <span class="material-symbols-outlined text-[16px]">add</span>
+        <span>Post Opportunity</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Main Content -->
+<main class="p-margin-mobile md:p-container-padding max-w-[1680px] mx-auto w-full min-h-screen">
+<!-- Header Section -->
+<div class="flex justify-between items-start mb-8">
+<div>
+<h1 class="font-display-md text-4xl text-on-surface mb-2 font-headline-lg">Workshops &amp; Industrial Training</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Host skill development programs, technical masterclasses, and Faculty Development Programs (FDPs).</p>
+</div>
+<button class="bg-primary/90 hover:bg-primary text-surface-container-lowest font-label-md text-label-md px-5 py-2.5 rounded-lg transition-colors flex items-center gap-2 border border-primary-fixed shadow-[0_0_15px_rgba(212,175,55,0.2)]">
+<span class="material-symbols-outlined text-sm">add</span> Create Workshop
+            </button>
+</div>
+<!-- Segmented Control Navigation -->
+<div class="glass-panel rounded-lg p-1 inline-flex mb-8">
+<button class="px-4 py-2 rounded-md bg-surface-container/80 text-primary font-label-md text-label-md shadow-sm border border-primary/20">All Programs (6)</button>
+<button class="px-4 py-2 rounded-md text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors">Student Masterclasses (4)</button>
+<button class="px-4 py-2 rounded-md text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors">Faculty FDPs (2)</button>
+<button class="px-4 py-2 rounded-md text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors">Completed (12)</button>
+</div>
+<!-- 3-Column Bento Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+<!-- Column 1: Workshop List (Span 4) -->
+<div class="lg:col-span-4 space-y-4">
+<h2 class="font-headline-md text-headline-md text-on-surface font-headline-lg mb-4">Upcoming Sessions</h2>
+<!-- Active Card -->
+<div class="glass-panel glass-panel-glow rounded-xl p-5 cursor-pointer transition-all">
+<div class="flex justify-between items-start mb-3">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold tracking-wide bg-primary/10 text-primary border border-primary/20">STUDENT WORKSHOP</span>
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">bookmark</span>
+</div>
+<h3 class="font-headline-md text-on-surface text-lg leading-tight mb-2">AI &amp; Cloud Architecture Masterclass</h3>
+<div class="flex items-center gap-2 mb-4">
+<img class="w-6 h-6 rounded-full object-cover border border-white/10" data-alt="A small circular avatar portrait of a female academic professional with glasses, smiling warmly against a neutral gray background. Professional corporate lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCh62jXwrFtUqVplZ5Tr4NkfYe2gyT5cfDMfe5Kn6pbNdi6eKcJkTTLvuM6x6qeThfKWKhGTYcGvXT39TUhZs1QTlntH73NyU-9PFd10H_wMVpMWZTDrfeYJfHJmf7hb1JBfrcvYnc-D5ztsWPPV28YHTu5wK4gWlkbdsZuYsQwWJNai6zjhbmuwsPlXDcSs3YdDNRCE5JeE6zTvLQh0ujVqjNsYOdO8kNGMZJuBhzrCrFpy2m8E14wGA"/>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Dr. Sarah Jenkins</span>
+</div>
+<div class="space-y-2 mb-5">
+<div class="flex items-center gap-2 font-body-sm text-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-sm text-secondary">calendar_today</span> 14 Sep 2026
+                        </div>
+<div class="flex items-center gap-2 font-body-sm text-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-sm text-secondary">schedule</span> 2:00 PM - 5:00 PM
+                        </div>
+</div>
+<div>
+<div class="flex justify-between font-body-sm text-body-sm mb-1.5">
+<span class="text-on-surface-variant">Enrollment</span>
+<span class="text-on-surface font-medium">120 <span class="text-on-surface-variant/50">/ 150</span></span>
+</div>
+<div class="w-full bg-surface-container rounded-full h-1.5 border border-white/5">
+<div class="bg-gradient-to-r from-secondary-container to-primary h-1.5 rounded-full" style="width: 80%"></div>
+</div>
+</div>
+</div>
+<!-- Inactive Card 1 -->
+<div class="glass-panel rounded-xl p-5 cursor-pointer hover:border-white/20 transition-all opacity-80 hover:opacity-100">
+<div class="flex justify-between items-start mb-3">
+<span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold tracking-wide bg-white/5 text-on-surface-variant border border-white/10">FACULTY FDP</span>
+</div>
+<h3 class="font-headline-md text-on-surface text-lg leading-tight mb-2">Advanced Pedagogical Tools in CS</h3>
+<div class="flex items-center gap-2 mb-4">
+<div class="w-6 h-6 rounded-full bg-surface-container flex items-center justify-center text-[10px] font-bold text-on-surface-variant border border-white/10">MK</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Prof. Marcus Khan</span>
+</div>
+<div class="space-y-2 mb-5">
+<div class="flex items-center gap-2 font-body-sm text-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-sm text-secondary">calendar_today</span> 18 Sep 2026
+                        </div>
+</div>
+</div>
+</div>
+<!-- Column 2: Overview (Span 4) -->
+<div class="lg:col-span-4 flex flex-col">
+<h2 class="font-headline-md text-headline-md text-on-surface font-headline-lg mb-4">Workshop Overview</h2>
+<div class="glass-panel rounded-xl p-6 flex-1 flex flex-col">
+<div class="mb-6">
+<h4 class="font-label-md text-label-md text-primary mb-3 uppercase tracking-wider">Target Skills</h4>
+<div class="flex flex-wrap gap-2">
+<span class="px-2.5 py-1 rounded bg-surface-container/50 text-on-surface font-body-sm text-body-sm border border-white/10">PyTorch</span>
+<span class="px-2.5 py-1 rounded bg-surface-container/50 text-on-surface font-body-sm text-body-sm border border-white/10">MLOps</span>
+<span class="px-2.5 py-1 rounded bg-surface-container/50 text-on-surface font-body-sm text-body-sm border border-white/10">Model Deployment</span>
+<span class="px-2.5 py-1 rounded bg-surface-container/50 text-on-surface font-body-sm text-body-sm border border-white/10">AWS</span>
+</div>
+</div>
+<div class="mb-6">
+<h4 class="font-label-md text-label-md text-primary mb-2 uppercase tracking-wider">Target Audience</h4>
+<p class="font-body-md text-body-md text-on-surface mb-1">CSE, IT, Data Science</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Pre-final &amp; Final Year Students only.</p>
+</div>
+<div class="flex-1">
+<h4 class="font-label-md text-label-md text-primary mb-3 uppercase tracking-wider">Objectives &amp; Agenda</h4>
+<ul class="space-y-3">
+<li class="flex gap-3">
+<span class="material-symbols-outlined text-primary text-sm mt-0.5">check_circle</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">Hands-on LLM deployment using industry standard practices and pipelines.</span>
+</li>
+<li class="flex gap-3">
+<span class="material-symbols-outlined text-primary text-sm mt-0.5">check_circle</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">Analysis of real-world industry case studies from top tech firms.</span>
+</li>
+<li class="flex gap-3">
+<span class="material-symbols-outlined text-primary text-sm mt-0.5">check_circle</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">Optimization techniques for latency and throughput in cloud environments.</span>
+</li>
+</ul>
+</div>
+<div class="mt-6 pt-6 border-t border-white/10">
+<button class="w-full py-2 border border-white/20 hover:border-primary/50 hover:bg-white/5 text-on-surface font-label-md text-label-md rounded-lg transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">edit</span> Edit Workshop Details
+                        </button>
+</div>
+</div>
+</div>
+<!-- Column 3: Participant Mgmt (Span 4) -->
+<div class="lg:col-span-4 flex flex-col">
+<h2 class="font-headline-md text-headline-md text-on-surface font-headline-lg mb-4">Participant Management</h2>
+<div class="glass-panel rounded-xl p-0 flex-1 flex flex-col overflow-hidden">
+<!-- Metrics Row -->
+<div class="grid grid-cols-3 divide-x divide-white/10 border-b border-white/10 bg-surface-container/30">
+<div class="p-4 text-center">
+<div class="font-display-lg text-2xl text-on-surface mb-1 font-headline-lg">120</div>
+<div class="font-label-md text-[10px] text-on-surface-variant uppercase">Enrolled</div>
+</div>
+<div class="p-4 text-center">
+<div class="font-display-lg text-2xl text-primary mb-1 font-headline-lg">94</div>
+<div class="font-label-md text-[10px] text-on-surface-variant uppercase">Verified</div>
+</div>
+<div class="p-4 text-center">
+<div class="font-display-lg text-2xl text-secondary mb-1 font-headline-lg">88</div>
+<div class="font-label-md text-[10px] text-on-surface-variant uppercase">Certificates</div>
+</div>
+</div>
+<!-- Participant List -->
+<div class="flex-1 overflow-y-auto p-4 space-y-3">
+<div class="flex items-center justify-between p-3 rounded-lg bg-surface-container/30 border border-white/5">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-secondary-container/20 text-secondary-container flex items-center justify-center font-bold text-xs border border-secondary-container/30">AP</div>
+<div>
+<div class="font-body-sm text-on-surface font-medium">Aarav Patel</div>
+<div class="font-body-sm text-[11px] text-on-surface-variant">B.Tech CSE - 4th Yr</div>
+</div>
+</div>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-medium bg-secondary-container/10 text-secondary-container border border-secondary-container/20">Verified</span>
+</div>
+<div class="flex items-center justify-between p-3 rounded-lg bg-surface-container/30 border border-white/5">
+<div class="flex items-center gap-3">
+<img class="w-8 h-8 rounded-full object-cover border border-white/10" data-alt="A small circular avatar portrait of an older male academic professional with a beard, wearing a tweed jacket against a neutral background. High-quality professional photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3sRpKkxW9sHifYzozo74svvfu1wl7ybVKlcKCYBu7x4p502uSwLTcWhBsRrapes3-C5XWLTip2nbBsJ00uhXkL81Z5SLa4MJ18zHc6f1bufLCQbUIg3zhfFCMbq-mccizTL5IagbI-Shmt7QcCJ0KoeJh9dvZ5KTSQwKF0sPaZyHmzZRQJgzIHbgNtsR-MLroaNsai3X272QD2zEF1ZEGSv-o2sZY_HGWDu_umQiqMd5FinKbhXGgCFxw"/>
+<div>
+<div class="font-body-sm text-on-surface font-medium">Prof. R. Sharma</div>
+<div class="font-body-sm text-[11px] text-on-surface-variant">Observer Faculty</div>
+</div>
+</div>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-medium bg-secondary-container/10 text-secondary-container border border-secondary-container/20">Verified</span>
+</div>
+<div class="flex items-center justify-between p-3 rounded-lg bg-surface-container/30 border border-white/5">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-white/5 text-on-surface-variant flex items-center justify-center font-bold text-xs border border-white/10">NV</div>
+<div>
+<div class="font-body-sm text-on-surface font-medium">Neha Verma</div>
+<div class="font-body-sm text-[11px] text-on-surface-variant">B.Tech IT - 3rd Yr</div>
+</div>
+</div>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-medium bg-white/5 text-on-surface-variant border border-white/10">Pending</span>
+</div>
+</div>
+<!-- Footer Actions -->
+<div class="p-4 border-t border-white/10 bg-surface-container/30 space-y-3">
+<button class="w-full py-2.5 bg-secondary-container/20 hover:bg-secondary-container/30 text-secondary-fixed border border-secondary-container/30 font-label-md text-label-md rounded-lg transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">workspace_premium</span> Issue Certifications
+                        </button>
+<button class="w-full py-2.5 border border-white/20 hover:bg-white/5 text-on-surface-variant font-label-md text-label-md rounded-lg transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">download</span> Download CSV
+                        </button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

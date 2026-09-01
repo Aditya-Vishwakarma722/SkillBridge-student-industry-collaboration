@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Company Portal — SkillBridge</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet"/>
+<script>
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          primary: "#f2ca50",
+          "primary-container": "#d4af37",
+          surface: "#0f131f",
+          "surface-container": "#1b1f2c"
+        }
+      }
+    }
+  };
+</script>
+<style>
+  body {
+    background: #0f131f;
+    color: #dfe2f3;
+    font-family: 'Inter', sans-serif;
+  }
+  .glass-pane {
+    background-color: rgba(22, 27, 46, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+</style>
+</head>
+<body class="min-h-screen bg-[#0f131f] text-[#dfe2f3] flex flex-col">
+
+<main class="flex-1 p-4 md:p-8 max-w-[1200px] mx-auto w-full space-y-6">
+
+  <!-- Header Banner -->
+  <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/10 pb-4">
+    <div>
+      <h1 id="comp-name-header" class="text-2xl font-bold font-serif text-emerald-400">ABC Tech Recruitment Console</h1>
+      <p class="text-xs text-zinc-400">Skill-threshold candidate recruitment, screening evaluation, and pipeline management.</p>
+    </div>
+    
+    <div class="flex gap-3">
+      <a href="opportunities.html" class="px-4 py-2 bg-emerald-500 text-black font-bold rounded-xl text-xs flex items-center gap-1.5 hover:bg-emerald-400 transition-all shadow-md">
+        <span class="material-symbols-outlined text-base">add_circle</span>
+        <span>Create Position</span>
+      </a>
+      <a href="applicants.html" class="px-4 py-2 bg-white/10 text-white font-semibold rounded-xl text-xs flex items-center gap-1.5 hover:bg-white/15 border border-white/15 transition-all">
+        <span class="material-symbols-outlined text-base">groups</span>
+        <span>View Candidates</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Metric Overview Cards -->
+  <div class="grid grid-cols-1 sm:grid-cols-4 gap-4">
+    <div class="glass-pane p-5 rounded-2xl space-y-1">
+      <span class="text-xs text-zinc-400 font-medium">Active Position Listings</span>
+      <h2 id="comp-stat-positions" class="text-2xl font-bold text-emerald-400">2 Listings</h2>
+      <p class="text-[11px] text-zinc-500">Configured with required skill scores</p>
+    </div>
+
+    <div class="glass-pane p-5 rounded-2xl space-y-1">
+      <span class="text-xs text-zinc-400 font-medium">Total Qualified Applicants</span>
+      <h2 id="comp-stat-applicants" class="text-2xl font-bold text-amber-400">0 Candidates</h2>
+      <p class="text-[11px] text-zinc-500">Passed skill vector thresholds</p>
+    </div>
+
+    <div class="glass-pane p-5 rounded-2xl space-y-1">
+      <span class="text-xs text-zinc-400 font-medium">Screening Completed</span>
+      <h2 id="comp-stat-screening" class="text-2xl font-bold text-indigo-400">0 Passed</h2>
+      <p class="text-[11px] text-zinc-500">Completed 20-question test</p>
+    </div>
+
+    <div class="glass-pane p-5 rounded-2xl space-y-1">
+      <span class="text-xs text-zinc-400 font-medium">Shortlisted Candidates</span>
+      <h2 id="comp-stat-shortlisted" class="text-2xl font-bold text-emerald-300">0 Shortlisted</h2>
+      <p class="text-[11px] text-zinc-500">Ready for final recruitment</p>
+    </div>
+  </div>
+
+  <!-- Recent Candidates List -->
+  <section class="glass-pane rounded-2xl p-6 space-y-4">
+    <div class="flex items-center justify-between border-b border-white/10 pb-3">
+      <h2 class="text-base font-bold text-white flex items-center gap-2">
+        <span class="material-symbols-outlined text-emerald-400">person_search</span>
+        Recent Candidate Applications Pipeline
+      </h2>
+      <a href="applicants.html" class="text-xs text-emerald-400 hover:underline">Manage All Applicants →</a>
+    </div>
+
+    <div id="recent-candidates-list" class="space-y-3">
+      <!-- Populated via store.js -->
+    </div>
+  </section>
+
+</main>
+
+<script src="../js/store.js"></script>
+<script src="../js/nav.js"></script>
+<script>
+  function renderDashboard() {
+    if (!window.SkillBridgeStore) return;
+
+    const user = window.SkillBridgeStore.getCurrentUser();
+    document.getElementById('comp-name-header').innerText = `${user.name || 'ABC Tech'} Recruitment Console`;
+
+    const state = window.SkillBridgeStore.getState();
+    const myOpps = state.opportunities.filter(o => o.companyId === user.id || user.role === 'company');
+    const myOppIds = new Set(myOpps.map(o => o.id));
+
+    const myApps = (state.applications || []).filter(a => myOppIds.has(a.opportunityId) || a.companyName === user.name || user.role === 'company');
+
+    document.getElementById('comp-stat-positions').innerText = `${myOpps.length} Positions`;
+    document.getElementById('comp-stat-applicants').innerText = `${myApps.length} Candidates`;
+    document.getElementById('comp-stat-screening').innerText = `${myApps.filter(a => a.screeningScore !== null && a.screeningScore !== undefined).length} Completed`;
+    document.getElementById('comp-stat-shortlisted').innerText = `${myApps.filter(a => a.status === 'Shortlisted' || a.status === 'Selected').length} Shortlisted`;
+
+    const list = document.getElementById('recent-candidates-list');
+    list.innerHTML = '';
+
+    if (myApps.length === 0) {
+      list.innerHTML = `
+        <div class="text-center py-8 text-xs text-zinc-400">
+          No candidates in pipeline yet. Students applying from Opportunity Interface will appear here in real time.
+        </div>
+      `;
+      return;
+    }
+
+    myApps.slice(0, 5).forEach(app => {
+      list.innerHTML += `
+        <div class="bg-black/30 border border-white/10 p-4 rounded-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+          <div>
+            <div class="flex items-center gap-2">
+              <h3 class="text-sm font-bold text-white">${app.studentName}</h3>
+              <span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 text-[10px] font-bold border border-emerald-500/30">${app.college || 'Aditya University'}</span>
+            </div>
+            <p class="text-xs text-zinc-300">Applied for: <strong class="text-amber-300">${app.opportunityTitle}</strong></p>
+            <p class="text-[11px] text-zinc-400">Match Score: ${app.matchScore}% | Screening Score: ${app.screeningScore !== null && app.screeningScore !== undefined ? app.screeningScore + '/20' : 'Pending'}</p>
+          </div>
+
+          <div class="flex items-center gap-2">
+            <span class="px-2.5 py-1 rounded-full text-xs font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30">${app.status}</span>
+            <a href="applicants.html" class="px-3 py-1.5 bg-white/10 hover:bg-white/15 text-white rounded-lg text-xs font-semibold">Review</a>
+          </div>
+        </div>
+      `;
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    renderDashboard();
+    window.addEventListener('skillbridge-state-change', renderDashboard);
+  });
+</script>
+</body>
+</html>

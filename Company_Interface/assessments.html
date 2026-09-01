@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Academic Nexus - Assessments</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              keyframes: {
+                'fade-in-up': {
+                  '0%': { opacity: '0', transform: 'translateY(20px)' },
+                  '100%': { opacity: '1', transform: 'translateY(0)' },
+                }
+              },
+              animation: {
+                'fade-in-up': 'fade-in-up 0.5s ease-out forwards',
+              },
+              "colors": {
+                      "on-primary-fixed": "#241a00",
+                      "surface-dim": "#0f131f",
+                      "secondary-fixed": "#efdbff",
+                      "primary-fixed-dim": "#e9c349",
+                      "on-background": "#dfe2f3",
+                      "secondary-container": "#7701d0",
+                      "on-secondary-fixed-variant": "#6700b5",
+                      "primary-container": "#d4af37",
+                      "tertiary-fixed": "#dfe2f3",
+                      "inverse-on-surface": "#2c303d",
+                      "tertiary-container": "#afb2c2",
+                      "on-tertiary-fixed-variant": "#424654",
+                      "on-tertiary-fixed": "#171b27",
+                      "on-secondary-fixed": "#2b0052",
+                      "on-error-container": "#ffdad6",
+                      "surface-container-lowest": "#0a0e1a",
+                      "outline-variant": "#4d4635",
+                      "on-primary-fixed-variant": "#574500",
+                      "surface-container-low": "#171b28",
+                      "secondary": "#dcb8ff",
+                      "on-surface": "#dfe2f3",
+                      "on-tertiary-container": "#414552",
+                      "inverse-surface": "#dfe2f3",
+                      "primary-fixed": "#ffe088",
+                      "on-tertiary": "#2c303d",
+                      "error": "#ffb4ab",
+                      "surface-container-highest": "#313442",
+                      "surface-bright": "#353946",
+                      "surface-variant": "#313442",
+                      "inverse-primary": "#735c00",
+                      "on-primary-container": "#554300",
+                      "surface-container": "#1b1f2c",
+                      "tertiary": "#cacdde",
+                      "surface-tint": "#e9c349",
+                      "on-error": "#690005",
+                      "background": "#0f131f",
+                      "tertiary-fixed-dim": "#c3c6d6",
+                      "on-surface-variant": "#d0c5af",
+                      "primary": "#f2ca50",
+                      "on-secondary-container": "#dbb8ff",
+                      "surface-container-high": "#262a37",
+                      "error-container": "#93000a",
+                      "on-secondary": "#480082",
+                      "secondary-fixed-dim": "#dcb8ff",
+                      "surface": "#0f131f",
+                      "outline": "#99907c",
+                      "on-primary": "#3c2f00"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-mobile": "16px",
+                      "margin-desktop": "64px",
+                      "unit": "8px",
+                      "gutter": "24px",
+                      "container-padding": "32px"
+              },
+              "fontFamily": {
+                      "label-lg": [
+                              "Inter"
+                      ],
+                      "label-sm": [
+                              "Inter"
+                      ],
+                      "title-lg": [
+                              "Inter"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "headline-lg-mobile": [
+                              "EB Garamond"
+                      ],
+                      "display-lg": [
+                              "EB Garamond"
+                      ],
+                      "display-md": [
+                              "EB Garamond"
+                      ],
+                      "headline-lg": [
+                              "EB Garamond"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "label-lg": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.08em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-sm": [
+                              "10px",
+                              {
+                                      "lineHeight": "14px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "title-lg": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "letterSpacing": "0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "letterSpacing": "0.01em",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "28px",
+                              {
+                                      "lineHeight": "36px",
+                                      "letterSpacing": "0em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "display-lg": [
+                              "56px",
+                              {
+                                      "lineHeight": "64px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-md": [
+                              "44px",
+                              {
+                                      "lineHeight": "52px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "0em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "body-lg": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "letterSpacing": "0.01em",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.surface-container-lowest');
+            color: theme('colors.on-surface');
+            background-attachment: fixed;
+        }
+        
+        .glass-panel {
+            background-color: rgba(15, 19, 31, 0.4); /* bg-surface/40 */
+            backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(212, 175, 55, 0.15); /* #D4AF37 */
+            border-left: 1px solid rgba(212, 175, 55, 0.15); /* #D4AF37 */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .ambient-glow:focus-within, .ambient-glow:hover {
+            box-shadow: 0 0 40px rgba(119, 1, 208, 0.2); /* #7701D0 */
+        }
+        
+        .btn-primary {
+            background-color: theme('colors.primary-container');
+            color: theme('colors.surface-container-lowest');
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            filter: brightness(1.1);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+        }
+        
+        .btn-secondary {
+            background-color: theme('colors.surface-dim/50');
+            border: 1px solid theme('colors.primary-container');
+            color: theme('colors.primary-container');
+            transition: all 0.3s ease;
+        }
+        
+        .btn-secondary:hover {
+            background-color: theme('colors.surface-dim/80');
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.15);
+        }
+
+        .status-badge {
+            background-color: theme('colors.secondary-container/20');
+            border: 1px solid theme('colors.secondary-container/50');
+            color: theme('colors.on-surface');
+        }
+        .status-badge.passed {
+            background-color: rgba(16, 185, 129, 0.1);
+            border-color: rgba(16, 185, 129, 0.3);
+            color: rgba(16, 185, 129, 1);
+        }
+        
+        .table-divider {
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.15), transparent);
+            height: 1px;
+            width: 100%;
+        }
+    </style>
+<script src="https://unpkg.com/@auroratide/webgl-shader" type="module"></script>
+</head>
+<body class="antialiased font-body-md selection:bg-primary-container/30 selection:text-primary-container relative">
+<!-- STITCH_SHADER_START:ANIMATION_58 class="fixed inset-0 w-full h-full -z-10" -->
+<div class="fixed inset-0 w-full h-full -z-10" style="display:block;">
+<canvas id="shader-canvas-ANIMATION_58" style="display:block;width:100%;height:100%"></canvas>
+<script>
+(function() {
+  const canvas = document.getElementById('shader-canvas-ANIMATION_58');
+
+  // Sync the WebGL drawing-buffer size with the CSS-driven layout size.
+  // This fires on initial layout and whenever the element is resized.
+  function syncSize() {
+    const w = canvas.clientWidth  || 1280;
+    const h = canvas.clientHeight || 720;
+    if (canvas.width !== w || canvas.height !== h) {
+      canvas.width  = w;
+      canvas.height = h;
+    }
+  }
+  if (typeof ResizeObserver !== 'undefined') {
+    new ResizeObserver(syncSize).observe(canvas);
+  }
+  syncSize();
+
+  const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+  if (!gl) return;
+  const vs = `attribute vec2 a_position;
+varying vec2 v_texCoord;
+void main() {
+  v_texCoord = a_position * 0.5 + 0.5;
+  gl_Position = vec4(a_position, 0.0, 1.0);
+}`;
+  const fs = `precision highp float;
+uniform float u_time;
+uniform vec2 u_resolution;
+uniform vec2 u_mouse;
+varying vec2 v_texCoord;
+
+void main() {
+    vec2 uv = v_texCoord;
+    
+    // Create soft, moving gradients for the "Royal Obsidian" theme
+    vec3 color1 = vec3(0.039, 0.047, 0.078); // #0A0E1A
+    vec3 color2 = vec3(0.059, 0.075, 0.122); // #0F131F
+    vec3 goldAccent = vec3(0.831, 0.686, 0.216) * 0.1; // Subdued gold
+    vec3 purpleAccent = vec3(0.467, 0.004, 0.816) * 0.15; // Subdued purple
+    
+    // Background noise and movement
+    float noise = sin(uv.x * 3.0 + u_time * 0.2) * cos(uv.y * 2.0 + u_time * 0.3);
+    vec3 base = mix(color1, color2, uv.y + noise * 0.1);
+    
+    // Ambient light spots
+    float goldSpot = 1.0 - distance(uv, vec2(0.8, 0.2) + vec2(sin(u_time*0.5)*0.1, cos(u_time*0.3)*0.1));
+    float purpleSpot = 1.0 - distance(uv, vec2(0.2, 0.8) + vec2(cos(u_time*0.4)*0.1, sin(u_time*0.6)*0.1));
+    
+    base += goldAccent * pow(max(0.0, goldSpot), 3.0);
+    base += purpleAccent * pow(max(0.0, purpleSpot), 3.0);
+    
+    // Mouse interaction glow
+    vec2 m = u_mouse / u_resolution;
+    float mouseGlow = 1.0 - distance(uv, m);
+    base += purpleAccent * pow(max(0.0, mouseGlow), 4.0) * 0.5;
+
+    gl_FragColor = vec4(base, 1.0);
+}`;
+  function cs(type, src) {
+    const s = gl.createShader(type);
+    gl.shaderSource(s, src);
+    gl.compileShader(s);
+    return s;
+  }
+  const prog = gl.createProgram();
+  gl.attachShader(prog, cs(gl.VERTEX_SHADER, vs));
+  gl.attachShader(prog, cs(gl.FRAGMENT_SHADER, fs));
+  gl.linkProgram(prog);
+  gl.useProgram(prog);
+  const buf = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, 1,1]), gl.STATIC_DRAW);
+  const pos = gl.getAttribLocation(prog, 'a_position');
+  gl.enableVertexAttribArray(pos);
+  gl.vertexAttribPointer(pos, 2, gl.FLOAT, false, 0, 0);
+  const uTime = gl.getUniformLocation(prog, 'u_time');
+  const uRes = gl.getUniformLocation(prog, 'u_resolution');
+  const uMouse = gl.getUniformLocation(prog, 'u_mouse');
+
+  // u_mouse is in pixel coordinates matching u_resolution (ShaderToy convention).
+  // Shaders that need normalized coords should use: u_mouse / u_resolution.
+  let mouse = { x: canvas.width / 2, y: canvas.height / 2 };
+  window.addEventListener('mousemove', (event) => {
+    const rect = canvas.getBoundingClientRect();
+    if (rect.width && rect.height) {
+      const nx = (event.clientX - rect.left) / rect.width;
+      const ny = 1.0 - (event.clientY - rect.top) / rect.height;
+      mouse.x = nx * canvas.width;
+      mouse.y = ny * canvas.height;
+    }
+  });
+
+  function render(t) {
+    if (typeof ResizeObserver === 'undefined') syncSize();
+    gl.viewport(0, 0, canvas.width, canvas.height);
+    if (uTime) gl.uniform1f(uTime, t * 0.001);
+    if (uRes) gl.uniform2f(uRes, canvas.width, canvas.height);
+    if (uMouse) gl.uniform2f(uMouse, mouse.x, mouse.y);
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+    requestAnimationFrame(render);
+  }
+  render(0);
+})();
+</script>
+</div>
+<!-- STITCH_SHADER_END:ANIMATION_58 -->
+
+<!-- Unified Top Navigation Header -->
+<header class="sticky top-0 z-50 w-full bg-[#0a0e1a]/95 backdrop-blur-xl border-b border-[#f2ca50]/15 shadow-[0_4px_25px_rgba(0,0,0,0.6)]">
+  <div class="max-w-[1720px] mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
+    <!-- Brand Logo -->
+    <a href="index.html" class="flex items-center gap-2.5 shrink-0 group">
+      <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-[#f2ca50]/20 to-[#7701d0]/20 border border-[#f2ca50]/30 flex items-center justify-center shadow-[0_0_12px_rgba(242,202,80,0.15)] group-hover:border-[#f2ca50]/60 transition-all">
+        <span class="material-symbols-outlined text-[#f2ca50] text-[18px]" style="font-variation-settings: 'FILL' 1;">hub</span>
+      </div>
+      <span class="font-display-lg text-lg font-bold text-[#f2ca50] tracking-wide group-hover:brightness-110 transition-all">SkillBridge</span>
+    </a>
+
+    <!-- Center Navigation Tabs -->
+    <nav class="flex items-center gap-1 overflow-x-auto py-1 max-w-full">
+      <a href="index.html" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all whitespace-nowrap text-[#d0c5af]/80 hover:text-[#dfe2f3] hover:bg-white/5">
+        <span class="material-symbols-outlined text-[17px]">dashboard</span>
+        <span>Dashboard</span>
+      </a>
+      <a href="profile.html" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all whitespace-nowrap text-[#d0c5af]/80 hover:text-[#dfe2f3] hover:bg-white/5">
+        <span class="material-symbols-outlined text-[17px]">person</span>
+        <span>Profile</span>
+      </a>
+      <a href="opportunities.html" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all whitespace-nowrap text-[#d0c5af]/80 hover:text-[#dfe2f3] hover:bg-white/5">
+        <span class="material-symbols-outlined text-[17px]">work</span>
+        <span>Opportunities</span>
+      </a>
+      <a href="applicants.html" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all whitespace-nowrap text-[#d0c5af]/80 hover:text-[#dfe2f3] hover:bg-white/5">
+        <span class="material-symbols-outlined text-[17px]">groups</span>
+        <span>Applicants</span>
+      </a>
+      <a href="assessments.html" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all whitespace-nowrap bg-[#f2ca50]/15 text-[#f2ca50] border border-[#f2ca50]/30 shadow-[0_0_15px_rgba(242,202,80,0.2)]">
+        <span class="material-symbols-outlined text-[17px]">assignment</span>
+        <span>Assessments</span>
+      </a>
+      <a href="shortlisted.html" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all whitespace-nowrap text-[#d0c5af]/80 hover:text-[#dfe2f3] hover:bg-white/5">
+        <span class="material-symbols-outlined text-[17px]">star</span>
+        <span>Shortlisted</span>
+      </a>
+      <a href="settings.html" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all whitespace-nowrap text-[#d0c5af]/80 hover:text-[#dfe2f3] hover:bg-white/5">
+        <span class="material-symbols-outlined text-[17px]">settings</span>
+        <span>Settings</span>
+      </a>
+    </nav>
+
+    <!-- Right Action Items -->
+    <div class="flex items-center gap-3 shrink-0">
+      <button class="flex items-center gap-1.5 bg-[#f2ca50] text-[#0a0e1a] font-bold text-xs px-3.5 py-1.5 rounded-lg hover:brightness-110 shadow-[0_0_15px_rgba(242,202,80,0.25)] transition-all">
+        <span class="material-symbols-outlined text-[16px]">add</span>
+        <span>Post Opportunity</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Main Content -->
+<main class="py-8 px-margin-mobile md:px-margin-desktop min-h-screen w-full max-w-[1680px] mx-auto">
+<!-- Header Section -->
+<div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-10 gap-6">
+<div class="flex flex-wrap gap-2">
+<button class="glass-panel px-4 py-2 rounded-lg font-label-lg text-label-lg text-primary border-primary/30 bg-primary/5 transition-all">All (8)</button>
+<button class="glass-panel px-4 py-2 rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-all">Active (4)</button>
+<button class="glass-panel px-4 py-2 rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-all">Draft (2)</button>
+<button class="glass-panel px-4 py-2 rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-all">Completed (2)</button>
+</div>
+<button class="btn-primary font-label-lg text-label-lg px-6 py-3 rounded-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">add</span>
+                Create Assessment
+            </button>
+</div>
+<!-- Active Assessments Grid -->
+<section class="mb-12">
+<h3 class="font-headline-lg text-headline-lg mb-6 text-on-surface">Active Assessments</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Card 1 -->
+<div class="glass-panel rounded-xl p-6 ambient-glow transition-all duration-300 hover:scale-[1.02] flex flex-col h-full group animate-fade-in-up">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-primary/10 rounded-lg text-primary">
+<span class="material-symbols-outlined">code</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-high px-2 py-1 rounded">Active</span>
+</div>
+<h4 class="font-title-lg text-title-lg text-primary mb-1 font-display-md" style="font-size: 24px; line-height: 32px;">Full Stack Fundamentals</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Software Engineering Intern</p>
+<div class="mt-auto space-y-3 mb-6">
+<div class="flex items-center text-on-surface-variant font-label-lg text-label-lg">
+<span class="material-symbols-outlined text-sm mr-2 opacity-70">format_list_bulleted</span> 20 Questions
+                        </div>
+<div class="flex items-center text-on-surface-variant font-label-lg text-label-lg">
+<span class="material-symbols-outlined text-sm mr-2 opacity-70">timer</span> 60 mins
+                        </div>
+<div class="flex items-center text-on-surface-variant font-label-lg text-label-lg">
+<span class="material-symbols-outlined text-sm mr-2 opacity-70">group</span> 124 Enrolled
+                        </div>
+</div>
+<div class="table-divider mb-4"></div>
+<button class="text-primary font-label-lg text-label-lg flex items-center justify-between w-full group-hover:text-primary-fixed transition-colors">
+                        View Results <span class="material-symbols-outlined transform group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+<!-- Card 2 -->
+<div class="glass-panel rounded-xl p-6 ambient-glow transition-all duration-300 hover:scale-[1.02] flex flex-col h-full group animate-fade-in-up" style="animation-delay: 100ms;">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-primary/10 rounded-lg text-primary">
+<span class="material-symbols-outlined">analytics</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-high px-2 py-1 rounded">Active</span>
+</div>
+<h4 class="font-title-lg text-title-lg text-primary mb-1 font-display-md" style="font-size: 24px; line-height: 32px;">Data Science Logic Test</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Data Analyst Intern</p>
+<div class="mt-auto space-y-3 mb-6">
+<div class="flex items-center text-on-surface-variant font-label-lg text-label-lg">
+<span class="material-symbols-outlined text-sm mr-2 opacity-70">format_list_bulleted</span> 15 Questions
+                        </div>
+<div class="flex items-center text-on-surface-variant font-label-lg text-label-lg">
+<span class="material-symbols-outlined text-sm mr-2 opacity-70">timer</span> 45 mins
+                        </div>
+<div class="flex items-center text-on-surface-variant font-label-lg text-label-lg">
+<span class="material-symbols-outlined text-sm mr-2 opacity-70">group</span> 89 Enrolled
+                        </div>
+</div>
+<div class="table-divider mb-4"></div>
+<button class="text-primary font-label-lg text-label-lg flex items-center justify-between w-full group-hover:text-primary-fixed transition-colors">
+                        View Results <span class="material-symbols-outlined transform group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+<!-- Card 3 -->
+<div class="glass-panel rounded-xl p-6 ambient-glow transition-all duration-300 hover:scale-[1.02] flex flex-col h-full group animate-fade-in-up" style="animation-delay: 200ms;">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-primary/10 rounded-lg text-primary">
+<span class="material-symbols-outlined">brush</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-high px-2 py-1 rounded">Active</span>
+</div>
+<h4 class="font-title-lg text-title-lg text-primary mb-1 font-display-md" style="font-size: 24px; line-height: 32px;">UI/UX Design Challenge</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Product Design Intern</p>
+<div class="mt-auto space-y-3 mb-6">
+<div class="flex items-center text-on-surface-variant font-label-lg text-label-lg">
+<span class="material-symbols-outlined text-sm mr-2 opacity-70">format_list_bulleted</span> 1 Project
+                        </div>
+<div class="flex items-center text-on-surface-variant font-label-lg text-label-lg">
+<span class="material-symbols-outlined text-sm mr-2 opacity-70">timer</span> 72 hours
+                        </div>
+<div class="flex items-center text-on-surface-variant font-label-lg text-label-lg">
+<span class="material-symbols-outlined text-sm mr-2 opacity-70">group</span> 45 Enrolled
+                        </div>
+</div>
+<div class="table-divider mb-4"></div>
+<button class="text-primary font-label-lg text-label-lg flex items-center justify-between w-full group-hover:text-primary-fixed transition-colors">
+                        View Results <span class="material-symbols-outlined transform group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Assessment Results Section -->
+<section class="glass-panel rounded-2xl p-6 md:p-8 ambient-glow relative overflow-hidden animate-fade-in-up" style="animation-delay: 300ms;">
+<!-- Decorative background blur -->
+<div class="absolute -top-24 -right-24 w-96 h-96 bg-secondary-container/10 rounded-full blur-3xl pointer-events-none"></div>
+<div class="flex justify-between items-end mb-8 relative z-10">
+<div>
+<h3 class="font-headline-lg text-headline-lg text-on-surface mb-2">Results Overview</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Full Stack Fundamentals - Cohort A</p>
+</div>
+<button class="btn-secondary font-label-lg text-label-lg px-4 py-2 rounded-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">download</span> Export
+                </button>
+</div>
+<!-- Summary Metrics -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 relative z-10">
+<div class="glass-panel rounded-xl p-6 border-primary/20">
+<p class="font-label-lg text-label-lg text-on-surface-variant uppercase mb-2">Average Score</p>
+<p class="font-display-md text-display-md text-primary">78<span class="text-title-lg">%</span></p>
+</div>
+<div class="glass-panel rounded-xl p-6 border-[rgba(16,185,129,0.2)]">
+<p class="font-label-lg text-label-lg text-on-surface-variant uppercase mb-2">Passed</p>
+<p class="font-display-md text-display-md" style="color: #10B981;">64</p>
+</div>
+<div class="glass-panel rounded-xl p-6 border-[rgba(245,158,11,0.2)]">
+<p class="font-label-lg text-label-lg text-on-surface-variant uppercase mb-2">Pending</p>
+<p class="font-display-md text-display-md" style="color: #F59E0B;">12</p>
+</div>
+</div>
+<!-- Results Table -->
+<div class="overflow-x-auto relative z-10">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr>
+<th class="font-label-lg text-label-lg text-on-surface-variant pb-4 pl-4 uppercase tracking-wider font-semibold">Student Name</th>
+<th class="font-label-lg text-label-lg text-on-surface-variant pb-4 uppercase tracking-wider font-semibold text-center">Tech Score</th>
+<th class="font-label-lg text-label-lg text-on-surface-variant pb-4 uppercase tracking-wider font-semibold text-center">Aptitude Score</th>
+<th class="font-label-lg text-label-lg text-on-surface-variant pb-4 uppercase tracking-wider font-semibold text-center">Overall Score</th>
+<th class="font-label-lg text-label-lg text-on-surface-variant pb-4 uppercase tracking-wider font-semibold text-center">Status</th>
+<th class="font-label-lg text-label-lg text-on-surface-variant pb-4 pr-4 uppercase tracking-wider font-semibold text-right">Action</th>
+</tr>
+</thead>
+<tbody class="font-body-md text-body-md">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-high/30 transition-colors group">
+<td class="py-4 pl-4 border-t border-[rgba(255,255,255,0.05)]">
+<div class="flex items-center space-x-3">
+<img class="w-8 h-8 rounded-full object-cover" data-alt="A small circular avatar of a young female student with dark hair, looking professional. Soft studio lighting. Digital painting style, high realism, minimalist dark background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBahQ1o-l75TO_mc1RVEb-oUe5eSnxQIZgLo8PT2Sq8n4LIohtC_6CX1NoV73eKL2psiMep2Lna2NAxX5Ard3nOa9iKygshLKjYoMxiiti-6rfV8UZjp3VpQN7yxHbUsytjWuKJtkeeScZu5r4tUzesY1cCsA-H6DKOQSlvQsPXGMEB7RfGMRRDyERvRztT0GMWjJMj8bCAFPd4v1rCOp-WrQv7n4FrkmfgPopMU5vx4774KTKqO5JI_Q"/>
+<span class="text-on-surface font-medium">Elena Rostova</span>
+</div>
+</td>
+<td class="py-4 border-t border-[rgba(255,255,255,0.05)] text-center text-on-surface">92%</td>
+<td class="py-4 border-t border-[rgba(255,255,255,0.05)] text-center text-on-surface">88%</td>
+<td class="py-4 border-t border-[rgba(255,255,255,0.05)] text-center font-semibold text-primary">90%</td>
+<td class="py-4 border-t border-[rgba(255,255,255,0.05)] text-center">
+<span class="font-label-sm text-label-sm px-3 py-1 rounded-full status-badge passed uppercase tracking-widest font-bold">Passed</span>
+</td>
+<td class="py-4 pr-4 border-t border-[rgba(255,255,255,0.05)] text-right">
+<button class="font-label-lg text-label-lg text-primary hover:text-primary-fixed opacity-0 group-hover:opacity-100 transition-opacity">View Details</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-high/30 transition-colors group">
+<td class="py-4 pl-4 border-t border-[rgba(255,255,255,0.05)]">
+<div class="flex items-center space-x-3">
+<img class="w-8 h-8 rounded-full object-cover" data-alt="A small circular avatar of a male student with short hair, wearing glasses. Professional corporate aesthetic. Soft rim lighting. Minimalist dark background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAx4I9nU31mSKTdkgfKFAyzn3oYPnBjSi2moV2Ezoo0so3goWshWiQae36wpxqaV33uB0n5hZkDaefKwjiflJyi1bs_xy54M_NMnwyA452_Yt2YaRqX3ORb90WPXo-kJM83d_n6pUTi0lo6PT7q2tKtS3x8wijwLaahOMfJoky-QoIkVeYp-3NisSjRGjssluxQKIl5f8eCYXUiNGQhEYJ2VeWo11YgUnpWdHMqHiALPDyLQNOaalC8Nw"/>
+<span class="text-on-surface font-medium">Marcus Chen</span>
+</div>
+</td>
+<td class="py-4 border-t border-[rgba(255,255,255,0.05)] text-center text-on-surface">85%</td>
+<td class="py-4 border-t border-[rgba(255,255,255,0.05)] text-center text-on-surface">76%</td>
+<td class="py-4 border-t border-[rgba(255,255,255,0.05)] text-center font-semibold text-primary">81%</td>
+<td class="py-4 border-t border-[rgba(255,255,255,0.05)] text-center">
+<span class="font-label-sm text-label-sm px-3 py-1 rounded-full status-badge passed uppercase tracking-widest font-bold">Passed</span>
+</td>
+<td class="py-4 pr-4 border-t border-[rgba(255,255,255,0.05)] text-right">
+<button class="font-label-lg text-label-lg text-primary hover:text-primary-fixed opacity-0 group-hover:opacity-100 transition-opacity">View Details</button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-high/30 transition-colors group">
+<td class="py-4 pl-4 border-t border-[rgba(255,255,255,0.05)] border-b border-[rgba(255,255,255,0.05)]">
+<div class="flex items-center space-x-3">
+<img class="w-8 h-8 rounded-full object-cover p-1 bg-surface-container" data-alt="A small circular avatar of an abstract user silhouette, rendered in dark glowing purple and gold tones. Futuristic tech aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC16wA-cFufqsswF1rF2qbBqN_U0nxWJnPY3kyxnQU7EYdtoI-tRX_X4gKjWf_1GYhQcnXWO5wTBeLctkQ5Lw53KS8nte3NQlwDF8BmKVOo4n5x6ez6lXxqsRiYVHr1PWFQIDcFib7e4fUdawsd5yb7gLFQL89dCjX6BaHpCTNZ61fg8l0Xonc8urDFzB5FpOQlithcEVFFDKFjpTIdZxcDfUBLOkAqnE2BWAZ9SoMIYE14g9jxB1pvcA"/>
+<span class="text-on-surface font-medium">Sarah Jenkins</span>
+</div>
+</td>
+<td class="py-4 border-t border-[rgba(255,255,255,0.05)] border-b border-[rgba(255,255,255,0.05)] text-center text-on-surface">62%</td>
+<td class="py-4 border-t border-[rgba(255,255,255,0.05)] border-b border-[rgba(255,255,255,0.05)] text-center text-on-surface">70%</td>
+<td class="py-4 border-t border-[rgba(255,255,255,0.05)] border-b border-[rgba(255,255,255,0.05)] text-center font-semibold text-on-surface-variant">66%</td>
+<td class="py-4 border-t border-[rgba(255,255,255,0.05)] border-b border-[rgba(255,255,255,0.05)] text-center">
+<span class="font-label-sm text-label-sm px-3 py-1 rounded-full status-badge uppercase tracking-widest font-bold" style="background-color: rgba(245,158,11,0.1); border-color: rgba(245,158,11,0.3); color: #F59E0B;">Pending</span>
+</td>
+<td class="py-4 pr-4 border-t border-[rgba(255,255,255,0.05)] border-b border-[rgba(255,255,255,0.05)] text-right">
+<button class="font-label-lg text-label-lg text-primary hover:text-primary-fixed opacity-0 group-hover:opacity-100 transition-opacity">View Details</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="mt-6 flex justify-center">
+<button class="font-label-lg text-label-lg text-on-surface-variant hover:text-primary transition-colors flex items-center">
+                    Load More <span class="material-symbols-outlined ml-1 text-sm">expand_more</span>
+</button>
+</div>
+</section>
+</main>
+</body></html>
