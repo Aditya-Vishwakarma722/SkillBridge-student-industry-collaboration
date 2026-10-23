@@ -1,12 +1,12 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html class="dark" lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>SkillBridge — Skill-Based Opportunities & Matching Engine</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
+<title>SkillBridge â€” Skill-Based Opportunities & Matching Engine</title>
+<script src="https://cdn.tailwindcss.com•plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2•family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2•family=Inter:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
 <script>
   tailwind.config = {
     darkMode: "class",
@@ -85,8 +85,8 @@
 </div>
 
 <!-- Application Action Modal -->
-<div id="action-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/80 backdrop-blur-md">
-  <div class="glass-panel w-full max-w-md rounded-2xl p-6 relative bg-[#161B2E] border border-amber-500/30 text-center space-y-4">
+<div id="action-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/80 backdrop-blur-md" onclick="handleModalOutsideClick(event)">
+  <div class="glass-panel w-full max-w-md rounded-2xl p-6 relative bg-[#161B2E] border border-amber-500/30 text-center space-y-4" onclick="event.stopPropagation()">
     <div id="modal-icon" class="w-16 h-16 rounded-full mx-auto flex items-center justify-center"></div>
     <h3 id="modal-title" class="font-bold text-lg text-white"></h3>
     <p id="modal-desc" class="text-xs text-zinc-300"></p>
@@ -147,12 +147,12 @@
       let skillsBadgesHTML = '';
       if (opp.requiredSkills) {
         for (const [skill, reqScore] of Object.entries(opp.requiredSkills)) {
-          const studentScore = (student.skills && student.skills[skill]) !== undefined ? student.skills[skill] : 0;
+          const studentScore = (student.skills && student.skills[skill]) !== undefined • student.skills[skill] : 0;
           const isPassed = studentScore >= reqScore;
           skillsBadgesHTML += `
-            <div class="flex items-center justify-between text-xs px-2.5 py-1 rounded-lg ${isPassed ? 'bg-emerald-500/10 border border-emerald-500/30 text-emerald-300' : 'bg-rose-500/10 border border-rose-500/30 text-rose-300'}">
+            <div class="flex items-center justify-between text-xs px-2.5 py-1 rounded-lg ${isPassed • 'bg-emerald-500/10 border border-emerald-500/30 text-emerald-300' : 'bg-rose-500/10 border border-rose-500/30 text-rose-300'}">
               <span>${skill} (Req: ${reqScore})</span>
-              <span class="font-bold">${studentScore}/100 ${isPassed ? '✓' : '✗'}</span>
+              <span class="font-bold">${studentScore}/100 ${isPassed • 'âœ“' : 'âœ—'}</span>
             </div>
           `;
         }
@@ -170,7 +170,7 @@
         ctaHTML = `
           <button onclick="handleApply('${opp.id}')" class="w-full py-2 bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-black rounded-xl text-xs font-bold shadow-md flex items-center justify-center gap-1.5 transition-all">
             <span class="material-symbols-outlined text-base">send</span>
-            <span>Eligible — Apply Now (${evalRes.matchPercentage}% Match)</span>
+            <span>Eligible â€” Apply Now (${evalRes.matchPercentage}% Match)</span>
           </button>
         `;
       } else {
@@ -178,7 +178,7 @@
         ctaHTML = `
           <div class="space-y-1.5">
             <div class="bg-rose-500/10 border border-rose-500/30 p-2 rounded-xl text-[11px] text-rose-300 text-center font-medium">
-              ⚠️ Skill Gap: ${topGap.skill} (Current: ${topGap.currentScore} / Req: ${topGap.requiredScore} — Gap: ${topGap.gap} pts)
+              âš ï¸ Skill Gap: ${topGap.skill} (Current: ${topGap.currentScore} / Req: ${topGap.requiredScore} â€” Gap: ${topGap.gap} pts)
             </div>
             <button onclick="startAssessmentForSkill('${topGap.skill}')" class="w-full py-2 bg-indigo-500/20 hover:bg-indigo-500/30 text-indigo-300 border border-indigo-500/40 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 transition-all">
               <span class="material-symbols-outlined text-base">school</span>
@@ -195,7 +195,7 @@
               <div>
                 <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30 uppercase tracking-wider">${opp.type}</span>
                 <h3 class="text-base font-bold text-white mt-1">${opp.title}</h3>
-                <p class="text-xs text-amber-400 font-medium">${opp.companyName} • ${opp.location}</p>
+                <p class="text-xs text-amber-400 font-medium">${opp.companyName} â€¢ ${opp.location}</p>
               </div>
               <div class="w-9 h-9 rounded-xl bg-white/10 flex items-center justify-center shrink-0 border border-white/10">
                 <span class="material-symbols-outlined text-amber-400 text-lg">${opp.companyLogo || 'work'}</span>
@@ -260,7 +260,11 @@
   }
 
   function startAssessmentForSkill(skillName) {
-    window.location.href = `../Assessment_Interface/index.html?skill=${encodeURIComponent(skillName)}`;
+    window.location.href = `../Assessment_Interface/index.html•skill=${encodeURIComponent(skillName)}`;
+  }
+
+  function handleModalOutsideClick(e) {
+    if (e.target === document.getElementById('action-modal')) closeModal();
   }
 
   function closeModal() {
@@ -268,6 +272,10 @@
     modal.classList.add('hidden');
     modal.classList.remove('flex');
   }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeModal();
+  });
 
   document.addEventListener('DOMContentLoaded', () => {
     renderOpportunities();

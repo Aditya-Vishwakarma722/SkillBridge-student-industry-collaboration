@@ -47,14 +47,18 @@
       <p class="text-xs text-zinc-400">Skill-threshold candidate recruitment, screening evaluation, and pipeline management.</p>
     </div>
     
-    <div class="flex gap-3">
+    <div class="flex gap-2 flex-wrap">
       <a href="opportunities.html" class="px-4 py-2 bg-emerald-500 text-black font-bold rounded-xl text-xs flex items-center gap-1.5 hover:bg-emerald-400 transition-all shadow-md">
         <span class="material-symbols-outlined text-base">add_circle</span>
         <span>Create Position</span>
       </a>
       <a href="applicants.html" class="px-4 py-2 bg-white/10 text-white font-semibold rounded-xl text-xs flex items-center gap-1.5 hover:bg-white/15 border border-white/15 transition-all">
         <span class="material-symbols-outlined text-base">groups</span>
-        <span>View Candidates</span>
+        <span>Candidates</span>
+      </a>
+      <a href="messages.html" class="px-4 py-2 bg-white/10 text-white font-semibold rounded-xl text-xs flex items-center gap-1.5 hover:bg-white/15 border border-white/15 transition-all">
+        <span class="material-symbols-outlined text-base">chat</span>
+        <span>Messages</span>
       </a>
     </div>
   </div>
@@ -110,20 +114,26 @@
     if (!window.SkillBridgeStore) return;
 
     const user = window.SkillBridgeStore.getCurrentUser();
-    document.getElementById('comp-name-header').innerText = `${user.name || 'ABC Tech'} Recruitment Console`;
+    const displayName = (user && user.name) || 'ABC Tech';
+    const nameEl = document.getElementById('comp-name-header');
+    if (nameEl) nameEl.innerText = `${displayName} Recruitment Console`;
 
     const state = window.SkillBridgeStore.getState();
-    const myOpps = state.opportunities.filter(o => o.companyId === user.id || user.role === 'company');
+    const myOpps = state.opportunities.filter(o => !user || o.companyId === user.id || user.role === 'company');
     const myOppIds = new Set(myOpps.map(o => o.id));
+    const myApps = (state.applications || []).filter(a => myOppIds.has(a.opportunityId));
 
-    const myApps = (state.applications || []).filter(a => myOppIds.has(a.opportunityId) || a.companyName === user.name || user.role === 'company');
-
-    document.getElementById('comp-stat-positions').innerText = `${myOpps.length} Positions`;
-    document.getElementById('comp-stat-applicants').innerText = `${myApps.length} Candidates`;
-    document.getElementById('comp-stat-screening').innerText = `${myApps.filter(a => a.screeningScore !== null && a.screeningScore !== undefined).length} Completed`;
-    document.getElementById('comp-stat-shortlisted').innerText = `${myApps.filter(a => a.status === 'Shortlisted' || a.status === 'Selected').length} Shortlisted`;
+    const posEl = document.getElementById('comp-stat-positions');
+    if (posEl) posEl.innerText = `${myOpps.length} Positions`;
+    const appEl = document.getElementById('comp-stat-applicants');
+    if (appEl) appEl.innerText = `${myApps.length} Candidates`;
+    const scrEl = document.getElementById('comp-stat-screening');
+    if (scrEl) scrEl.innerText = `${myApps.filter(a => a.screeningScore !== null && a.screeningScore !== undefined).length} Completed`;
+    const shEl = document.getElementById('comp-stat-shortlisted');
+    if (shEl) shEl.innerText = `${myApps.filter(a => a.status === 'Shortlisted' || a.status === 'Selected').length} Shortlisted`;
 
     const list = document.getElementById('recent-candidates-list');
+    if (!list) return;
     list.innerHTML = '';
 
     if (myApps.length === 0) {

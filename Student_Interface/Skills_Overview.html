@@ -25,31 +25,41 @@
 <style>
   body {
     background: #0f131f;
+    background-image: 
+      radial-gradient(circle at 10% 10%, rgba(242, 202, 80, 0.05) 0%, transparent 40%),
+      radial-gradient(circle at 90% 90%, rgba(99, 102, 241, 0.06) 0%, transparent 40%);
     color: #dfe2f3;
     font-family: 'Inter', sans-serif;
   }
   .glass-pane {
-    background-color: rgba(22, 27, 46, 0.7);
+    background-color: rgba(22, 27, 46, 0.72);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
   }
 </style>
 </head>
-<body class="min-h-screen bg-[#0f131f] text-[#dfe2f3] flex flex-col">
+<body class="min-h-screen bg-[#0f131f] text-[#dfe2f3] flex flex-col selection:bg-amber-400 selection:text-black">
 
-<main class="flex-1 p-4 md:p-8 max-w-[1200px] mx-auto w-full space-y-6">
+<main class="flex-1 p-4 md:p-8 max-w-[1240px] mx-auto w-full space-y-6">
 
   <!-- Header -->
   <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/10 pb-4">
     <div>
-      <h1 class="text-2xl font-bold font-serif text-amber-400">My Skills & Qualification Overview</h1>
-      <p class="text-xs text-zinc-400">Standardized skill assessment scores (0–100) and readiness status.</p>
+      <h1 class="text-2xl font-bold font-serif text-amber-400">My Skills &amp; Qualification Overview</h1>
+      <p class="text-xs text-zinc-400">Standardized 1000-point skill vector analytics, industry readiness status, and platform activity sync.</p>
     </div>
-    <a href="../Assessment_Interface/index.html" class="px-4 py-2 bg-amber-500 text-black font-bold rounded-xl text-xs flex items-center gap-1.5 hover:bg-amber-400 transition-all shadow-md">
-      <span class="material-symbols-outlined text-base">quiz</span>
-      <span>Take Diagnostic Assessment</span>
-    </a>
+    <div class="flex gap-2.5">
+      <a href="Profile_Interface.html" class="px-4 py-2 bg-cyan-500/20 text-cyan-300 font-bold rounded-xl text-xs flex items-center gap-1.5 hover:bg-cyan-500/30 border border-cyan-500/40 transition-all">
+        <span class="material-symbols-outlined text-base">sync</span>
+        <span>Sync Platforms</span>
+      </a>
+      <a href="../Assessment_Interface/index.html" class="px-4 py-2 bg-amber-500 text-black font-bold rounded-xl text-xs flex items-center gap-1.5 hover:bg-amber-400 transition-all shadow-md">
+        <span class="material-symbols-outlined text-base">quiz</span>
+        <span>Diagnostic Test</span>
+      </a>
+    </div>
   </div>
 
   <!-- Skill Scores Table & Cards -->
@@ -59,7 +69,7 @@
         <thead class="bg-black/40 text-amber-300 uppercase text-[10px] tracking-wider border-b border-white/10">
           <tr>
             <th class="py-3 px-4">Skill Domain</th>
-            <th class="py-3 px-4">Assessed Score</th>
+            <th class="py-3 px-4">Assessed Score (1000 Scale)</th>
             <th class="py-3 px-4">Readiness Status</th>
             <th class="py-3 px-4">Progress Vector</th>
             <th class="py-3 px-4">Action</th>
@@ -69,6 +79,12 @@
           <!-- Populated via store.js -->
         </tbody>
       </table>
+    </div>
+
+    <div class="pt-2 border-t border-white/5 text-[11px] text-zinc-400 flex flex-col sm:flex-row justify-between gap-2">
+      <span>• <strong>800+ pts:</strong> Industry Ready (Direct Shortlist Eligible)</span>
+      <span>• <strong>600–799 pts:</strong> Good Qualification</span>
+      <span>• <strong>&lt;600 pts:</strong> Target Gap for Assessment Upgrade</span>
     </div>
   </section>
 
@@ -86,39 +102,56 @@
 
     if (student.skills) {
       for (const [skill, score] of Object.entries(student.skills)) {
+        const isPlatform = skill === 'Platform Activities';
+        const pct = Math.round((score / 1000) * 100);
+
         let status = 'Developing';
         let badgeColor = 'bg-rose-500/20 text-rose-300 border-rose-500/30';
         let barColor = 'bg-rose-400';
 
-        if (score >= 80) {
+        if (score >= 800) {
           status = 'Strong (Industry Ready)';
           badgeColor = 'bg-emerald-500/20 text-emerald-300 border-emerald-500/30';
           barColor = 'bg-emerald-400';
-        } else if (score >= 60) {
+        } else if (score >= 600) {
           status = 'Good Qualification';
           badgeColor = 'bg-amber-500/20 text-amber-300 border-amber-500/30';
           barColor = 'bg-amber-400';
         }
 
+        const icon = isPlatform ? 'terminal' : 'code';
+        const iconColor = isPlatform ? 'text-cyan-400' : 'text-amber-400';
+        const rowBg = isPlatform ? 'bg-cyan-500/5' : '';
+
+        const actionBtn = isPlatform
+          ? `<a href="Profile_Interface.html" class="px-3 py-1 bg-cyan-500/20 hover:bg-cyan-500/30 text-cyan-300 border border-cyan-500/40 rounded-lg text-[11px] font-bold transition-all inline-flex items-center gap-1">
+               <span class="material-symbols-outlined text-xs">sync</span> Sync Platform
+             </a>`
+          : `<a href="../Assessment_Interface/index.html?skill=${encodeURIComponent(skill)}" class="px-3 py-1 bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 border border-amber-500/40 rounded-lg text-[11px] font-bold transition-all inline-flex items-center gap-1">
+               <span class="material-symbols-outlined text-xs">restart_alt</span> Re-assess
+             </a>`;
+
+        const badgeHtml = isPlatform
+          ? `<span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold border border-cyan-500/40 bg-cyan-500/20 text-cyan-300">Platform Verified (Immutable by tests)</span>`
+          : `<span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold border ${badgeColor}">${status}</span>`;
+
         table.innerHTML += `
-          <tr class="hover:bg-white/5 transition-colors">
+          <tr class="hover:bg-white/5 transition-colors ${rowBg}">
             <td class="py-3 px-4 font-bold text-white flex items-center gap-2">
-              <span class="material-symbols-outlined text-amber-400 text-base">code</span>
-              <span>${skill}</span>
+              <span class="material-symbols-outlined ${iconColor} text-base">${icon}</span>
+              <span class="${isPlatform ? 'text-cyan-300 font-extrabold' : ''}">${skill}</span>
             </td>
-            <td class="py-3 px-4 font-bold text-amber-300 text-sm">${score} / 100</td>
+            <td class="py-3 px-4 font-bold ${isPlatform ? 'text-cyan-300' : 'text-amber-300'} text-sm">${score} / 1000 <span class="text-xs text-zinc-400 font-normal">(${pct}%)</span></td>
             <td class="py-3 px-4">
-              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold border ${badgeColor}">${status}</span>
+              ${badgeHtml}
             </td>
             <td class="py-3 px-4">
               <div class="w-32 bg-white/10 h-2 rounded-full overflow-hidden">
-                <div class="h-full ${barColor}" style="width: ${score}%"></div>
+                <div class="h-full ${isPlatform ? 'bg-gradient-to-r from-cyan-400 to-emerald-400' : barColor}" style="width: ${pct}%"></div>
               </div>
             </td>
             <td class="py-3 px-4">
-              <a href="../Assessment_Interface/index.html?skill=${encodeURIComponent(skill)}" class="px-3 py-1 bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 border border-amber-500/40 rounded-lg text-[11px] font-bold transition-all inline-flex items-center gap-1">
-                <span class="material-symbols-outlined text-xs">restart_alt</span> Re-assess
-              </a>
+              ${actionBtn}
             </td>
           </tr>
         `;

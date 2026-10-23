@@ -47,14 +47,18 @@
       <p class="text-xs text-zinc-400">Aggregate student skill readiness analytics, department metrics, and placement conversions.</p>
     </div>
     
-    <div class="flex gap-3">
+    <div class="flex gap-2 flex-wrap">
       <a href="students.html" class="px-4 py-2 bg-indigo-500 text-white font-bold rounded-xl text-xs flex items-center gap-1.5 hover:bg-indigo-400 transition-all shadow-md">
         <span class="material-symbols-outlined text-base">groups</span>
-        <span>Students Directory</span>
+        <span>Students</span>
       </a>
       <a href="skill-overview.html" class="px-4 py-2 bg-white/10 text-white font-semibold rounded-xl text-xs flex items-center gap-1.5 hover:bg-white/15 border border-white/15 transition-all">
         <span class="material-symbols-outlined text-base">psychology</span>
-        <span>Skill Distribution</span>
+        <span>Skill Analytics</span>
+      </a>
+      <a href="opportunities.html" class="px-4 py-2 bg-white/10 text-white font-semibold rounded-xl text-xs flex items-center gap-1.5 hover:bg-white/15 border border-white/15 transition-all">
+        <span class="material-symbols-outlined text-base">work</span>
+        <span>Opportunities</span>
       </a>
     </div>
   </div>
@@ -125,17 +129,23 @@
     if (!window.SkillBridgeStore) return;
 
     const collegeName = 'Aditya University';
-    document.getElementById('inst-title-header').innerText = `${collegeName} — Institutional Skill & Placement Console`;
+    const titleEl = document.getElementById('inst-title-header');
+    if (titleEl) titleEl.innerText = `${collegeName} — Institutional Skill & Placement Console`;
 
     const data = window.SkillBridgeStore.getInstitutionData(collegeName);
 
-    document.getElementById('inst-stat-students').innerText = `${data.totalStudents} Students`;
-    document.getElementById('inst-stat-apps').innerText = `${data.totalApplications} Applications`;
-    document.getElementById('inst-stat-shortlisted').innerText = `${data.shortlistedCount} Candidates`;
-    document.getElementById('inst-stat-rate').innerText = `${data.placementRate}`;
+    const studEl = document.getElementById('inst-stat-students');
+    if (studEl) studEl.innerText = `${data.totalStudents} Students`;
+    const appsEl = document.getElementById('inst-stat-apps');
+    if (appsEl) appsEl.innerText = `${data.totalApplications} Applications`;
+    const shortEl = document.getElementById('inst-stat-shortlisted');
+    if (shortEl) shortEl.innerText = `${data.shortlistedCount} Candidates`;
+    const rateEl = document.getElementById('inst-stat-rate');
+    if (rateEl) rateEl.innerText = `${data.placementRate}`;
 
     // Skill Breakdown
     const skillGrid = document.getElementById('inst-skill-breakdown-grid');
+    if (!skillGrid) return;
     skillGrid.innerHTML = '';
 
     if (Object.keys(data.skillTotals).length === 0) {

@@ -1,4 +1,4 @@
-/* ----------- GENERIC UNIQUE QUESTION GENERATION ----------- */
+﻿/* ----------- GENERIC UNIQUE QUESTION GENERATION ----------- */
 function slugify(value) {
   return String(value).toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_|_$/g, '') || 'skill';
 }
@@ -123,24 +123,24 @@ const DOMAIN_DETAILS = {
 };
 
 const COURSES = {
-  'IoT & Edge Computing': { name: 'Embedded Edge Systems & Microcontrollers', provider: 'Edge Tech Institute · 4 wks' },
-  'Robotics & Automation': { name: 'Autonomous Navigation & ROS 2 Dynamics', provider: 'Robotics Motion Lab · 5 wks' },
-  'Blockchain / Web3': { name: 'Smart Contract Architecture & EVM Security', provider: 'Decentralized Systems Track · 4 wks' },
-  'AR/VR & Mixed Reality': { name: 'Spatial Computing & OpenXR Architecture', provider: 'XR Development Academy · 4 wks' },
-  'Quantum Computing': { name: 'Quantum Algorithms & Qubit Simulation', provider: 'Quantum Physics Lab · 6 wks' },
-  'Software Testing / QA Engineering': { name: 'Automated Testing & CI/CD QA Pipelines', provider: 'Quality Engineering Track · 3 wks' },
-  'UI/UX Design': { name: 'Design Systems & Spatial Interaction UX', provider: 'Design System Studio · 3 wks' },
-  'DSA (Data Structures & Algorithms)': { name: 'Advanced Data Structures & Dynamic Programming', provider: 'Algorithm Mastery Track · 5 wks' },
-  'C Programming': { name: 'Systems Programming & Low-Level Memory Management', provider: 'Systems Engineering Track · 4 wks' },
-  'Java Development': { name: 'Enterprise Java & OOP Architecture Patterns', provider: 'Backend Development Academy · 5 wks' },
-  'Python Development': { name: 'Python Mastery & Modern Framework Development', provider: 'Python Excellence Institute · 4 wks' },
-  'Web Development': { name: 'Full-Stack Web Architecture & Modern Frameworks', provider: 'Web Dev Bootcamp · 8 wks' },
-  'AI/ML Engineering': { name: 'Deep Learning & Production ML Systems', provider: 'AI Research Lab · 6 wks' },
-  'Data Analytics': { name: 'Data Pipeline & Advanced Analytics', provider: 'Data Science Academy · 5 wks' },
-  'Cloud Computing': { name: 'Cloud Architecture & Infrastructure as Code', provider: 'Cloud Engineering Institute · 4 wks' },
-  'Cybersecurity': { name: 'Penetration Testing & Security Architecture', provider: 'Security Operations Center · 6 wks' },
-  'Game Development': { name: 'Game Engine & 3D Graphics Programming', provider: 'Game Dev Academy · 5 wks' },
-  'Software Development': { name: 'SDLC & Software Engineering Best Practices', provider: 'Engineering Excellence Track · 4 wks' }
+  'IoT & Edge Computing': { name: 'Embedded Edge Systems & Microcontrollers', provider: 'Edge Tech Institute Â· 4 wks' },
+  'Robotics & Automation': { name: 'Autonomous Navigation & ROS 2 Dynamics', provider: 'Robotics Motion Lab Â· 5 wks' },
+  'Blockchain / Web3': { name: 'Smart Contract Architecture & EVM Security', provider: 'Decentralized Systems Track Â· 4 wks' },
+  'AR/VR & Mixed Reality': { name: 'Spatial Computing & OpenXR Architecture', provider: 'XR Development Academy Â· 4 wks' },
+  'Quantum Computing': { name: 'Quantum Algorithms & Qubit Simulation', provider: 'Quantum Physics Lab Â· 6 wks' },
+  'Software Testing / QA Engineering': { name: 'Automated Testing & CI/CD QA Pipelines', provider: 'Quality Engineering Track Â· 3 wks' },
+  'UI/UX Design': { name: 'Design Systems & Spatial Interaction UX', provider: 'Design System Studio Â· 3 wks' },
+  'DSA (Data Structures & Algorithms)': { name: 'Advanced Data Structures & Dynamic Programming', provider: 'Algorithm Mastery Track Â· 5 wks' },
+  'C Programming': { name: 'Systems Programming & Low-Level Memory Management', provider: 'Systems Engineering Track Â· 4 wks' },
+  'Java Development': { name: 'Enterprise Java & OOP Architecture Patterns', provider: 'Backend Development Academy Â· 5 wks' },
+  'Python Development': { name: 'Python Mastery & Modern Framework Development', provider: 'Python Excellence Institute Â· 4 wks' },
+  'Web Development': { name: 'Full-Stack Web Architecture & Modern Frameworks', provider: 'Web Dev Bootcamp Â· 8 wks' },
+  'AI/ML Engineering': { name: 'Deep Learning & Production ML Systems', provider: 'AI Research Lab Â· 6 wks' },
+  'Data Analytics': { name: 'Data Pipeline & Advanced Analytics', provider: 'Data Science Academy Â· 5 wks' },
+  'Cloud Computing': { name: 'Cloud Architecture & Infrastructure as Code', provider: 'Cloud Engineering Institute Â· 4 wks' },
+  'Cybersecurity': { name: 'Penetration Testing & Security Architecture', provider: 'Security Operations Center Â· 6 wks' },
+  'Game Development': { name: 'Game Engine & 3D Graphics Programming', provider: 'Game Dev Academy Â· 5 wks' },
+  'Software Development': { name: 'SDLC & Software Engineering Best Practices', provider: 'Engineering Excellence Track Â· 4 wks' }
 };
 
 const STORAGE_KEY = 'skillbridge_assessment_history';
@@ -156,24 +156,24 @@ let ratings = Object.fromEntries(SKILLS.map(skill => [skill, 1]));
 let selectedDomains = new Set();
 
 const DOMAIN_META = {
-  'IoT & Edge Computing': { num: 1, icon: '🌐', label: 'IoT & Edge' },
-  'Robotics & Automation': { num: 2, icon: '🤖', label: 'Robotics' },
-  'Blockchain / Web3': { num: 3, icon: '⛓️', label: 'Blockchain' },
-  'AR/VR & Mixed Reality': { num: 4, icon: '🥽', label: 'AR / VR' },
-  'Quantum Computing': { num: 5, icon: '⚛️', label: 'Quantum' },
-  'Software Testing / QA Engineering': { num: 6, icon: '🧪', label: 'QA' },
-  'UI/UX Design': { num: 7, icon: '🎨', label: 'UI/UX' },
-  'DSA (Data Structures & Algorithms)': { num: 8, icon: '🧩', label: 'DSA' },
-  'C Programming': { num: 9, icon: '🔧', label: 'C' },
-  'Java Development': { num: 10, icon: '☕', label: 'Java' },
-  'Python Development': { num: 11, icon: '🐍', label: 'Python' },
-  'Web Development': { num: 12, icon: '💻', label: 'Web' },
-  'AI/ML Engineering': { num: 13, icon: '🧠', label: 'AI/ML' },
-  'Data Analytics': { num: 14, icon: '📊', label: 'Data' },
-  'Cloud Computing': { num: 15, icon: '☁️', label: 'Cloud' },
-  'Cybersecurity': { num: 16, icon: '🔒', label: 'Security' },
-  'Game Development': { num: 17, icon: '🎮', label: 'Game' },
-  'Software Development': { num: 18, icon: '💾', label: 'Software' }
+  'IoT & Edge Computing': { num: 1, icon: 'ðŸŒ', label: 'IoT & Edge' },
+  'Robotics & Automation': { num: 2, icon: 'ðŸ¤–', label: 'Robotics' },
+  'Blockchain / Web3': { num: 3, icon: 'â›“ï¸', label: 'Blockchain' },
+  'AR/VR & Mixed Reality': { num: 4, icon: 'ðŸ¥½', label: 'AR / VR' },
+  'Quantum Computing': { num: 5, icon: 'âš›ï¸', label: 'Quantum' },
+  'Software Testing / QA Engineering': { num: 6, icon: 'ðŸ§ª', label: 'QA' },
+  'UI/UX Design': { num: 7, icon: 'ðŸŽ¨', label: 'UI/UX' },
+  'DSA (Data Structures & Algorithms)': { num: 8, icon: 'ðŸ§©', label: 'DSA' },
+  'C Programming': { num: 9, icon: 'ðŸ”§', label: 'C' },
+  'Java Development': { num: 10, icon: 'â˜•', label: 'Java' },
+  'Python Development': { num: 11, icon: 'ðŸ', label: 'Python' },
+  'Web Development': { num: 12, icon: 'ðŸ’»', label: 'Web' },
+  'AI/ML Engineering': { num: 13, icon: 'ðŸ§ ', label: 'AI/ML' },
+  'Data Analytics': { num: 14, icon: 'ðŸ“Š', label: 'Data' },
+  'Cloud Computing': { num: 15, icon: 'â˜ï¸', label: 'Cloud' },
+  'Cybersecurity': { num: 16, icon: 'ðŸ”’', label: 'Security' },
+  'Game Development': { num: 17, icon: 'ðŸŽ®', label: 'Game' },
+  'Software Development': { num: 18, icon: 'ðŸ’¾', label: 'Software' }
 };
 
 function getLatestHistory() {
@@ -230,7 +230,7 @@ function getDomainScores() {
     const questions = quizQuestions.filter(q => q.skill === skill);
     const total = questions.length || 1;
     const correct = questions.filter(q => userAnswers[q.id] === q.answer).length;
-    scores[skill] = Math.round((correct / total) * 100);
+    scores[skill] = Math.round((correct / total) * 1000);
   });
 
   return scores;
@@ -241,7 +241,7 @@ function getStrongDomains(scores) {
 }
 
 function getWeakDomains(scores) {
-  return Object.entries(scores).filter(([_, score]) => score < 60).sort((a, b) => a[1] - b[1]);
+  return Object.entries(scores).filter(([_, score]) => score < 600).sort((a, b) => a[1] - b[1]);
 }
 
 function buildCareerRecommendations(scores) {
@@ -347,7 +347,7 @@ function shouldUseMultiSelect() {
 function calculateAssessmentStats() {
   const totalQuestions = quizQuestions.length || 1;
   const totalCorrect = quizQuestions.filter(q => userAnswers[q.id] === q.answer).length;
-  const score = Math.round((totalCorrect / totalQuestions) * 100);
+  const score = Math.round((totalCorrect / totalQuestions) * 1000);
   const level = getSkillLevel(score);
   return { totalQuestions, totalCorrect, score, level };
 }
@@ -381,6 +381,115 @@ function generateQuizQuestions() {
   return list;
 }
 
+let totalTimerSeconds = 900; // 15 mins total
+let perQuestionTimerSeconds = 45; // 45s per question
+let overallTimerInterval = null;
+let perQuestionTimerInterval = null;
+let antiCheatViolations = 0;
+
+function stopTimers() {
+  if (overallTimerInterval) clearInterval(overallTimerInterval);
+  if (perQuestionTimerInterval) clearInterval(perQuestionTimerInterval);
+  overallTimerInterval = null;
+  perQuestionTimerInterval = null;
+}
+
+function startTimers() {
+  stopTimers();
+  totalTimerSeconds = Math.max(300, (quizQuestions.length || 10) * 45);
+  perQuestionTimerSeconds = 45;
+
+  overallTimerInterval = setInterval(() => {
+    totalTimerSeconds--;
+    if (totalTimerSeconds <= 0) {
+      stopTimers();
+      alert('Overall assessment time limit reached! Submitting answers.');
+      finishAssessment();
+    }
+    const timerEl = document.getElementById('overall-timer-display');
+    if (timerEl) {
+      const mins = Math.floor(totalTimerSeconds / 60);
+      const secs = totalTimerSeconds % 60;
+      timerEl.innerText = `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+    }
+  }, 1000);
+
+  resetPerQuestionTimer();
+}
+
+function resetPerQuestionTimer() {
+  if (perQuestionTimerInterval) clearInterval(perQuestionTimerInterval);
+  perQuestionTimerSeconds = 45;
+
+  perQuestionTimerInterval = setInterval(() => {
+    perQuestionTimerSeconds--;
+    if (perQuestionTimerSeconds <= 0) {
+      clearInterval(perQuestionTimerInterval);
+      // Auto move to next question
+      if (currentQuestionIndex < quizQuestions.length - 1) {
+        currentQuestionIndex++;
+        resetPerQuestionTimer();
+        render();
+      }
+    }
+    const pqEl = document.getElementById('per-question-timer-display');
+    if (pqEl) {
+      pqEl.innerText = `${perQuestionTimerSeconds}s`;
+    }
+  }, 1000);
+}
+
+// Anti-Cheating Event Listener
+if (typeof window !== 'undefined') {
+  document.addEventListener('visibilitychange', () => {
+    if (quizStarted && document.hidden) {
+      antiCheatViolations++;
+      if (window.SkillBridgeStore) {
+        window.SkillBridgeStore.logCheatingViolation('Tab switch detected during assessment');
+      }
+      alert(`âš ï¸ ANTI-CHEATING WARNING #${antiCheatViolations}\nTab switching is monitored! Continued violations will result in score deductions and account suspension.`);
+    }
+  });
+
+  document.addEventListener('copy', (e) => {
+    if (quizStarted) {
+      e.preventDefault();
+      if (window.SkillBridgeStore) window.SkillBridgeStore.logCheatingViolation('Copy action prohibited during assessment');
+      alert('âš ï¸ Copying question text is prohibited in proctored assessment mode!');
+    }
+  });
+}
+
+function finishAssessment() {
+  stopTimers();
+  const stats = calculateAssessmentStats();
+  const history = getLatestHistory();
+  const domainScores = getDomainScores();
+
+  // Save scores directly into SkillBridgeStore
+  if (window.SkillBridgeStore) {
+    for (const [skill, score] of Object.entries(domainScores)) {
+      window.SkillBridgeStore.updateSkillScore(skill, score);
+    }
+  }
+
+  const result = {
+    date: new Date().toISOString(),
+    score: stats.score,
+    skillLevel: stats.level,
+    selectedDomains: [...selectedDomains],
+    domains: domainScores,
+    difficulty: getDifficultySummary(),
+    violations: antiCheatViolations
+  };
+
+  saveAssessmentResult(result);
+  ratings = Object.fromEntries(SKILLS.map(skill => [skill, domainScores[skill] ? (domainScores[skill] / 1000) * 5 : 1]));
+  step = 2;
+  quizStarted = false;
+  render();
+}
+
 function startQuiz() {
   if (selectedDomains.size === 0) {
     selectedDomains.add(SKILLS[0]);
@@ -390,7 +499,9 @@ function startQuiz() {
   userAnswers = {};
   currentQuestionIndex = 0;
   quizStarted = true;
+  antiCheatViolations = 0;
   step = 1;
+  startTimers();
   render();
 }
 
@@ -412,7 +523,7 @@ function renderLanding() {
             <span class="domain-icon">${meta.icon}</span>
             <span>${details.label}</span>
           </div>
-          <span class="domain-check">${selected ? '✓' : ''}</span>
+          <span class="domain-check">${selected ? 'âœ“' : ''}</span>
         </div>
         <p>${details.description}</p>
         <div class="domain-meta">
@@ -454,22 +565,22 @@ function renderLanding() {
 
       <div class="feature-grid">
         <div class="feature-card">
-          <div class="feature-icon">🧠</div>
+          <div class="feature-icon">ðŸ§ </div>
           <h3>Skill Assessment</h3>
           <p>Measure practical understanding across core learning domains.</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon">📉</div>
+          <div class="feature-icon">ðŸ“‰</div>
           <h3>Skill Gap Analysis</h3>
           <p>Identify weak areas and map them to real improvement opportunities.</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon">🎯</div>
+          <div class="feature-icon">ðŸŽ¯</div>
           <h3>Career Recommendation</h3>
           <p>Match your strengths to realistic career paths and learning clusters.</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon">🧭</div>
+          <div class="feature-icon">ðŸ§­</div>
           <h3>Learning Roadmap</h3>
           <p>Follow a structured plan from foundation to project execution.</p>
         </div>
@@ -537,6 +648,24 @@ function renderAssessment() {
 
   app.innerHTML = `
     <div class="card glass-panel">
+      <!-- Proctored & Dual Timer Bar -->
+      <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 16px; background: rgba(0, 0, 0, 0.4); border-radius: 12px; border: 1px solid rgba(212, 175, 55, 0.3); margin-bottom: 16px; font-size: 12px;">
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <span style="display: flex; align-items: center; gap: 4px; color: #f2ca50; font-weight: 700;">
+            â±ï¸ Test Timer: <span id="overall-timer-display" style="font-family: monospace; font-size: 14px; color: #fff;">15:00</span>
+          </span>
+          <span style="display: flex; align-items: center; gap: 4px; color: #38bdf8; font-weight: 700;">
+            âŒ› Per-Q: <span id="per-question-timer-display" style="font-family: monospace; font-size: 14px; color: #fff;">45s</span>
+          </span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <span style="background: rgba(16, 185, 129, 0.2); color: #34d399; padding: 2px 8px; border-radius: 9999px; font-weight: 700; border: 1px solid rgba(16, 185, 129, 0.3); font-size: 10px;">
+            ðŸ›¡ï¸ Proctored & Anti-Cheat Monitored
+          </span>
+          ${antiCheatViolations > 0 ? `<span style="background: rgba(244, 63, 94, 0.2); color: #fda4af; padding: 2px 8px; border-radius: 9999px; font-weight: 700; border: 1px solid rgba(244, 63, 94, 0.4); font-size: 10px;">âš ï¸ ${antiCheatViolations} Violations</span>` : ''}
+        </div>
+      </div>
+
       <div class="quiz-header">
         <div>
           <div class="tagline">${q.skill}</div>
@@ -603,7 +732,7 @@ function renderAssessment() {
       };
 
       saveAssessmentResult(result);
-      ratings = Object.fromEntries(SKILLS.map(skill => [skill, getDomainScores()[skill] ? getDomainScores()[skill] / 100 * 5 : 1]));
+      ratings = Object.fromEntries(SKILLS.map(skill => [skill, getDomainScores()[skill] ? (getDomainScores()[skill] / 1000) * 5 : 1]));
       step = 2;
       render();
       return;
@@ -692,7 +821,7 @@ function renderReport() {
       <div class="review-item">
         <div class="review-top">
           <span>${question.skill}</span>
-          <span class="${isCorrect ? 'review-good' : 'review-bad'}">${isCorrect ? '✓ Correct' : '✗ Incorrect'}</span>
+          <span class="${isCorrect ? 'review-good' : 'review-bad'}">${isCorrect ? 'âœ“ Correct' : 'âœ— Incorrect'}</span>
         </div>
         <p class="review-question">Q${index + 1}. ${escapeHtml(question.question)}</p>
         <div class="review-detail">
@@ -728,15 +857,15 @@ function renderReport() {
             <h1 class="hero" style="font-size: clamp(2rem, 3vw, 3.2rem);">Your Skill Assessment <em>Report</em></h1>
           </div>
           <div class="score-badge ${summary.score >= 75 ? 'green' : summary.score < 40 ? 'coral' : ''}">
-            <span class="pct">${summary.score}%</span>
+            <span class="pct">${summary.score} / 1000</span>
             <span class="label">Overall</span>
           </div>
         </div>
         <div class="level-chip">${summary.level}</div>
         
         <div style="margin-top: 15px; padding: 12px; background: rgba(212, 175, 55, 0.15); border: 1px solid rgba(212, 175, 55, 0.4); border-radius: 12px; text-align: center;">
-          <strong style="color: #f2ca50; display: block; margin-bottom: 6px;">🎉 Skill Score Updated Live to ${summary.score}/100!</strong>
-          <a href="../Opportunity_Interface/index.html" style="display: inline-block; padding: 8px 18px; background: #f2ca50; color: #000; font-weight: bold; border-radius: 8px; text-decoration: none; font-size: 13px;">🎯 Check Unlocked Opportunities Now</a>
+          <strong style="color: #f2ca50; display: block; margin-bottom: 6px;">ðŸŽ‰ Skill Score Updated Live to ${summary.score} / 1000 Points!</strong>
+          <a href="../Opportunity_Interface/index.html" style="display: inline-block; padding: 8px 18px; background: #f2ca50; color: #000; font-weight: bold; border-radius: 8px; text-decoration: none; font-size: 13px;">ðŸŽ¯ Check Unlocked Opportunities Now</a>
         </div>
       </div>
 
@@ -798,7 +927,7 @@ function renderReport() {
           <div class="analysis-box">
             <h3>Current vs Previous</h3>
             <p class="sub">${previousScore !== null ? `Previous Score: ${previousScore}% | Current Score: ${summary.score}%` : `Current Score: ${summary.score}%`}</p>
-            ${improvement !== null ? `<p class="sub">${improvement >= 0 ? '+' : ''}${improvement}% Improvement 📈</p>` : '<p class="sub">This is your first assessment result.</p>'}
+            ${improvement !== null ? `<p class="sub">${improvement >= 0 ? '+' : ''}${improvement}% Improvement ðŸ“ˆ</p>` : '<p class="sub">This is your first assessment result.</p>'}
           </div>
           <div class="analysis-box">
             <h3>Domain Progress</h3>
@@ -863,4 +992,22 @@ function render() {
   renderReport();
 }
 
-render();
+function checkUrlSkillParam() {
+  const params = new URLSearchParams(window.location.search);
+  const skillParam = params.get('skill');
+  if (skillParam) {
+    const decoded = decodeURIComponent(skillParam).trim();
+    const matchedSkill = SKILLS.find(s => s.toLowerCase() === decoded.toLowerCase() || s.toLowerCase().includes(decoded.toLowerCase()));
+    if (matchedSkill) {
+      selectedDomains.clear();
+      selectedDomains.add(matchedSkill);
+      startQuiz();
+      return true;
+    }
+  }
+  return false;
+}
+
+if (!checkUrlSkillParam()) {
+  render();
+}

@@ -52,24 +52,13 @@ button, input, textarea, select { font: inherit; }
 .wrap {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 28px 20px 80px;
+  padding: 16px 20px 80px;
 }
 
-header.top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 18px;
-  padding: 18px 6px 20px;
-  border-bottom: 1px solid var(--glass-border);
-  margin-bottom: 22px;
-  flex-wrap: wrap;
-}
+/* Static header removed — global nav is injected by nav.js */
 
 .brand-group {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  display: none; /* Hidden: nav.js handles branding */
 }
 
 .brand {

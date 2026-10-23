@@ -1,10 +1,10 @@
-<!DOCTYPE html>
-<html class="dark h-screen overflow-hidden" lang="en">
+﻿<!DOCTYPE html>
+<html class="dark h-screen" lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SkillBridge — Academia–Industry Collaboration Portal</title>
-  <meta name="description" content="SkillBridge connects students, institutions, and companies through standardized skill assessments and explainable gap matching.">
+  <title>SkillBridge — Academia-Industry Collaboration Portal</title>
+  <meta name="description" content="SkillBridge connects students, institutions, and companies through standardized 1000-point skill assessments, platform verification, and explainable gap matching.">
   
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
@@ -40,9 +40,6 @@
     }
 
     html, body {
-      height: 100vh;
-      max-height: 100vh;
-      overflow: hidden !important;
       background-color: #0A0E1A;
       background-image: 
         radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.12) 0%, transparent 50%),
@@ -53,10 +50,10 @@
     }
 
     .glass-card {
-      background: rgba(19, 24, 38, 0.78);
+      background: rgba(19, 24, 38, 0.82);
       backdrop-filter: blur(24px);
       -webkit-backdrop-filter: blur(24px);
-      border: 1px solid rgba(212, 175, 55, 0.2);
+      border: 1px solid rgba(212, 175, 55, 0.22);
       box-shadow: 
         0 25px 50px -12px rgba(0, 0, 0, 0.75),
         inset 0 1px 0 rgba(255, 255, 255, 0.1);
@@ -73,7 +70,7 @@
     }
   </style>
 </head>
-<body class="h-screen max-h-screen overflow-hidden flex flex-col justify-between selection:bg-amber-400 selection:text-black">
+<body class="min-h-screen lg:h-screen lg:max-h-screen flex flex-col justify-start selection:bg-amber-400 selection:text-black overflow-x-hidden overflow-y-auto lg:overflow-hidden">
 
   <!-- Background Ambient Glowing Orbs -->
   <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
@@ -82,8 +79,8 @@
     <div class="orb-1 absolute bottom-10 -right-32 w-[450px] h-[450px] bg-emerald-500/10 rounded-full blur-[120px]"></div>
   </div>
 
-  <!-- Immersive Header -->
-  <header class="relative z-10 w-full max-w-[1280px] mx-auto px-6 py-4 flex items-center justify-between shrink-0">
+  <!-- Immersive Header - Positioned firmly and elegantly at the top -->
+  <header class="relative z-20 w-full max-w-[1280px] mx-auto px-6 pt-3.5 pb-2.5 flex items-center justify-between shrink-0 border-b border-white/5">
     <a href="index.html" class="flex items-center space-x-3 group">
       <div class="relative flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 via-amber-500 to-amber-600 p-[1.5px] shadow-xl shadow-amber-500/25 group-hover:scale-105 transition-all duration-300">
         <div class="w-full h-full bg-[#0A0E1A] rounded-[10.5px] flex items-center justify-center relative overflow-hidden">
@@ -106,21 +103,21 @@
     <div class="hidden md:flex items-center gap-5 text-xs text-zinc-400 font-medium">
       <div class="flex items-center gap-2 bg-white/5 px-3 py-1 rounded-full border border-white/10">
         <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-        <span class="text-zinc-300">Live Skill Vectors Engine</span>
+        <span class="text-zinc-300">1000-Point Skill Matrix & Platform Sync</span>
       </div>
       <span class="text-zinc-400 font-serif italic">Aditya University Partnered</span>
     </div>
   </header>
 
   <!-- Main Viewport Section -->
-  <main class="relative z-10 flex-grow flex items-center justify-center px-4 py-2 my-auto shrink-0">
+  <main class="relative z-10 flex-grow flex items-center justify-center px-4 py-4 md:py-6 my-auto shrink-0">
     <div class="w-full max-w-[1100px] grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
 
       <!-- Left Column: Immersive Overview -->
       <div class="lg:col-span-6 space-y-4 text-center lg:text-left">
-        <div class="inline-flex items-center gap-2 px-3 py-0.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-300 text-[11px] font-semibold">
-          <span class="material-symbols-outlined text-xs">auto_awesome</span>
-          <span>Standardized Skill Assessment & Gap Analytics</span>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-300 text-[11px] font-semibold">
+          <span class="material-symbols-outlined text-xs text-amber-400">auto_awesome</span>
+          <span>Standardized 1000-Point Assessment & Activity Engine</span>
         </div>
 
         <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold font-serif text-white leading-[1.15] tracking-tight">
@@ -128,20 +125,20 @@
         </h2>
 
         <p class="text-xs md:text-sm text-zinc-300 leading-relaxed font-sans max-w-[500px] mx-auto lg:mx-0">
-          Eliminating guesswork in recruitment. Students get verifiable skill readiness scores, while companies and institutions match candidates based on measurable technical requirements.
+          Eliminating guesswork in campus placement. Students earn verifiable readiness scores out of 1000 points and sync live coding platform activities (GitHub, LeetCode, HackerRank).
         </p>
 
         <!-- Feature Pills -->
         <div class="grid grid-cols-3 gap-2.5 pt-1 max-w-[480px] mx-auto lg:mx-0 text-left">
           <div class="p-2.5 rounded-xl bg-white/5 border border-white/10 space-y-0.5">
             <span class="material-symbols-outlined text-amber-400 text-lg">analytics</span>
-            <div class="text-[11px] font-bold text-white">Skill Vectors</div>
-            <div class="text-[9px] text-zinc-400">Verifiable assessment</div>
+            <div class="text-[11px] font-bold text-white">1000pt Vectors</div>
+            <div class="text-[9px] text-zinc-400">Standardized metrics</div>
           </div>
           <div class="p-2.5 rounded-xl bg-white/5 border border-white/10 space-y-0.5">
-            <span class="material-symbols-outlined text-emerald-400 text-lg">conversion_path</span>
-            <div class="text-[11px] font-bold text-white">Gap Analysis</div>
-            <div class="text-[9px] text-zinc-400">Targeted re-tests</div>
+            <span class="material-symbols-outlined text-emerald-400 text-lg">sync_alt</span>
+            <div class="text-[11px] font-bold text-white">Platform Sync</div>
+            <div class="text-[9px] text-zinc-400">GitHub & LeetCode</div>
           </div>
           <div class="p-2.5 rounded-xl bg-white/5 border border-white/10 space-y-0.5">
             <span class="material-symbols-outlined text-indigo-400 text-lg">verified</span>
@@ -162,20 +159,23 @@
 
           <!-- Role Selector Tabs -->
           <div class="grid grid-cols-3 gap-1 bg-black/60 p-1 rounded-xl border border-white/10 text-xs font-bold">
-            <button id="tab-student" type="button" onclick="switchRoleTab('student')" class="py-2 rounded-lg transition-all text-amber-300 bg-amber-500/20 border border-amber-500/30 flex items-center justify-center gap-1 cursor-pointer">
-              <span>🎓</span> Student
+            <button id="tab-student" type="button" onclick="switchRoleTab('student')" class="py-2 rounded-lg transition-all text-amber-300 bg-amber-500/20 border border-amber-500/30 flex items-center justify-center gap-1.5 cursor-pointer">
+              <span class="material-symbols-outlined text-sm">school</span>
+              <span>Student</span>
             </button>
-            <button id="tab-company" type="button" onclick="switchRoleTab('company')" class="py-2 rounded-lg transition-all text-zinc-400 hover:text-white flex items-center justify-center gap-1 cursor-pointer">
-              <span>🏢</span> Company
+            <button id="tab-company" type="button" onclick="switchRoleTab('company')" class="py-2 rounded-lg transition-all text-zinc-400 hover:text-white flex items-center justify-center gap-1.5 cursor-pointer">
+              <span class="material-symbols-outlined text-sm">business</span>
+              <span>Company</span>
             </button>
-            <button id="tab-institute" type="button" onclick="switchRoleTab('institute')" class="py-2 rounded-lg transition-all text-zinc-400 hover:text-white flex items-center justify-center gap-1 cursor-pointer">
-              <span>🏛️</span> Institute
+            <button id="tab-institute" type="button" onclick="switchRoleTab('institute')" class="py-2 rounded-lg transition-all text-zinc-400 hover:text-white flex items-center justify-center gap-1.5 cursor-pointer">
+              <span class="material-symbols-outlined text-sm">account_balance</span>
+              <span>Institute</span>
             </button>
           </div>
 
           <!-- Role Context Banner -->
           <div id="role-description" class="px-3 py-2 rounded-xl bg-amber-500/10 border border-amber-500/20 text-[11px] text-amber-200 text-center font-medium">
-            Active Role: <strong>Rahul Sharma (Student — Aditya University)</strong>
+            Demo: <strong>student@gmail.com</strong> &nbsp;/&nbsp; password: <strong>123</strong>
           </div>
 
           <!-- Login Form -->
@@ -208,14 +208,17 @@
           <div class="pt-3 border-t border-white/10 text-center space-y-2">
             <p class="text-[9px] font-semibold text-zinc-400 uppercase tracking-widest">Quick Demo One-Click Access</p>
             <div class="grid grid-cols-3 gap-1.5">
-              <button type="button" onclick="quickLogin('student@gmail.com', '123', 'student')" class="px-2 py-1.5 bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/30 rounded-xl text-[10px] font-bold text-amber-300 transition-all cursor-pointer">
-                🎓 Student
+              <button type="button" onclick="quickLogin('student@gmail.com', '123', 'student')" class="px-2 py-1.5 bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/30 rounded-xl text-[10px] font-bold text-amber-300 transition-all cursor-pointer flex items-center justify-center gap-1">
+                <span class="material-symbols-outlined text-xs">school</span>
+                <span>Student</span>
               </button>
-              <button type="button" onclick="quickLogin('company@gmail.com', '123', 'company')" class="px-2 py-1.5 bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/30 rounded-xl text-[10px] font-bold text-emerald-300 transition-all cursor-pointer">
-                🏢 Company
+              <button type="button" onclick="quickLogin('company@gmail.com', '123', 'company')" class="px-2 py-1.5 bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/30 rounded-xl text-[10px] font-bold text-emerald-300 transition-all cursor-pointer flex items-center justify-center gap-1">
+                <span class="material-symbols-outlined text-xs">business</span>
+                <span>Company</span>
               </button>
-              <button type="button" onclick="quickLogin('institute@gmail.com', '123', 'institute')" class="px-2 py-1.5 bg-indigo-500/10 hover:bg-indigo-500/20 border border-indigo-500/30 rounded-xl text-[10px] font-bold text-indigo-300 transition-all cursor-pointer">
-                🏛️ Institute
+              <button type="button" onclick="quickLogin('institute@gmail.com', '123', 'institute')" class="px-2 py-1.5 bg-indigo-500/10 hover:bg-indigo-500/20 border border-indigo-500/30 rounded-xl text-[10px] font-bold text-indigo-300 transition-all cursor-pointer flex items-center justify-center gap-1">
+                <span class="material-symbols-outlined text-xs">account_balance</span>
+                <span>Institute</span>
               </button>
             </div>
           </div>
@@ -247,7 +250,8 @@
     const roleConfigs = {
       student: {
         email: 'student@gmail.com',
-        desc: 'Active Role: <strong>Rahul Sharma (Student — Aditya University)</strong>',
+        desc: 'Demo: <strong>student@gmail.com</strong> &nbsp;/&nbsp; password: <strong>123</strong>',
+        descColor: 'bg-amber-500/10 border-amber-500/20 text-amber-200',
         border: 'border-amber-500/30',
         bg: 'bg-amber-500/20',
         text: 'text-amber-300',
@@ -255,7 +259,8 @@
       },
       company: {
         email: 'company@gmail.com',
-        desc: 'Active Role: <strong>ABC Tech (Company Recruitment Portal)</strong>',
+        desc: 'Demo: <strong>company@gmail.com</strong> &nbsp;/&nbsp; password: <strong>123</strong>',
+        descColor: 'bg-emerald-500/10 border-emerald-500/20 text-emerald-200',
         border: 'border-emerald-500/30',
         bg: 'bg-emerald-500/20',
         text: 'text-emerald-300',
@@ -263,7 +268,8 @@
       },
       institute: {
         email: 'institute@gmail.com',
-        desc: 'Active Role: <strong>Aditya University (Institution Administration)</strong>',
+        desc: 'Demo: <strong>institute@gmail.com</strong> &nbsp;/&nbsp; password: <strong>123</strong>',
+        descColor: 'bg-indigo-500/10 border-indigo-500/20 text-indigo-200',
         border: 'border-indigo-500/30',
         bg: 'bg-indigo-500/20',
         text: 'text-indigo-300',
@@ -279,15 +285,18 @@
         const btn = document.getElementById(`tab-${r}`);
         if (btn) {
           if (r === role) {
-            btn.className = `py-2 rounded-lg transition-all ${cfg.text} ${cfg.bg} border ${cfg.border} flex items-center justify-center gap-1 cursor-pointer`;
+            btn.className = `py-2 rounded-lg transition-all ${cfg.text} ${cfg.bg} border ${cfg.border} flex items-center justify-center gap-1.5 cursor-pointer`;
           } else {
-            btn.className = `py-2 rounded-lg transition-all text-zinc-400 hover:text-white flex items-center justify-center gap-1 cursor-pointer`;
+            btn.className = `py-2 rounded-lg transition-all text-zinc-400 hover:text-white flex items-center justify-center gap-1.5 cursor-pointer`;
           }
         }
       });
 
       const descBox = document.getElementById('role-description');
-      if (descBox) descBox.innerHTML = cfg.desc;
+      if (descBox) {
+        descBox.className = `px-3 py-2 rounded-xl border text-[11px] text-center font-medium ${cfg.descColor}`;
+        descBox.innerHTML = cfg.desc;
+      }
       const emailBox = document.getElementById('login-email');
       if (emailBox) emailBox.value = cfg.email;
       const passBox = document.getElementById('login-password');
@@ -298,7 +307,7 @@
 
     function quickLogin(email, password, role) {
       switchRoleTab(role);
-      executeLogin(email, password, role);
+      setTimeout(() => executeLogin(email, password, role), 80);
     }
 
     function handleLoginSubmit(e) {
@@ -310,15 +319,36 @@
 
     function executeLogin(email, password, role) {
       const errBox = document.getElementById('login-error');
+      const btn = document.getElementById('btn-submit');
       if (errBox) errBox.classList.add('hidden');
 
-      if (window.SkillBridgeStore) {
-        window.SkillBridgeStore.login(email, password, role);
+      if (!window.SkillBridgeStore) {
+        window.location.href = roleConfigs[role].target;
+        return;
       }
-      
-      const target = roleConfigs[role] ? roleConfigs[role].target : 'Student_Interface/Portal-Dashboard.html';
-      window.location.href = target;
+
+      btn.disabled = true;
+      btn.innerHTML = `<span class="material-symbols-outlined text-sm animate-spin">refresh</span><span>Verifying...</span>`;
+
+      setTimeout(() => {
+        const res = window.SkillBridgeStore.login(email, password, role);
+        if (res.success) {
+          btn.innerHTML = `<span class="material-symbols-outlined text-sm">check</span><span>Redirecting...</span>`;
+          window.location.href = roleConfigs[role].target;
+        } else {
+          btn.disabled = false;
+          btn.innerHTML = `<span>Enter Portal</span><span class="material-symbols-outlined text-sm">arrow_forward</span>`;
+          if (errBox) {
+            errBox.innerText = res.message || 'Login failed. Please verify credentials.';
+            errBox.classList.remove('hidden');
+          }
+        }
+      }, 350);
     }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      switchRoleTab('student');
+    });
   </script>
 </body>
 </html>
