@@ -26,6 +26,8 @@
       @keyframes sbEntrance { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
       #skillbridge-global-nav ~ * { /* content flows below sticky nav */ }
       .sb-nav-content-offset { padding-top: 56px; }
+      #skillbridge-global-nav nav::-webkit-scrollbar { display: none; }
+      #skillbridge-global-nav nav { -ms-overflow-style: none; scrollbar-width: none; }
     `;
     document.head.appendChild(style);
   }
@@ -73,8 +75,24 @@
       institute: '<span>&#127963;</span> Institute Portal'
     }[effectiveUser.role] || '<span>&#127891;</span> Student Portal';
 
-    const currentPath = window.location.pathname.toLowerCase();
-    const isActive = (href) => currentPath.includes(href.toLowerCase().replace('../', '').replace('./', ''));
+    const currentPath = window.location.pathname.toLowerCase().replace(/\\/g, '/');
+    const isActive = (href) => {
+      const cleanHref = href.toLowerCase().replace('../', '').replace('./', '');
+      const currentFileName = currentPath.split('/').pop() || '';
+      const hrefFileName = cleanHref.split('/').pop() || '';
+      if (hrefFileName && currentFileName) {
+        if (hrefFileName === currentFileName) {
+          const hrefFolder = cleanHref.includes('/') ? cleanHref.split('/')[0] : '';
+          const currentFolder = currentPath.split('/').slice(-2, -1)[0] || '';
+          if (hrefFolder && currentFolder) {
+            return hrefFolder === currentFolder;
+          }
+          return true;
+        }
+        return false;
+      }
+      return currentPath.includes(cleanHref);
+    };
 
     function navLink(href, label, hoverColor) {
       const active = isActive(href);
@@ -90,16 +108,18 @@
         ${navLink('Student_Interface/Portal-Dashboard.html', 'Dashboard', 'hover:text-amber-400')}
         ${navLink('Student_Interface/Profile_Interface.html', 'Profile', 'hover:text-amber-400')}
         ${navLink('Student_Interface/Skills_Overview.html', 'Skills', 'hover:text-amber-400')}
-        ${navLink('Opportunity_Interface/index.html', 'Opportunities', 'hover:text-amber-400')}
+        ${navLink('Opportunity_Interface/index.html', 'Skill Roles', 'hover:text-amber-400')}
+        ${navLink('Opportunity_Interface/Opportunities_Interface.html', 'Opportunities', 'hover:text-amber-400')}
         ${navLink('Student_Interface/My_Applications.html', 'Applications', 'hover:text-amber-400')}
         ${navLink('Assessment_Interface/index.html', 'Assessments', 'hover:text-amber-400')}
         ${navLink('Student_Interface/Certificates_Interface.html', 'Certificates', 'hover:text-amber-400')}
+        ${navLink('Student_Interface/Activities_Interface.html', 'Activities', 'hover:text-amber-400')}
       `;
     } else if (effectiveUser.role === 'company') {
       navLinks = `
         ${navLink('Company_Interface/index.html', 'Dashboard', 'hover:text-emerald-400')}
-        ${navLink('Company_Interface/opportunities.html', 'Positions', 'hover:text-emerald-400')}
-        ${navLink('Company_Interface/applicants.html', 'Applicants', 'hover:text-emerald-400')}
+        ${navLink('Company_Interface/opportunities.html', 'Opportunities', 'hover:text-emerald-400')}
+        ${navLink('Company_Interface/applicants.html', 'Applications', 'hover:text-emerald-400')}
         ${navLink('Company_Interface/shortlisted.html', 'Shortlisted', 'hover:text-emerald-400')}
         ${navLink('Company_Interface/assessments.html', 'Assessments', 'hover:text-emerald-400')}
         ${navLink('Company_Interface/messages.html', 'Messages', 'hover:text-emerald-400')}
@@ -112,6 +132,7 @@
         ${navLink('Institute_Interface/skill-overview.html', 'Skill Analytics', 'hover:text-indigo-400')}
         ${navLink('Institute_Interface/department-performance.html', 'Departments', 'hover:text-indigo-400')}
         ${navLink('Institute_Interface/opportunities.html', 'Opportunities', 'hover:text-indigo-400')}
+        ${navLink('Institute_Interface/opportunities.html', 'Applications', 'hover:text-indigo-400')}
         ${navLink('Institute_Interface/profile.html', 'Profile', 'hover:text-indigo-400')}
       `;
     }
@@ -135,8 +156,8 @@
           <span class="px-2 py-0.5 rounded-full text-[10px] font-semibold border ${roleBadgeColor} hidden md:inline-flex items-center gap-1">${roleLabel}</span>
         </a>
 
-        <!-- Middle: Nav Links -->
-        <nav class="hidden lg:flex items-center gap-0.5 flex-1 justify-center overflow-x-auto">
+        <!-- Middle: Nav Links (Visible across screen sizes with smooth horizontal scroll) -->
+        <nav class="flex items-center gap-0.5 sm:gap-1 flex-1 justify-center overflow-x-auto py-0.5 whitespace-nowrap scrollbar-none">
           ${navLinks}
         </nav>
 

@@ -17,12 +17,18 @@ body{font-family:Inter,sans-serif;background:#050505;color:#fff}h1,h2,h3{font-fa
 <body class="antialiased">
 <nav class="bg-[#0e0e0e]/80 backdrop-blur-md border-b border-white/10 sticky top-0 z-50">
 <div class="max-w-[1440px] mx-auto px-4 md:px-12 h-16 flex justify-between items-center">
-<div class="font-bold text-xl gold">EduIndustry Portal</div>
-<div class="hidden md:flex gap-7 text-sm"><a class="text-primary" href="index.html">Opportunities</a><a class="text-zinc-400" href="#">Messages</a><a class="text-zinc-400" href="#">Resources</a><a class="text-zinc-400" href="#">My Applications</a></div>
+<a href="Opportunities_Interface.html" class="font-bold text-xl gold">SkillBridge Opportunities</a>
+<div class="hidden md:flex gap-7 text-sm">
+  <a class="text-primary font-semibold" href="Opportunities_Interface.html">Opportunities</a>
+  <a class="text-zinc-300 hover:text-white" href="index.html">Skill Roles</a>
+  <a class="text-zinc-300 hover:text-white" href="../Student_Interface/My_Applications.html">My Applications</a>
+  <a class="text-zinc-400 hover:text-white" href="../Student_Interface/Portal-Dashboard.html">Dashboard</a>
+  <a class="text-zinc-400 hover:text-white" href="../Student_Interface/Skills_Overview.html">Skills</a>
+</div>
 </div></nav>
 
 <main class="max-w-[1440px] mx-auto px-4 md:px-12 py-8 md:py-12">
-<div class="flex items-center gap-2 text-zinc-400 text-sm mb-8"><a href="index.html" class="hover:text-primary flex items-center gap-1"><span class="material-symbols-outlined text-[18px]">arrow_back</span> Back to Search</a><span>/</span><span id="crumbCompany"></span></div>
+<div class="flex items-center gap-2 text-zinc-400 text-sm mb-8"><a href="Opportunities_Interface.html" class="hover:text-primary flex items-center gap-1"><span class="material-symbols-outlined text-[18px]">arrow_back</span> Back to Opportunities</a><span>/</span><span id="crumbCompany"></span></div>
 
 <section class="glass-panel rounded-2xl p-6 md:p-8 flex flex-col md:flex-row justify-between gap-6 mb-10 relative overflow-hidden">
 <div class="flex items-center gap-5">
@@ -110,6 +116,36 @@ const levels=o.skills.map((s,i)=>Math.max(55,o.match-(i*5)));
 document.getElementById("skillBars").innerHTML=o.skills.map((s,i)=>`<div><div class="flex justify-between text-sm mb-1"><span>${s}</span><span class="text-primary">${levels[i]}%</span></div><div class="bar"><i style="width:${levels[i]}%"></i></div></div>`).join("");
 }
 function saveRole(){const key=`saved_${type}_${id}`;localStorage.setItem(key,"1");alert("Saved successfully.")}
-function takeAction(){alert(`${type==="workshops"?"Registration":"Application"} started for ${o.title}.`)}
+function takeAction(){
+  if (window.SkillBridgeStore) {
+    const student = window.SkillBridgeStore.getCurrentStudent();
+    if (student) {
+      const oppId = `cat_${type}_${o.id}`;
+      const state = window.SkillBridgeStore.getState();
+      const existing = (state.applications || []).find(a => a.studentId === student.id && a.opportunityId === oppId);
+      if (!existing) {
+        state.applications.push({
+          id: 'app_' + Date.now(),
+          studentId: student.id,
+          studentName: student.name,
+          college: student.college || 'Aditya University',
+          opportunityId: oppId,
+          opportunityTitle: o.title,
+          companyName: o.company,
+          status: 'Screening',
+          matchScore: o.match || 85,
+          appliedDate: new Date().toISOString().split('T')[0],
+          screeningScore: null
+        });
+        window.SkillBridgeStore.saveState(state);
+      }
+    }
+  }
+  if (confirm(`Application submitted for ${o.title} at ${o.company}!\n\nWould you like to track this in your Applications dashboard?`)) {
+    window.location.href = '../Student_Interface/My_Applications.html';
+  }
+}
 </script>
+<script src="../js/store.js"></script>
+<script src="../js/nav.js"></script>
 </body></html>

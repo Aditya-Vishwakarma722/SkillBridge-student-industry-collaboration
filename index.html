@@ -1,14 +1,16 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html class="dark h-screen" lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SkillBridge — Academia-Industry Collaboration Portal</title>
-  <meta name="description" content="SkillBridge connects students, institutions, and companies through standardized 1000-point skill assessments, platform verification, and explainable gap matching.">
+  <meta name="description" content="SkillBridge connects students, institutions, and companies through standardized assessments, verified platform activities, and intelligent placement matching.">
   
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   
   <script src="js/store.js"></script>
 
@@ -20,12 +22,12 @@
           colors: {
             primary: "#f2ca50",
             "primary-container": "#d4af37",
-            surface: "#0a0e1a",
-            "surface-container": "#131826",
-            "surface-bright": "#1e2538"
+            surface: "#080c16",
+            "surface-container": "#0e1424",
+            "surface-bright": "#161e34"
           },
           fontFamily: {
-            sans: ["Inter", "sans-serif"],
+            sans: ["Plus Jakarta Sans", "Inter", "sans-serif"],
             serif: ["Cormorant Garamond", "serif"]
           }
         }
@@ -34,214 +36,237 @@
   </script>
   
   <style>
-    @keyframes floatOrb {
+    @keyframes floatOrb1 {
       0%, 100% { transform: translate(0, 0) scale(1); }
-      50% { transform: translate(25px, -15px) scale(1.08); }
+      50% { transform: translate(30px, -20px) scale(1.08); }
+    }
+    @keyframes floatOrb2 {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(-25px, 25px) scale(1.12); }
+    }
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 0.75; }
     }
 
     html, body {
-      background-color: #0A0E1A;
+      background-color: #070a12;
       background-image: 
-        radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.12) 0%, transparent 50%),
-        radial-gradient(circle at 100% 100%, rgba(99, 102, 241, 0.1) 0%, transparent 40%),
-        radial-gradient(circle at 0% 50%, rgba(16, 185, 129, 0.08) 0%, transparent 40%);
-      color: #dfe2f3;
-      font-family: 'Inter', sans-serif;
+        radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.09) 0%, transparent 55%),
+        radial-gradient(circle at 85% 100%, rgba(99, 102, 241, 0.08) 0%, transparent 45%),
+        radial-gradient(circle at 10% 70%, rgba(16, 185, 129, 0.06) 0%, transparent 40%);
+      color: #e2e8f0;
+      font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
     }
 
-    .glass-card {
-      background: rgba(19, 24, 38, 0.82);
-      backdrop-filter: blur(24px);
-      -webkit-backdrop-filter: blur(24px);
-      border: 1px solid rgba(212, 175, 55, 0.22);
+    /* Subtle grid pattern overlay */
+    .bg-grid {
+      background-size: 40px 40px;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    }
+
+    .glass-panel {
+      background: rgba(14, 20, 36, 0.78);
+      backdrop-filter: blur(28px);
+      -webkit-backdrop-filter: blur(28px);
+      border: 1px solid rgba(255, 255, 255, 0.09);
       box-shadow: 
-        0 25px 50px -12px rgba(0, 0, 0, 0.75),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        0 25px 60px -15px rgba(0, 0, 0, 0.85),
+        0 0 0 1px rgba(255, 255, 255, 0.03),
+        inset 0 1px 0 rgba(255, 255, 255, 0.12);
     }
 
-    .orb-1 {
-      animation: floatOrb 12s ease-in-out infinite;
+    .orb-amber {
+      animation: floatOrb1 16s ease-in-out infinite;
     }
-    .orb-2 {
-      animation: floatOrb 15s ease-in-out infinite reverse;
+    .orb-indigo {
+      animation: floatOrb2 20s ease-in-out infinite reverse;
     }
-    .glow-gold {
-      box-shadow: 0 0 35px rgba(242, 202, 80, 0.15);
+
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
     }
   </style>
 </head>
-<body class="min-h-screen lg:h-screen lg:max-h-screen flex flex-col justify-start selection:bg-amber-400 selection:text-black overflow-x-hidden overflow-y-auto lg:overflow-hidden">
+<body class="h-screen max-h-screen flex flex-col justify-between selection:bg-amber-400 selection:text-black overflow-hidden relative bg-grid">
 
-  <!-- Background Ambient Glowing Orbs -->
-  <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-    <div class="orb-1 absolute -top-24 left-1/2 -translate-x-1/2 w-[550px] h-[550px] bg-amber-500/10 rounded-full blur-[130px]"></div>
-    <div class="orb-2 absolute top-1/3 -left-32 w-[400px] h-[400px] bg-indigo-600/10 rounded-full blur-[110px]"></div>
-    <div class="orb-1 absolute bottom-10 -right-32 w-[450px] h-[450px] bg-emerald-500/10 rounded-full blur-[120px]"></div>
+  <!-- Ambient Glowing Orbs -->
+  <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden" aria-hidden="true">
+    <div class="orb-amber absolute -top-32 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-amber-500/8 rounded-full blur-[140px]"></div>
+    <div class="orb-indigo absolute top-1/2 -left-40 w-[480px] h-[480px] bg-indigo-600/8 rounded-full blur-[130px]"></div>
+    <div class="orb-amber absolute -bottom-24 -right-24 w-[420px] h-[420px] bg-emerald-500/6 rounded-full blur-[130px]"></div>
   </div>
 
-  <!-- Immersive Header - Positioned firmly and elegantly at the top -->
-  <header class="relative z-20 w-full max-w-[1280px] mx-auto px-6 pt-3.5 pb-2.5 flex items-center justify-between shrink-0 border-b border-white/5">
+  <!-- Minimal Header -->
+  <header class="relative z-20 w-full max-w-6xl mx-auto px-6 py-3 flex items-center justify-between shrink-0">
     <a href="index.html" class="flex items-center space-x-3 group">
-      <div class="relative flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 via-amber-500 to-amber-600 p-[1.5px] shadow-xl shadow-amber-500/25 group-hover:scale-105 transition-all duration-300">
-        <div class="w-full h-full bg-[#0A0E1A] rounded-[10.5px] flex items-center justify-center relative overflow-hidden">
-          <svg class="w-5 h-5 text-amber-400" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M4 19V16.5C4 14.567 5.567 13 7.5 13H16.5C18.433 13 20 14.567 20 16.5V19" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+      <div class="relative flex items-center justify-center w-8 h-8 rounded-xl bg-gradient-to-br from-amber-400 via-amber-500 to-amber-600 p-[1.5px] shadow-lg shadow-amber-500/20 group-hover:scale-105 transition-all duration-300">
+        <div class="w-full h-full bg-[#0A0E1A] rounded-[9.5px] flex items-center justify-center">
+          <svg class="w-4 h-4 text-amber-400" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 19V16.5C4 14.567 5.567 13 7.5 13H16.5C18.433 13 20 14.567 20 16.5V19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
             <path d="M12 3.5L19.5 7.5L12 11.5L4.5 7.5L12 3.5Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
             <circle cx="12" cy="16" r="1.5" fill="currentColor"/>
           </svg>
         </div>
       </div>
       <div>
-        <div class="flex items-center gap-2">
-          <span class="text-xl font-black font-sans tracking-wider text-white">SKILL<span class="text-amber-400 font-serif font-extrabold italic">BRIDGE</span></span>
-          <span class="text-[9px] px-2 py-0.5 rounded-md bg-amber-500/20 text-amber-300 font-extrabold border border-amber-500/40 uppercase tracking-widest">Portal</span>
+        <div class="flex items-center gap-1.5">
+          <span class="text-sm font-extrabold tracking-wider text-white">SKILL<span class="text-amber-400 font-serif italic">BRIDGE</span></span>
         </div>
-        <p class="text-[10px] text-zinc-400 font-serif italic tracking-wide">Academia–Industry Collaboration Engine</p>
+        <p class="text-[9.5px] text-zinc-400 font-medium tracking-wide">Academia–Industry Collaboration</p>
       </div>
     </a>
 
-    <div class="hidden md:flex items-center gap-5 text-xs text-zinc-400 font-medium">
-      <div class="flex items-center gap-2 bg-white/5 px-3 py-1 rounded-full border border-white/10">
+    <!-- System Status & Security Indicator -->
+    <div class="flex items-center gap-4 text-xs">
+      <div class="hidden sm:flex items-center gap-2 bg-white/[0.03] px-3 py-1 rounded-full border border-white/[0.08]">
         <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-        <span class="text-zinc-300">1000-Point Skill Matrix & Platform Sync</span>
+        <span class="text-zinc-300 font-medium text-[11px]">Systems Operational</span>
       </div>
-      <span class="text-zinc-400 font-serif italic">Aditya University Partnered</span>
+      <a href="mailto:support@skillbridge.example.com" class="text-zinc-400 hover:text-amber-300 transition-colors text-[11px] font-medium flex items-center gap-1">
+        <span class="material-symbols-outlined text-[14px]">help</span>
+        <span>Support</span>
+      </a>
     </div>
   </header>
 
-  <!-- Main Viewport Section -->
-  <main class="relative z-10 flex-grow flex items-center justify-center px-4 py-4 md:py-6 my-auto shrink-0">
-    <div class="w-full max-w-[1100px] grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-
-      <!-- Left Column: Immersive Overview -->
-      <div class="lg:col-span-6 space-y-4 text-center lg:text-left">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-300 text-[11px] font-semibold">
-          <span class="material-symbols-outlined text-xs text-amber-400">auto_awesome</span>
-          <span>Standardized 1000-Point Assessment & Activity Engine</span>
+  <!-- Centered Login Experience -->
+  <main class="relative z-10 flex-grow flex items-center justify-center px-4 py-2 shrink-0">
+    <div class="w-full max-w-[430px]">
+      
+      <!-- Card Container -->
+      <div class="glass-panel rounded-2xl p-5 sm:p-6 space-y-4 transition-all duration-300 border border-white/10 hover:border-amber-500/20">
+        
+        <!-- Header & Title -->
+        <div class="text-center space-y-1">
+          <div class="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-400 mb-1 shadow-inner">
+            <span id="role-avatar-icon" class="material-symbols-outlined text-xl transition-all duration-300">school</span>
+          </div>
+          <h1 class="text-xl sm:text-2xl font-bold font-serif text-white tracking-tight">Welcome Back</h1>
+          <p id="role-subtitle" class="text-xs text-zinc-400">Select your role to access your collaboration workspace</p>
         </div>
 
-        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold font-serif text-white leading-[1.15] tracking-tight">
-          Connecting <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-amber-400 to-amber-500">Prepared Students</span> to Industry Opportunities.
-        </h2>
+        <!-- Role Selector Segmented Tabs -->
+        <div class="bg-black/40 p-1 rounded-xl border border-white/[0.08] grid grid-cols-3 gap-1 text-xs font-semibold">
+          <button id="tab-student" type="button" onclick="switchRoleTab('student')" class="py-1.5 px-2 rounded-lg transition-all duration-200 text-amber-300 bg-amber-500/15 border border-amber-500/30 flex items-center justify-center gap-1.5 cursor-pointer shadow-sm">
+            <span class="material-symbols-outlined text-sm">school</span>
+            <span>Student</span>
+          </button>
+          <button id="tab-company" type="button" onclick="switchRoleTab('company')" class="py-1.5 px-2 rounded-lg transition-all duration-200 text-zinc-400 hover:text-white flex items-center justify-center gap-1.5 cursor-pointer">
+            <span class="material-symbols-outlined text-sm">business</span>
+            <span>Company</span>
+          </button>
+          <button id="tab-institute" type="button" onclick="switchRoleTab('institute')" class="py-1.5 px-2 rounded-lg transition-all duration-200 text-zinc-400 hover:text-white flex items-center justify-center gap-1.5 cursor-pointer">
+            <span class="material-symbols-outlined text-sm">account_balance</span>
+            <span>Institute</span>
+          </button>
+        </div>
 
-        <p class="text-xs md:text-sm text-zinc-300 leading-relaxed font-sans max-w-[500px] mx-auto lg:mx-0">
-          Eliminating guesswork in campus placement. Students earn verifiable readiness scores out of 1000 points and sync live coding platform activities (GitHub, LeetCode, HackerRank).
-        </p>
+        <!-- Sleek Role Credentials Helper / Auto-Fill Chip -->
+        <div id="credential-chip" class="flex items-center justify-between px-3 py-1.5 rounded-xl bg-amber-500/[0.07] border border-amber-500/20 text-[11px] text-amber-200 transition-all duration-300">
+          <div class="flex items-center gap-2 overflow-hidden text-left">
+            <span class="material-symbols-outlined text-sm text-amber-400 shrink-0">info</span>
+            <div class="truncate">
+              <span class="text-zinc-400">Demo Account:</span>
+              <span id="demo-account-label" class="font-mono font-medium text-amber-300 ml-1">student@gmail.com</span>
+            </div>
+          </div>
+          <button type="button" onclick="applyDemoCredentials()" class="shrink-0 ml-2 px-2 py-0.5 rounded-md bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 text-[10px] font-bold border border-amber-500/40 transition-colors cursor-pointer">
+            Auto-fill
+          </button>
+        </div>
 
-        <!-- Feature Pills -->
-        <div class="grid grid-cols-3 gap-2.5 pt-1 max-w-[480px] mx-auto lg:mx-0 text-left">
-          <div class="p-2.5 rounded-xl bg-white/5 border border-white/10 space-y-0.5">
-            <span class="material-symbols-outlined text-amber-400 text-lg">analytics</span>
-            <div class="text-[11px] font-bold text-white">1000pt Vectors</div>
-            <div class="text-[9px] text-zinc-400">Standardized metrics</div>
+        <!-- Login Form -->
+        <form id="login-form" onsubmit="handleLoginSubmit(event)" class="space-y-3">
+          <!-- Email Input -->
+          <div class="space-y-1">
+            <label for="login-email" class="block text-[11px] font-semibold text-zinc-300 tracking-wide">Work or Student Email</label>
+            <div class="relative group">
+              <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-500 text-base group-focus-within:text-amber-400 transition-colors">mail</span>
+              <input id="login-email" type="email" required value="student@gmail.com" placeholder="name@domain.com" class="w-full pl-10 pr-3.5 py-2 bg-black/40 border border-white/10 rounded-xl text-xs text-white placeholder-zinc-500 focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400/50 transition-all">
+            </div>
           </div>
-          <div class="p-2.5 rounded-xl bg-white/5 border border-white/10 space-y-0.5">
-            <span class="material-symbols-outlined text-emerald-400 text-lg">sync_alt</span>
-            <div class="text-[11px] font-bold text-white">Platform Sync</div>
-            <div class="text-[9px] text-zinc-400">GitHub & LeetCode</div>
+
+          <!-- Password Input with Show/Hide toggle -->
+          <div class="space-y-1">
+            <div class="flex items-center justify-between">
+              <label for="login-password" class="block text-[11px] font-semibold text-zinc-300 tracking-wide">Password</label>
+              <button type="button" onclick="handleForgotPassword()" class="text-[11px] text-zinc-400 hover:text-amber-300 transition-colors font-medium cursor-pointer">
+                Forgot password?
+              </button>
+            </div>
+            <div class="relative group">
+              <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-500 text-base group-focus-within:text-amber-400 transition-colors">lock</span>
+              <input id="login-password" type="password" required value="123" placeholder="••••••••" class="w-full pl-10 pr-10 py-2 bg-black/40 border border-white/10 rounded-xl text-xs text-white placeholder-zinc-500 focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400/50 transition-all">
+              <button type="button" onclick="togglePasswordVisibility()" class="absolute right-3 top-1/2 -translate-y-1/2 text-zinc-400 hover:text-zinc-200 text-base focus:outline-none p-0.5 cursor-pointer" title="Toggle password visibility">
+                <span id="pwd-toggle-icon" class="material-symbols-outlined text-base">visibility_off</span>
+              </button>
+            </div>
           </div>
-          <div class="p-2.5 rounded-xl bg-white/5 border border-white/10 space-y-0.5">
-            <span class="material-symbols-outlined text-indigo-400 text-lg">verified</span>
-            <div class="text-[11px] font-bold text-white">Placement</div>
-            <div class="text-[9px] text-zinc-400">Direct hiring pool</div>
+
+          <!-- Remember Device Option -->
+          <div class="flex items-center justify-between pt-0.5">
+            <label class="flex items-center gap-2 cursor-pointer select-none">
+              <input type="checkbox" checked class="w-3.5 h-3.5 rounded border-white/20 bg-black/40 text-amber-500 focus:ring-amber-400 focus:ring-offset-0 cursor-pointer">
+              <span class="text-xs text-zinc-400 font-normal">Remember this device</span>
+            </label>
+            <span class="text-[10px] text-zinc-500 font-medium">Default: 123</span>
+          </div>
+
+          <!-- Error Alert Banner -->
+          <div id="login-error" class="hidden p-2 rounded-xl bg-rose-500/15 border border-rose-500/30 text-xs text-rose-300 text-center font-medium"></div>
+
+          <!-- Submit Button -->
+          <button type="submit" id="btn-submit" class="w-full py-2.5 px-4 bg-gradient-to-r from-amber-400 via-amber-500 to-amber-400 hover:from-amber-300 hover:to-amber-400 text-black font-bold rounded-xl text-xs shadow-lg shadow-amber-500/20 transition-all duration-200 transform active:scale-[0.99] flex items-center justify-center gap-2 cursor-pointer">
+            <span id="btn-submit-text">Sign In to Portal</span>
+            <span id="btn-submit-icon" class="material-symbols-outlined text-sm">arrow_forward</span>
+          </button>
+        </form>
+
+        <!-- Direct Module Jump Links -->
+        <div class="pt-2 border-t border-white/[0.08] text-center space-y-1.5">
+          <p class="text-[10px] font-medium text-zinc-400 uppercase tracking-wider">Quick Navigation</p>
+          <div class="flex items-center justify-center gap-4 text-xs font-medium">
+            <a href="Student_Interface/Portal-Dashboard.html" class="text-zinc-400 hover:text-amber-300 transition-colors flex items-center gap-1">
+              <span class="w-1.5 h-1.5 rounded-full bg-amber-400/80"></span>
+              <span>Student</span>
+            </a>
+            <span class="text-zinc-600">•</span>
+            <a href="Company_Interface/index.html" class="text-zinc-400 hover:text-emerald-300 transition-colors flex items-center gap-1">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400/80"></span>
+              <span>Company</span>
+            </a>
+            <span class="text-zinc-600">•</span>
+            <a href="Institute_Interface/index.html" class="text-zinc-400 hover:text-indigo-300 transition-colors flex items-center gap-1">
+              <span class="w-1.5 h-1.5 rounded-full bg-indigo-400/80"></span>
+              <span>Institute</span>
+            </a>
           </div>
         </div>
+
       </div>
 
-      <!-- Right Column: Non-Scrollable Glass Card -->
-      <div class="lg:col-span-6 flex justify-center">
-        <div class="w-full max-w-[430px] glass-card rounded-2xl p-5 md:p-6 space-y-4 glow-gold">
-          
-          <div class="text-center space-y-0.5">
-            <h3 class="text-xl font-bold font-serif text-white">Portal Sign In</h3>
-            <p class="text-[11px] text-zinc-400">Select your account role to access your dashboard</p>
-          </div>
-
-          <!-- Role Selector Tabs -->
-          <div class="grid grid-cols-3 gap-1 bg-black/60 p-1 rounded-xl border border-white/10 text-xs font-bold">
-            <button id="tab-student" type="button" onclick="switchRoleTab('student')" class="py-2 rounded-lg transition-all text-amber-300 bg-amber-500/20 border border-amber-500/30 flex items-center justify-center gap-1.5 cursor-pointer">
-              <span class="material-symbols-outlined text-sm">school</span>
-              <span>Student</span>
-            </button>
-            <button id="tab-company" type="button" onclick="switchRoleTab('company')" class="py-2 rounded-lg transition-all text-zinc-400 hover:text-white flex items-center justify-center gap-1.5 cursor-pointer">
-              <span class="material-symbols-outlined text-sm">business</span>
-              <span>Company</span>
-            </button>
-            <button id="tab-institute" type="button" onclick="switchRoleTab('institute')" class="py-2 rounded-lg transition-all text-zinc-400 hover:text-white flex items-center justify-center gap-1.5 cursor-pointer">
-              <span class="material-symbols-outlined text-sm">account_balance</span>
-              <span>Institute</span>
-            </button>
-          </div>
-
-          <!-- Role Context Banner -->
-          <div id="role-description" class="px-3 py-2 rounded-xl bg-amber-500/10 border border-amber-500/20 text-[11px] text-amber-200 text-center font-medium">
-            Demo: <strong>student@gmail.com</strong> &nbsp;/&nbsp; password: <strong>123</strong>
-          </div>
-
-          <!-- Login Form -->
-          <form id="login-form" onsubmit="handleLoginSubmit(event)" class="space-y-3">
-            <div>
-              <label for="login-email" class="block text-[10px] font-semibold text-zinc-300 mb-1 uppercase tracking-wider">Email Address</label>
-              <div class="relative">
-                <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-zinc-400 text-base">mail</span>
-                <input id="login-email" type="email" required value="student@gmail.com" class="w-full pl-9 pr-3 py-2 bg-black/50 border border-white/15 rounded-xl text-xs text-white focus:outline-none focus:border-amber-400 transition-colors">
-              </div>
-            </div>
-
-            <div>
-              <label for="login-password" class="block text-[10px] font-semibold text-zinc-300 mb-1 uppercase tracking-wider">Password</label>
-              <div class="relative">
-                <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-zinc-400 text-base">lock</span>
-                <input id="login-password" type="password" required value="123" class="w-full pl-9 pr-3 py-2 bg-black/50 border border-white/15 rounded-xl text-xs text-white focus:outline-none focus:border-amber-400 transition-colors">
-              </div>
-            </div>
-
-            <div id="login-error" class="hidden p-2 rounded-xl bg-rose-500/20 border border-rose-500/40 text-[11px] text-rose-300 text-center font-semibold"></div>
-
-            <button type="submit" id="btn-submit" class="w-full py-2.5 bg-gradient-to-r from-amber-400 via-amber-500 to-amber-400 hover:from-amber-300 hover:to-amber-400 text-black font-bold rounded-xl text-xs shadow-lg shadow-amber-500/20 transition-all duration-200 transform active:scale-98 flex items-center justify-center gap-1.5 cursor-pointer">
-              <span>Enter Portal</span>
-              <span class="material-symbols-outlined text-sm">arrow_forward</span>
-            </button>
-          </form>
-
-          <!-- Quick Demo Logins -->
-          <div class="pt-3 border-t border-white/10 text-center space-y-2">
-            <p class="text-[9px] font-semibold text-zinc-400 uppercase tracking-widest">Quick Demo One-Click Access</p>
-            <div class="grid grid-cols-3 gap-1.5">
-              <button type="button" onclick="quickLogin('student@gmail.com', '123', 'student')" class="px-2 py-1.5 bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/30 rounded-xl text-[10px] font-bold text-amber-300 transition-all cursor-pointer flex items-center justify-center gap-1">
-                <span class="material-symbols-outlined text-xs">school</span>
-                <span>Student</span>
-              </button>
-              <button type="button" onclick="quickLogin('company@gmail.com', '123', 'company')" class="px-2 py-1.5 bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/30 rounded-xl text-[10px] font-bold text-emerald-300 transition-all cursor-pointer flex items-center justify-center gap-1">
-                <span class="material-symbols-outlined text-xs">business</span>
-                <span>Company</span>
-              </button>
-              <button type="button" onclick="quickLogin('institute@gmail.com', '123', 'institute')" class="px-2 py-1.5 bg-indigo-500/10 hover:bg-indigo-500/20 border border-indigo-500/30 rounded-xl text-[10px] font-bold text-indigo-300 transition-all cursor-pointer flex items-center justify-center gap-1">
-                <span class="material-symbols-outlined text-xs">account_balance</span>
-                <span>Institute</span>
-              </button>
-            </div>
-          </div>
-
-          <!-- Direct Fallback Links -->
-          <div class="pt-1 flex justify-around text-[10px] text-zinc-400 border-t border-white/5">
-            <a href="Student_Interface/Portal-Dashboard.html" class="hover:text-amber-400 hover:underline">Student Module</a>
-            <span>•</span>
-            <a href="Company_Interface/index.html" class="hover:text-emerald-400 hover:underline">Company Module</a>
-            <span>•</span>
-            <a href="Institute_Interface/index.html" class="hover:text-indigo-400 hover:underline">Institute Module</a>
-          </div>
-
-        </div>
+      <!-- Security Trust Tag -->
+      <div class="mt-2.5 flex items-center justify-center gap-2 text-[11px] text-zinc-400 font-medium">
+        <span class="material-symbols-outlined text-xs text-zinc-400">lock</span>
+        <span>256-bit Encrypted Session &bull; Role-Based Access</span>
       </div>
 
     </div>
   </main>
 
-  <!-- Immersive Minimal Footer -->
-  <footer class="relative z-10 w-full max-w-[1280px] mx-auto px-6 py-3 text-center text-[11px] text-zinc-500 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-1 shrink-0">
-    <p>© 2026 SkillBridge — Academia–Industry Collaboration Portal.</p>
-    <p class="font-serif italic text-zinc-400">Aditya University • ABC Tech • Standardized Placement</p>
+  <!-- Clean Minimal Footer -->
+  <footer class="relative z-10 w-full max-w-6xl mx-auto px-6 py-2.5 border-t border-white/[0.06] flex flex-col sm:flex-row items-center justify-between gap-1 text-xs text-zinc-400 shrink-0">
+    <p>&copy; 2026 SkillBridge Platform. All rights reserved.</p>
+    <div class="flex items-center gap-4 text-[11px]">
+      <a href="#" onclick="alert('SkillBridge Portal operates under university and enterprise data privacy standards.'); return false;" class="hover:text-zinc-300 transition-colors">Privacy Policy</a>
+      <span class="text-zinc-700">&bull;</span>
+      <a href="#" onclick="alert('Standard terms of academic verification and enterprise access apply.'); return false;" class="hover:text-zinc-300 transition-colors">Terms of Service</a>
+      <span class="text-zinc-700">&bull;</span>
+      <span class="text-zinc-400">Ver. 3.4.0</span>
+    </div>
   </footer>
 
   <script>
@@ -249,31 +274,40 @@
 
     const roleConfigs = {
       student: {
+        name: 'Student',
         email: 'student@gmail.com',
-        desc: 'Demo: <strong>student@gmail.com</strong> &nbsp;/&nbsp; password: <strong>123</strong>',
-        descColor: 'bg-amber-500/10 border-amber-500/20 text-amber-200',
-        border: 'border-amber-500/30',
-        bg: 'bg-amber-500/20',
-        text: 'text-amber-300',
-        target: 'Student_Interface/Portal-Dashboard.html'
+        target: 'Student_Interface/Portal-Dashboard.html',
+        icon: 'school',
+        accentColor: 'amber',
+        subtitle: 'Access your student dashboard, skill matrix & applications',
+        btnGradient: 'from-amber-400 via-amber-500 to-amber-400 hover:from-amber-300 hover:to-amber-400 text-black shadow-amber-500/20',
+        tabActive: 'text-amber-300 bg-amber-500/15 border-amber-500/30',
+        chipStyle: 'bg-amber-500/[0.07] border-amber-500/20 text-amber-200',
+        chipBtn: 'bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 border-amber-500/40'
       },
       company: {
+        name: 'Company',
         email: 'company@gmail.com',
-        desc: 'Demo: <strong>company@gmail.com</strong> &nbsp;/&nbsp; password: <strong>123</strong>',
-        descColor: 'bg-emerald-500/10 border-emerald-500/20 text-emerald-200',
-        border: 'border-emerald-500/30',
-        bg: 'bg-emerald-500/20',
-        text: 'text-emerald-300',
-        target: 'Company_Interface/index.html'
+        target: 'Company_Interface/index.html',
+        icon: 'business',
+        accentColor: 'emerald',
+        subtitle: 'Review candidates, manage job requisitions & verified profiles',
+        btnGradient: 'from-emerald-400 via-emerald-500 to-emerald-400 hover:from-emerald-300 hover:to-emerald-400 text-black shadow-emerald-500/20',
+        tabActive: 'text-emerald-300 bg-emerald-500/15 border-emerald-500/30',
+        chipStyle: 'bg-emerald-500/[0.07] border-emerald-500/20 text-emerald-200',
+        chipBtn: 'bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-300 border-emerald-500/40'
       },
       institute: {
+        name: 'Institute',
         email: 'institute@gmail.com',
-        desc: 'Demo: <strong>institute@gmail.com</strong> &nbsp;/&nbsp; password: <strong>123</strong>',
-        descColor: 'bg-indigo-500/10 border-indigo-500/20 text-indigo-200',
-        border: 'border-indigo-500/30',
-        bg: 'bg-indigo-500/20',
-        text: 'text-indigo-300',
-        target: 'Institute_Interface/index.html'
+        target: 'Institute_Interface/index.html',
+        icon: 'account_balance',
+        accentColor: 'indigo',
+        subtitle: 'Institutional analytics, student cohorts & placement metrics',
+        btnGradient: 'from-indigo-400 via-indigo-500 to-indigo-400 hover:from-indigo-300 hover:to-indigo-400 text-white shadow-indigo-500/25',
+        tabActive: 'text-indigo-300 bg-indigo-500/20 border-indigo-500/30',
+        chipStyle: 'bg-indigo-500/[0.07] border-indigo-500/20 text-indigo-200',
+        chipBtn: 'bg-indigo-500/20 hover:bg-indigo-500/30 text-indigo-300 border-indigo-500/40'
       }
     };
 
@@ -285,29 +319,74 @@
         const btn = document.getElementById(`tab-${r}`);
         if (btn) {
           if (r === role) {
-            btn.className = `py-2 rounded-lg transition-all ${cfg.text} ${cfg.bg} border ${cfg.border} flex items-center justify-center gap-1.5 cursor-pointer`;
+            btn.className = `py-2 px-2.5 rounded-lg transition-all duration-200 border flex items-center justify-center gap-1.5 cursor-pointer shadow-sm ${cfg.tabActive}`;
           } else {
-            btn.className = `py-2 rounded-lg transition-all text-zinc-400 hover:text-white flex items-center justify-center gap-1.5 cursor-pointer`;
+            btn.className = 'py-2 px-2.5 rounded-lg transition-all duration-200 text-zinc-400 hover:text-white flex items-center justify-center gap-1.5 cursor-pointer';
           }
         }
       });
 
-      const descBox = document.getElementById('role-description');
-      if (descBox) {
-        descBox.className = `px-3 py-2 rounded-xl border text-[11px] text-center font-medium ${cfg.descColor}`;
-        descBox.innerHTML = cfg.desc;
+      // Update avatar icon & subtitle
+      const avatarIcon = document.getElementById('role-avatar-icon');
+      if (avatarIcon) avatarIcon.innerText = cfg.icon;
+
+      const subtitle = document.getElementById('role-subtitle');
+      if (subtitle) subtitle.innerText = cfg.subtitle;
+
+      // Update credential chip
+      const chip = document.getElementById('credential-chip');
+      if (chip) {
+        chip.className = `flex items-center justify-between px-3.5 py-2.5 rounded-xl border text-[11px] transition-all duration-300 ${cfg.chipStyle}`;
       }
+      const label = document.getElementById('demo-account-label');
+      if (label) label.innerText = cfg.email;
+
+      // Update submit button gradient
+      const btn = document.getElementById('btn-submit');
+      if (btn) {
+        btn.className = `w-full py-2.5 px-4 bg-gradient-to-r font-bold rounded-xl text-xs shadow-lg transition-all duration-200 transform active:scale-[0.99] flex items-center justify-center gap-2 cursor-pointer ${cfg.btnGradient}`;
+      }
+
+      // Populate default inputs
       const emailBox = document.getElementById('login-email');
       if (emailBox) emailBox.value = cfg.email;
       const passBox = document.getElementById('login-password');
       if (passBox) passBox.value = '123';
+
       const errBox = document.getElementById('login-error');
       if (errBox) errBox.classList.add('hidden');
     }
 
-    function quickLogin(email, password, role) {
-      switchRoleTab(role);
-      setTimeout(() => executeLogin(email, password, role), 80);
+    function applyDemoCredentials() {
+      const cfg = roleConfigs[activeRole];
+      const emailBox = document.getElementById('login-email');
+      const passBox = document.getElementById('login-password');
+      if (emailBox) emailBox.value = cfg.email;
+      if (passBox) passBox.value = '123';
+      
+      const chip = document.getElementById('credential-chip');
+      if (chip) {
+        chip.classList.add('ring-1', 'ring-amber-400/60');
+        setTimeout(() => chip.classList.remove('ring-1', 'ring-amber-400/60'), 600);
+      }
+    }
+
+    function togglePasswordVisibility() {
+      const passInput = document.getElementById('login-password');
+      const icon = document.getElementById('pwd-toggle-icon');
+      if (passInput) {
+        if (passInput.type === 'password') {
+          passInput.type = 'text';
+          if (icon) icon.innerText = 'visibility';
+        } else {
+          passInput.type = 'password';
+          if (icon) icon.innerText = 'visibility_off';
+        }
+      }
+    }
+
+    function handleForgotPassword() {
+      alert(`Demo Access Notice:\n\nFor role "${roleConfigs[activeRole].name}", the default login password is: 123\n\nEmail: ${roleConfigs[activeRole].email}`);
     }
 
     function handleLoginSubmit(e) {
@@ -320,6 +399,9 @@
     function executeLogin(email, password, role) {
       const errBox = document.getElementById('login-error');
       const btn = document.getElementById('btn-submit');
+      const btnText = document.getElementById('btn-submit-text');
+      const btnIcon = document.getElementById('btn-submit-icon');
+
       if (errBox) errBox.classList.add('hidden');
 
       if (!window.SkillBridgeStore) {
@@ -328,22 +410,38 @@
       }
 
       btn.disabled = true;
-      btn.innerHTML = `<span class="material-symbols-outlined text-sm animate-spin">refresh</span><span>Verifying...</span>`;
+      btn.classList.add('opacity-80', 'cursor-not-allowed');
+      if (btnText) btnText.innerText = 'Authenticating...';
+      if (btnIcon) {
+        btnIcon.className = 'material-symbols-outlined text-sm animate-spin';
+        btnIcon.innerText = 'sync';
+      }
 
       setTimeout(() => {
         const res = window.SkillBridgeStore.login(email, password, role);
         if (res.success) {
-          btn.innerHTML = `<span class="material-symbols-outlined text-sm">check</span><span>Redirecting...</span>`;
-          window.location.href = roleConfigs[role].target;
+          if (btnText) btnText.innerText = 'Authorized • Redirecting';
+          if (btnIcon) {
+            btnIcon.className = 'material-symbols-outlined text-sm';
+            btnIcon.innerText = 'check_circle';
+          }
+          setTimeout(() => {
+            window.location.href = roleConfigs[role].target;
+          }, 350);
         } else {
           btn.disabled = false;
-          btn.innerHTML = `<span>Enter Portal</span><span class="material-symbols-outlined text-sm">arrow_forward</span>`;
+          btn.classList.remove('opacity-80', 'cursor-not-allowed');
+          if (btnText) btnText.innerText = 'Sign In to Portal';
+          if (btnIcon) {
+            btnIcon.className = 'material-symbols-outlined text-sm';
+            btnIcon.innerText = 'arrow_forward';
+          }
           if (errBox) {
-            errBox.innerText = res.message || 'Login failed. Please verify credentials.';
+            errBox.innerText = res.message || 'Authentication failed. Please verify credentials.';
             errBox.classList.remove('hidden');
           }
         }
-      }, 350);
+      }, 400);
     }
 
     document.addEventListener('DOMContentLoaded', () => {

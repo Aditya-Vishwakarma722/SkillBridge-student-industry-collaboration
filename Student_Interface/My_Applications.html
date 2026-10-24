@@ -1,12 +1,12 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html class="dark" lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>My Applications â€” SkillBridge</title>
-<script src="https://cdn.tailwindcss.com•plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2•family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2•family=Inter:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
+<title>My Applications — SkillBridge</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
 <script>
   tailwind.config = {
     darkMode: "class",
@@ -36,7 +36,7 @@
   }
 </style>
 </head>
-<body class="min-h-screen bg-[#0f131f] text-[#dfe2f3] flex flex-col">
+<body class="min-h-screen bg-[#0f131f] text-[#dfe2f3] flex flex-col selection:bg-amber-400 selection:text-black">
 
 <main class="flex-1 p-4 md:p-8 max-w-[1200px] mx-auto w-full space-y-6">
 
@@ -46,10 +46,20 @@
       <h1 class="text-2xl font-bold font-serif text-amber-400">My Applications & Screening Pipeline</h1>
       <p class="text-xs text-zinc-400">Track application statuses, screening test scores, and recruitment progress in real time.</p>
     </div>
-    <a href="../Opportunity_Interface/index.html" class="px-4 py-2 bg-amber-500 text-black font-bold rounded-xl text-xs flex items-center gap-1.5 hover:bg-amber-400 transition-all shadow-md self-start sm:self-auto">
-      <span class="material-symbols-outlined text-base">search</span>
-      <span>Browse Opportunities</span>
-    </a>
+    <div class="flex flex-wrap items-center gap-2">
+      <a href="Portal-Dashboard.html" class="px-3.5 py-2 bg-white/10 hover:bg-white/15 text-white font-semibold rounded-xl text-xs flex items-center gap-1.5 border border-white/10 transition-all">
+        <span class="material-symbols-outlined text-base">dashboard</span>
+        <span>Dashboard</span>
+      </a>
+      <a href="../Opportunity_Interface/index.html" class="px-3.5 py-2 bg-amber-500/20 text-amber-300 font-bold rounded-xl text-xs flex items-center gap-1.5 hover:bg-amber-500/30 border border-amber-500/30 transition-all">
+        <span class="material-symbols-outlined text-base">work</span>
+        <span>Skill Roles</span>
+      </a>
+      <a href="../Opportunity_Interface/Opportunities_Interface.html" class="px-3.5 py-2 bg-amber-500 text-black font-bold rounded-xl text-xs flex items-center gap-1.5 hover:bg-amber-400 transition-all shadow-md">
+        <span class="material-symbols-outlined text-base">travel_explore</span>
+        <span>Opportunities Catalog</span>
+      </a>
+    </div>
   </div>
 
   <!-- Applications Table / Cards -->
@@ -92,7 +102,7 @@
 
     <div id="screening-footer" class="flex justify-between items-center pt-3 border-t border-white/10 text-xs">
       <div class="text-zinc-400 font-medium">Passing Threshold: <strong class="text-amber-400">15 / 20 Questions (75%)</strong></div>
-      <button onclick="submitScreeningAnswers()" class="px-5 py-2.5 bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-black font-bold rounded-xl shadow-lg transition-all">
+      <button onclick="submitScreeningAnswers()" class="px-5 py-2.5 bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-black font-bold rounded-xl shadow-lg transition-all cursor-pointer">
         Submit Screening Assessment
       </button>
     </div>
@@ -107,27 +117,27 @@
   // 5 role-appropriate questions (4 pts each = 20 total, pass = 15)
   const SCREENING_QUESTIONS = [
     {
-      q: 'Q1. What is the average time complexity of a HashMap lookup in Java•',
+      q: 'Q1. What is the average time complexity of a HashMap lookup in Java?',
       options: ['O(1) average time', 'O(N) linear time', 'O(log N) tree traversal', 'O(N^2) quadratic'],
       answer: 0
     },
     {
-      q: 'Q2. Which Spring Boot annotation is used to mark a class as a REST API controller•',
+      q: 'Q2. Which Spring Boot annotation is used to mark a class as a REST API controller?',
       options: ['@RestController', '@Service', '@Component', '@Repository'],
       answer: 0
     },
     {
-      q: 'Q3. Which SQL clause filters aggregated GROUP BY results•',
+      q: 'Q3. Which SQL clause filters aggregated GROUP BY results?',
       options: ['HAVING', 'WHERE', 'FILTER', 'SELECT'],
       answer: 0
     },
     {
-      q: 'Q4. What does the @Autowired annotation do in Spring Boot•',
+      q: 'Q4. What does the @Autowired annotation do in Spring Boot?',
       options: ['Injects bean dependencies automatically', 'Marks class as a bean', 'Enables web security', 'Configures database connection'],
       answer: 0
     },
     {
-      q: 'Q5. Which HTTP method is used to update an existing resource in REST APIs•',
+      q: 'Q5. Which HTTP method is used to update an existing resource in REST APIs?',
       options: ['PUT / PATCH', 'POST', 'GET', 'DELETE'],
       answer: 0
     }
@@ -168,7 +178,7 @@
       let actionBtn = '';
       if (app.status === 'Screening' && (app.screeningScore === null || app.screeningScore === undefined)) {
         actionBtn = `
-          <button onclick="startScreeningModal('${app.id}')" class="px-4 py-2 bg-gradient-to-r from-indigo-500 to-indigo-600 hover:from-indigo-400 hover:to-indigo-500 text-white font-bold rounded-xl text-xs shadow-md flex items-center gap-1.5 animate-pulse">
+          <button onclick="startScreeningModal('${app.id}')" class="px-4 py-2 bg-gradient-to-r from-indigo-500 to-indigo-600 hover:from-indigo-400 hover:to-indigo-500 text-white font-bold rounded-xl text-xs shadow-md flex items-center gap-1.5 animate-pulse cursor-pointer">
             <span class="material-symbols-outlined text-base">videocam</span>
             <span>Take Company Screening Test (5 Qs)</span>
           </button>
@@ -176,9 +186,9 @@
       } else if (app.screeningScore !== null && app.screeningScore !== undefined) {
         const passed = app.screeningScore >= 15;
         actionBtn = `
-          <div class="text-xs flex items-center gap-1.5 px-3 py-1.5 rounded-xl border ${passed • 'bg-emerald-500/10 border-emerald-500/30 text-emerald-300' : 'bg-rose-500/10 border-rose-500/30 text-rose-300'}">
-            <span class="material-symbols-outlined text-base">${passed • 'fact_check' : 'cancel'}</span>
-            <span>Screening: <strong>${app.screeningScore} / 20</strong> &mdash; ${passed • 'Passed' : 'Not Passed'}</span>
+          <div class="text-xs flex items-center gap-1.5 px-3 py-1.5 rounded-xl border ${passed ? 'bg-emerald-500/10 border-emerald-500/30 text-emerald-300' : 'bg-rose-500/10 border-rose-500/30 text-rose-300'}">
+            <span class="material-symbols-outlined text-base">${passed ? 'fact_check' : 'cancel'}</span>
+            <span>Screening: <strong>${app.screeningScore} / 20</strong> &mdash; ${passed ? 'Passed' : 'Not Passed'}</span>
           </div>
         `;
       }
@@ -211,7 +221,7 @@
     const app = state.applications.find(a => a.id === appId);
     if (!app) return;
 
-    document.getElementById('screening-opp-title').innerText = `${app.opportunityTitle} â€” Screening Test`;
+    document.getElementById('screening-opp-title').innerText = `${app.opportunityTitle} — Screening Test`;
     document.getElementById('screening-comp-name').innerText = `${app.companyName} Recruitment Session`;
 
     // Try starting camera preview
@@ -222,14 +232,14 @@
         video.srcObject = stream;
         video.classList.remove('hidden');
         fallback.classList.add('hidden');
-      }).catch(() => { /* camera unavailable â€” fallback icon stays */ });
+      }).catch(() => { /* camera unavailable — fallback icon stays */ });
     }
 
     // Dynamically build 5 questions (4 pts each = 20 total)
     const body = document.getElementById('screening-body');
     let questionsHTML = `
       <div class="bg-amber-500/10 border border-amber-500/20 p-3 rounded-xl text-xs text-amber-300">
-        â„¹ï¸ Camera monitoring active. Answer all 5 questions honestly. Each correct answer = 4 points. Score &ge;15 (75%) qualifies you for shortlisting.
+        ℹ️ Camera monitoring active. Answer all 5 questions honestly. Each correct answer = 4 points. Score &ge;15 (75%) qualifies you for shortlisting.
       </div>
       <div class="space-y-4 text-xs">
     `;
@@ -276,7 +286,6 @@
   }
 
   function handleModalBackdrop(e) {
-    // Close when clicking outside modal content
     if (e.target === document.getElementById('screening-modal')) {
       toggleScreeningModal(false);
     }

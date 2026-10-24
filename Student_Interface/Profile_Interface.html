@@ -91,7 +91,7 @@
                     <span class="text-zinc-400 block uppercase text-[10px] tracking-wider mb-0.5">Platform Activity</span>
                     <strong id="profile-platform-pts" class="text-cyan-300 text-xs sm:text-sm font-semibold flex items-center gap-1">
                         <span class="material-symbols-outlined text-sm">terminal</span>
-                        840 / 1000 pts
+                        740 / 1000 pts
                     </strong>
                 </div>
             </div>
@@ -129,7 +129,7 @@
             <div class="flex items-center gap-3">
                 <div class="text-right">
                     <div class="text-[10px] text-zinc-400 uppercase tracking-wider">Overall Platform Score</div>
-                    <div id="platform-total-header" class="text-xl font-black text-cyan-300">840 <span class="text-xs text-zinc-400 font-normal">/ 1000</span></div>
+                    <div id="platform-total-header" class="text-xl font-black text-cyan-300">740 <span class="text-xs text-zinc-400 font-normal">/ 1000</span></div>
                 </div>
                 <button id="btn-sync-platforms" onclick="syncPlatformsLive()" class="px-3.5 py-2 bg-gradient-to-r from-cyan-500 to-emerald-500 hover:from-cyan-400 hover:to-emerald-400 text-black font-bold rounded-xl text-xs flex items-center gap-1.5 shadow-md transition-all cursor-pointer">
                     <span id="sync-icon" class="material-symbols-outlined text-base">sync</span>
@@ -745,7 +745,7 @@
 
         // Platform Activities section
         const plat = student.platformActivities || {};
-        const totalPlatScore = plat.totalScore || student.skills?.['Platform Activities'] || 840;
+        const totalPlatScore = plat.totalScore || student.skills?.['Platform Activities'] || 740;
 
         document.getElementById('profile-platform-pts').innerHTML = `<span class="material-symbols-outlined text-sm">terminal</span> ${totalPlatScore} / 1000 pts`;
         document.getElementById('platform-total-header').innerHTML = `${totalPlatScore} <span class="text-xs text-zinc-400 font-normal">/ 1000</span>`;
@@ -755,7 +755,7 @@
         const ghUser = student.github || 'https://github.com/rahul-sharma';
         document.getElementById('gh-username').innerText = ghUser.replace('https://', '');
         document.getElementById('gh-link').href = ghUser.startsWith('http') ? ghUser : 'https://' + ghUser;
-        document.getElementById('gh-score-badge').innerText = `${ghData.score || 310} / 350 pts`;
+        document.getElementById('gh-score-badge').innerText = `${ghData.score || 250} / 300 pts`;
         document.getElementById('gh-streak').innerText = `${ghData.streakDays || 142} Days 🔥`;
         document.getElementById('gh-pushes').innerText = `${ghData.pushesThisYear || 1240} pushes this year`;
         document.getElementById('gh-repos').innerText = `${ghData.repoCount || 18} Repos`;

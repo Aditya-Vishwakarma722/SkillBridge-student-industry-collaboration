@@ -381,6 +381,113 @@ function generateQuizQuestions() {
   return list;
 }
 
+let overallTimer = null;
+let perQuestionTimer = null;
+let overallSecondsRemaining = 15 * 60;
+let perQuestionSecondsRemaining = 45;
+let antiCheatViolations = 0;
+
+function startTimers() {
+  stopTimers();
+  overallSecondsRemaining = 15 * 60;
+  perQuestionSecondsRemaining = 45;
+
+  overallTimer = setInterval(() => {
+    if (overallSecondsRemaining > 0) {
+      overallSecondsRemaining--;
+      const m = Math.floor(overallSecondsRemaining / 60).toString().padStart(2, '0');
+      const s = (overallSecondsRemaining % 60).toString().padStart(2, '0');
+      const el = document.getElementById('overall-timer-display');
+      if (el) el.innerText = `${m}:${s}`;
+    } else {
+      stopTimers();
+      alert('⏱️ Overall assessment time limit reached! Auto-submitting.');
+      finishAssessment();
+    }
+  }, 1000);
+
+  startPerQuestionTimer();
+}
+
+function startPerQuestionTimer() {
+  if (perQuestionTimer) clearInterval(perQuestionTimer);
+  perQuestionSecondsRemaining = 45;
+  const el = document.getElementById('per-question-timer-display');
+  if (el) el.innerText = `${perQuestionSecondsRemaining}s`;
+
+  perQuestionTimer = setInterval(() => {
+    if (perQuestionSecondsRemaining > 0) {
+      perQuestionSecondsRemaining--;
+      const el = document.getElementById('per-question-timer-display');
+      if (el) el.innerText = `${perQuestionSecondsRemaining}s`;
+    } else {
+      if (perQuestionTimer) clearInterval(perQuestionTimer);
+      if (currentQuestionIndex < quizQuestions.length - 1) {
+        currentQuestionIndex++;
+        render();
+      } else {
+        finishAssessment();
+      }
+    }
+  }, 1000);
+}
+
+function stopTimers() {
+  if (overallTimer) clearInterval(overallTimer);
+  if (perQuestionTimer) clearInterval(perQuestionTimer);
+}
+
+if (typeof window !== 'undefined') {
+  document.addEventListener('visibilitychange', () => {
+    if (quizStarted && document.hidden) {
+      antiCheatViolations++;
+      if (window.SkillBridgeStore) {
+        window.SkillBridgeStore.logCheatingViolation('Tab switch detected during assessment');
+      }
+      alert(`⚠️ ANTI-CHEATING WARNING #${antiCheatViolations}\nTab switching is monitored! Continued violations will result in score deductions and account suspension.`);
+    }
+  });
+
+  document.addEventListener('copy', (e) => {
+    if (quizStarted) {
+      e.preventDefault();
+      if (window.SkillBridgeStore) window.SkillBridgeStore.logCheatingViolation('Copy action prohibited during assessment');
+      alert('⚠️ Copying question text is prohibited in proctored assessment mode!');
+    }
+  });
+}
+
+function finishAssessment() {
+  stopTimers();
+  const stats = calculateAssessmentStats();
+  const domainScores = getDomainScores();
+  
+  if (window.SkillBridgeStore) {
+    const urlParams = new URLSearchParams(window.location.search);
+    const activeSkill = urlParams.get('skill') || (selectedDomains.size > 0 ? Array.from(selectedDomains)[0] : 'Java Development');
+    window.SkillBridgeStore.updateSkillScore(activeSkill, stats.score);
+    for (const [skillName, sScore] of Object.entries(domainScores)) {
+      window.SkillBridgeStore.updateSkillScore(skillName, sScore);
+    }
+  }
+
+  const result = {
+    date: new Date().toISOString(),
+    score: stats.score,
+    skillLevel: stats.level,
+    selectedDomains: [...selectedDomains],
+    domains: domainScores,
+    difficulty: getDifficultySummary(),
+    violations: antiCheatViolations
+  };
+
+  saveAssessmentResult(result);
+  ratings = Object.fromEntries(SKILLS.map(skill => [skill, domainScores[skill] ? (domainScores[skill] / 1000) * 5 : 1]));
+  step = 2;
+  quizStarted = false;
+  render();
+}
+
 function startQuiz() {
   if (selectedDomains.size === 0) {
     selectedDomains.add(SKILLS[0]);
@@ -390,7 +497,9 @@ function startQuiz() {
   userAnswers = {};
   currentQuestionIndex = 0;
   quizStarted = true;
+  antiCheatViolations = 0;
   step = 1;
+  startTimers();
   render();
 }
 
@@ -537,6 +646,24 @@ function renderAssessment() {
 
   app.innerHTML = `
     <div class="card glass-panel">
+      <!-- Proctored & Dual Timer Bar -->
+      <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 16px; background: rgba(0, 0, 0, 0.4); border-radius: 12px; border: 1px solid rgba(212, 175, 55, 0.3); margin-bottom: 16px; font-size: 12px;">
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <span style="display: flex; align-items: center; gap: 4px; color: #f2ca50; font-weight: 700;">
+            ⏱️ Test Timer: <span id="overall-timer-display" style="font-family: monospace; font-size: 14px; color: #fff;">15:00</span>
+          </span>
+          <span style="display: flex; align-items: center; gap: 4px; color: #38bdf8; font-weight: 700;">
+            ⏳ Per-Q: <span id="per-question-timer-display" style="font-family: monospace; font-size: 14px; color: #fff;">45s</span>
+          </span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <span style="background: rgba(16, 185, 129, 0.2); color: #34d399; padding: 2px 8px; border-radius: 9999px; font-weight: 700; border: 1px solid rgba(16, 185, 129, 0.3); font-size: 10px;">
+            🛡️ Proctored & Anti-Cheat Monitored
+          </span>
+          ${antiCheatViolations > 0 ? `<span style="background: rgba(244, 63, 94, 0.2); color: #fda4af; padding: 2px 8px; border-radius: 9999px; font-weight: 700; border: 1px solid rgba(244, 63, 94, 0.4); font-size: 10px;">⚠️ ${antiCheatViolations} Violations</span>` : ''}
+        </div>
+      </div>
+
       <div class="quiz-header">
         <div>
           <div class="tagline">${q.skill}</div>
@@ -591,29 +718,17 @@ function renderAssessment() {
     if (selectedAnswer === undefined) return;
 
     if (currentQuestionIndex === quizQuestions.length - 1) {
-      const stats = calculateAssessmentStats();
-      const history = getLatestHistory();
-      const result = {
-        date: new Date().toISOString(),
-        score: stats.score,
-        skillLevel: stats.level,
-        selectedDomains: [...selectedDomains],
-        domains: getDomainScores(),
-        difficulty: getDifficultySummary()
-      };
-
-      saveAssessmentResult(result);
-      ratings = Object.fromEntries(SKILLS.map(skill => [skill, getDomainScores()[skill] ? getDomainScores()[skill] / 100 * 5 : 1]));
-      step = 2;
-      render();
+      finishAssessment();
       return;
     }
 
     currentQuestionIndex += 1;
+    startPerQuestionTimer();
     render();
   });
 
   document.getElementById('exitAssessmentBtn')?.addEventListener('click', () => {
+    stopTimers();
     step = 1;
     quizStarted = false;
     selectedDomains.clear();
@@ -728,15 +843,19 @@ function renderReport() {
             <h1 class="hero" style="font-size: clamp(2rem, 3vw, 3.2rem);">Your Skill Assessment <em>Report</em></h1>
           </div>
           <div class="score-badge ${summary.score >= 75 ? 'green' : summary.score < 40 ? 'coral' : ''}">
-            <span class="pct">${summary.score}%</span>
-            <span class="label">Overall</span>
+            <span class="pct">${Math.round(summary.score * 10)} / 1000</span>
+            <span class="label">Overall Points</span>
           </div>
         </div>
         <div class="level-chip">${summary.level}</div>
         
-        <div style="margin-top: 15px; padding: 12px; background: rgba(212, 175, 55, 0.15); border: 1px solid rgba(212, 175, 55, 0.4); border-radius: 12px; text-align: center;">
-          <strong style="color: #f2ca50; display: block; margin-bottom: 6px;">🎉 Skill Score Updated Live to ${summary.score}/100!</strong>
-          <a href="../Opportunity_Interface/index.html" style="display: inline-block; padding: 8px 18px; background: #f2ca50; color: #000; font-weight: bold; border-radius: 8px; text-decoration: none; font-size: 13px;">🎯 Check Unlocked Opportunities Now</a>
+        <div style="margin-top: 15px; padding: 14px; background: rgba(212, 175, 55, 0.15); border: 1px solid rgba(212, 175, 55, 0.4); border-radius: 12px; text-align: center;">
+          <strong style="color: #f2ca50; display: block; margin-bottom: 8px;">🎉 Skill Vector Updated Live to ${Math.round(summary.score * 10)} / 1000 Points!</strong>
+          <div style="display: flex; justify-content: center; gap: 8px; flex-wrap: wrap;">
+            <a href="../Opportunity_Interface/index.html" style="display: inline-flex; align-items: center; gap: 4px; padding: 8px 16px; background: #f2ca50; color: #000; font-weight: bold; border-radius: 8px; text-decoration: none; font-size: 12px;">🎯 Skill-Matched Roles</a>
+            <a href="../Opportunity_Interface/Opportunities_Interface.html" style="display: inline-flex; align-items: center; gap: 4px; padding: 8px 16px; background: rgba(255, 255, 255, 0.1); color: #fff; font-weight: bold; border-radius: 8px; text-decoration: none; font-size: 12px; border: 1px solid rgba(255, 255, 255, 0.2);">🌐 Opportunities Catalog</a>
+            <a href="../Student_Interface/Portal-Dashboard.html" style="display: inline-flex; align-items: center; gap: 4px; padding: 8px 16px; background: rgba(255, 255, 255, 0.05); color: #ccc; font-weight: bold; border-radius: 8px; text-decoration: none; font-size: 12px;">📊 Dashboard</a>
+          </div>
         </div>
       </div>
 
@@ -863,4 +982,22 @@ function render() {
   renderReport();
 }
 
-render();
+function checkUrlSkillParam() {
+  const params = new URLSearchParams(window.location.search);
+  const skillParam = params.get('skill');
+  if (skillParam) {
+    const decoded = decodeURIComponent(skillParam).trim();
+    const matchedSkill = SKILLS.find(s => s.toLowerCase() === decoded.toLowerCase() || s.toLowerCase().includes(decoded.toLowerCase()));
+    if (matchedSkill) {
+      selectedDomains.clear();
+      selectedDomains.add(matchedSkill);
+      startQuiz();
+      return true;
+    }
+  }
+  return false;
+}
+
+if (!checkUrlSkillParam()) {
+  render();
+}

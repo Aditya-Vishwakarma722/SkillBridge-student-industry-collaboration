@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html class="dark" lang="en" style="background-color: #000000;">
 <head>
-    <script>window.location.replace("index.html");</script>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>Opportunities Interface</title>
@@ -69,20 +68,31 @@
                 <span class="text-xl font-bold tracking-tight text-white">EduMarket</span>
             </div>
             
-            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
-                <a href="#" class="text-primary font-semibold">Dashboard</a>
-                <a href="#" class="text-text-secondary hover:text-white transition">Explore</a>
-                <a href="#" class="text-text-secondary hover:text-white transition">Skill Gaps</a>
-                <a href="#" class="text-text-secondary hover:text-white transition">Applications</a>
+            <nav class="hidden md:flex items-center space-x-6 text-sm font-medium">
+                <a href="../Student_Interface/Portal-Dashboard.html" class="text-text-secondary hover:text-white transition flex items-center gap-1">
+                    <span class="material-symbols-outlined text-base">dashboard</span>
+                    <span>Dashboard</span>
+                </a>
+                <a href="Opportunities_Interface.html" class="text-primary font-bold border-b border-primary/50 pb-0.5">Opportunities</a>
+                <a href="index.html" class="text-text-secondary hover:text-white transition flex items-center gap-1">
+                    <span class="material-symbols-outlined text-base">work</span>
+                    <span>Skill Roles</span>
+                </a>
+                <a href="../Student_Interface/Skills_Overview.html" class="text-text-secondary hover:text-white transition">Skills</a>
+                <a href="../Student_Interface/My_Applications.html" class="text-text-secondary hover:text-white transition flex items-center gap-1">
+                    <span class="material-symbols-outlined text-base">assignment</span>
+                    <span>My Applications</span>
+                </a>
             </nav>
 
-            <div class="hidden md:flex items-center space-x-4">
-                <button class="p-2 rounded-full glass-panel hover:border-primary/50 transition">
-                    <span class="material-symbols-outlined text-text-secondary text-xl">notifications</span>
-                </button>
-                <div class="h-8 w-8 rounded-full bg-gradient-to-r from-primary to-primary-dark flex items-center justify-center font-bold text-black text-xs">
-                    EM
-                </div>
+            <div class="hidden md:flex items-center space-x-3">
+                <a href="../Student_Interface/My_Applications.html" class="px-3.5 py-1.5 rounded-xl bg-rose-500/20 text-rose-300 border border-rose-500/30 text-xs font-semibold hover:bg-rose-500/30 transition flex items-center gap-1">
+                    <span class="material-symbols-outlined text-sm">assignment</span>
+                    <span>My Applications</span>
+                </a>
+                <a href="../Student_Interface/Profile_Interface.html" class="h-8 w-8 rounded-full bg-gradient-to-r from-primary to-primary-dark flex items-center justify-center font-bold text-black text-xs hover:opacity-90 transition">
+                    RS
+                </a>
             </div>
 
             <button onclick="toggleMobileMenu()" class="md:hidden text-white p-2">
@@ -91,10 +101,11 @@
         </header>
 
         <div id="mobileMenu" class="md:hidden glass-panel rounded-xl mb-6 px-4 py-2 space-y-2 text-sm">
-            <a href="#" class="block py-2 text-primary font-semibold">Dashboard</a>
-            <a href="#" class="block py-2 text-text-secondary">Explore</a>
-            <a href="#" class="block py-2 text-text-secondary">Skill Gaps</a>
-            <a href="#" class="block py-2 text-text-secondary">Applications</a>
+            <a href="../Student_Interface/Portal-Dashboard.html" class="block py-2 text-text-secondary">Dashboard</a>
+            <a href="Opportunities_Interface.html" class="block py-2 text-primary font-bold">Opportunities Catalog</a>
+            <a href="index.html" class="block py-2 text-text-secondary">Skill-Matched Roles</a>
+            <a href="../Student_Interface/Skills_Overview.html" class="block py-2 text-text-secondary">Skills Overview</a>
+            <a href="../Student_Interface/My_Applications.html" class="block py-2 text-rose-300">My Applications</a>
         </div>
 
         <div class="mb-8">
@@ -431,19 +442,52 @@ function viewDetails(id) {
                 <div class="bg-white/5 rounded-lg p-3"><span class="text-text-secondary">Mode</span><div class="text-white mt-1">${o.mode}</div></div>
                 <div class="bg-white/5 rounded-lg p-3"><span class="text-text-secondary">Match</span><div class="text-primary mt-1 font-bold">${o.match}%</div></div>
             </div>
-            <button onclick="primaryAction(${o.id}); closeModal();" class="w-full py-2.5 rounded-xl bg-gradient-to-r from-primary to-primary-dark text-black font-bold text-sm">${activeCategory === "workshops" ? "Register Now" : "Apply Now"}</button>
+            <div class="space-y-2">
+                <button onclick="primaryAction(${o.id}); closeModal();" class="w-full py-2.5 rounded-xl bg-gradient-to-r from-primary to-primary-dark text-black font-bold text-sm">${activeCategory === "workshops" ? "Register Now" : "Apply Now"}</button>
+                <a href="opportunity-details.html?type=${activeCategory}&id=${o.id}" class="w-full py-2 rounded-xl bg-white/10 hover:bg-white/15 text-white font-semibold text-xs flex items-center justify-center gap-1 border border-white/10 transition">
+                    <span>Open Full Detailed View</span>
+                    <span class="material-symbols-outlined text-sm">open_in_new</span>
+                </a>
+            </div>
         </div>`;
     $("actionModal").classList.remove("hidden");
 }
 
 function primaryAction(id) {
     const o = findOpportunity(id);
+    if (window.SkillBridgeStore) {
+        const student = window.SkillBridgeStore.getCurrentStudent();
+        if (student) {
+            const oppId = `cat_${activeCategory}_${o.id}`;
+            const state = window.SkillBridgeStore.getState();
+            const existing = (state.applications || []).find(a => a.studentId === student.id && a.opportunityId === oppId);
+            if (!existing) {
+                state.applications.push({
+                    id: 'app_' + Date.now(),
+                    studentId: student.id,
+                    studentName: student.name,
+                    college: student.college || 'Aditya University',
+                    opportunityId: oppId,
+                    opportunityTitle: o.title,
+                    companyName: o.company,
+                    status: 'Screening',
+                    matchScore: o.match || 85,
+                    appliedDate: new Date().toISOString().split('T')[0],
+                    screeningScore: null
+                });
+                window.SkillBridgeStore.saveState(state);
+            }
+        }
+    }
     $("modalContent").innerHTML = `
-        <div class="text-center py-5">
-            <span class="material-symbols-outlined text-5xl text-primary mb-3">${activeCategory === "workshops" ? "event_available" : "task_alt"}</span>
-            <h3 class="text-xl font-bold mb-2">${activeCategory === "workshops" ? "Registration Started" : "Application Started"}</h3>
-            <p class="text-sm text-text-secondary">${o.title} at ${o.company} is ready for the next step.</p>
-            <button onclick="closeModal()" class="mt-5 px-5 py-2 rounded-xl bg-gradient-to-r from-primary to-primary-dark text-black font-bold text-sm">Continue</button>
+        <div class="text-center py-5 space-y-3">
+            <span class="material-symbols-outlined text-5xl text-primary mb-1">${activeCategory === "workshops" ? "event_available" : "task_alt"}</span>
+            <h3 class="text-xl font-bold">${activeCategory === "workshops" ? "Registration Confirmed" : "Application Submitted!"}</h3>
+            <p class="text-xs text-text-secondary max-w-sm mx-auto">${o.title} at ${o.company} has been added to your application pipeline.</p>
+            <div class="flex items-center justify-center gap-2 pt-2">
+                <a href="../Student_Interface/My_Applications.html" class="px-4 py-2 bg-gradient-to-r from-primary to-primary-dark text-black font-bold rounded-xl text-xs hover:opacity-90 transition">View in My Applications</a>
+                <button onclick="closeModal()" class="px-4 py-2 rounded-xl bg-white/10 text-white font-semibold text-xs hover:bg-white/15">Continue</button>
+            </div>
         </div>`;
     $("actionModal").classList.remove("hidden");
 }
@@ -487,5 +531,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 </script>
+<script src="../js/store.js"></script>
+<script src="../js/nav.js"></script>
 </body>
 </html>

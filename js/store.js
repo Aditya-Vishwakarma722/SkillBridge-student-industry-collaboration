@@ -1,4 +1,4 @@
-﻿/**
+/**
  * SkillBridge - Central Real-Time State Management Store v3.0
  * 1000-Point Skill System + Verified Platform Activities Engine
  */
@@ -26,8 +26,8 @@
     const ghStreak = 60 + (absHash % 120); // 60-180 days
     const ghPushes = 450 + (absHash % 850); // 450-1300 pushes
     const ghRepos = 12 + (absHash % 18); // 12-30 repos
-    // GitHub points: max 350
-    const ghScore = Math.min(350, Math.round(180 + (ghStreak * 0.5) + (ghPushes * 0.08) + (ghRepos * 2.5)));
+    // GitHub points: max 300 (calibrated to 700s total scale)
+    const ghScore = Math.min(300, Math.round(140 + (ghStreak * 0.35) + (ghPushes * 0.035) + (ghRepos * 1.5)));
 
     const lcSolved = 250 + (absHash % 300); // 250-550 problems
     const lcEasy = Math.round(lcSolved * 0.38);
@@ -35,13 +35,13 @@
     const lcHard = lcSolved - lcEasy - lcMedium;
     const lcStreak = 30 + (absHash % 80);
     const lcRating = 1650 + (absHash % 350); // 1650-2000 contest rating
-    // LeetCode points: max 350
-    const lcScore = Math.min(350, Math.round(150 + (lcSolved * 0.28) + (lcStreak * 0.6) + ((lcRating - 1500) * 0.15)));
+    // LeetCode points: max 300 (calibrated to 700s total scale)
+    const lcScore = Math.min(300, Math.round(130 + (lcSolved * 0.18) + (lcStreak * 0.4) + ((lcRating - 1500) * 0.1)));
 
     const hrSolved = 120 + (absHash % 150);
     const hrStreak = 25 + (absHash % 50);
-    // HackerRank points: max 300
-    const hrScore = Math.min(300, Math.round(140 + (hrSolved * 0.5) + (hrStreak * 0.8)));
+    // HackerRank points: max 250 (calibrated to 700s total scale)
+    const hrScore = Math.min(250, Math.round(100 + (hrSolved * 0.35) + (hrStreak * 0.5)));
 
     const totalScore = Math.min(1000, ghScore + lcScore + hrScore);
 
@@ -57,7 +57,7 @@
         recentPushes: `${10 + (absHash % 15)} commits this week`,
         topLanguages: ['Java', 'Spring Boot', 'TypeScript', 'SQL'],
         score: ghScore,
-        maxScore: 350
+        maxScore: 300
       },
       leetcode: {
         username: lc,
@@ -69,7 +69,7 @@
         contestRating: lcRating,
         ranking: `Top ${((absHash % 6) + 4).toFixed(1)}%`,
         score: lcScore,
-        maxScore: 350
+        maxScore: 300
       },
       hackerrank: {
         username: hr,
@@ -78,7 +78,7 @@
         badges: '5★ Problem Solving, 5★ Java, 4★ SQL',
         rank: 'Gold Tier Specialist',
         score: hrScore,
-        maxScore: 300
+        maxScore: 250
       }
     };
   }
@@ -265,7 +265,7 @@
           const parsed = JSON.parse(existing);
           if (parsed && typeof parsed === 'object') {
             stateToSave = Object.assign({}, defaultState, parsed);
-            // Ensure student skills are scaled to 1000 if loaded from older format
+            // Ensure student skills are scaled to 1000 if loaded from older format and re-calibrated
             if (Array.isArray(stateToSave.students)) {
               stateToSave.students = stateToSave.students.map(std => {
                 if (std.skills) {
@@ -274,11 +274,10 @@
                       std.skills[k] = Math.min(1000, std.skills[k] * 10);
                     }
                   }
-                  if (!std.skills['Platform Activities']) {
-                    const metrics = generatePlatformMetrics(std.github, std.githubRepo, std.leetcode, std.hackerrank);
-                    std.platformActivities = metrics;
-                    std.skills['Platform Activities'] = metrics.totalScore;
-                  }
+                  // Force recompute Platform Activities so existing cache reflects the calibrated 700s score
+                  const metrics = generatePlatformMetrics(std.github, std.githubRepo, std.leetcode, std.hackerrank);
+                  std.platformActivities = metrics;
+                  std.skills['Platform Activities'] = metrics.totalScore;
                 }
                 return std;
               });
