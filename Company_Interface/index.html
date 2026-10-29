@@ -1,175 +1,223 @@
 <!DOCTYPE html>
-<html class="dark" lang="en">
+<html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Company Portal — SkillBridge</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet"/>
-<script>
-  tailwind.config = {
-    darkMode: "class",
-    theme: {
-      extend: {
-        colors: {
-          primary: "#f2ca50",
-          "primary-container": "#d4af37",
-          surface: "#0f131f",
-          "surface-container": "#1b1f2c"
-        }
-      }
-    }
-  };
-</script>
-<style>
-  body {
-    background: #0f131f;
-    color: #dfe2f3;
-    font-family: 'Inter', sans-serif;
-  }
-  .glass-pane {
-    background-color: rgba(22, 27, 46, 0.7);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-  }
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employer Workspace — SkillBridge</title>
+
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/design-system.css">
 </head>
-<body class="min-h-screen bg-[#0f131f] text-[#dfe2f3] flex flex-col">
+<body class="min-h-screen flex flex-col bg-slate-50 text-slate-900">
 
-<main class="flex-1 p-4 md:p-8 max-w-[1200px] mx-auto w-full space-y-6">
+  <main class="flex-1 max-w-7xl mx-auto px-4 sm:px-6 py-8 w-full space-y-6">
 
-  <!-- Header Banner -->
-  <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/10 pb-4">
-    <div>
-      <h1 id="comp-name-header" class="text-2xl font-bold font-serif text-emerald-400">ABC Tech Recruitment Console</h1>
-      <p class="text-xs text-zinc-400">Skill-threshold candidate recruitment, screening evaluation, and pipeline management.</p>
-    </div>
-    
-    <div class="flex gap-2 flex-wrap">
-      <a href="opportunities.html" class="px-4 py-2 bg-emerald-500 text-black font-bold rounded-xl text-xs flex items-center gap-1.5 hover:bg-emerald-400 transition-all shadow-md">
-        <span class="material-symbols-outlined text-base">add_circle</span>
-        <span>Create Position</span>
-      </a>
-      <a href="applicants.html" class="px-4 py-2 bg-white/10 text-white font-semibold rounded-xl text-xs flex items-center gap-1.5 hover:bg-white/15 border border-white/15 transition-all">
-        <span class="material-symbols-outlined text-base">groups</span>
-        <span>Candidates</span>
-      </a>
-      <a href="messages.html" class="px-4 py-2 bg-white/10 text-white font-semibold rounded-xl text-xs flex items-center gap-1.5 hover:bg-white/15 border border-white/15 transition-all">
-        <span class="material-symbols-outlined text-base">chat</span>
-        <span>Messages</span>
-      </a>
-    </div>
-  </div>
-
-  <!-- Metric Overview Cards -->
-  <div class="grid grid-cols-1 sm:grid-cols-4 gap-4">
-    <div class="glass-pane p-5 rounded-2xl space-y-1">
-      <span class="text-xs text-zinc-400 font-medium">Active Position Listings</span>
-      <h2 id="comp-stat-positions" class="text-2xl font-bold text-emerald-400">2 Listings</h2>
-      <p class="text-[11px] text-zinc-500">Configured with required skill scores</p>
-    </div>
-
-    <div class="glass-pane p-5 rounded-2xl space-y-1">
-      <span class="text-xs text-zinc-400 font-medium">Total Qualified Applicants</span>
-      <h2 id="comp-stat-applicants" class="text-2xl font-bold text-amber-400">0 Candidates</h2>
-      <p class="text-[11px] text-zinc-500">Passed skill vector thresholds</p>
-    </div>
-
-    <div class="glass-pane p-5 rounded-2xl space-y-1">
-      <span class="text-xs text-zinc-400 font-medium">Screening Completed</span>
-      <h2 id="comp-stat-screening" class="text-2xl font-bold text-indigo-400">0 Passed</h2>
-      <p class="text-[11px] text-zinc-500">Completed 20-question test</p>
-    </div>
-
-    <div class="glass-pane p-5 rounded-2xl space-y-1">
-      <span class="text-xs text-zinc-400 font-medium">Shortlisted Candidates</span>
-      <h2 id="comp-stat-shortlisted" class="text-2xl font-bold text-emerald-300">0 Shortlisted</h2>
-      <p class="text-[11px] text-zinc-500">Ready for final recruitment</p>
-    </div>
-  </div>
-
-  <!-- Recent Candidates List -->
-  <section class="glass-pane rounded-2xl p-6 space-y-4">
-    <div class="flex items-center justify-between border-b border-white/10 pb-3">
-      <h2 class="text-base font-bold text-white flex items-center gap-2">
-        <span class="material-symbols-outlined text-emerald-400">person_search</span>
-        Recent Candidate Applications Pipeline
-      </h2>
-      <a href="applicants.html" class="text-xs text-emerald-400 hover:underline">Manage All Applicants →</a>
-    </div>
-
-    <div id="recent-candidates-list" class="space-y-3">
-      <!-- Populated via store.js -->
-    </div>
-  </section>
-
-</main>
-
-<script src="../js/store.js"></script>
-<script src="../js/nav.js"></script>
-<script>
-  function renderDashboard() {
-    if (!window.SkillBridgeStore) return;
-
-    const user = window.SkillBridgeStore.getCurrentUser();
-    const displayName = (user && user.name) || 'ABC Tech';
-    const nameEl = document.getElementById('comp-name-header');
-    if (nameEl) nameEl.innerText = `${displayName} Recruitment Console`;
-
-    const state = window.SkillBridgeStore.getState();
-    const myOpps = state.opportunities.filter(o => !user || o.companyId === user.id || user.role === 'company');
-    const myOppIds = new Set(myOpps.map(o => o.id));
-    const myApps = (state.applications || []).filter(a => myOppIds.has(a.opportunityId));
-
-    const posEl = document.getElementById('comp-stat-positions');
-    if (posEl) posEl.innerText = `${myOpps.length} Positions`;
-    const appEl = document.getElementById('comp-stat-applicants');
-    if (appEl) appEl.innerText = `${myApps.length} Candidates`;
-    const scrEl = document.getElementById('comp-stat-screening');
-    if (scrEl) scrEl.innerText = `${myApps.filter(a => a.screeningScore !== null && a.screeningScore !== undefined).length} Completed`;
-    const shEl = document.getElementById('comp-stat-shortlisted');
-    if (shEl) shEl.innerText = `${myApps.filter(a => a.status === 'Shortlisted' || a.status === 'Selected').length} Shortlisted`;
-
-    const list = document.getElementById('recent-candidates-list');
-    if (!list) return;
-    list.innerHTML = '';
-
-    if (myApps.length === 0) {
-      list.innerHTML = `
-        <div class="text-center py-8 text-xs text-zinc-400">
-          No candidates in pipeline yet. Students applying from Opportunity Interface will appear here in real time.
+    <!-- Header Banner -->
+    <div class="sb-card p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 border-slate-200">
+      <div class="space-y-1.5">
+        <div class="flex items-center gap-2">
+          <span class="sb-badge sb-badge-emerald">Corporate Workspace</span>
+          <span class="sb-badge sb-badge-blue" id="comp-partner-tag">ABC Tech</span>
         </div>
-      `;
-      return;
+        <h1 class="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight" id="comp-header-title">
+          ABC Tech Recruitment
+        </h1>
+        <p class="text-xs sm:text-sm text-slate-600 max-w-xl">
+          Review qualified candidates filtered by 1,000-point skill benchmarks and proctored technical evaluations.
+        </p>
+      </div>
+
+      <div class="flex items-center gap-2.5">
+        <a href="opportunities.html" class="sb-btn sb-btn-primary">
+          <span class="material-symbols-outlined text-[16px]">post_add</span>
+          <span>Post New Opportunity</span>
+        </a>
+        <a href="applicants.html" class="sb-btn sb-btn-secondary">
+          <span class="material-symbols-outlined text-[16px]">groups</span>
+          <span>View All Candidates</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- 4 Key Recruitment Metrics -->
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+      <div class="sb-metric-box">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-xs font-medium text-slate-500">Active Listings</span>
+          <div class="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-700 flex items-center justify-center">
+            <span class="material-symbols-outlined text-[18px]">work</span>
+          </div>
+        </div>
+        <div class="text-2xl font-bold text-slate-900" id="stat-comp-listings">2 <span class="text-xs text-slate-500 font-normal">Roles Open</span></div>
+        <p class="text-[11px] text-slate-500 mt-1">Skill thresholds enforced</p>
+      </div>
+
+      <div class="sb-metric-box">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-xs font-medium text-slate-500">Qualified Applicants</span>
+          <div class="w-8 h-8 rounded-lg bg-blue-50 text-blue-700 flex items-center justify-center">
+            <span class="material-symbols-outlined text-[18px]">people</span>
+          </div>
+        </div>
+        <div class="text-2xl font-bold text-slate-900" id="stat-comp-applicants">1 <span class="text-xs text-slate-500 font-normal">Candidate</span></div>
+        <p class="text-[11px] text-emerald-700 font-medium mt-1">100% Skill Vector Match</p>
+      </div>
+
+      <div class="sb-metric-box">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-xs font-medium text-slate-500">Screening Passed</span>
+          <div class="w-8 h-8 rounded-lg bg-sky-50 text-sky-700 flex items-center justify-center">
+            <span class="material-symbols-outlined text-[18px]">verified</span>
+          </div>
+        </div>
+        <div class="text-2xl font-bold text-slate-900" id="stat-comp-screened">1 <span class="text-xs text-slate-500 font-normal">Candidate</span></div>
+        <p class="text-[11px] text-slate-500 mt-1">Scored ≥ 15/20 on proctored test</p>
+      </div>
+
+      <div class="sb-metric-box">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-xs font-medium text-slate-500">Shortlisted Pool</span>
+          <div class="w-8 h-8 rounded-lg bg-amber-50 text-amber-700 flex items-center justify-center">
+            <span class="material-symbols-outlined text-[18px]">star</span>
+          </div>
+        </div>
+        <div class="text-2xl font-bold text-slate-900" id="stat-comp-shortlisted">1 <span class="text-xs text-slate-500 font-normal">Ready for Offer</span></div>
+        <p class="text-[11px] text-slate-500 mt-1">Ready for final interview</p>
+      </div>
+    </div>
+
+    <!-- Active Candidate Pipeline Table/Cards -->
+    <div class="sb-card p-6 space-y-4">
+      <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+        <div>
+          <h2 class="text-base font-bold text-slate-900 flex items-center gap-2">
+            <span class="material-symbols-outlined text-slate-700">groups</span>
+            <span>Candidate Application Pipeline</span>
+          </h2>
+          <p class="text-xs text-slate-500">Verified applicant profiles matching required threshold vectors.</p>
+        </div>
+        <a href="applicants.html" class="text-xs font-medium text-blue-600 hover:text-blue-700 hover:underline">Manage All Candidates &rarr;</a>
+      </div>
+
+      <div id="company-candidates-list" class="space-y-3">
+        <!-- Populated via script -->
+      </div>
+    </div>
+
+    <!-- Active Company Postings -->
+    <div class="sb-card p-6 space-y-4">
+      <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+        <div>
+          <h2 class="text-base font-bold text-slate-900 flex items-center gap-2">
+            <span class="material-symbols-outlined text-slate-700">list_alt</span>
+            <span>Active Position Postings</span>
+          </h2>
+          <p class="text-xs text-slate-500">Positions with configured skill requirements.</p>
+        </div>
+        <a href="opportunities.html" class="sb-btn sb-btn-primary text-xs">Post Opportunity</a>
+      </div>
+
+      <div id="company-listings-grid" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <!-- Populated via script -->
+      </div>
+    </div>
+
+  </main>
+
+  <script src="../js/store.js"></script>
+  <script src="../js/nav.js"></script>
+  <script>
+    function renderCompanyConsole() {
+      if (!window.SkillBridgeStore) return;
+      const comp = window.SkillBridgeStore.getCurrentCompany();
+      const state = window.SkillBridgeStore.getState();
+
+      const compName = (comp && comp.name) || 'ABC Tech';
+      document.getElementById('comp-partner-tag').innerText = compName;
+      document.getElementById('comp-header-title').innerText = `${compName} Recruitment`;
+
+      const compOpps = (state.opportunities || []).filter(o => o.companyId === comp.id || o.companyName === compName);
+      document.getElementById('stat-comp-listings').innerHTML = `${compOpps.length} <span class="text-xs text-slate-500 font-normal">Roles Open</span>`;
+
+      const oppIds = new Set(compOpps.map(o => o.id));
+      const compApps = (state.applications || []).filter(a => oppIds.has(a.opportunityId) || a.companyId === comp.id);
+      
+      const shortlisted = compApps.filter(a => a.status === 'Shortlisted');
+      const screened = compApps.filter(a => a.screeningScore && a.screeningScore >= 15);
+
+      document.getElementById('stat-comp-applicants').innerHTML = `${compApps.length} <span class="text-xs text-slate-500 font-normal">Candidate${compApps.length === 1 ? '' : 's'}</span>`;
+      document.getElementById('stat-comp-screened').innerHTML = `${screened.length} <span class="text-xs text-slate-500 font-normal">Candidate${screened.length === 1 ? '' : 's'}</span>`;
+      document.getElementById('stat-comp-shortlisted').innerHTML = `${shortlisted.length} <span class="text-xs text-slate-500 font-normal">Ready for Offer</span>`;
+
+      const candContainer = document.getElementById('company-candidates-list');
+      candContainer.innerHTML = '';
+
+      if (compApps.length === 0) {
+        candContainer.innerHTML = '<p class="text-xs text-slate-500 py-6 text-center">No candidates have applied to your active listings yet.</p>';
+      } else {
+        compApps.forEach(app => {
+          const card = document.createElement('div');
+          card.className = 'sb-card-elevated p-4 flex flex-col md:flex-row md:items-center justify-between gap-4 sb-card-interactive';
+          
+          let statusBadge = '';
+          if (app.status === 'Shortlisted') statusBadge = '<span class="sb-badge sb-badge-emerald">Shortlisted</span>';
+          else if (app.status === 'Selected') statusBadge = '<span class="sb-badge sb-badge-blue">Selected / Offer</span>';
+          else statusBadge = `<span class="sb-badge sb-badge-amber">${app.status}</span>`;
+
+          card.innerHTML = `
+            <div class="space-y-1">
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="text-sm font-bold text-slate-900">${app.studentName}</span>
+                <span class="sb-badge sb-badge-muted text-[10px]">${app.college} · ${app.department || 'CSE'}</span>
+                ${statusBadge}
+              </div>
+              <p class="text-xs text-slate-600">Position: <b class="text-slate-800">${app.opportunityTitle}</b> · Applied: ${app.appliedDate}</p>
+              <div class="flex items-center gap-3 text-[11px] text-slate-500 pt-1">
+                <span>Skill Match: <b class="text-emerald-700">${app.matchScore}%</b></span>
+                <span>·</span>
+                <span>Screening Score: <b class="text-blue-700">${app.screeningScore !== null ? `${app.screeningScore}/20` : 'Pending'}</b></span>
+              </div>
+            </div>
+
+            <div class="shrink-0 flex items-center gap-2">
+              <button onclick="updateStatus('${app.id}', 'Shortlisted')" class="sb-btn sb-btn-secondary text-xs">Shortlist</button>
+              <button onclick="updateStatus('${app.id}', 'Selected')" class="sb-btn sb-btn-primary text-xs">Extend Offer</button>
+            </div>
+          `;
+          candContainer.appendChild(card);
+        });
+      }
+
+      const listContainer = document.getElementById('company-listings-grid');
+      listContainer.innerHTML = '';
+      compOpps.forEach(opp => {
+        const item = document.createElement('div');
+        item.className = 'sb-card-elevated p-4 space-y-2';
+        item.innerHTML = `
+          <div class="flex items-start justify-between">
+            <div>
+              <h3 class="text-sm font-bold text-slate-900">${opp.title}</h3>
+              <p class="text-xs text-slate-500">${opp.type} · ${opp.location} · ${opp.stipend}</p>
+            </div>
+            <span class="sb-badge sb-badge-blue">${opp.openings} Openings</span>
+          </div>
+          <p class="text-xs text-slate-600 leading-relaxed">${opp.description}</p>
+        `;
+        listContainer.appendChild(item);
+      });
     }
 
-    myApps.slice(0, 5).forEach(app => {
-      list.innerHTML += `
-        <div class="bg-black/30 border border-white/10 p-4 rounded-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-          <div>
-            <div class="flex items-center gap-2">
-              <h3 class="text-sm font-bold text-white">${app.studentName}</h3>
-              <span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 text-[10px] font-bold border border-emerald-500/30">${app.college || 'Aditya University'}</span>
-            </div>
-            <p class="text-xs text-zinc-300">Applied for: <strong class="text-amber-300">${app.opportunityTitle}</strong></p>
-            <p class="text-[11px] text-zinc-400">Match Score: ${app.matchScore}% | Screening Score: ${app.screeningScore !== null && app.screeningScore !== undefined ? app.screeningScore + '/20' : 'Pending'}</p>
-          </div>
+    function updateStatus(appId, newStatus) {
+      window.SkillBridgeStore.updateApplicationStatus(appId, newStatus);
+      alert(`Candidate application status updated to: ${newStatus}`);
+      renderCompanyConsole();
+    }
 
-          <div class="flex items-center gap-2">
-            <span class="px-2.5 py-1 rounded-full text-xs font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30">${app.status}</span>
-            <a href="applicants.html" class="px-3 py-1.5 bg-white/10 hover:bg-white/15 text-white rounded-lg text-xs font-semibold">Review</a>
-          </div>
-        </div>
-      `;
-    });
-  }
-
-  document.addEventListener('DOMContentLoaded', () => {
-    renderDashboard();
-    window.addEventListener('skillbridge-state-change', renderDashboard);
-  });
-</script>
+    window.addEventListener('skillbridge-state-change', renderCompanyConsole);
+    document.addEventListener('DOMContentLoaded', renderCompanyConsole);
+  </script>
 </body>
 </html>

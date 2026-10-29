@@ -1,151 +1,172 @@
 <!DOCTYPE html>
-<html class="dark" lang="en">
+<html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Opportunity Details</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<script>tailwind.config={darkMode:"class",theme:{extend:{colors:{primary:"#d4af37",background:"#050505",surface:"#0E0E0E","surface-container":"#151515","outline":"#444"}}}}</script>
-<style>
-body{font-family:Inter,sans-serif;background:#050505;color:#fff}h1,h2,h3{font-family:"DM Serif Display",serif;font-weight:400}
-.glass-panel{background:rgba(14,14,14,.72);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.1);box-shadow:0 4px 20px rgba(0,0,0,.5)}
-.gold{background:linear-gradient(to right,#bf953f,#fcf6ba,#b38728,#fbf5b7,#aa771c);-webkit-background-clip:text;background-clip:text;color:transparent}
-.bar{height:6px;border-radius:99px;background:#222;overflow:hidden}.bar>i{display:block;height:100%;background:#d4af37;border-radius:99px}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Opportunity Details — SkillBridge</title>
+
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/design-system.css">
 </head>
-<body class="antialiased">
-<nav class="bg-[#0e0e0e]/80 backdrop-blur-md border-b border-white/10 sticky top-0 z-50">
-<div class="max-w-[1440px] mx-auto px-4 md:px-12 h-16 flex justify-between items-center">
-<a href="Opportunities_Interface.html" class="font-bold text-xl gold">SkillBridge Opportunities</a>
-<div class="hidden md:flex gap-7 text-sm">
-  <a class="text-primary font-semibold" href="Opportunities_Interface.html">Opportunities</a>
-  <a class="text-zinc-300 hover:text-white" href="index.html">Skill Roles</a>
-  <a class="text-zinc-300 hover:text-white" href="../Student_Interface/My_Applications.html">My Applications</a>
-  <a class="text-zinc-400 hover:text-white" href="../Student_Interface/Portal-Dashboard.html">Dashboard</a>
-  <a class="text-zinc-400 hover:text-white" href="../Student_Interface/Skills_Overview.html">Skills</a>
-</div>
-</div></nav>
+<body class="min-h-screen flex flex-col bg-slate-50 text-slate-900">
 
-<main class="max-w-[1440px] mx-auto px-4 md:px-12 py-8 md:py-12">
-<div class="flex items-center gap-2 text-zinc-400 text-sm mb-8"><a href="Opportunities_Interface.html" class="hover:text-primary flex items-center gap-1"><span class="material-symbols-outlined text-[18px]">arrow_back</span> Back to Opportunities</a><span>/</span><span id="crumbCompany"></span></div>
+  <main class="flex-1 max-w-5xl mx-auto px-4 sm:px-6 py-8 w-full space-y-6">
 
-<section class="glass-panel rounded-2xl p-6 md:p-8 flex flex-col md:flex-row justify-between gap-6 mb-10 relative overflow-hidden">
-<div class="flex items-center gap-5">
-<div id="heroIcon" class="w-20 h-20 bg-[#151515] rounded-xl flex items-center justify-center border border-white/10 text-primary"><span class="material-symbols-outlined text-4xl"></span></div>
-<div><h1 id="title" class="gold text-4xl md:text-5xl mb-2"></h1><div id="meta" class="flex flex-wrap gap-3 text-zinc-400 text-sm"></div></div>
-</div>
-<div class="flex gap-3 items-center"><button onclick="saveRole()" class="px-6 py-3 border border-white/20 rounded-lg hover:bg-white/5">Save Role</button><button id="applyBtn" onclick="takeAction()" class="px-6 py-3 bg-primary text-black font-semibold rounded-lg">Apply Now</button></div>
-</section>
+    <!-- Breadcrumb -->
+    <div class="flex items-center gap-2 text-xs text-slate-500">
+      <a href="Opportunities_Interface.html" class="hover:text-slate-900 transition flex items-center gap-1">
+        <span class="material-symbols-outlined text-sm">arrow_back</span>
+        <span>Back to Opportunities</span>
+      </a>
+      <span>/</span>
+      <span class="text-slate-800 font-medium" id="bread-title">Opportunity Details</span>
+    </div>
 
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
-<div class="lg:col-span-8 flex flex-col gap-6">
-<section class="glass-panel rounded-2xl p-6"><h2 class="gold text-3xl mb-4 flex items-center gap-2"><span class="material-symbols-outlined text-primary">work</span><span id="overviewHeading">Role Overview</span></h2><div id="overview" class="text-gray-300 leading-relaxed space-y-4"></div></section>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-<section class="glass-panel rounded-2xl p-6"><h2 class="gold text-3xl mb-4 flex items-center gap-2"><span class="material-symbols-outlined text-primary">school</span>Eligibility</h2><ul id="eligibility" class="space-y-4 text-gray-300"></ul></section>
-<section class="glass-panel rounded-2xl p-6"><h2 class="gold text-3xl mb-4 flex items-center gap-2"><span class="material-symbols-outlined text-primary">payments</span>Details & Perks</h2><div id="details" class="space-y-4 text-gray-300"></div></section>
-</div>
-<section class="glass-panel rounded-2xl p-6"><h2 class="gold text-3xl mb-4 flex items-center gap-2"><span class="material-symbols-outlined text-primary">corporate_fare</span>About <span id="aboutCompany"></span></h2><p id="aboutText" class="text-gray-300 leading-relaxed mb-4"></p><a href="#" onclick="return false" class="text-primary text-sm">Visit Website ↗</a></section>
-</div>
+    <!-- Main Opportunity Card -->
+    <div class="sb-card p-6 sm:p-8 space-y-6" id="detail-card">
+      <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4 border-b border-slate-200 pb-6">
+        <div class="space-y-1.5">
+          <div class="flex items-center gap-2 flex-wrap">
+            <h1 class="text-2xl font-bold text-slate-900" id="opp-title">Position Title</h1>
+            <span class="sb-badge sb-badge-blue" id="opp-type">Internship</span>
+            <span class="sb-badge sb-badge-muted" id="opp-company">Company Name</span>
+          </div>
+          <p class="text-xs text-slate-500" id="opp-meta">Location &bull; Stipend &bull; Deadline</p>
+        </div>
 
-<aside class="lg:col-span-4">
-<div class="glass-panel rounded-2xl p-6 sticky top-24"><h3 class="gold text-3xl mb-6 text-center">Your Skill Match</h3>
-<div class="flex justify-center mb-6"><div id="matchCircle" class="w-32 h-32 rounded-full border-[10px] border-[#333] flex items-center justify-center text-primary text-2xl font-bold"></div></div>
-<div id="skillBars" class="space-y-5"></div>
-<div class="mt-8 pt-4 border-t border-white/10 text-center"><button onclick="alert('Skill Gap Analysis opened.')" class="text-primary text-sm font-medium">View Skill Gap Analysis <span class="material-symbols-outlined align-middle text-[18px]">analytics</span></button></div>
-</div></aside>
-</div></main>
+        <div id="opp-action-container" class="shrink-0">
+          <!-- Button injected dynamically -->
+        </div>
+      </div>
 
-<script>
-/* The detail page uses the same opportunity dataset as the listing page.
-   type and id are passed by View Details, so every card opens its own content. */
-const opportunities={
-internships:[
-{id:1,title:"Data Analyst Intern",company:"TechNova Solutions",skills:["Python","SQL","Data Analysis"],location:"Hyderabad",mode:"Remote",experience:"Fresher",duration:"3 Months",value:12000,unit:"/mo",deadline:"2026-09-20",match:88,icon:"analytics",description:"Analyze business data, build dashboards and support data-driven decisions."},
-{id:2,title:"Backend Developer Intern",company:"CodeSoft",skills:["Java","SQL","Cloud Computing"],location:"Bangalore",mode:"On-site",experience:"0–1 Years",duration:"6 Months",value:18000,unit:"/mo",deadline:"2026-09-25",match:82,icon:"code",description:"Build and maintain scalable backend services using Java and modern APIs."},
-{id:3,title:"Frontend Developer Intern",company:"PixelWorks",skills:["React","JavaScript","UI/UX"],location:"Pune",mode:"Hybrid",experience:"Fresher",duration:"4 Months",value:15000,unit:"/mo",deadline:"2026-10-02",match:91,icon:"web",description:"Create responsive interfaces and reusable components for web products."},
-{id:4,title:"Machine Learning Intern",company:"AICore Labs",skills:["Python","Machine Learning","SQL"],location:"Remote",mode:"Remote",experience:"0–1 Years",duration:"5 Months",value:20000,unit:"/mo",deadline:"2026-09-28",match:86,icon:"smart_toy",description:"Work on model training, evaluation and practical ML experiments."},
-{id:5,title:"Cloud Engineering Intern",company:"SkyStack",skills:["Cloud Computing","Python","SQL"],location:"Chennai",mode:"On-site",experience:"Fresher",duration:"6 Months",value:16000,unit:"/mo",deadline:"2026-10-08",match:79,icon:"cloud",description:"Assist with cloud deployments, monitoring and infrastructure automation."},
-{id:6,title:"UI/UX Design Intern",company:"DesignMint",skills:["UI/UX","React"],location:"Mumbai",mode:"Hybrid",experience:"Fresher",duration:"3 Months",value:10000,unit:"/mo",deadline:"2026-09-30",match:84,icon:"design_services",description:"Design user flows, wireframes and polished product experiences."},
-{id:7,title:"Java Developer Intern",company:"FinEdge Systems",skills:["Java","SQL"],location:"Delhi",mode:"On-site",experience:"0–1 Years",duration:"6 Months",value:17000,unit:"/mo",deadline:"2026-10-12",match:81,icon:"terminal",description:"Develop enterprise applications and work with relational databases."},
-{id:8,title:"Data Science Intern",company:"InsightHub",skills:["Python","Data Analysis","Machine Learning"],location:"Hyderabad",mode:"Hybrid",experience:"0–1 Years",duration:"4 Months",value:14000,unit:"/mo",deadline:"2026-09-26",match:93,icon:"query_stats",description:"Explore datasets, create models and communicate actionable insights."},
-{id:9,title:"React Developer Intern",company:"AppForge",skills:["React","JavaScript","UI/UX"],location:"Remote",mode:"Remote",experience:"Fresher",duration:"3 Months",value:13000,unit:"/mo",deadline:"2026-10-05",match:89,icon:"devices",description:"Build modern responsive applications with React and component systems."},
-{id:10,title:"SQL & BI Intern",company:"MarketPulse",skills:["SQL","Data Analysis"],location:"Bangalore",mode:"Hybrid",experience:"Fresher",duration:"3 Months",value:11000,unit:"/mo",deadline:"2026-10-15",match:80,icon:"bar_chart",description:"Prepare reports, write queries and support business intelligence workflows."}],
-jobs:[
-{id:101,title:"Junior Python Developer",company:"NexaTech",skills:["Python","SQL"],location:"Hyderabad",mode:"Hybrid",experience:"0–1 Years",duration:"Full-time",value:5.5,unit:" LPA",deadline:"2026-10-01",match:94,icon:"code",description:"Develop backend features and automation tools for production systems."},
-{id:102,title:"Frontend Engineer",company:"BrightLabs",skills:["React","UI/UX"],location:"Bangalore",mode:"On-site",experience:"1–3 Years",duration:"Full-time",value:8,unit:" LPA",deadline:"2026-09-29",match:87,icon:"web",description:"Build accessible, responsive interfaces for a growing product platform."},
-{id:103,title:"Data Analyst",company:"InsightWorks",skills:["Python","SQL","Data Analysis"],location:"Mumbai",mode:"Remote",experience:"0–1 Years",duration:"Full-time",value:6.5,unit:" LPA",deadline:"2026-10-10",match:91,icon:"analytics",description:"Turn operational data into dashboards and insights for business teams."},
-{id:104,title:"Java Backend Engineer",company:"EnterpriseGrid",skills:["Java","SQL","Cloud Computing"],location:"Pune",mode:"Hybrid",experience:"1–3 Years",duration:"Full-time",value:9,unit:" LPA",deadline:"2026-09-27",match:85,icon:"terminal",description:"Build robust APIs and services for enterprise applications."},
-{id:105,title:"Machine Learning Engineer",company:"NeuralNest",skills:["Python","Machine Learning"],location:"Remote",mode:"Remote",experience:"1–3 Years",duration:"Full-time",value:11,unit:" LPA",deadline:"2026-10-06",match:89,icon:"smart_toy",description:"Productionize ML models and collaborate with data science teams."},
-{id:106,title:"Cloud Support Engineer",company:"CloudAxis",skills:["Cloud Computing","Python"],location:"Chennai",mode:"On-site",experience:"0–1 Years",duration:"Full-time",value:6,unit:" LPA",deadline:"2026-10-18",match:78,icon:"cloud",description:"Support cloud environments, troubleshoot incidents and automate routine tasks."},
-{id:107,title:"UI/UX Product Designer",company:"CraftStudio",skills:["UI/UX"],location:"Delhi",mode:"Hybrid",experience:"1–3 Years",duration:"Full-time",value:7.5,unit:" LPA",deadline:"2026-10-03",match:83,icon:"design_services",description:"Own product design from discovery through polished interface delivery."},
-{id:108,title:"SQL Developer",company:"DataBridge",skills:["SQL","Data Analysis"],location:"Bangalore",mode:"On-site",experience:"1–3 Years",duration:"Full-time",value:7,unit:" LPA",deadline:"2026-09-24",match:88,icon:"storage",description:"Develop database solutions, optimize queries and support reporting systems."},
-{id:109,title:"React Developer",company:"WebSphere Labs",skills:["React","UI/UX"],location:"Remote",mode:"Remote",experience:"0–1 Years",duration:"Full-time",value:6.8,unit:" LPA",deadline:"2026-10-20",match:90,icon:"devices",description:"Create reusable React components and delightful customer experiences."},
-{id:110,title:"Software Engineer",company:"Vertex Systems",skills:["Java","Python","SQL"],location:"Hyderabad",mode:"Hybrid",experience:"1–3 Years",duration:"Full-time",value:10,unit:" LPA",deadline:"2026-10-14",match:86,icon:"developer_mode",description:"Contribute across application services, testing and system improvements."}],
-workshops:[
-{id:201,title:"Python for Data Analysis",company:"LearnSphere",skills:["Python","Data Analysis"],location:"Remote",mode:"Remote",experience:"Fresher",duration:"2 Hours",value:0,unit:"",deadline:"2026-09-05",date:"2026-09-06 18:00",match:95,icon:"analytics",description:"Hands-on workshop covering Python data analysis essentials."},
-{id:202,title:"Modern React Bootcamp",company:"CodeAcademy Hub",skills:["React","UI/UX"],location:"Bangalore",mode:"On-site",experience:"0–1 Years",duration:"1 Day",value:499,unit:"",deadline:"2026-09-08",date:"2026-09-10 10:00",match:89,icon:"web",description:"Build a responsive React project from components to deployment."},
-{id:203,title:"Machine Learning Foundations",company:"AICore Labs",skills:["Python","Machine Learning"],location:"Remote",mode:"Remote",experience:"0–1 Years",duration:"3 Hours",value:0,unit:"",deadline:"2026-09-12",date:"2026-09-14 17:00",match:92,icon:"smart_toy",description:"Understand supervised learning, evaluation and practical model building."},
-{id:204,title:"SQL Masterclass",company:"DataBridge",skills:["SQL","Data Analysis"],location:"Hyderabad",mode:"Hybrid",experience:"Fresher",duration:"4 Hours",value:299,unit:"",deadline:"2026-09-15",date:"2026-09-18 15:00",match:87,icon:"storage",description:"Learn advanced SQL queries, joins, aggregation and optimization."},
-{id:205,title:"UI/UX Design Sprint",company:"DesignMint",skills:["UI/UX"],location:"Mumbai",mode:"On-site",experience:"Fresher",duration:"1 Day",value:799,unit:"",deadline:"2026-09-18",date:"2026-09-20 11:00",match:84,icon:"design_services",description:"A practical design sprint covering research, wireframes and prototypes."},
-{id:206,title:"Cloud Computing Essentials",company:"SkyStack",skills:["Cloud Computing","Python"],location:"Chennai",mode:"Remote",experience:"0–1 Years",duration:"3 Hours",value:0,unit:"",deadline:"2026-09-21",date:"2026-09-24 18:30",match:82,icon:"cloud",description:"Learn core cloud concepts, services and deployment fundamentals."},
-{id:207,title:"Java Backend Workshop",company:"CodeSoft",skills:["Java","SQL"],location:"Pune",mode:"Hybrid",experience:"0–1 Years",duration:"5 Hours",value:399,unit:"",deadline:"2026-09-25",date:"2026-09-27 10:00",match:86,icon:"code",description:"Build a small backend service using Java and database integration."},
-{id:208,title:"Career Ready Git & GitHub",company:"DevLaunch",skills:["Git","React"],location:"Delhi",mode:"Remote",experience:"Fresher",duration:"2 Hours",value:0,unit:"",deadline:"2026-09-28",date:"2026-09-30 19:00",match:80,icon:"merge_type",description:"Learn practical Git workflows, collaboration and portfolio-ready repositories."},
-{id:209,title:"Power BI Dashboard Lab",company:"InsightHub",skills:["Data Analysis","SQL"],location:"Bangalore",mode:"On-site",experience:"Fresher",duration:"4 Hours",value:599,unit:"",deadline:"2026-10-02",date:"2026-10-04 11:00",match:90,icon:"bar_chart",description:"Create interactive dashboards and turn raw data into useful stories."},
-{id:210,title:"AI Tools for Developers",company:"FutureStack",skills:["Python","Machine Learning"],location:"Remote",mode:"Remote",experience:"Fresher",duration:"2 Hours",value:199,unit:"",deadline:"2026-10-06",date:"2026-10-08 18:00",match:88,icon:"auto_awesome",description:"Explore practical AI-assisted workflows for modern software development."}]};
+      <!-- Description -->
+      <div class="space-y-2 text-xs text-slate-600 leading-relaxed">
+        <h2 class="text-sm font-bold text-slate-900">About the Role</h2>
+        <p id="opp-desc">Loading role description...</p>
+      </div>
 
-const params=new URLSearchParams(location.search),type=params.get("type")||"internships",id=Number(params.get("id"));
-const o=(opportunities[type]||[]).find(x=>x.id===id);
-if(!o){location.href="index.html"}else{
-const workshop=type==="workshops", job=type==="jobs";
-document.title=`${o.title} — ${o.company}`;
-document.getElementById("crumbCompany").textContent=o.company;
-document.querySelector("#heroIcon span").textContent=o.icon;
-document.getElementById("title").textContent=o.title;
-document.getElementById("meta").innerHTML=`<span>◉ ${o.company}</span><span>•</span><span>📍 ${o.location} · ${workshop?(o.mode==="Remote"?"Online":o.mode==="On-site"?"Offline":"Hybrid"):o.mode}</span><span>•</span><span class="text-primary">◷ ${workshop?o.duration:o.duration}</span>`;
-document.getElementById("applyBtn").textContent=workshop?"Register Now":"Apply Now";
-document.getElementById("overviewHeading").textContent=workshop?"Workshop Overview":job?"Job Overview":"Role Overview";
-document.getElementById("overview").innerHTML=`<p>${o.description}</p><h3 class="font-semibold text-white">${workshop?"What you'll learn:":"Daily Responsibilities:"}</h3><ul class="list-disc pl-5 space-y-2"><li>Work on practical tasks related to ${o.skills.join(", ")}.</li><li>Collaborate with relevant teams and apply your existing technical skills.</li><li>Build practical experience and measurable project outcomes.</li><li>Use modern tools and workflows relevant to this opportunity.</li></ul>`;
-document.getElementById("eligibility").innerHTML=[`${o.experience} level candidate`, `Skills: ${o.skills.join(", ")}`, workshop?`Mode: ${o.mode}`:`Available for ${o.duration}`].map(x=>`<li class="flex gap-3"><span class="material-symbols-outlined text-primary">check_circle</span><span>${x}</span></li>`).join("");
-const money=workshop?(o.value===0?"Free":`₹${o.value}`):`₹${o.value}${o.unit}`;
-document.getElementById("details").innerHTML=`<div class="flex justify-between border-b border-white/10 pb-2"><span>Compensation / Fee</span><b class="text-primary">${money}</b></div><div class="flex justify-between border-b border-white/10 pb-2"><span>Duration</span><b class="text-primary">${o.duration}</b></div><div class="flex justify-between border-b border-white/10 pb-2"><span>Deadline</span><b class="text-primary">${new Date(o.deadline+"T00:00:00").toLocaleDateString("en-IN",{month:"short",day:"numeric",year:"numeric"})}</b></div><div class="flex justify-between"><span>${workshop?"Event Date":"Experience"}</span><b class="text-primary">${workshop?o.date:o.experience}</b></div>`;
-document.getElementById("aboutCompany").textContent=o.company;
-document.getElementById("aboutText").textContent=`${o.company} is offering this ${workshop?"workshop":job?"job opportunity":"internship"} for candidates interested in ${o.skills.join(", ")}. Explore the opportunity details and apply or register before the deadline.`;
-document.getElementById("matchCircle").textContent=o.match+"%";
-const levels=o.skills.map((s,i)=>Math.max(55,o.match-(i*5)));
-document.getElementById("skillBars").innerHTML=o.skills.map((s,i)=>`<div><div class="flex justify-between text-sm mb-1"><span>${s}</span><span class="text-primary">${levels[i]}%</span></div><div class="bar"><i style="width:${levels[i]}%"></i></div></div>`).join("");
-}
-function saveRole(){const key=`saved_${type}_${id}`;localStorage.setItem(key,"1");alert("Saved successfully.")}
-function takeAction(){
-  if (window.SkillBridgeStore) {
-    const student = window.SkillBridgeStore.getCurrentStudent();
-    if (student) {
-      const oppId = `cat_${type}_${o.id}`;
+      <!-- Skill Vector Matching Gate Benchmark Table -->
+      <div class="space-y-3 pt-4 border-t border-slate-200">
+        <div class="flex items-center justify-between">
+          <h2 class="text-sm font-bold text-slate-900">Candidate Skill Vector Match Check</h2>
+          <span class="text-xs font-mono font-bold text-emerald-700" id="opp-match-percent">100% Match</span>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs border border-slate-200 rounded-xl overflow-hidden">
+            <thead class="bg-slate-100 text-slate-700 font-semibold border-b border-slate-200">
+              <tr>
+                <th class="p-3">Required Skill Domain</th>
+                <th class="p-3">Company Threshold</th>
+                <th class="p-3">Your Verified Score</th>
+                <th class="p-3 text-right">Status</th>
+              </tr>
+            </thead>
+            <tbody id="opp-benchmark-table" class="divide-y divide-slate-100 bg-white">
+              <!-- Dynamically populated -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <script src="../js/store.js"></script>
+  <script src="../js/nav.js"></script>
+  <script>
+    function renderDetails() {
+      if (!window.SkillBridgeStore) return;
+      const urlParams = new URLSearchParams(window.location.search);
+      const oppId = urlParams.get('id') || 'opp_1';
+
       const state = window.SkillBridgeStore.getState();
-      const existing = (state.applications || []).find(a => a.studentId === student.id && a.opportunityId === oppId);
-      if (!existing) {
-        state.applications.push({
-          id: 'app_' + Date.now(),
-          studentId: student.id,
-          studentName: student.name,
-          college: student.college || 'Aditya University',
-          opportunityId: oppId,
-          opportunityTitle: o.title,
-          companyName: o.company,
-          status: 'Screening',
-          matchScore: o.match || 85,
-          appliedDate: new Date().toISOString().split('T')[0],
-          screeningScore: null
-        });
-        window.SkillBridgeStore.saveState(state);
+      const opp = (state.opportunities || []).find(o => o.id === oppId);
+      const student = window.SkillBridgeStore.getCurrentStudent();
+      const skills = (student && student.skills) || {};
+
+      if (!opp) {
+        document.getElementById('opp-title').innerText = 'Opportunity Not Found';
+        return;
+      }
+
+      document.getElementById('bread-title').innerText = opp.title;
+      document.getElementById('opp-title').innerText = opp.title;
+      document.getElementById('opp-type').innerText = opp.type;
+      document.getElementById('opp-company').innerText = opp.companyName;
+      document.getElementById('opp-meta').innerText = `${opp.location} • Stipend: ${opp.stipend} • ${opp.openings} Openings • Apply by ${opp.deadline}`;
+      document.getElementById('opp-desc').innerText = opp.description;
+
+      const evalRes = window.SkillBridgeStore.evaluateEligibility(skills, opp.requiredSkills);
+      document.getElementById('opp-match-percent').innerText = `${evalRes.matchScore}% Vector Match`;
+
+      // Render Benchmarks
+      const tbody = document.getElementById('opp-benchmark-table');
+      tbody.innerHTML = '';
+
+      for (const [sName, reqScore] of Object.entries(opp.requiredSkills || {})) {
+        const userScore = skills[sName] || 500;
+        const met = userScore >= reqScore;
+
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td class="p-3 font-semibold text-slate-900">${sName}</td>
+          <td class="p-3 font-mono text-slate-600">${reqScore} / 1000</td>
+          <td class="p-3 font-mono font-bold ${met ? 'text-emerald-700' : 'text-amber-700'}">${userScore} / 1000</td>
+          <td class="p-3 text-right">
+            ${met 
+              ? '<span class="sb-badge sb-badge-emerald text-[10px]">Threshold Met</span>'
+              : `<a href="../Assessment_Interface/index.html?skill=${encodeURIComponent(sName)}" class="text-blue-600 hover:underline font-semibold">Test Deficit (-${reqScore - userScore}) &rarr;</a>`
+            }
+          </td>
+        `;
+        tbody.appendChild(row);
+      }
+
+      // Check if already applied
+      const alreadyApplied = (state.applications || []).some(a => a.studentId === student.id && a.opportunityId === opp.id);
+      const actionContainer = document.getElementById('opp-action-container');
+
+      if (alreadyApplied) {
+        actionContainer.innerHTML = `
+          <a href="../Student_Interface/My_Applications.html" class="sb-btn sb-btn-secondary text-xs">
+            <span class="material-symbols-outlined text-xs">check</span>
+            <span>Applied (View Status)</span>
+          </a>
+        `;
+      } else if (evalRes.eligible) {
+        actionContainer.innerHTML = `
+          <button onclick="applyNow('${opp.id}')" class="sb-btn sb-btn-primary text-xs">
+            <span>Apply with Verified Vector</span>
+            <span class="material-symbols-outlined text-xs">arrow_forward</span>
+          </button>
+        `;
+      } else {
+        actionContainer.innerHTML = `
+          <button disabled class="sb-btn sb-btn-secondary text-xs opacity-60 cursor-not-allowed">
+            <span>Skill Deficit (Cannot Apply)</span>
+          </button>
+        `;
       }
     }
-  }
-  if (confirm(`Application submitted for ${o.title} at ${o.company}!\n\nWould you like to track this in your Applications dashboard?`)) {
-    window.location.href = '../Student_Interface/My_Applications.html';
-  }
-}
-</script>
-<script src="../js/store.js"></script>
-<script src="../js/nav.js"></script>
-</body></html>
+
+    function applyNow(oppId) {
+      const student = window.SkillBridgeStore.getCurrentStudent();
+      if (!student) return;
+
+      const success = window.SkillBridgeStore.applyToOpportunity(oppId);
+      if (success) {
+        alert('Application submitted! Proceeding to proctored screening.');
+        window.location.href = '../Student_Interface/My_Applications.html';
+      }
+    }
+
+    window.addEventListener('skillbridge-state-change', renderDetails);
+    window.addEventListener('skillbridge:update', renderDetails);
+    document.addEventListener('DOMContentLoaded', renderDetails);
+  </script>
+</body>
+</html>

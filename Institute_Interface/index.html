@@ -1,220 +1,260 @@
 <!DOCTYPE html>
-<html class="dark" lang="en">
+<html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Institute Analytics Dashboard — SkillBridge</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet"/>
-<script>
-  tailwind.config = {
-    darkMode: "class",
-    theme: {
-      extend: {
-        colors: {
-          primary: "#f2ca50",
-          "primary-container": "#d4af37",
-          surface: "#0f131f",
-          "surface-container": "#1b1f2c"
-        }
-      }
-    }
-  };
-</script>
-<style>
-  body {
-    background: #0f131f;
-    color: #dfe2f3;
-    font-family: 'Inter', sans-serif;
-  }
-  .glass-pane {
-    background-color: rgba(22, 27, 46, 0.7);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-  }
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Institution Workspace — SkillBridge</title>
+
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/design-system.css">
 </head>
-<body class="min-h-screen bg-[#0f131f] text-[#dfe2f3] flex flex-col">
+<body class="min-h-screen flex flex-col bg-slate-50 text-slate-900">
 
-<main class="flex-1 p-4 md:p-8 max-w-[1200px] mx-auto w-full space-y-6">
+  <main class="flex-1 max-w-7xl mx-auto px-4 sm:px-6 py-8 w-full space-y-6">
 
-  <!-- Header Banner -->
-  <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/10 pb-4">
-    <div>
-      <h1 id="inst-title-header" class="text-2xl font-bold font-serif text-indigo-400">Aditya University — Institutional Skill & Placement Console</h1>
-      <p class="text-xs text-zinc-400">Aggregate student skill readiness analytics, department metrics, and placement conversions.</p>
-    </div>
-    
-    <div class="flex gap-2 flex-wrap">
-      <a href="students.html" class="px-4 py-2 bg-indigo-500 text-white font-bold rounded-xl text-xs flex items-center gap-1.5 hover:bg-indigo-400 transition-all shadow-md">
-        <span class="material-symbols-outlined text-base">groups</span>
-        <span>Students</span>
-      </a>
-      <a href="skill-overview.html" class="px-4 py-2 bg-white/10 text-white font-semibold rounded-xl text-xs flex items-center gap-1.5 hover:bg-white/15 border border-white/15 transition-all">
-        <span class="material-symbols-outlined text-base">psychology</span>
-        <span>Skill Analytics</span>
-      </a>
-      <a href="opportunities.html" class="px-4 py-2 bg-white/10 text-white font-semibold rounded-xl text-xs flex items-center gap-1.5 hover:bg-white/15 border border-white/15 transition-all">
-        <span class="material-symbols-outlined text-base">work</span>
-        <span>Opportunities</span>
-      </a>
-    </div>
-  </div>
-
-  <!-- Metric Overview Cards -->
-  <div class="grid grid-cols-1 sm:grid-cols-4 gap-4">
-    <div class="glass-pane p-5 rounded-2xl space-y-1">
-      <span class="text-xs text-zinc-400 font-medium">Total Registered Students</span>
-      <h2 id="inst-stat-students" class="text-2xl font-bold text-indigo-400">3 Students</h2>
-      <p class="text-[11px] text-zinc-500">Linked to Aditya University</p>
-    </div>
-
-    <div class="glass-pane p-5 rounded-2xl space-y-1">
-      <span class="text-xs text-zinc-400 font-medium">Total Applications Submitted</span>
-      <h2 id="inst-stat-apps" class="text-2xl font-bold text-amber-400">0 Applications</h2>
-      <p class="text-[11px] text-zinc-500">Across verified companies</p>
-    </div>
-
-    <div class="glass-pane p-5 rounded-2xl space-y-1">
-      <span class="text-xs text-zinc-400 font-medium">Shortlisted Students</span>
-      <h2 id="inst-stat-shortlisted" class="text-2xl font-bold text-emerald-400">0 Candidates</h2>
-      <p class="text-[11px] text-zinc-500">Passed company screening</p>
-    </div>
-
-    <div class="glass-pane p-5 rounded-2xl space-y-1">
-      <span class="text-xs text-zinc-400 font-medium">Est. Placement Readiness</span>
-      <h2 id="inst-stat-rate" class="text-2xl font-bold text-amber-300">78% Rate</h2>
-      <p class="text-[11px] text-zinc-500">Based on verified skill vectors</p>
-    </div>
-  </div>
-
-  <!-- Skill Readiness Distribution Table -->
-  <section class="glass-pane rounded-2xl p-6 space-y-4">
-    <div class="flex items-center justify-between border-b border-white/10 pb-3">
-      <h2 class="text-base font-bold text-white flex items-center gap-2">
-        <span class="material-symbols-outlined text-indigo-400">bar_chart</span>
-        Institutional Skill Readiness Breakdown (Aditya University)
-      </h2>
-      <a href="skill-overview.html" class="text-xs text-indigo-400 hover:underline">Full Analytics →</a>
-    </div>
-
-    <div id="inst-skill-breakdown-grid" class="grid grid-cols-1 md:grid-cols-2 gap-4">
-      <!-- Populated via store.js -->
-    </div>
-  </section>
-
-  <!-- Enrolled Students Snapshot -->
-  <section class="glass-pane rounded-2xl p-6 space-y-4">
-    <div class="flex items-center justify-between border-b border-white/10 pb-3">
-      <h2 class="text-base font-bold text-white flex items-center gap-2">
-        <span class="material-symbols-outlined text-indigo-400">school</span>
-        Enrolled Student Roster
-      </h2>
-      <a href="students.html" class="text-xs text-indigo-400 hover:underline">View All Students →</a>
-    </div>
-
-    <div id="inst-students-snapshot" class="space-y-3">
-      <!-- Populated via store.js -->
-    </div>
-  </section>
-
-</main>
-
-<script src="../js/store.js"></script>
-<script src="../js/nav.js"></script>
-<script>
-  function renderInstituteDashboard() {
-    if (!window.SkillBridgeStore) return;
-
-    const collegeName = 'Aditya University';
-    const titleEl = document.getElementById('inst-title-header');
-    if (titleEl) titleEl.innerText = `${collegeName} — Institutional Skill & Placement Console`;
-
-    const data = window.SkillBridgeStore.getInstitutionData(collegeName);
-
-    const studEl = document.getElementById('inst-stat-students');
-    if (studEl) studEl.innerText = `${data.totalStudents} Students`;
-    const appsEl = document.getElementById('inst-stat-apps');
-    if (appsEl) appsEl.innerText = `${data.totalApplications} Applications`;
-    const shortEl = document.getElementById('inst-stat-shortlisted');
-    if (shortEl) shortEl.innerText = `${data.shortlistedCount} Candidates`;
-    const rateEl = document.getElementById('inst-stat-rate');
-    if (rateEl) rateEl.innerText = `${data.placementRate}`;
-
-    // Skill Breakdown
-    const skillGrid = document.getElementById('inst-skill-breakdown-grid');
-    if (!skillGrid) return;
-    skillGrid.innerHTML = '';
-
-    if (Object.keys(data.skillTotals).length === 0) {
-      skillGrid.innerHTML = `
-        <div class="col-span-full text-center py-6 text-xs text-zinc-400">
-          No skill assessment data recorded yet.
+    <!-- Header Banner -->
+    <div class="sb-card p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 border-slate-200">
+      <div class="space-y-1.5">
+        <div class="flex items-center gap-2">
+          <span class="sb-badge sb-badge-blue">Academic Placement Cell</span>
+          <span class="sb-badge sb-badge-muted" id="inst-tag">Aditya University</span>
+          <span class="sb-badge sb-badge-emerald">NAAC A+ Accredited</span>
         </div>
-      `;
-    } else {
-      for (const [skill, stats] of Object.entries(data.skillTotals)) {
-        const avgScore = Math.round(stats.totalScore / stats.count);
-        skillGrid.innerHTML += `
-          <div class="bg-black/30 border border-white/10 p-4 rounded-xl space-y-2">
-            <div class="flex justify-between items-center text-xs font-bold">
-              <span class="text-white">${skill}</span>
-              <span class="text-amber-400">Avg Score: ${avgScore}/100</span>
+        <h1 class="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight" id="inst-title">Student Skill &amp; Placement Overview</h1>
+        <p class="text-xs sm:text-sm text-slate-600 max-w-xl">
+          Aggregate student skill readiness analytics, department benchmarks, and corporate placement conversion pipeline.
+        </p>
+      </div>
+
+      <div class="flex items-center gap-2.5 flex-wrap">
+        <a href="students.html" class="sb-btn sb-btn-primary">
+          <span class="material-symbols-outlined text-[16px]">school</span>
+          <span>Student Cohort</span>
+        </a>
+        <a href="skill-overview.html" class="sb-btn sb-btn-secondary">
+          <span class="material-symbols-outlined text-[16px]">psychology</span>
+          <span>Skill Analytics</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- 4 Key Institutional Metrics -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div class="sb-metric-box">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-xs font-semibold text-slate-500">Total Cohort</span>
+          <div class="w-8 h-8 rounded-lg bg-blue-50 text-blue-700 flex items-center justify-center">
+            <span class="material-symbols-outlined text-[18px]">groups</span>
+          </div>
+        </div>
+        <div class="text-2xl font-bold text-slate-900 font-mono">1,248</div>
+        <div class="text-[11px] text-slate-500 mt-1">Enrolled 3rd &amp; 4th Year Students</div>
+      </div>
+
+      <div class="sb-metric-box">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-xs font-semibold text-slate-500">Mean Skill Vector</span>
+          <div class="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-700 flex items-center justify-center">
+            <span class="material-symbols-outlined text-[18px]">trending_up</span>
+          </div>
+        </div>
+        <div class="text-2xl font-bold text-slate-900 font-mono">714 <span class="text-xs text-slate-500 font-normal">/ 1000</span></div>
+        <div class="text-[11px] text-emerald-700 font-medium mt-1">+38 pts from last month</div>
+      </div>
+
+      <div class="sb-metric-box">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-xs font-semibold text-slate-500">Placement Readiness</span>
+          <div class="w-8 h-8 rounded-lg bg-amber-50 text-amber-700 flex items-center justify-center">
+            <span class="material-symbols-outlined text-[18px]">verified</span>
+          </div>
+        </div>
+        <div class="text-2xl font-bold text-slate-900 font-mono">78%</div>
+        <div class="text-[11px] text-slate-500 mt-1">798 Students &ge; 700 threshold</div>
+      </div>
+
+      <div class="sb-metric-box">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-xs font-semibold text-slate-500">Active Industry Drives</span>
+          <div class="w-8 h-8 rounded-lg bg-sky-50 text-sky-700 flex items-center justify-center">
+            <span class="material-symbols-outlined text-[18px]">corporate_fare</span>
+          </div>
+        </div>
+        <div class="text-2xl font-bold text-slate-900 font-mono">14</div>
+        <div class="text-[11px] text-sky-700 font-medium mt-1">3 new drives opened this week</div>
+      </div>
+    </div>
+
+    <!-- Cohort Readiness Breakdown & Top Competencies -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      
+      <!-- Left: Cohort Skill Readiness Breakdown -->
+      <div class="lg:col-span-2 sb-card p-6 space-y-5">
+        <div class="flex items-center justify-between border-b border-slate-100 pb-4">
+          <div>
+            <h2 class="text-base font-bold text-slate-900">Cohort Skill Distribution</h2>
+            <p class="text-xs text-slate-500">Standardized 1,000-point readiness classification across all engineering batches.</p>
+          </div>
+          <span class="sb-badge sb-badge-blue">Batch 2026</span>
+        </div>
+
+        <div class="space-y-4">
+          <!-- Tier 1 -->
+          <div class="space-y-1.5">
+            <div class="flex items-center justify-between text-xs">
+              <span class="font-bold text-slate-900 flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                <span>Tier 1: Industry Ready (&ge; 700 pts)</span>
+              </span>
+              <span class="font-mono text-emerald-700 font-semibold">64% &bull; 798 Students</span>
             </div>
-            <div class="w-full bg-white/10 h-2 rounded-full overflow-hidden flex">
-              <div class="bg-emerald-400 h-full" style="width: ${(stats.ready / stats.count) * 100}%" title="${stats.ready} Ready"></div>
-              <div class="bg-rose-400 h-full" style="width: ${(stats.needImprovement / stats.count) * 100}%" title="${stats.needImprovement} Needs Improvement"></div>
+            <div class="sb-progress-track">
+              <div class="sb-progress-fill bg-emerald-600" style="width: 64%"></div>
             </div>
-            <div class="flex justify-between text-[11px] text-zinc-400">
-              <span class="text-emerald-400 font-semibold">${stats.ready} Students Ready (≥70)</span>
-              <span class="text-rose-400 font-semibold">${stats.needImprovement} Need Improvement (<70)</span>
+            <p class="text-[11px] text-slate-500">Directly eligible for Tier-1 corporate drives without skill bridge requirements.</p>
+          </div>
+
+          <!-- Tier 2 -->
+          <div class="space-y-1.5">
+            <div class="flex items-center justify-between text-xs">
+              <span class="font-bold text-slate-900 flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+                <span>Tier 2: Proficient / Near Threshold (600 - 699 pts)</span>
+              </span>
+              <span class="font-mono text-amber-700 font-semibold">24% &bull; 299 Students</span>
+            </div>
+            <div class="sb-progress-track">
+              <div class="sb-progress-fill bg-amber-500" style="width: 24%"></div>
+            </div>
+            <p class="text-[11px] text-slate-500">Minor skill deficit (average 50-80 points). Enrolled in targeted sprint modules.</p>
+          </div>
+
+          <!-- Tier 3 -->
+          <div class="space-y-1.5">
+            <div class="flex items-center justify-between text-xs">
+              <span class="font-bold text-slate-900 flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-slate-400"></span>
+                <span>Tier 3: Upskill Required (&lt; 600 pts)</span>
+              </span>
+              <span class="font-mono text-slate-600 font-semibold">12% &bull; 151 Students</span>
+            </div>
+            <div class="sb-progress-track">
+              <div class="sb-progress-fill bg-slate-400" style="width: 12%"></div>
+            </div>
+            <p class="text-[11px] text-slate-500">Academic bridge program initiated. Weekly supervised coding assessments assigned.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Department Performance Summary -->
+      <div class="sb-card p-6 space-y-4">
+        <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+          <h2 class="text-sm font-bold text-slate-900">Department Readiness</h2>
+          <a href="department-performance.html" class="text-xs text-blue-600 hover:text-blue-700 font-medium">View All &rarr;</a>
+        </div>
+
+        <div class="space-y-3">
+          <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 space-y-1.5">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-slate-900">Computer Science (CSE)</span>
+              <span class="sb-badge sb-badge-emerald text-[10px]">82% Ready</span>
+            </div>
+            <div class="flex items-center justify-between text-[11px] text-slate-500 font-mono">
+              <span>Mean: 742 / 1000</span>
+              <span>480 Enrolled</span>
             </div>
           </div>
-        `;
-      }
-    }
 
-    // Student Snapshot List
-    const snap = document.getElementById('inst-students-snapshot');
-    snap.innerHTML = '';
+          <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 space-y-1.5">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-slate-900">Information Tech (IT)</span>
+              <span class="sb-badge sb-badge-blue text-[10px]">76% Ready</span>
+            </div>
+            <div class="flex items-center justify-between text-[11px] text-slate-500 font-mono">
+              <span>Mean: 710 / 1000</span>
+              <span>320 Enrolled</span>
+            </div>
+          </div>
 
-    if (data.students.length === 0) {
-      snap.innerHTML = `
-        <div class="text-center py-6 text-xs text-zinc-400">
-          No students linked to ${collegeName} yet. Edit profile in Student Portal to assign student to ${collegeName}.
+          <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 space-y-1.5">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-slate-900">Electronics &amp; Comm (ECE)</span>
+              <span class="sb-badge sb-badge-amber text-[10px]">68% Ready</span>
+            </div>
+            <div class="flex items-center justify-between text-[11px] text-slate-500 font-mono">
+              <span>Mean: 668 / 1000</span>
+              <span>448 Enrolled</span>
+            </div>
+          </div>
         </div>
-      `;
-    } else {
-      data.students.forEach(s => {
-        let topSkill = 'Java: 78';
-        if (s.skills) {
-          const top = Object.entries(s.skills).sort((a,b) => b[1] - a[1])[0];
-          if (top) topSkill = `${top[0]}: ${top[1]}/100`;
-        }
+      </div>
 
-        snap.innerHTML += `
-          <div class="bg-black/30 border border-white/10 p-4 rounded-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+    </div>
+
+    <!-- Active Placement Drives & Top Recruiter Partnerships -->
+    <div class="sb-card p-6 space-y-4">
+      <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+        <div>
+          <h2 class="text-base font-bold text-slate-900">Active Corporate Recruitment Drives</h2>
+          <p class="text-xs text-slate-500">Industry partners currently screening and interviewing students.</p>
+        </div>
+        <a href="opportunities.html" class="sb-btn sb-btn-secondary text-xs">
+          <span>Manage Drives</span>
+          <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="sb-card-elevated p-4 space-y-3">
+          <div class="flex items-start justify-between">
             <div>
-              <div class="flex items-center gap-2">
-                <h3 class="text-sm font-bold text-white">${s.name}</h3>
-                <span class="px-2 py-0.5 rounded bg-indigo-500/20 text-indigo-300 text-[10px] font-bold border border-indigo-500/30">${s.department || 'CSE'} | ${s.year || '3rd Year'}</span>
-              </div>
-              <p class="text-xs text-zinc-300">CGPA: ${s.cgpa || '8.7'} • Top Assessed Skill: <strong class="text-amber-400">${topSkill}</strong></p>
+              <h3 class="text-sm font-bold text-slate-900">ABC Tech Corp</h3>
+              <p class="text-xs text-slate-500">Java Backend Developer</p>
             </div>
-
-            <a href="students.html" class="px-3 py-1.5 bg-white/10 hover:bg-white/15 text-white rounded-lg text-xs font-semibold">View Profile</a>
+            <span class="sb-badge sb-badge-emerald text-[10px]">12 Shortlisted</span>
           </div>
-        `;
-      });
-    }
-  }
+          <div class="text-[11px] text-slate-500 space-y-1 pt-2 border-t border-slate-100">
+            <div>Threshold: <strong class="text-slate-900">Java &ge; 700 &bull; SQL &ge; 500</strong></div>
+            <div>Eligible Students: <strong class="text-emerald-700">142 students</strong></div>
+          </div>
+        </div>
 
-  document.addEventListener('DOMContentLoaded', () => {
-    renderInstituteDashboard();
-    window.addEventListener('skillbridge-state-change', renderInstituteDashboard);
-  });
-</script>
+        <div class="sb-card-elevated p-4 space-y-3">
+          <div class="flex items-start justify-between">
+            <div>
+              <h3 class="text-sm font-bold text-slate-900">Global Dynamics</h3>
+              <p class="text-xs text-slate-500">Full Stack React Engineer</p>
+            </div>
+            <span class="sb-badge sb-badge-blue text-[10px]">8 Shortlisted</span>
+          </div>
+          <div class="text-[11px] text-slate-500 space-y-1 pt-2 border-t border-slate-100">
+            <div>Threshold: <strong class="text-slate-900">React &ge; 700 &bull; Web &ge; 650</strong></div>
+            <div>Eligible Students: <strong class="text-blue-700">96 students</strong></div>
+          </div>
+        </div>
+
+        <div class="sb-card-elevated p-4 space-y-3">
+          <div class="flex items-start justify-between">
+            <div>
+              <h3 class="text-sm font-bold text-slate-900">Apex Labs</h3>
+              <p class="text-xs text-slate-500">Data &amp; SQL Analyst</p>
+            </div>
+            <span class="sb-badge sb-badge-amber text-[10px]">6 Shortlisted</span>
+          </div>
+          <div class="text-[11px] text-slate-500 space-y-1 pt-2 border-t border-slate-100">
+            <div>Threshold: <strong class="text-slate-900">SQL &ge; 700 &bull; Python &ge; 650</strong></div>
+            <div>Eligible Students: <strong class="text-amber-700">78 students</strong></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <script src="../js/store.js"></script>
+  <script src="../js/nav.js"></script>
 </body>
 </html>
