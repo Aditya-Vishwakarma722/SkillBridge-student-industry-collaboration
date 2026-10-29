@@ -1,152 +1,156 @@
 <!DOCTYPE html>
-<html class="dark" lang="en">
+<html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Aditya University — Student Directory</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet"/>
-<script>
-  tailwind.config = {
-    darkMode: "class",
-    theme: {
-      extend: {
-        colors: {
-          primary: "#f2ca50",
-          "primary-container": "#d4af37",
-          surface: "#0f131f",
-          "surface-container": "#1b1f2c"
-        }
-      }
-    }
-  };
-</script>
-<style>
-  body {
-    background: #0f131f;
-    color: #dfe2f3;
-    font-family: 'Inter', sans-serif;
-  }
-  .glass-pane {
-    background-color: rgba(22, 27, 46, 0.7);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-  }
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Cohort Directory — SkillBridge</title>
+
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/design-system.css">
 </head>
-<body class="min-h-screen bg-[#0f131f] text-[#dfe2f3] flex flex-col">
+<body class="min-h-screen flex flex-col bg-slate-50 text-slate-900">
 
-<main class="flex-1 p-4 md:p-8 max-w-[1200px] mx-auto w-full space-y-6">
+  <main class="flex-1 max-w-7xl mx-auto px-4 sm:px-6 py-8 w-full space-y-6">
 
-  <!-- Header Banner -->
-  <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/10 pb-4">
-    <div>
-      <h1 class="text-2xl font-bold font-serif text-indigo-400">Aditya University — Enrolled Students Directory</h1>
-      <p class="text-xs text-zinc-400">View student profiles, department affiliations, academic standing, and verified skill scores.</p>
+    <!-- Header Banner -->
+    <div class="sb-card p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 border-slate-200">
+      <div class="space-y-1.5">
+        <div class="flex items-center gap-2">
+          <span class="sb-badge sb-badge-blue">Cohort Registry</span>
+          <span class="sb-badge sb-badge-emerald">Verified Vectors</span>
+        </div>
+        <h1 class="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">Student Cohort Directory</h1>
+        <p class="text-xs sm:text-sm text-slate-600 max-w-xl">
+          Directory of enrolled students, their mean assessment scores, and verified coding footprints.
+        </p>
+      </div>
+
+      <div class="flex items-center gap-2.5">
+        <a href="skill-overview.html" class="sb-btn sb-btn-secondary">
+          <span class="material-symbols-outlined text-[16px]">psychology</span>
+          <span>Skill Analytics</span>
+        </a>
+        <a href="index.html" class="sb-btn sb-btn-primary">
+          <span class="material-symbols-outlined text-[16px]">bar_chart</span>
+          <span>Overview</span>
+        </a>
+      </div>
     </div>
-    
-    <div class="flex items-center gap-3">
-      <input id="searchStudent" oninput="renderStudentsTable()" placeholder="Search student name, department..." class="bg-[#161B2E] border border-white/10 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-indigo-400">
+
+    <!-- Filter Bar -->
+    <div class="sb-card p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div class="flex items-center gap-2 flex-wrap">
+        <span class="text-xs text-slate-500 font-medium">Department:</span>
+        <button onclick="filterDept('all')" class="dept-btn sb-badge sb-badge-blue cursor-pointer px-3 py-1 font-medium" data-dept="all">All Departments</button>
+        <button onclick="filterDept('CSE')" class="dept-btn sb-badge sb-badge-muted cursor-pointer px-3 py-1 font-medium" data-dept="CSE">Computer Science (CSE)</button>
+        <button onclick="filterDept('ECE')" class="dept-btn sb-badge sb-badge-muted cursor-pointer px-3 py-1 font-medium" data-dept="ECE">Electronics (ECE)</button>
+      </div>
+      <span class="text-xs text-slate-500 font-mono" id="cohort-count-text">Loading students...</span>
     </div>
-  </div>
 
-  <!-- Students Table Grid -->
-  <div class="glass-pane rounded-2xl p-6 space-y-4">
-    <div class="overflow-x-auto">
-      <table class="w-full text-left text-xs text-zinc-300">
-        <thead class="bg-black/40 text-amber-300 uppercase text-[10px] tracking-wider border-b border-white/10">
-          <tr>
-            <th class="py-3 px-4">Student Name</th>
-            <th class="py-3 px-4">College & Dept</th>
-            <th class="py-3 px-4">CGPA</th>
-            <th class="py-3 px-4">Assessed Skills</th>
-            <th class="py-3 px-4">Placement Readiness</th>
-          </tr>
-        </thead>
-        <tbody id="students-table-body" class="divide-y divide-white/5">
-          <!-- Populated via store.js -->
-        </tbody>
-      </table>
+    <!-- Students Cards Grid -->
+    <div id="students-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Populated via script -->
     </div>
-  </div>
 
-</main>
+  </main>
 
-<script src="../js/store.js"></script>
-<script src="../js/nav.js"></script>
-<script>
-  function renderStudentsTable() {
-    if (!window.SkillBridgeStore) return;
+  <script src="../js/store.js"></script>
+  <script src="../js/nav.js"></script>
+  <script>
+    let activeDept = 'all';
 
-    const data = window.SkillBridgeStore.getInstitutionData('Aditya University');
-    const search = document.getElementById('searchStudent').value.toLowerCase().trim();
-
-    const body = document.getElementById('students-table-body');
-    body.innerHTML = '';
-
-    const filtered = data.students.filter(s => {
-      return !search || s.name.toLowerCase().includes(search) || (s.department || '').toLowerCase().includes(search);
-    });
-
-    if (filtered.length === 0) {
-      body.innerHTML = `
-        <tr>
-          <td colspan="5" class="py-8 text-center text-zinc-500">
-            No students found for Aditya University.
-          </td>
-        </tr>
-      `;
-      return;
+    function filterDept(dept) {
+      activeDept = dept;
+      document.querySelectorAll('.dept-btn').forEach(btn => {
+        if (btn.dataset.dept === dept) {
+          btn.className = 'dept-btn sb-badge sb-badge-blue cursor-pointer px-3 py-1 font-medium';
+        } else {
+          btn.className = 'dept-btn sb-badge sb-badge-muted cursor-pointer px-3 py-1 font-medium';
+        }
+      });
+      renderStudents();
     }
 
-    filtered.forEach(s => {
-      let skillChips = '';
-      let avgScore = 0;
-      let count = 0;
+    function renderStudents() {
+      if (!window.SkillBridgeStore) return;
+      const state = window.SkillBridgeStore.getState();
+      const students = (state.students || []).filter(s => s.college === 'Aditya University');
 
-      if (s.skills) {
-        for (const [skill, score] of Object.entries(s.skills)) {
-          count++;
-          avgScore += score;
-          skillChips += `<span class="px-2 py-0.5 rounded bg-white/10 text-[10px] text-zinc-300 mr-1 mb-1 inline-block">${skill}: <strong class="text-amber-400">${score}</strong></span>`;
-        }
+      const filtered = students.filter(s => activeDept === 'all' || s.department === activeDept);
+      document.getElementById('cohort-count-text').innerText = `${filtered.length} Students Listed`;
+
+      const container = document.getElementById('students-grid');
+      container.innerHTML = '';
+
+      if (filtered.length === 0) {
+        container.innerHTML = `
+          <div class="col-span-full sb-card p-12 text-center space-y-3">
+            <span class="material-symbols-outlined text-slate-400 text-4xl">school</span>
+            <div class="text-sm text-slate-600 font-medium">No students found for this department.</div>
+          </div>
+        `;
+        return;
       }
-      avgScore = count > 0 ? Math.round(avgScore / count) : 70;
-      const readinessStatus = avgScore >= 75 ? 'Industry Ready (High)' : avgScore >= 60 ? 'Good Readiness' : 'Developing';
-      const readinessColor = avgScore >= 75 ? 'text-emerald-400' : avgScore >= 60 ? 'text-amber-400' : 'text-rose-400';
 
-      body.innerHTML += `
-        <tr class="hover:bg-white/5 transition-colors">
-          <td class="py-3 px-4 font-bold text-white flex items-center gap-2">
-            <span class="material-symbols-outlined text-amber-400 text-lg">person</span>
-            <div>
-              <div>${s.name}</div>
-              <div class="text-[10px] text-zinc-400 font-normal">${s.email}</div>
+      filtered.forEach(std => {
+        const skills = std.skills || {};
+        let sum = 0, count = 0;
+        for (const [k, v] of Object.entries(skills)) {
+          if (k !== 'Platform Activities') {
+            sum += v;
+            count++;
+          }
+        }
+        const mean = count > 0 ? Math.round(sum / count) : 700;
+        const platform = skills['Platform Activities'] || 700;
+
+        const card = document.createElement('div');
+        card.className = 'sb-card p-6 space-y-4 sb-card-interactive flex flex-col justify-between';
+        card.innerHTML = `
+          <div class="space-y-3">
+            <div class="flex items-center gap-3">
+              <img src="${std.avatar || 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=100'}" class="w-12 h-12 rounded-xl object-cover border border-slate-200" alt="${std.name}">
+              <div>
+                <h3 class="text-sm font-bold text-slate-900">${std.name}</h3>
+                <p class="text-xs text-slate-500">${std.department} &bull; ${std.year}</p>
+              </div>
             </div>
-          </td>
-          <td class="py-3 px-4">
-            <div class="text-white font-medium">${s.college || 'Aditya University'}</div>
-            <div class="text-[11px] text-indigo-300">${s.department || 'CSE'} | ${s.year || '3rd Year'}</div>
-          </td>
-          <td class="py-3 px-4 font-bold text-white">${s.cgpa || '8.7'}</td>
-          <td class="py-3 px-4">
-            <div class="flex flex-wrap max-w-xs">${skillChips}</div>
-          </td>
-          <td class="py-3 px-4">
-            <span class="font-bold ${readinessColor}">${readinessStatus}</span>
-            <div class="text-[10px] text-zinc-400">Avg Skill Vector: ${avgScore}%</div>
-          </td>
-        </tr>
-      `;
-    });
-  }
 
-  document.addEventListener('DOMContentLoaded', () => {
-    renderStudentsTable();
-    window.addEventListener('skillbridge-state-change', renderStudentsTable);
-  });
-</script>
+            <div class="grid grid-cols-2 gap-2 text-xs pt-2 border-t border-slate-100">
+              <div class="sb-card-elevated p-2.5">
+                <span class="text-slate-500 text-[11px]">Mean Skill Score:</span>
+                <p class="font-bold text-slate-900 font-mono mt-0.5">${mean} <span class="text-slate-400 font-normal">/ 1000</span></p>
+              </div>
+              <div class="sb-card-elevated p-2.5">
+                <span class="text-slate-500 text-[11px]">Platform Activity:</span>
+                <p class="font-bold text-emerald-700 font-mono mt-0.5">${platform} <span class="text-slate-400 font-normal">/ 1000</span></p>
+              </div>
+            </div>
+
+            <div class="text-[11px] text-slate-500 flex items-center justify-between">
+              <span>CGPA: <strong class="text-slate-800">${std.cgpa}</strong></span>
+              <span>Certificates: <strong class="text-blue-700 font-semibold">${(std.certificates || []).length} Verified</strong></span>
+            </div>
+          </div>
+
+          <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
+            <span class="sb-badge ${mean >= 700 ? 'sb-badge-emerald' : 'sb-badge-amber'} text-[10px]">
+              ${mean >= 700 ? 'Tier 1: Industry Ready' : 'Tier 2: In Training'}
+            </span>
+            <span class="text-slate-400 text-[11px]">Zero Violations</span>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    window.addEventListener('skillbridge-state-change', renderStudents);
+    window.addEventListener('skillbridge:update', renderStudents);
+    document.addEventListener('DOMContentLoaded', renderStudents);
+  </script>
 </body>
 </html>

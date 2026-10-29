@@ -1,103 +1,158 @@
 <!DOCTYPE html>
-<html class="dark" lang="en">
+<html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aditya University — Department Performance</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
-<script>
-  tailwind.config = {
-    darkMode: "class",
-    theme: {
-      extend: {
-        colors: {
-          primary: "#f2ca50",
-          "primary-container": "#d4af37",
-          surface: "#0f131f",
-          "surface-container": "#1b1f2c"
-        }
-      }
-    }
-  };
-</script>
-<style>
-  body {
-    background: #0f131f;
-    color: #dfe2f3;
-    font-family: 'Inter', sans-serif;
-  }
-  .glass-pane {
-    background-color: rgba(22, 27, 46, 0.7);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-  }
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Department Benchmarks — SkillBridge</title>
+
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/design-system.css">
 </head>
-<body class="min-h-screen bg-[#0f131f] text-[#dfe2f3] flex flex-col">
+<body class="min-h-screen flex flex-col bg-slate-50 text-slate-900">
 
-<main class="flex-1 p-4 md:p-8 max-w-[1200px] mx-auto w-full space-y-6">
+  <main class="flex-1 max-w-7xl mx-auto px-4 sm:px-6 py-8 w-full space-y-6">
 
-  <!-- Header Banner -->
-  <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/10 pb-4">
-    <div>
-      <h1 class="text-2xl font-bold font-serif text-indigo-400">Aditya University — Department Performance</h1>
-      <p class="text-xs text-zinc-400">Department-wise readiness, student participation, and placement metrics.</p>
-    </div>
-  </div>
-
-  <!-- Department Performance Grid -->
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-    
-    <div class="glass-pane rounded-2xl p-5 space-y-3 border border-white/10 hover:border-indigo-400/40 transition-all">
-      <div class="flex justify-between items-start">
-        <div>
-          <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">CSE</span>
-          <h3 class="text-lg font-bold text-white mt-1">Computer Science & Eng.</h3>
+    <!-- Header Banner -->
+    <div class="sb-card p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 border-slate-200">
+      <div class="space-y-1.5">
+        <div class="flex items-center gap-2">
+          <span class="sb-badge sb-badge-blue">Comparative Intelligence</span>
+          <span class="sb-badge sb-badge-muted">Department Audit</span>
         </div>
-        <span class="text-xs font-bold text-emerald-400">88% Placement</span>
+        <h1 class="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">Department Benchmarks</h1>
+        <p class="text-xs sm:text-sm text-slate-600 max-w-xl">
+          Side-by-side benchmarking of engineering branches to allocate training resources and monitor placement outcomes.
+        </p>
       </div>
-      <p class="text-xs text-zinc-300">Strongest readiness in Java, SQL, and Spring Boot microservices.</p>
-      <div class="pt-2 border-t border-white/5 flex justify-between text-xs text-zinc-400">
-        <span>Active Students: <strong class="text-white">Rahul Sharma, Priya Patel</strong></span>
+
+      <div class="flex items-center gap-2.5">
+        <a href="students.html" class="sb-btn sb-btn-secondary">
+          <span class="material-symbols-outlined text-[16px]">school</span>
+          <span>Student Cohort</span>
+        </a>
+        <a href="index.html" class="sb-btn sb-btn-primary">
+          <span class="material-symbols-outlined text-[16px]">bar_chart</span>
+          <span>Institute Overview</span>
+        </a>
       </div>
     </div>
 
-    <div class="glass-pane rounded-2xl p-5 space-y-3 border border-white/10 hover:border-indigo-400/40 transition-all">
-      <div class="flex justify-between items-start">
-        <div>
-          <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30">ECE</span>
-          <h3 class="text-lg font-bold text-white mt-1">Electronics & Comm. Eng.</h3>
+    <!-- Departments Comparison Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+      <!-- CSE Card -->
+      <div class="sb-card p-6 space-y-4 sb-card-interactive">
+        <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-blue-50 text-blue-700 flex items-center justify-center">
+              <span class="material-symbols-outlined text-xl">computer</span>
+            </div>
+            <div>
+              <h2 class="text-base font-bold text-slate-900">Computer Science (CSE)</h2>
+              <p class="text-xs text-slate-500">480 Enrolled &bull; Batch 2026</p>
+            </div>
+          </div>
+          <span class="sb-badge sb-badge-emerald">82% Ready</span>
         </div>
-        <span class="text-xs font-bold text-amber-400">74% Placement</span>
-      </div>
-      <p class="text-xs text-zinc-300">Strong performance in IoT, Python analytics, and C++.</p>
-      <div class="pt-2 border-t border-white/5 flex justify-between text-xs text-zinc-400">
-        <span>Active Students: <strong class="text-white">Ananya Rao</strong></span>
-      </div>
-    </div>
 
-    <div class="glass-pane rounded-2xl p-5 space-y-3 border border-white/10 hover:border-indigo-400/40 transition-all">
-      <div class="flex justify-between items-start">
-        <div>
-          <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-purple-500/20 text-purple-300 border border-purple-500/30">IT</span>
-          <h3 class="text-lg font-bold text-white mt-1">Information Technology</h3>
+        <div class="space-y-3 text-xs">
+          <div class="flex justify-between py-1 border-b border-slate-100">
+            <span class="text-slate-500">Cohort Mean Skill Score:</span>
+            <span class="font-bold text-slate-900 font-mono">755 / 1000</span>
+          </div>
+          <div class="flex justify-between py-1 border-b border-slate-100">
+            <span class="text-slate-500">Platform Coding Mean:</span>
+            <span class="font-bold text-emerald-700 font-mono">760 / 1000</span>
+          </div>
+          <div class="flex justify-between py-1 border-b border-slate-100">
+            <span class="text-slate-500">Active Applications:</span>
+            <span class="font-bold text-emerald-700 font-medium">12 Shortlisted</span>
+          </div>
+          <div class="flex justify-between py-1">
+            <span class="text-slate-500">Top Competencies:</span>
+            <span class="font-medium text-slate-800">Java, React, SQL, Git</span>
+          </div>
         </div>
-        <span class="text-xs font-bold text-emerald-400">82% Placement</span>
       </div>
-      <p class="text-xs text-zinc-300">High skill scores in Web Development, React, and SQL database design.</p>
-      <div class="pt-2 border-t border-white/5 flex justify-between text-xs text-zinc-400">
-        <span>Active Students: <strong class="text-white">Enrolled Pool</strong></span>
+
+      <!-- IT Card -->
+      <div class="sb-card p-6 space-y-4 sb-card-interactive">
+        <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-sky-50 text-sky-700 flex items-center justify-center">
+              <span class="material-symbols-outlined text-xl">terminal</span>
+            </div>
+            <div>
+              <h2 class="text-base font-bold text-slate-900">Information Tech (IT)</h2>
+              <p class="text-xs text-slate-500">320 Enrolled &bull; Batch 2026</p>
+            </div>
+          </div>
+          <span class="sb-badge sb-badge-blue">76% Ready</span>
+        </div>
+
+        <div class="space-y-3 text-xs">
+          <div class="flex justify-between py-1 border-b border-slate-100">
+            <span class="text-slate-500">Cohort Mean Skill Score:</span>
+            <span class="font-bold text-slate-900 font-mono">710 / 1000</span>
+          </div>
+          <div class="flex justify-between py-1 border-b border-slate-100">
+            <span class="text-slate-500">Platform Coding Mean:</span>
+            <span class="font-bold text-sky-700 font-mono">725 / 1000</span>
+          </div>
+          <div class="flex justify-between py-1 border-b border-slate-100">
+            <span class="text-slate-500">Active Applications:</span>
+            <span class="font-bold text-blue-700 font-medium">8 Shortlisted</span>
+          </div>
+          <div class="flex justify-between py-1">
+            <span class="text-slate-500">Top Competencies:</span>
+            <span class="font-medium text-slate-800">Cloud, Web Dev, SQL, Git</span>
+          </div>
+        </div>
       </div>
+
+      <!-- ECE Card -->
+      <div class="sb-card p-6 space-y-4 sb-card-interactive">
+        <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-amber-50 text-amber-700 flex items-center justify-center">
+              <span class="material-symbols-outlined text-xl">memory</span>
+            </div>
+            <div>
+              <h2 class="text-base font-bold text-slate-900">Electronics (ECE)</h2>
+              <p class="text-xs text-slate-500">448 Enrolled &bull; Batch 2026</p>
+            </div>
+          </div>
+          <span class="sb-badge sb-badge-amber">68% Ready</span>
+        </div>
+
+        <div class="space-y-3 text-xs">
+          <div class="flex justify-between py-1 border-b border-slate-100">
+            <span class="text-slate-500">Cohort Mean Skill Score:</span>
+            <span class="font-bold text-slate-900 font-mono">668 / 1000</span>
+          </div>
+          <div class="flex justify-between py-1 border-b border-slate-100">
+            <span class="text-slate-500">Platform Coding Mean:</span>
+            <span class="font-bold text-amber-700 font-mono">710 / 1000</span>
+          </div>
+          <div class="flex justify-between py-1 border-b border-slate-100">
+            <span class="text-slate-500">Active Applications:</span>
+            <span class="font-bold text-amber-700 font-medium">6 Shortlisted</span>
+          </div>
+          <div class="flex justify-between py-1">
+            <span class="text-slate-500">Top Competencies:</span>
+            <span class="font-medium text-slate-800">Python, IoT, Robotics, Git</span>
+          </div>
+        </div>
+      </div>
+
     </div>
 
-  </div>
+  </main>
 
-</main>
-
-<script src="../js/store.js"></script>
-<script src="../js/nav.js"></script>
+  <script src="../js/store.js"></script>
+  <script src="../js/nav.js"></script>
 </body>
 </html>

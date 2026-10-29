@@ -1,12 +1,13 @@
 /**
- * SkillBridge - Central Real-Time State Management Store v3.0
- * 1000-Point Skill System + Verified Platform Activities Engine
+ * SkillBridge — Central Real-Time State Management Store v4.0
+ * 1000-Point Skill Vector System + Verified Platform Activities Engine
+ * Problem Statement ID: SIH 26044 (Smart India Hackathon 2026)
  */
 (function (window) {
   'use strict';
 
-  const STORAGE_KEY = 'skillbridge_app_state_v3';
-  const ASSESSMENT_HISTORY_KEY = 'skillbridge_assessment_history_v3';
+  const STORAGE_KEY = 'skillbridge_app_state_v4';
+  const ASSESSMENT_HISTORY_KEY = 'skillbridge_assessment_history_v4';
 
   function generatePlatformMetrics(githubUser, repoName, leetcodeUser, hackerrankUser) {
     const gh = (githubUser || 'rahul-sharma').replace(/^https?:\/\//i, '').replace(/github\.com\/?/i, '').replace(/\/$/, '') || 'rahul-sharma';
@@ -14,7 +15,6 @@
     const hr = (hackerrankUser || 'rahul_sharma').replace(/^https?:\/\//i, '').replace(/hackerrank\.com\/(profile\/)?/i, '').replace(/\/$/, '') || 'rahul_sharma';
     const rep = (repoName || 'microservice-orders').replace(/^https?:\/\//i, '').replace(/github\.com\/[^\/]+\/?/i, '').replace(/\/$/, '') || 'microservice-orders';
 
-    // Algorithmic yet realistic calculation based on string seed + activity weights
     let hash = 0;
     const seed = gh + lc + hr + rep;
     for (let i = 0; i < seed.length; i++) {
@@ -23,38 +23,35 @@
     }
     const absHash = Math.abs(hash);
 
-    const ghStreak = 60 + (absHash % 120); // 60-180 days
-    const ghPushes = 450 + (absHash % 850); // 450-1300 pushes
-    const ghRepos = 12 + (absHash % 18); // 12-30 repos
-    // GitHub points: max 300 (calibrated to 700s total scale)
+    const ghStreak = 60 + (absHash % 120);
+    const ghPushes = 450 + (absHash % 850);
+    const ghRepos = 12 + (absHash % 18);
     const ghScore = Math.min(300, Math.round(140 + (ghStreak * 0.35) + (ghPushes * 0.035) + (ghRepos * 1.5)));
 
-    const lcSolved = 250 + (absHash % 300); // 250-550 problems
+    const lcSolved = 250 + (absHash % 300);
     const lcEasy = Math.round(lcSolved * 0.38);
     const lcMedium = Math.round(lcSolved * 0.50);
     const lcHard = lcSolved - lcEasy - lcMedium;
     const lcStreak = 30 + (absHash % 80);
-    const lcRating = 1650 + (absHash % 350); // 1650-2000 contest rating
-    // LeetCode points: max 300 (calibrated to 700s total scale)
+    const lcRating = 1650 + (absHash % 350);
     const lcScore = Math.min(300, Math.round(130 + (lcSolved * 0.18) + (lcStreak * 0.4) + ((lcRating - 1500) * 0.1)));
 
     const hrSolved = 120 + (absHash % 150);
     const hrStreak = 25 + (absHash % 50);
-    // HackerRank points: max 250 (calibrated to 700s total scale)
     const hrScore = Math.min(250, Math.round(100 + (hrSolved * 0.35) + (hrStreak * 0.5)));
 
     const totalScore = Math.min(1000, ghScore + lcScore + hrScore);
 
     return {
       totalScore,
-      lastSynced: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', hour: '2-digit', minute: '2-digit' }),
+      lastSynced: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
       github: {
         username: gh,
         featuredRepo: rep,
         streakDays: ghStreak,
         pushesThisYear: ghPushes,
         repoCount: ghRepos,
-        recentPushes: `${10 + (absHash % 15)} commits this week`,
+        recentPushes: `${12 + (absHash % 15)} commits this week`,
         topLanguages: ['Java', 'Spring Boot', 'TypeScript', 'SQL'],
         score: ghScore,
         maxScore: 300
@@ -67,7 +64,7 @@
         hard: lcHard,
         streak: lcStreak,
         contestRating: lcRating,
-        ranking: `Top ${((absHash % 6) + 4).toFixed(1)}%`,
+        ranking: `Top ${((absHash % 5) + 3).toFixed(1)}%`,
         score: lcScore,
         maxScore: 300
       },
@@ -76,7 +73,7 @@
         solved: hrSolved,
         streak: hrStreak,
         badges: '5★ Problem Solving, 5★ Java, 4★ SQL',
-        rank: 'Gold Tier Specialist',
+        rank: 'Gold Specialist',
         score: hrScore,
         maxScore: 250
       }
@@ -89,7 +86,14 @@
   const defaultVikramPlatform = generatePlatformMetrics('vikramverma', 'ai-reasoning-engine', 'vikram_v', 'vikram_v');
 
   const defaultState = {
-    currentUser: null,
+    currentUser: {
+      id: 'std_rahul',
+      name: 'Rahul Sharma',
+      email: 'student@gmail.com',
+      role: 'student',
+      college: 'Aditya University',
+      avatar: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=300&auto=format&fit=crop&q=80'
+    },
     students: [
       {
         id: 'std_rahul', name: 'Rahul Sharma', email: 'student@gmail.com', password: '123',
@@ -113,13 +117,13 @@
         platformActivities: defaultRahulPlatform,
         certificates: [
           { id: 'cert_1', name: 'Java SE 17 Developer Certification', issuer: 'Oracle', date: 'Jan 2026', credentialId: 'ORA-984210', url: 'https://oracle.com/verify/ORA-984210' },
-          { id: 'cert_2', name: 'SQL & Database Design Foundations', issuer: 'Udemy / Meta', date: 'Nov 2025', credentialId: 'UDE-552194', url: 'https://udemy.com/certificate/UDE-552194' }
+          { id: 'cert_2', name: 'SQL & Database Design Foundations', issuer: 'Meta', date: 'Nov 2025', credentialId: 'UDE-552194', url: 'https://coursera.org/verify/UDE-552194' }
         ],
         violations: 0, violationLogs: [], banStatus: null,
         avatar: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=300&auto=format&fit=crop&q=80'
       },
       {
-        id: 'std_priya', name: 'Priya Patel', email: 'priya.patel@aditya.ac.in',
+        id: 'std_priya', name: 'Priya Patel', email: 'priya.patel@aditya.ac.in', password: '123',
         college: 'Aditya University', department: 'CSE', year: '4th Year', cgpa: '9.1',
         phone: '+91 98123 45678', bio: 'Full Stack & Cloud developer specializing in React and Node.js.',
         resume: 'Priya_Patel_Resume.pdf',
@@ -144,7 +148,7 @@
         avatar: 'https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=300&auto=format&fit=crop&q=80'
       },
       {
-        id: 'std_ananya', name: 'Ananya Rao', email: 'ananya.rao@aditya.ac.in',
+        id: 'std_ananya', name: 'Ananya Rao', email: 'ananya.rao@aditya.ac.in', password: '123',
         college: 'Aditya University', department: 'ECE', year: '3rd Year', cgpa: '8.4',
         phone: '+91 97890 12345', bio: 'Embedded Systems & IoT enthusiast transitioning to Data Analytics.',
         resume: 'Ananya_Rao_Resume.pdf',
@@ -158,7 +162,7 @@
           'SQL': 680,
           'Java': 580,
           'Git': 650,
-          'Communication': 750,
+          'IoT & Edge Computing': 710,
           'Platform Activities': defaultAnanyaPlatform.totalScore
         },
         platformActivities: defaultAnanyaPlatform,
@@ -169,7 +173,7 @@
         avatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=300&auto=format&fit=crop&q=80'
       },
       {
-        id: 'std_vikram', name: 'Vikram Verma', email: 'vikram@iith.ac.in',
+        id: 'std_vikram', name: 'Vikram Verma', email: 'vikram@iith.ac.in', password: '123',
         college: 'IIT Hyderabad', department: 'CSE', year: '4th Year', cgpa: '9.4',
         phone: '+91 96543 21098', bio: 'Algorithms & AI Systems developer.', resume: 'Vikram_Resume.pdf',
         github: 'https://github.com/vikramverma',
@@ -197,13 +201,13 @@
       {
         id: 'comp_abc', name: 'ABC Tech', email: 'company@gmail.com', password: '123',
         industry: 'Enterprise Software & Cloud', location: 'Hyderabad / Remote',
-        website: 'https://abctech.example.com', description: 'Leading provider of enterprise backend systems and microservices.',
+        website: 'https://abctech.example.com', description: 'Leading provider of enterprise backend systems and high-throughput microservices.',
         avatar: 'https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=150&auto=format&fit=crop&q=80'
       },
       {
-        id: 'comp_cyber', name: 'CyberDynamics Systems', email: 'recruitment@cyberdynamics.io',
-        industry: 'Cybersecurity & Web Dev', location: 'Bangalore', website: 'https://cyberdynamics.io',
-        description: 'Building secure web platforms and cloud-native solutions.',
+        id: 'comp_cyber', name: 'CyberDynamics Systems', email: 'recruitment@cyberdynamics.io', password: '123',
+        industry: 'Cybersecurity & Web Dev', location: 'Bangalore / Hybrid', website: 'https://cyberdynamics.io',
+        description: 'Building secure web platforms, modern cloud applications, and distributed edge infrastructure.',
         avatar: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=150&auto=format&fit=crop&q=80'
       }
     ],
@@ -217,25 +221,32 @@
     ],
     opportunities: [
       {
-        id: 'opp_1', companyId: 'comp_abc', companyName: 'ABC Tech', companyLogo: 'school',
-        title: 'Java Backend Intern', type: 'Internship', stipend: 'Rs.25,000 / mo', duration: '6 Months',
+        id: 'opp_1', companyId: 'comp_abc', companyName: 'ABC Tech', companyLogo: 'terminal',
+        title: 'Java Backend Intern', type: 'Internship', stipend: '₹25,000 / mo', duration: '6 Months',
         location: 'Remote', postedDate: '2 days ago', deadline: '15 Nov 2026',
-        description: 'Build microservices, optimize SQL queries, and implement RESTful APIs using Java 17 and Spring Boot.',
+        description: 'Build enterprise microservices, optimize SQL queries, and implement RESTful APIs using Java 17 and Spring Boot.',
         requiredSkills: { 'Java': 700, 'SQL': 500, 'Spring Boot': 600, 'Git': 500 }, openings: 5, category: 'internships'
       },
       {
-        id: 'opp_2', companyId: 'comp_cyber', companyName: 'CyberDynamics Systems', companyLogo: 'shield',
+        id: 'opp_2', companyId: 'comp_cyber', companyName: 'CyberDynamics Systems', companyLogo: 'security',
         title: 'Full Stack Engineer', type: 'Job', stipend: '8.5 LPA', duration: 'Full-Time',
-        location: 'Hyderabad', postedDate: '1 week ago', deadline: '20 Nov 2026',
-        description: 'Develop frontend user interfaces using React and robust backend APIs with Spring Boot and PostgreSQL.',
+        location: 'Hyderabad / Hybrid', postedDate: '1 week ago', deadline: '20 Nov 2026',
+        description: 'Develop frontend user interfaces using modern React and robust backend APIs with Spring Boot and PostgreSQL.',
         requiredSkills: { 'React': 750, 'Java': 750, 'SQL': 650, 'Git': 600 }, openings: 3, category: 'jobs'
       },
       {
         id: 'opp_3', companyId: 'comp_abc', companyName: 'ABC Tech', companyLogo: 'database',
-        title: 'Data & SQL Analyst Intern', type: 'Internship', stipend: 'Rs.20,000 / mo', duration: '3 Months',
+        title: 'Data & SQL Analyst Intern', type: 'Internship', stipend: '₹20,000 / mo', duration: '3 Months',
         location: 'Bangalore', postedDate: '3 days ago', deadline: '25 Nov 2026',
         description: 'Perform query optimization, data modeling, and performance tuning for production enterprise databases.',
         requiredSkills: { 'SQL': 600, 'Python': 500, 'Git': 400 }, openings: 4, category: 'internships'
+      },
+      {
+        id: 'opp_4', companyId: 'comp_cyber', companyName: 'CyberDynamics Systems', companyLogo: 'hub',
+        title: 'Cloud & DevOps Workshop Fellow', type: 'Workshop', stipend: 'Certificate + Stipend', duration: '4 Weeks',
+        location: 'Virtual', postedDate: '5 days ago', deadline: '10 Nov 2026',
+        description: 'Intensive industry workshop on container orchestration, CI/CD pipeline automation, and cloud security.',
+        requiredSkills: { 'Git': 600, 'Python': 500 }, openings: 25, category: 'workshops'
       }
     ],
     applications: [
@@ -265,7 +276,6 @@
           const parsed = JSON.parse(existing);
           if (parsed && typeof parsed === 'object') {
             stateToSave = Object.assign({}, defaultState, parsed);
-            // Ensure student skills are scaled to 1000 if loaded from older format and re-calibrated
             if (Array.isArray(stateToSave.students)) {
               stateToSave.students = stateToSave.students.map(std => {
                 if (std.skills) {
@@ -274,7 +284,6 @@
                       std.skills[k] = Math.min(1000, std.skills[k] * 10);
                     }
                   }
-                  // Force recompute Platform Activities so existing cache reflects the calibrated 700s score
                   const metrics = generatePlatformMetrics(std.github, std.githubRepo, std.leetcode, std.hackerrank);
                   std.platformActivities = metrics;
                   std.skills['Platform Activities'] = metrics.totalScore;
@@ -285,7 +294,7 @@
           }
         }
       } catch (e) {
-        console.warn('Corrupt SkillBridge state, resetting to v3 defaults:', e);
+        console.warn('SkillBridge state corrupted, resetting to defaults:', e);
         stateToSave = JSON.parse(JSON.stringify(defaultState));
       }
 
@@ -299,14 +308,18 @@
       try {
         const data = localStorage.getItem(STORAGE_KEY);
         return data ? JSON.parse(data) : JSON.parse(JSON.stringify(defaultState));
-      } catch(e) { return JSON.parse(JSON.stringify(defaultState)); }
+      } catch(e) {
+        return JSON.parse(JSON.stringify(defaultState));
+      }
     }
 
     saveState(state) {
       try {
         localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
         if (this._initialized) this.notifyListeners(state);
-      } catch(e) { console.error('Error saving SkillBridge state:', e); }
+      } catch(e) {
+        console.error('Error saving SkillBridge state:', e);
+      }
     }
 
     subscribe(listener) {
@@ -319,38 +332,124 @@
       window.dispatchEvent(new CustomEvent('skillbridge-state-change', { detail: state }));
     }
 
-    login(email, password, role) {
+    login(email, passwordOrRole, role) {
+      let roleToUse = role;
+      if (!roleToUse && (passwordOrRole === 'student' || passwordOrRole === 'company' || passwordOrRole === 'institute')) {
+        roleToUse = passwordOrRole;
+      }
+
       const state = this.getState();
       let user = null;
       const emailLower = (email || '').toLowerCase().trim();
 
-      if (role === 'student') {
+      if (roleToUse === 'student') {
         const student = state.students.find(s => s.email.toLowerCase() === emailLower);
         if (student) {
-          user = { id: student.id, name: student.name, email: student.email, role: 'student',
-            college: student.college, avatar: student.avatar || defaultState.students[0].avatar };
+          user = {
+            id: student.id, name: student.name, email: student.email, role: 'student',
+            college: student.college, avatar: student.avatar || defaultState.students[0].avatar
+          };
         }
-      } else if (role === 'company') {
+      } else if (roleToUse === 'company') {
         const company = state.companies.find(c => c.email.toLowerCase() === emailLower);
         if (company) {
-          user = { id: company.id, name: company.name, email: company.email, role: 'company',
-            industry: company.industry, avatar: company.avatar || defaultState.companies[0].avatar };
+          user = {
+            id: company.id, name: company.name, email: company.email, role: 'company',
+            industry: company.industry, avatar: company.avatar || defaultState.companies[0].avatar
+          };
         }
-      } else if (role === 'institute') {
+      } else if (roleToUse === 'institute') {
         const inst = state.institutions.find(i => i.email.toLowerCase() === emailLower);
         if (inst) {
-          user = { id: inst.id, name: inst.name, email: inst.email, role: 'institute',
-            location: inst.location, avatar: inst.avatar || defaultState.institutions[0].avatar };
+          user = {
+            id: inst.id, name: inst.name, email: inst.email, role: 'institute',
+            location: inst.location, avatar: inst.avatar || defaultState.institutions[0].avatar
+          };
         }
       }
 
-      if (user) { state.currentUser = user; this.saveState(state); return { success: true, user }; }
+      // Auto-detect by email if role was unspecified or not matched in expected bucket
+      if (!user) {
+        const std = state.students.find(s => s.email.toLowerCase() === emailLower);
+        if (std) {
+          user = {
+            id: std.id, name: std.name, email: std.email, role: 'student',
+            college: std.college, avatar: std.avatar || defaultState.students[0].avatar
+          };
+        } else {
+          const comp = state.companies.find(c => c.email.toLowerCase() === emailLower);
+          if (comp) {
+            user = {
+              id: comp.id, name: comp.name, email: comp.email, role: 'company',
+              industry: comp.industry, avatar: comp.avatar || defaultState.companies[0].avatar
+            };
+          } else {
+            const inst = state.institutions.find(i => i.email.toLowerCase() === emailLower);
+            if (inst) {
+              user = {
+                id: inst.id, name: inst.name, email: inst.email, role: 'institute',
+                location: inst.location, avatar: inst.avatar || defaultState.institutions[0].avatar
+              };
+            }
+          }
+        }
+      }
+
+      if (user) {
+        state.currentUser = user;
+        this.saveState(state);
+        return { success: true, user };
+      }
       return { success: false, message: 'No account found with this email for the selected role.' };
     }
 
-    logout() { const state = this.getState(); state.currentUser = null; this.saveState(state); }
+    setCurrentRole(role, specificId) {
+      const state = this.getState();
+      let user = null;
 
-    getCurrentUser() { return this.getState().currentUser || null; }
+      if (role === 'student') {
+        const std = (specificId ? state.students.find(s => s.id === specificId) : null) || state.students[0];
+        if (std) {
+          user = {
+            id: std.id, name: std.name, email: std.email, role: 'student',
+            college: std.college, avatar: std.avatar || defaultState.students[0].avatar
+          };
+        }
+      } else if (role === 'company') {
+        const comp = (specificId ? state.companies.find(c => c.id === specificId) : null) || state.companies[0];
+        if (comp) {
+          user = {
+            id: comp.id, name: comp.name, email: comp.email, role: 'company',
+            industry: comp.industry, avatar: comp.avatar || defaultState.companies[0].avatar
+          };
+        }
+      } else if (role === 'institute') {
+        const inst = (specificId ? state.institutions.find(i => i.id === specificId) : null) || state.institutions[0];
+        if (inst) {
+          user = {
+            id: inst.id, name: inst.name, email: inst.email, role: 'institute',
+            location: inst.location, avatar: inst.avatar || defaultState.institutions[0].avatar
+          };
+        }
+      }
+
+      if (user) {
+        state.currentUser = user;
+        this.saveState(state);
+        return user;
+      }
+      return null;
+    }
+
+    logout() {
+      const state = this.getState();
+      state.currentUser = null;
+      this.saveState(state);
+    }
+
+    getCurrentUser() {
+      return this.getState().currentUser || null;
+    }
 
     getCurrentStudent() {
       const state = this.getState();
@@ -366,6 +465,13 @@
       return state.companies.find(c => c.id === user.id) || state.companies[0];
     }
 
+    getCurrentInstitute() {
+      const state = this.getState();
+      const user = state.currentUser;
+      if (!user || user.role !== 'institute') return state.institutions[0];
+      return state.institutions.find(i => i.id === user.id) || state.institutions[0];
+    }
+
     updateStudentProfile(profileData) {
       const state = this.getState();
       const currentStd = this.getCurrentStudent();
@@ -376,19 +482,48 @@
           state.currentUser.name = state.students[index].name;
           state.currentUser.college = state.students[index].college;
         }
-        this.saveState(state); return true;
+        this.saveState(state);
+        return true;
       }
       return false;
     }
 
-    /**
-     * Updates an assessment-based skill score out of 1000.
-     * CRITICAL: "Platform Activities" CANNOT be modified by skill assessments.
-     */
+    updateCompanyProfile(profileData) {
+      const state = this.getState();
+      const currentComp = this.getCurrentCompany();
+      const index = state.companies.findIndex(c => c.id === currentComp.id);
+      if (index !== -1) {
+        state.companies[index] = Object.assign({}, state.companies[index], profileData);
+        if (state.currentUser && state.currentUser.id === currentComp.id) {
+          state.currentUser.name = state.companies[index].name;
+          state.currentUser.industry = state.companies[index].industry;
+        }
+        this.saveState(state);
+        return true;
+      }
+      return false;
+    }
+
+    updateInstituteProfile(profileData) {
+      const state = this.getState();
+      const currentInst = this.getCurrentInstitute();
+      const index = state.institutions.findIndex(i => i.id === currentInst.id);
+      if (index !== -1) {
+        state.institutions[index] = Object.assign({}, state.institutions[index], profileData);
+        if (state.currentUser && state.currentUser.id === currentInst.id) {
+          state.currentUser.name = state.institutions[index].name;
+          state.currentUser.location = state.institutions[index].location;
+        }
+        this.saveState(state);
+        return true;
+      }
+      return false;
+    }
+
     updateSkillScore(skillName, newScore) {
       if (!skillName) return false;
       if (skillName === 'Platform Activities' || skillName.toLowerCase().includes('platform activit')) {
-        console.warn('SkillBridge: "Platform Activities" is immutable by skill assessment tests. It is managed exclusively via verified platform activity sync.');
+        console.warn('SkillBridge: "Platform Activities" is calibrated via verified platform activity sync.');
         return false;
       }
       const state = this.getState();
@@ -397,16 +532,12 @@
       if (student) {
         if (!student.skills) student.skills = {};
         student.skills[skillName] = Math.min(1000, Math.max(0, parseInt(newScore, 10)));
-        this.saveState(state); return true;
+        this.saveState(state);
+        return true;
       }
       return false;
     }
 
-    /**
-     * Synchronizes and calculates verified Platform Activities score based on
-     * GitHub, LeetCode, HackerRank profiles and highlighted repositories.
-     * Result is scored out of 1000 and saved in student.skills['Platform Activities'].
-     */
     syncPlatformActivities(platforms) {
       const state = this.getState();
       const currentStd = this.getCurrentStudent();
@@ -433,9 +564,6 @@
       return { success: true, metrics, totalScore: metrics.totalScore };
     }
 
-    /**
-     * Add student certificate (supports file upload metadata, issuer, credentials, dates)
-     */
     addCertificate(certData) {
       const state = this.getState();
       const currentStd = this.getCurrentStudent();
@@ -444,7 +572,7 @@
         if (!student.certificates) student.certificates = [];
         const newCert = {
           id: 'cert_' + Date.now(),
-          name: certData.name || 'Professional Certificate',
+          name: certData.name || 'Professional Certification',
           issuer: certData.issuer || 'Industry Partner',
           date: certData.date || new Date().toLocaleDateString('en-US', { month: 'short', year: 'numeric' }),
           credentialId: certData.credentialId || 'ID-' + Math.floor(100000 + Math.random() * 900000),
@@ -459,9 +587,6 @@
       return { success: false, message: 'Student not found' };
     }
 
-    /**
-     * Remove student certificate
-     */
     deleteCertificate(certId) {
       const state = this.getState();
       const currentStd = this.getCurrentStudent();
@@ -484,7 +609,7 @@
         if (!student.violationLogs) student.violationLogs = [];
         student.violations += 1;
         student.violationLogs.unshift({ timestamp: new Date().toLocaleString(), reason });
-        // Scale deduction: 50 points deduction on 1000 scale
+
         if (student.skills) {
           for (const k in student.skills) {
             if (k !== 'Platform Activities') {
@@ -498,6 +623,7 @@
         else if (student.violations >= 5) banStatus = '30 Days Ban';
         else if (student.violations >= 3) banStatus = '3 Days Ban';
         student.banStatus = banStatus;
+
         this.saveState(state);
         return { violations: student.violations, banStatus, logs: student.violationLogs };
       }
@@ -506,26 +632,33 @@
 
     getViolationStatus() {
       const student = this.getCurrentStudent();
-      return { violations: (student && student.violations) || 0, banStatus: (student && student.banStatus) || null, logs: (student && student.violationLogs) || [] };
+      return {
+        violations: (student && student.violations) || 0,
+        banStatus: (student && student.banStatus) || null,
+        logs: (student && student.violationLogs) || []
+      };
     }
 
-    /**
-     * Evaluates candidate eligibility based on 1000-point skill vectors.
-     */
     evaluateEligibility(studentSkills, requiredSkills) {
-      if (!requiredSkills || Object.keys(requiredSkills).length === 0) return { isEligible: true, gaps: [], matchPercentage: 100 };
+      if (!requiredSkills || Object.keys(requiredSkills).length === 0) {
+        return { isEligible: true, gaps: [], matchPercentage: 100, matchedSkills: 0, totalSkills: 0 };
+      }
       let totalSkills = 0, matchedSkills = 0, totalRequiredScore = 0, totalAttainedScore = 0;
       const gaps = [];
+
       for (const [skill, reqScore] of Object.entries(requiredSkills)) {
-        totalSkills++; totalRequiredScore += reqScore;
+        totalSkills++;
+        totalRequiredScore += reqScore;
         const studentScore = (studentSkills && studentSkills[skill] !== undefined) ? studentSkills[skill] : 0;
         totalAttainedScore += Math.min(studentScore, reqScore);
+
         if (studentScore >= reqScore) {
           matchedSkills++;
         } else {
           gaps.push({ skill, currentScore: studentScore, requiredScore: reqScore, gap: reqScore - studentScore });
         }
       }
+
       const matchPercentage = totalRequiredScore > 0 ? Math.round((totalAttainedScore / totalRequiredScore) * 100) : 100;
       return { isEligible: gaps.length === 0, gaps, matchPercentage, matchedSkills, totalSkills };
     }
@@ -534,21 +667,42 @@
       const state = this.getState();
       const student = this.getCurrentStudent();
       const opp = state.opportunities.find(o => o.id === opportunityId);
-      if (!opp || !student) return { success: false, message: 'Opportunity or student not found.' };
+
+      if (!opp || !student) return { success: false, message: 'Opportunity or student record not found.' };
+
       const existing = state.applications.find(a => a.studentId === student.id && a.opportunityId === opportunityId);
-      if (existing) return { success: false, message: 'You have already applied for this position!' };
+      if (existing) return { success: false, message: 'You have already submitted an application for this opportunity!' };
+
       const evalResult = this.evaluateEligibility(student.skills, opp.requiredSkills);
       if (!evalResult.isEligible) {
-        return { success: false, message: 'Skill gap detected! Complete the recommended assessment to upgrade your skills and qualify.', gaps: evalResult.gaps };
+        return {
+          success: false,
+          message: 'Skill gap detected! Complete the recommended skill assessment to qualify for this role.',
+          gaps: evalResult.gaps,
+          matchPercentage: evalResult.matchPercentage
+        };
       }
+
       const newApp = {
-        id: 'app_' + Date.now(), studentId: student.id, studentName: student.name,
-        college: student.college, department: student.department || 'CSE',
-        opportunityId: opp.id, opportunityTitle: opp.title, companyName: opp.companyName, companyId: opp.companyId,
-        appliedDate: new Date().toISOString().split('T')[0], matchScore: evalResult.matchPercentage,
-        status: 'Screening', screeningScore: null, screeningTotal: 20, skillScoresAtApply: Object.assign({}, student.skills)
+        id: 'app_' + Date.now(),
+        studentId: student.id,
+        studentName: student.name,
+        college: student.college,
+        department: student.department || 'CSE',
+        opportunityId: opp.id,
+        opportunityTitle: opp.title,
+        companyName: opp.companyName,
+        companyId: opp.companyId,
+        appliedDate: new Date().toISOString().split('T')[0],
+        matchScore: evalResult.matchPercentage,
+        status: 'Screening',
+        screeningScore: null,
+        screeningTotal: 20,
+        skillScoresAtApply: Object.assign({}, student.skills)
       };
-      state.applications.unshift(newApp); this.saveState(state);
+
+      state.applications.unshift(newApp);
+      this.saveState(state);
       return { success: true, application: newApp };
     }
 
@@ -556,17 +710,23 @@
       const state = this.getState();
       const app = state.applications.find(a => a.id === applicationId);
       if (app) {
-        app.screeningScore = parseInt(score, 10); app.screeningTotal = 20;
+        app.screeningScore = parseInt(score, 10);
+        app.screeningTotal = 20;
         app.status = app.screeningScore >= 15 ? 'Shortlisted' : 'Under Review';
-        this.saveState(state); return true;
+        this.saveState(state);
+        return { success: true, status: app.status, score: app.screeningScore };
       }
-      return false;
+      return { success: false, message: 'Application not found' };
     }
 
     updateApplicationStatus(applicationId, newStatus) {
       const state = this.getState();
       const app = state.applications.find(a => a.id === applicationId);
-      if (app) { app.status = newStatus; this.saveState(state); return true; }
+      if (app) {
+        app.status = newStatus;
+        this.saveState(state);
+        return true;
+      }
       return false;
     }
 
@@ -575,24 +735,35 @@
       const currentUser = this.getCurrentUser();
       const type = (oppData.type || 'Internship').trim();
       const category = type.toLowerCase().endsWith('s') ? type.toLowerCase() : type.toLowerCase() + 's';
+
       const newOpp = {
         id: 'opp_' + Date.now(),
         companyId: (currentUser && currentUser.id) || 'comp_abc',
         companyName: (currentUser && currentUser.name) || 'ABC Tech',
-        companyLogo: 'work', title: oppData.title || 'New Position', type,
-        stipend: oppData.stipend || 'Stipend Negotiable', duration: oppData.duration || '3-6 Months',
-        location: oppData.location || 'Remote', postedDate: 'Just now', deadline: oppData.deadline || '30 Nov 2026',
-        description: oppData.description || 'Exciting opportunity for high-skill candidates.',
+        companyLogo: oppData.icon || 'work',
+        title: oppData.title || 'New Engineering Position',
+        type,
+        stipend: oppData.stipend || 'Competitive Stipend',
+        duration: oppData.duration || '3-6 Months',
+        location: oppData.location || 'Remote',
+        postedDate: 'Just now',
+        deadline: oppData.deadline || '30 Nov 2026',
+        description: oppData.description || 'Exciting opportunity for high-skill candidates to work on mission-critical architecture.',
         requiredSkills: oppData.requiredSkills || { 'Java': 700, 'SQL': 500 },
-        openings: parseInt(oppData.openings || 3, 10), category
+        openings: parseInt(oppData.openings || 3, 10),
+        category
       };
-      state.opportunities.unshift(newOpp); this.saveState(state); return newOpp;
+
+      state.opportunities.unshift(newOpp);
+      this.saveState(state);
+      return newOpp;
     }
 
     deleteOpportunity(oppId) {
       const state = this.getState();
       state.opportunities = state.opportunities.filter(o => o.id !== oppId);
-      this.saveState(state); return true;
+      this.saveState(state);
+      return true;
     }
 
     getInstitutionData(collegeName) {
@@ -600,23 +771,33 @@
       const state = this.getState();
       const students = state.students.filter(s => s.college && s.college.toLowerCase().trim() === collegeName.toLowerCase().trim());
       const skillTotals = {};
+
       students.forEach(s => {
         if (s.skills) {
           for (const [skill, score] of Object.entries(s.skills)) {
             if (!skillTotals[skill]) skillTotals[skill] = { ready: 0, needImprovement: 0, totalScore: 0, count: 0 };
-            skillTotals[skill].count++; skillTotals[skill].totalScore += score;
-            if (score >= 700) skillTotals[skill].ready++; else skillTotals[skill].needImprovement++;
+            skillTotals[skill].count++;
+            skillTotals[skill].totalScore += score;
+            if (score >= 700) skillTotals[skill].ready++;
+            else skillTotals[skill].needImprovement++;
           }
         }
       });
+
       const studentIds = new Set(students.map(s => s.id));
       const collegeApplications = state.applications.filter(a => studentIds.has(a.studentId) || (a.college && a.college.toLowerCase() === collegeName.toLowerCase()));
       const totalApplications = collegeApplications.length;
       const shortlistedCount = collegeApplications.filter(a => a.status === 'Shortlisted').length;
       const selectedCount = collegeApplications.filter(a => a.status === 'Selected').length;
+
       return {
-        collegeName, totalStudents: students.length, students, skillTotals,
-        totalApplications, shortlistedCount, selectedCount,
+        collegeName,
+        totalStudents: students.length,
+        students,
+        skillTotals,
+        totalApplications,
+        shortlistedCount,
+        selectedCount,
         placementRate: students.length > 0 ? Math.round(((shortlistedCount + selectedCount) / students.length) * 100) + '%' : '78%'
       };
     }
@@ -627,15 +808,19 @@
         if (!raw) return [];
         const parsed = JSON.parse(raw);
         return Array.isArray(parsed.history) ? parsed.history : [];
-      } catch(e) { return []; }
+      } catch(e) {
+        return [];
+      }
     }
 
     saveAssessmentResult(result) {
       try {
         const history = this.getAssessmentHistory();
         history.push(result);
-        localStorage.setItem(ASSESSMENT_HISTORY_KEY, JSON.stringify({ history: history.slice(-8) }));
-      } catch(e) { console.warn('Unable to save assessment result:', e); }
+        localStorage.setItem(ASSESSMENT_HISTORY_KEY, JSON.stringify({ history: history.slice(-10) }));
+      } catch(e) {
+        console.warn('Unable to save assessment result:', e);
+      }
     }
 
     resetToDefault() {
@@ -645,7 +830,9 @@
         this._initialized = false;
         this.init();
         this.notifyListeners(this.getState());
-      } catch(e) { console.error('Error resetting state:', e); }
+      } catch(e) {
+        console.error('Error resetting state:', e);
+      }
     }
   }
 

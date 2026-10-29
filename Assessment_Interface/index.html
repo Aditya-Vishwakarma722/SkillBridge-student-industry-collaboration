@@ -1,30 +1,248 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
+
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SkillBridge — Standardized Skill Assessment</title>
-  <meta name="description" content="SkillBridge Proctored Assessment Engine: Assess skills, identify gaps, and build verifiable career readiness scores.">
+  <title>Proctored Assessment â€” SkillBridge</title>
+
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    rel="stylesheet">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <style>
-    body { background: #0A0E1A; color: #fff; }
-    .wrap { padding-top: 8px; }
-  </style>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../css/design-system.css">
 </head>
-<body>
-  <div class="wrap">
-    <!-- Global nav injected above by nav.js — duplicate static header removed -->
-    <nav class="module-rail" id="rail" aria-label="Assessment Progress"></nav>
-    <main id="app" aria-live="polite"></main>
-  </div>
+
+<body class="min-h-screen flex flex-col bg-slate-50 text-slate-900 select-none">
+
+  <!-- Assessment Global Bar -->
+  <header class="w-full border-b border-slate-200 bg-white/95 backdrop-blur-sm sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
+
+      <!-- Left: Logo & Selected Skill -->
+      <div class="flex items-center gap-3">
+        <a href="../Student_Interface/Portal-Dashboard.html"
+          class="flex items-center gap-2 text-slate-900 hover:opacity-80 transition">
+          <div class="w-7 h-7 rounded-lg bg-slate-900 flex items-center justify-center text-white">
+            <span class="material-symbols-outlined text-[16px]">quiz</span>
+          </div>
+          <span class="text-sm font-bold tracking-tight">Skill<span class="text-blue-600">Bridge</span> Assessment</span>
+        </a>
+        <span class="sb-badge sb-badge-blue text-[10px]" id="current-skill-pill">Java Development</span>
+      </div>
+
+      <!-- Center: Two-Factor Timer -->
+      <div class="flex items-center gap-3">
+        <!-- Factor 1: Visible Exam Timer -->
+        <div class="flex items-center gap-2 bg-slate-50 border border-slate-200 px-3 py-1 rounded-lg">
+          <span class="material-symbols-outlined text-amber-600 text-sm">alarm</span>
+          <span class="text-xs text-slate-500 hidden sm:inline">Exam Clock:</span>
+          <span class="font-mono font-bold text-slate-900 text-sm" id="exam-timer">20:00</span>
+        </div>
+
+        <!-- Factor 2: Question Dwell Timer -->
+        <div class="hidden md:flex items-center gap-2 bg-slate-50 border border-slate-200 px-3 py-1 rounded-lg">
+          <span class="material-symbols-outlined text-blue-600 text-sm">schedule</span>
+          <span class="text-xs text-slate-500">Question Dwell:</span>
+          <span class="font-mono font-bold text-slate-900 text-sm" id="q-dwell-timer">00:00</span>
+        </div>
+      </div>
+
+      <!-- Right: Proctoring Status & Exit -->
+      <div class="flex items-center gap-3">
+        <div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-rose-50 border border-rose-200 text-rose-700 text-xs font-semibold">
+          <span class="w-2 h-2 rounded-full bg-rose-500"></span>
+          <span class="hidden sm:inline">Proctor Active</span>
+        </div>
+        <button onclick="confirmExit()" class="sb-btn sb-btn-secondary text-xs px-2.5 py-1">
+          <span>Exit</span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Assessment Workspace View -->
+  <main class="flex-1 max-w-5xl mx-auto px-4 sm:px-6 py-8 w-full space-y-6">
+
+    <!-- Pre-Exam Skill Selector (Visible before starting test) -->
+    <div id="setup-view" class="sb-card p-6 sm:p-8 space-y-6">
+      <div class="space-y-1">
+        <div class="flex items-center gap-2">
+          <span class="sb-badge sb-badge-blue">Standardized Evaluation</span>
+          <span class="sb-badge sb-badge-emerald">1,000-Point Vector</span>
+        </div>
+        <h1 class="text-2xl sm:text-3xl font-bold text-slate-900">Select Assessment Domain</h1>
+        <p class="text-xs sm:text-sm text-slate-600 max-w-2xl leading-relaxed">
+          Standardized 20-question proctored evaluation. Your calibrated score out of 1,000 points will
+          immediately update your candidate profile and qualify you for matching corporate positions.
+        </p>
+      </div>
+
+      <!-- Domain Selector -->
+      <div class="space-y-2">
+        <label class="block text-xs font-bold text-slate-700">Choose Assessment Domain:</label>
+        <select id="skill-selector" class="sb-input text-sm">
+          <!-- Populated from SKILLS in app.js -->
+        </select>
+      </div>
+
+      <!-- Guidelines -->
+      <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2 text-xs text-slate-600">
+        <h3 class="font-bold text-slate-900 flex items-center gap-1.5">
+          <span class="material-symbols-outlined text-amber-600 text-base">policy</span>
+          <span>Proctoring &amp; Assessment Guidelines</span>
+        </h3>
+        <ul class="space-y-1.5 list-disc list-inside">
+          <li><b>Two-Factor Timer:</b> 20 minutes total duration with per-question dwell monitoring.</li>
+          <li><b>Integrity Safeguards:</b> Leaving the exam window or switching tabs triggers strike warnings and score deductions (-50 points).</li>
+          <li><b>Proctor Monitor:</b> Center alignment is verified throughout the duration of the evaluation.</li>
+          <li><b>Benchmark Threshold:</b> Minimum score for direct corporate shortlisting is &ge; 700 / 1000.</li>
+        </ul>
+      </div>
+
+      <div class="pt-2">
+        <button onclick="startAssessment()" class="sb-btn sb-btn-primary py-2.5 px-6 text-sm">
+          <span>Start Proctored Examination</span>
+          <span class="material-symbols-outlined text-sm">play_arrow</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Active Examination View (Hidden by default) -->
+    <div id="exam-view" class="hidden space-y-6">
+
+      <!-- Split: Webcam Simulation + Question Card -->
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+
+        <!-- Left 1 Col: Face Cam Simulation & Exam Info -->
+        <div class="space-y-4">
+
+          <!-- Webcam Frame -->
+          <div class="sb-card p-3 space-y-2 text-center">
+            <div class="relative w-full h-32 bg-slate-100 rounded-lg overflow-hidden flex items-center justify-center border border-slate-200">
+              <span class="absolute top-2 left-2 flex items-center gap-1 px-1.5 py-0.5 rounded bg-rose-50 text-rose-700 text-[9px] font-bold border border-rose-200">
+                <span class="w-1.5 h-1.5 rounded-full bg-rose-500"></span> LIVE
+              </span>
+              <span class="material-symbols-outlined text-4xl text-slate-400">face</span>
+              <div class="absolute bottom-1.5 inset-x-2 text-[9px] text-slate-700 bg-white/90 py-0.5 rounded border border-slate-200 font-medium">
+                Face Center &bull; Verified
+              </div>
+            </div>
+            <span class="text-[11px] text-slate-500">Proctor Monitor</span>
+          </div>
+
+          <!-- Progress Widget -->
+          <div class="sb-card p-4 space-y-2 text-xs">
+            <div class="flex justify-between text-slate-500">
+              <span>Progress:</span>
+              <span class="font-bold text-slate-900" id="progress-text">1 / 20</span>
+            </div>
+            <div class="sb-progress-track">
+              <div class="sb-progress-fill bg-blue-600" id="progress-bar" style="width: 5%"></div>
+            </div>
+            <div class="text-[11px] text-slate-500 pt-1 flex justify-between">
+              <span>Answered: <b id="answered-count" class="text-slate-900">0</b></span>
+              <span>Remaining: <b id="remaining-count" class="text-slate-900">20</b></span>
+            </div>
+          </div>
+
+          <!-- Violations Counter -->
+          <div class="sb-card p-4 space-y-1 text-xs" id="violation-box">
+            <span class="text-slate-500">Integrity Violations:</span>
+            <div class="text-base font-bold text-emerald-700" id="violation-text">0 Strikes</div>
+            <p class="text-[10px] text-slate-400">3 strikes triggers exam disqualification.</p>
+          </div>
+
+        </div>
+
+        <!-- Right 3 Cols: Question & Options Card -->
+        <div class="md:col-span-3 sb-card p-6 sm:p-8 space-y-6">
+
+          <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+            <span class="text-xs font-bold text-blue-700 tracking-wider" id="q-number-pill">QUESTION 1 OF 20</span>
+            <span class="sb-badge sb-badge-muted text-[10px]" id="q-diff-badge">Standard Difficulty</span>
+          </div>
+
+          <!-- Question Prompt -->
+          <h2 class="text-base sm:text-lg font-bold text-slate-900 leading-relaxed" id="q-prompt">
+            Loading question prompt...
+          </h2>
+
+          <!-- Options List -->
+          <div class="space-y-3" id="options-container">
+            <!-- Options populated via script -->
+          </div>
+
+          <!-- Question Controls -->
+          <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
+            <button onclick="prevQuestion()" id="btn-prev" class="sb-btn sb-btn-secondary text-xs disabled:opacity-40">
+              <span class="material-symbols-outlined text-sm">arrow_back</span>
+              <span>Previous</span>
+            </button>
+            <div class="flex items-center gap-2">
+              <button onclick="nextQuestion()" id="btn-next" class="sb-btn sb-btn-primary text-xs">
+                <span>Next Question</span>
+                <span class="material-symbols-outlined text-sm">arrow_forward</span>
+              </button>
+              <button onclick="submitTest()" id="btn-finish" class="sb-btn sb-btn-primary text-xs hidden">
+                <span class="material-symbols-outlined text-sm">check_circle</span>
+                <span>Submit Exam</span>
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Exam Result View (Hidden by default) -->
+    <div id="result-view" class="hidden sb-card p-6 sm:p-8 space-y-6 text-center max-w-xl mx-auto">
+      <div class="w-16 h-16 rounded-2xl bg-emerald-50 text-emerald-700 flex items-center justify-center mx-auto">
+        <span class="material-symbols-outlined text-3xl">verified</span>
+      </div>
+
+      <div class="space-y-1">
+        <span class="sb-badge sb-badge-emerald text-xs" id="result-skill-badge">Java Development</span>
+        <h2 class="text-2xl font-bold text-slate-900">Assessment Complete</h2>
+        <p class="text-xs text-slate-500">Your standardized score has been calculated out of 1,000 points.</p>
+      </div>
+
+      <!-- Big Score -->
+      <div class="sb-card-elevated p-6 max-w-xs mx-auto space-y-1">
+        <span class="text-xs text-slate-500 font-medium">Verified Skill Score</span>
+        <div class="text-4xl font-bold text-emerald-700 font-mono" id="result-score-val">
+          820 <span class="text-sm text-slate-500 font-normal">/ 1000</span>
+        </div>
+        <p class="text-xs text-slate-700 font-semibold" id="result-grade-text">Industry Ready (Tier 1)</p>
+      </div>
+
+      <div class="text-xs text-slate-500 max-w-sm mx-auto">
+        This result is saved to your candidate profile and synced across all hiring partners in real time.
+      </div>
+
+      <div class="pt-2 flex justify-center gap-3 flex-wrap">
+        <a href="../Student_Interface/Portal-Dashboard.html" class="sb-btn sb-btn-primary">
+          <span>Go to Student Dashboard</span>
+          <span class="material-symbols-outlined text-sm">arrow_forward</span>
+        </a>
+        <a href="../Opportunity_Interface/Opportunities_Interface.html" class="sb-btn sb-btn-secondary">
+          <span>View Matched Opportunities</span>
+        </a>
+      </div>
+    </div>
+
+  </main>
+
   <script src="../js/store.js"></script>
-  <script src="../js/nav.js"></script>
   <script src="questions.js"></script>
   <script src="app.js"></script>
 </body>
+
 </html>

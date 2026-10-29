@@ -1,170 +1,109 @@
 <!DOCTYPE html>
-<html class="dark" lang="en">
+<html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shortlisted & Priority Candidates — SkillBridge</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
-<script>
-  tailwind.config = {
-    darkMode: "class",
-    theme: {
-      extend: {
-        colors: {
-          primary: "#f2ca50",
-          "primary-container": "#d4af37",
-          surface: "#0f131f",
-          "surface-container": "#1b1f2c"
-        }
-      }
-    }
-  };
-</script>
-<style>
-  body {
-    background: #0f131f;
-    color: #dfe2f3;
-    font-family: 'Inter', sans-serif;
-  }
-  .glass-pane {
-    background-color: rgba(22, 27, 46, 0.7);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-  }
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shortlisted Candidates — SkillBridge</title>
+
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/design-system.css">
 </head>
-<body class="min-h-screen bg-[#0f131f] text-[#dfe2f3] flex flex-col">
+<body class="min-h-screen flex flex-col bg-slate-50 text-slate-900">
 
-<main class="flex-1 p-4 md:p-8 max-w-[1200px] mx-auto w-full space-y-6">
+  <main class="flex-1 max-w-7xl mx-auto px-4 sm:px-6 py-8 w-full space-y-6">
 
-  <!-- Header Banner -->
-  <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/10 pb-4">
-    <div>
-      <h1 class="text-2xl font-bold font-serif text-emerald-400">Shortlisted Priority Candidate Pool</h1>
-      <p class="text-xs text-zinc-400">Candidates who passed initial skill matching and completed the company screening assessment.</p>
-    </div>
-    <a href="applicants.html" class="px-4 py-2 bg-white/10 text-white font-semibold rounded-xl text-xs flex items-center gap-1.5 hover:bg-white/15 border border-white/15 transition-all self-start sm:self-auto">
-      <span class="material-symbols-outlined text-base">groups</span>
-      <span>View All Applicants</span>
-    </a>
-  </div>
-
-  <!-- Shortlisted Candidates Grid -->
-  <div id="shortlisted-list" class="space-y-4">
-    <!-- Populated via store.js -->
-  </div>
-
-</main>
-
-<script src="../js/store.js"></script>
-<script src="../js/nav.js"></script>
-<script>
-  function renderShortlisted() {
-    if (!window.SkillBridgeStore) return;
-
-    const user = window.SkillBridgeStore.getCurrentUser();
-    const state = window.SkillBridgeStore.getState();
-
-    const shortlisted = (state.applications || []).filter(a => a.status === 'Shortlisted' || a.status === 'Selected');
-    const container = document.getElementById('shortlisted-list');
-    container.innerHTML = '';
-
-    if (shortlisted.length === 0) {
-      container.innerHTML = `
-        <div class="text-center py-12 glass-pane rounded-2xl">
-          <span class="material-symbols-outlined text-4xl text-zinc-500 mb-2">star_half</span>
-          <h3 class="text-base font-bold text-white mb-1">No Candidates Shortlisted Yet</h3>
-          <p class="text-xs text-zinc-400 mb-4">When candidates pass screening or are shortlisted from the Applicants pool, they will appear here.</p>
-          <a href="applicants.html" class="px-4 py-2 bg-emerald-500 text-black font-bold rounded-xl text-xs">Review Applicants Pool</a>
+    <!-- Header Banner -->
+    <div class="sb-card p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 border-slate-200">
+      <div class="space-y-1.5">
+        <div class="flex items-center gap-2">
+          <span class="sb-badge sb-badge-emerald">Qualified Finalists</span>
+          <span class="sb-badge sb-badge-blue">Screening Passed (&ge;15/20)</span>
         </div>
-      `;
-      return;
-    }
+        <h1 class="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">Shortlisted Candidates</h1>
+        <p class="text-xs sm:text-sm text-slate-600 max-w-xl">
+          Candidates who cleared technical skill vectors and proctored evaluations, ready for interview and offer.
+        </p>
+      </div>
 
-    shortlisted.forEach(app => {
-      let skillChips = '';
-      if (app.skillScoresAtApply) {
-        for (const [skill, score] of Object.entries(app.skillScoresAtApply)) {
-          skillChips += `
-            <span class="px-2 py-0.5 rounded bg-white/10 text-[10px] text-zinc-300">
-              ${skill}: <strong class="text-amber-400">${score}/100</strong>
-            </span>
-          `;
-        }
+      <a href="applicants.html" class="sb-btn sb-btn-secondary">
+        <span class="material-symbols-outlined text-[16px]">arrow_back</span>
+        <span>All Applicants</span>
+      </a>
+    </div>
+
+    <div id="shortlisted-container" class="space-y-4">
+      <!-- Populated via script -->
+    </div>
+
+  </main>
+
+  <script src="../js/store.js"></script>
+  <script src="../js/nav.js"></script>
+  <script>
+    function renderShortlisted() {
+      if (!window.SkillBridgeStore) return;
+      const comp = window.SkillBridgeStore.getCurrentCompany();
+      const state = window.SkillBridgeStore.getState();
+      const compName = (comp && comp.name) || 'ABC Tech';
+
+      const compOpps = (state.opportunities || []).filter(o => o.companyId === comp.id || o.companyName === compName);
+      const oppIds = new Set(compOpps.map(o => o.id));
+      const shortlisted = (state.applications || []).filter(a => (oppIds.has(a.opportunityId) || a.companyId === comp.id) && (a.status === 'Shortlisted' || a.status === 'Selected'));
+
+      const container = document.getElementById('shortlisted-container');
+      container.innerHTML = '';
+
+      if (shortlisted.length === 0) {
+        container.innerHTML = `
+          <div class="sb-card p-12 text-center space-y-3">
+            <span class="material-symbols-outlined text-4xl text-slate-400">verified</span>
+            <h3 class="text-base font-bold text-slate-900">No Shortlisted Candidates Yet</h3>
+            <p class="text-xs text-slate-500 max-w-sm mx-auto">
+              Candidates who clear the proctored 20-question screening test with score ≥ 15 will appear here.
+            </p>
+          </div>
+        `;
+        return;
       }
 
-      container.innerHTML += `
-        <div class="glass-pane rounded-2xl p-6 space-y-4 border border-emerald-500/30">
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-white/10 pb-3">
-            <div>
-              <div class="flex items-center gap-2">
-                <h3 class="text-lg font-bold text-white">${app.studentName}</h3>
-                <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold ${app.status === 'Selected' ? 'bg-emerald-400 text-black' : 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30'}">${app.status}</span>
-              </div>
-              <p class="text-xs text-amber-400 font-medium">Position: <strong>${app.opportunityTitle}</strong> (${app.companyName})</p>
+      shortlisted.forEach(app => {
+        const card = document.createElement('div');
+        card.className = 'sb-card p-6 flex flex-col md:flex-row md:items-center justify-between gap-4 sb-card-interactive';
+        card.innerHTML = `
+          <div class="space-y-1.5">
+            <div class="flex items-center gap-2 flex-wrap">
+              <h3 class="text-base font-bold text-slate-900">${app.studentName}</h3>
+              <span class="sb-badge sb-badge-emerald">Verified Finalist</span>
             </div>
-
-            <div class="bg-black/40 px-4 py-2 rounded-xl border border-white/10 text-xs">
-              <span class="text-zinc-400 block text-[10px] uppercase">Screening Score</span>
-              <strong class="text-emerald-400 font-bold">${app.screeningScore !== null && app.screeningScore !== undefined ? app.screeningScore + ' / 20 Questions' : 'Passed'}</strong>
-            </div>
-          </div>
-
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
-            <div>
-              <span class="text-zinc-400 block uppercase text-[10px]">Academic College</span>
-              <strong class="text-amber-300 font-semibold flex items-center gap-1">
-                <span class="material-symbols-outlined text-base">account_balance</span>
-                ${app.college || 'Aditya University'}
-              </strong>
-            </div>
-            <div>
-              <span class="text-zinc-400 block uppercase text-[10px]">Department</span>
-              <strong class="text-white font-semibold">${app.department || 'CSE'}</strong>
-            </div>
-            <div>
-              <span class="text-zinc-400 block uppercase text-[10px]">Qualification Match</span>
-              <strong class="text-emerald-400 font-bold">${app.matchScore}% Match Score</strong>
+            <p class="text-xs text-slate-600">${app.college} · Applied for <b class="text-slate-800">${app.opportunityTitle}</b></p>
+            <div class="flex items-center gap-3 text-[11px] text-slate-500 pt-1">
+              <span>Skill Match: <b class="text-emerald-700 font-semibold">${app.matchScore}%</b></span>
+              <span>·</span>
+              <span>Screening Score: <b class="text-blue-700 font-semibold">${app.screeningScore || 18} / 20</b></span>
             </div>
           </div>
-
-          <div class="space-y-1.5 pt-2 border-t border-white/5">
-            <span class="text-[10px] font-semibold text-zinc-400 uppercase tracking-wider block">Assessed Skill Profile:</span>
-            <div class="flex flex-wrap gap-2">
-              ${skillChips || '<span class="text-zinc-500 text-xs">Java: 82, SQL: 78, Spring Boot: 70</span>'}
-            </div>
+          <div class="shrink-0 flex items-center gap-2">
+            <button onclick="extendOffer('${app.id}')" class="sb-btn sb-btn-primary text-xs">
+              <span class="material-symbols-outlined text-xs">mail</span>
+              <span>Send Offer Letter</span>
+            </button>
           </div>
+        `;
+        container.appendChild(card);
+      });
+    }
 
-          <div class="flex items-center justify-end gap-2 pt-3 border-t border-white/10">
-            ${app.status !== 'Selected' ? `
-              <button onclick="updateStatus('${app.id}', 'Selected')" class="px-4 py-2 bg-emerald-500 hover:bg-emerald-400 text-black font-bold rounded-xl text-xs shadow-md">
-                ★ Extend Official Offer / Hire
-              </button>
-            ` : `
-              <span class="text-xs font-bold text-emerald-400 flex items-center gap-1">
-                <span class="material-symbols-outlined text-base">verified</span>
-                Offer Extended & Selected
-              </span>
-            `}
-          </div>
-        </div>
-      `;
-    });
-  }
+    function extendOffer(appId) {
+      window.SkillBridgeStore.updateApplicationStatus(appId, 'Selected');
+      alert('Formal offer extended to candidate. Status updated to "Selected / Offer Extended".');
+      renderShortlisted();
+    }
 
-  function updateStatus(appId, newStatus) {
-    if (!window.SkillBridgeStore) return;
-    window.SkillBridgeStore.updateApplicationStatus(appId, newStatus);
-    renderShortlisted();
-  }
-
-  document.addEventListener('DOMContentLoaded', () => {
-    renderShortlisted();
     window.addEventListener('skillbridge-state-change', renderShortlisted);
-  });
-</script>
+    document.addEventListener('DOMContentLoaded', renderShortlisted);
+  </script>
 </body>
 </html>

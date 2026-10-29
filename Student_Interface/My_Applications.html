@@ -1,316 +1,214 @@
 <!DOCTYPE html>
-<html class="dark" lang="en">
+<html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>My Applications — SkillBridge</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
-<script>
-  tailwind.config = {
-    darkMode: "class",
-    theme: {
-      extend: {
-        colors: {
-          primary: "#f2ca50",
-          "primary-container": "#d4af37",
-          surface: "#0f131f",
-          "surface-container": "#1b1f2c"
-        }
-      }
-    }
-  };
-</script>
-<style>
-  body {
-    background: #0f131f;
-    color: #dfe2f3;
-    font-family: 'Inter', sans-serif;
-  }
-  .glass-pane {
-    background-color: rgba(22, 27, 46, 0.7);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-  }
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Applications — SkillBridge</title>
+
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/design-system.css">
 </head>
-<body class="min-h-screen bg-[#0f131f] text-[#dfe2f3] flex flex-col selection:bg-amber-400 selection:text-black">
+<body class="min-h-screen flex flex-col bg-slate-50 text-slate-900">
 
-<main class="flex-1 p-4 md:p-8 max-w-[1200px] mx-auto w-full space-y-6">
+  <main class="flex-1 max-w-7xl mx-auto px-4 sm:px-6 py-8 w-full space-y-6">
 
-  <!-- Title Header -->
-  <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/10 pb-4">
-    <div>
-      <h1 class="text-2xl font-bold font-serif text-amber-400">My Applications & Screening Pipeline</h1>
-      <p class="text-xs text-zinc-400">Track application statuses, screening test scores, and recruitment progress in real time.</p>
-    </div>
-    <div class="flex flex-wrap items-center gap-2">
-      <a href="Portal-Dashboard.html" class="px-3.5 py-2 bg-white/10 hover:bg-white/15 text-white font-semibold rounded-xl text-xs flex items-center gap-1.5 border border-white/10 transition-all">
-        <span class="material-symbols-outlined text-base">dashboard</span>
-        <span>Dashboard</span>
-      </a>
-      <a href="../Opportunity_Interface/index.html" class="px-3.5 py-2 bg-amber-500/20 text-amber-300 font-bold rounded-xl text-xs flex items-center gap-1.5 hover:bg-amber-500/30 border border-amber-500/30 transition-all">
-        <span class="material-symbols-outlined text-base">work</span>
-        <span>Skill Roles</span>
-      </a>
-      <a href="../Opportunity_Interface/Opportunities_Interface.html" class="px-3.5 py-2 bg-amber-500 text-black font-bold rounded-xl text-xs flex items-center gap-1.5 hover:bg-amber-400 transition-all shadow-md">
-        <span class="material-symbols-outlined text-base">travel_explore</span>
-        <span>Opportunities Catalog</span>
+    <!-- Header Banner -->
+    <div class="sb-card p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 border-slate-200">
+      <div class="space-y-1.5">
+        <div class="flex items-center gap-2">
+          <span class="sb-badge sb-badge-blue">Applications</span>
+          <span class="sb-badge sb-badge-emerald">Verified Pipeline</span>
+        </div>
+        <h1 class="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">My Applications</h1>
+        <p class="text-xs sm:text-sm text-slate-600 max-w-xl">
+          Track stage progression, complete proctored company screening tests, and view feedback from employer hiring teams.
+        </p>
+      </div>
+
+      <a href="../Opportunity_Interface/Opportunities_Interface.html" class="sb-btn sb-btn-primary">
+        <span class="material-symbols-outlined text-[16px]">travel_explore</span>
+        <span>Explore Opportunities</span>
       </a>
     </div>
-  </div>
 
-  <!-- Applications Table / Cards -->
-  <div class="space-y-4">
+    <!-- Applications Container -->
     <div id="applications-container" class="space-y-4">
-      <!-- Populated via store.js -->
+      <!-- Injected via script -->
     </div>
-  </div>
 
-</main>
+  </main>
 
-<!-- Screening Test Interactive Modal -->
-<div id="screening-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/80 backdrop-blur-md" onclick="handleModalBackdrop(event)">
-  <div class="glass-pane w-full max-w-2xl rounded-2xl p-6 relative bg-[#161B2E] border border-amber-500/30 space-y-4 max-h-[90vh] overflow-y-auto" onclick="event.stopPropagation()">
-    <button onclick="toggleScreeningModal(false)" class="absolute top-4 right-4 text-zinc-400 hover:text-white transition-colors">
-      <span class="material-symbols-outlined">close</span>
-    </button>
-
-    <div class="flex items-center justify-between border-b border-white/10 pb-3">
-      <div>
-        <span class="px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 text-[10px] font-bold uppercase tracking-wider">Company Screening Stage</span>
-        <h3 id="screening-opp-title" class="font-bold text-lg text-white">Screening Test</h3>
-        <p id="screening-comp-name" class="text-xs text-zinc-400">Company Recruitment Session</p>
-      </div>
-
-      <!-- Real-Time Camera Preview Box -->
-      <div class="relative w-24 h-16 rounded-lg bg-black border border-amber-400/40 overflow-hidden flex items-center justify-center">
-        <video id="screening-cam" class="w-full h-full object-cover hidden" autoplay playsinline muted></video>
-        <span id="cam-fallback" class="material-symbols-outlined text-zinc-500 text-xl">videocam_off</span>
-        <div class="absolute bottom-1 right-1 flex items-center gap-1 px-1 rounded bg-black/70 text-[9px] text-emerald-400 font-bold">
-          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> REC
+  <!-- Proctored Screening Modal -->
+  <div id="screening-modal" class="sb-modal-backdrop hidden">
+    <div class="sb-modal-content p-6 sm:p-8 space-y-5 max-w-2xl">
+      <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+        <div>
+          <h3 class="text-base font-bold text-slate-900" id="screening-title">Corporate Screening Evaluation</h3>
+          <p class="text-xs text-slate-500">Proctored two-factor timed test.</p>
         </div>
-      </div>
-    </div>
-
-    <!-- Screening Test Question Container -->
-    <div id="screening-body" class="space-y-4">
-      <!-- Dynamically generated via JS -->
-    </div>
-
-    <div id="screening-footer" class="flex justify-between items-center pt-3 border-t border-white/10 text-xs">
-      <div class="text-zinc-400 font-medium">Passing Threshold: <strong class="text-amber-400">15 / 20 Questions (75%)</strong></div>
-      <button onclick="submitScreeningAnswers()" class="px-5 py-2.5 bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-black font-bold rounded-xl shadow-lg transition-all cursor-pointer">
-        Submit Screening Assessment
-      </button>
-    </div>
-  </div>
-</div>
-
-<script src="../js/store.js"></script>
-<script src="../js/nav.js"></script>
-<script>
-  let activeAppIdForScreening = null;
-
-  // 5 role-appropriate questions (4 pts each = 20 total, pass = 15)
-  const SCREENING_QUESTIONS = [
-    {
-      q: 'Q1. What is the average time complexity of a HashMap lookup in Java?',
-      options: ['O(1) average time', 'O(N) linear time', 'O(log N) tree traversal', 'O(N^2) quadratic'],
-      answer: 0
-    },
-    {
-      q: 'Q2. Which Spring Boot annotation is used to mark a class as a REST API controller?',
-      options: ['@RestController', '@Service', '@Component', '@Repository'],
-      answer: 0
-    },
-    {
-      q: 'Q3. Which SQL clause filters aggregated GROUP BY results?',
-      options: ['HAVING', 'WHERE', 'FILTER', 'SELECT'],
-      answer: 0
-    },
-    {
-      q: 'Q4. What does the @Autowired annotation do in Spring Boot?',
-      options: ['Injects bean dependencies automatically', 'Marks class as a bean', 'Enables web security', 'Configures database connection'],
-      answer: 0
-    },
-    {
-      q: 'Q5. Which HTTP method is used to update an existing resource in REST APIs?',
-      options: ['PUT / PATCH', 'POST', 'GET', 'DELETE'],
-      answer: 0
-    }
-  ];
-
-  function renderApplications() {
-    if (!window.SkillBridgeStore) return;
-
-    const student = window.SkillBridgeStore.getCurrentStudent();
-    const state = window.SkillBridgeStore.getState();
-    const userApps = (state.applications || []).filter(a => a.studentId === student.id);
-
-    const container = document.getElementById('applications-container');
-    container.innerHTML = '';
-
-    if (userApps.length === 0) {
-      container.innerHTML = `
-        <div class="text-center py-12 glass-pane rounded-2xl">
-          <span class="material-symbols-outlined text-4xl text-zinc-500 mb-2">assignment_late</span>
-          <h3 class="text-base font-bold text-white mb-1">No Applications Submitted Yet</h3>
-          <p class="text-xs text-zinc-400 mb-4">Discover verified opportunities matching your skill vector and apply in one click.</p>
-          <a href="../Opportunity_Interface/index.html" class="px-4 py-2 bg-amber-500 text-black font-bold rounded-xl text-xs inline-block hover:bg-amber-400 transition-all">Browse Opportunities</a>
-        </div>
-      `;
-      return;
-    }
-
-    userApps.forEach(app => {
-      const statusColors = {
-        Applied: 'bg-zinc-500/20 text-zinc-300 border-zinc-500/30',
-        'Under Review': 'bg-amber-500/20 text-amber-300 border-amber-500/30',
-        Screening: 'bg-indigo-500/20 text-indigo-300 border-indigo-500/30',
-        Shortlisted: 'bg-emerald-500/20 text-emerald-300 border-emerald-500/30',
-        Selected: 'bg-emerald-400/90 text-black font-bold border-emerald-400',
-        Rejected: 'bg-rose-500/20 text-rose-300 border-rose-500/30'
-      }[app.status] || 'bg-amber-500/20 text-amber-300 border-amber-500/30';
-
-      let actionBtn = '';
-      if (app.status === 'Screening' && (app.screeningScore === null || app.screeningScore === undefined)) {
-        actionBtn = `
-          <button onclick="startScreeningModal('${app.id}')" class="px-4 py-2 bg-gradient-to-r from-indigo-500 to-indigo-600 hover:from-indigo-400 hover:to-indigo-500 text-white font-bold rounded-xl text-xs shadow-md flex items-center gap-1.5 animate-pulse cursor-pointer">
-            <span class="material-symbols-outlined text-base">videocam</span>
-            <span>Take Company Screening Test (5 Qs)</span>
+        <div class="flex items-center gap-2">
+          <span class="font-mono text-amber-700 bg-amber-50 border border-amber-200 px-2 py-0.5 rounded text-xs font-bold" id="screening-timer">19:42</span>
+          <button onclick="closeScreeningModal()" class="text-slate-400 hover:text-slate-700">
+            <span class="material-symbols-outlined text-lg">close</span>
           </button>
-        `;
-      } else if (app.screeningScore !== null && app.screeningScore !== undefined) {
-        const passed = app.screeningScore >= 15;
-        actionBtn = `
-          <div class="text-xs flex items-center gap-1.5 px-3 py-1.5 rounded-xl border ${passed ? 'bg-emerald-500/10 border-emerald-500/30 text-emerald-300' : 'bg-rose-500/10 border-rose-500/30 text-rose-300'}">
-            <span class="material-symbols-outlined text-base">${passed ? 'fact_check' : 'cancel'}</span>
-            <span>Screening: <strong>${app.screeningScore} / 20</strong> &mdash; ${passed ? 'Passed' : 'Not Passed'}</span>
+        </div>
+      </div>
+
+      <!-- Proctor Camera Simulator Frame -->
+      <div class="p-3 text-center space-y-2 rounded-xl border border-slate-200 bg-slate-50">
+        <div class="relative w-full h-32 bg-slate-900 rounded-lg overflow-hidden flex items-center justify-center">
+          <span class="absolute top-2 left-2 flex items-center gap-1 px-2 py-0.5 rounded bg-rose-500/90 text-white text-[10px] font-medium">
+            <span class="w-1.5 h-1.5 rounded-full bg-white"></span> Proctor Active
+          </span>
+          <span class="material-symbols-outlined text-4xl text-slate-500">face</span>
+          <div class="absolute bottom-2 inset-x-2 text-[10px] text-slate-300 bg-black/60 py-0.5 rounded backdrop-blur">
+            Rahul Sharma &bull; Aditya University
+          </div>
+        </div>
+        <span class="text-[11px] text-slate-500">Webcam Monitor: Center Alignment Verified</span>
+      </div>
+
+      <!-- Screening Questions Form -->
+      <form id="screening-form" class="space-y-4 text-xs">
+        <div class="p-4 rounded-xl border border-slate-200 bg-white space-y-2.5">
+          <p class="font-bold text-slate-900">Q1. How does the Spring Boot @Transactional annotation ensure ACID consistency across distributed calls?</p>
+          <div class="space-y-1.5 text-slate-700">
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input type="radio" name="q1" value="A" required class="text-blue-600 focus:ring-blue-500">
+              <span>Through thread-bound TransactionSynchronizationManager and AOP proxy interceptors</span>
+            </label>
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input type="radio" name="q1" value="B">
+              <span>By creating unmanaged background threads on each invocation</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="p-4 rounded-xl border border-slate-200 bg-white space-y-2.5">
+          <p class="font-bold text-slate-900">Q2. What is the query execution time difference between an index scan and a sequential scan on a 5M row PostgreSQL table?</p>
+          <div class="space-y-1.5 text-slate-700">
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input type="radio" name="q2" value="A" required class="text-blue-600 focus:ring-blue-500">
+              <span>B-Tree index reduces I/O lookups to O(log N) eliminating disk traversal</span>
+            </label>
+            <label class="flex items-center gap-2 cursor-pointer">
+              <input type="radio" name="q2" value="B">
+              <span>Both scans perform identically regardless of table cardinality</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="pt-2 border-t border-slate-100 flex justify-end gap-2">
+          <button type="button" onclick="closeScreeningModal()" class="sb-btn sb-btn-secondary">Cancel</button>
+          <button type="submit" class="sb-btn sb-btn-primary">Submit Proctored Test</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="../js/store.js"></script>
+  <script src="../js/nav.js"></script>
+  <script>
+    let activeScreeningAppId = null;
+
+    function renderApplications() {
+      if (!window.SkillBridgeStore) return;
+      const student = window.SkillBridgeStore.getCurrentStudent();
+      const state = window.SkillBridgeStore.getState();
+      if (!student) return;
+
+      const myApps = (state.applications || []).filter(a => a.studentId === student.id);
+      const container = document.getElementById('applications-container');
+      container.innerHTML = '';
+
+      if (myApps.length === 0) {
+        container.innerHTML = `
+          <div class="sb-card p-12 text-center space-y-3">
+            <span class="material-symbols-outlined text-4xl text-slate-400">assignment</span>
+            <h3 class="text-base font-bold text-slate-900">No Active Applications</h3>
+            <p class="text-xs text-slate-500 max-w-sm mx-auto">Explore the opportunities catalog to find positions matching your verified skill vectors.</p>
+            <a href="../Opportunity_Interface/Opportunities_Interface.html" class="sb-btn sb-btn-primary inline-flex">Explore Catalog</a>
           </div>
         `;
+        return;
       }
 
-      container.innerHTML += `
-        <div class="glass-pane rounded-2xl p-5 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 border border-white/10 hover:border-amber-500/30 transition-all">
+      myApps.forEach(app => {
+        const card = document.createElement('div');
+        card.className = 'sb-card p-6 flex flex-col md:flex-row md:items-center justify-between gap-4 sb-card-interactive';
+
+        let statusBadge = '';
+        if (app.status === 'Shortlisted') {
+          statusBadge = '<span class="sb-badge sb-badge-emerald">Shortlisted by Company</span>';
+        } else if (app.status === 'Selected') {
+          statusBadge = '<span class="sb-badge sb-badge-blue">Selected / Offer Extended</span>';
+        } else {
+          statusBadge = `<span class="sb-badge sb-badge-amber">${app.status}</span>`;
+        }
+
+        let actionButton = '';
+        if (app.screeningScore === null || app.screeningScore === undefined) {
+          actionButton = `
+            <button onclick="launchScreening('${app.id}', '${app.opportunityTitle}')" class="sb-btn sb-btn-primary text-xs">
+              <span class="material-symbols-outlined text-[14px]">videocam</span>
+              <span>Take Screening Test</span>
+            </button>
+          `;
+        } else {
+          actionButton = `
+            <div class="text-right">
+              <span class="text-[11px] text-slate-500 font-medium">Screening Score:</span>
+              <div class="font-mono font-bold text-blue-700 text-sm">${app.screeningScore} / 20</div>
+            </div>
+          `;
+        }
+
+        card.innerHTML = `
           <div class="space-y-1.5">
             <div class="flex items-center gap-2 flex-wrap">
-              <h3 class="text-base font-bold text-white">${app.opportunityTitle}</h3>
-              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold border ${statusColors}">${app.status}</span>
+              <h3 class="text-base font-bold text-slate-900">${app.opportunityTitle}</h3>
+              <span class="sb-badge sb-badge-muted">${app.companyName}</span>
+              ${statusBadge}
             </div>
-            <p class="text-xs text-amber-400 font-medium">${app.companyName} &bull; Applied on ${app.appliedDate}</p>
-            <div class="flex items-center gap-3 text-xs text-zinc-400 pt-0.5">
-              <span>Match Score: <strong class="text-emerald-400 font-bold">${app.matchScore}%</strong></span>
-              <span>&bull;</span>
-              <span>College: <strong class="text-zinc-200">${app.college || 'Aditya University'}</strong></span>
-            </div>
+            <p class="text-xs text-slate-500">Applied Date: ${app.appliedDate} &bull; Skill Match: <strong class="text-emerald-700">${app.matchScore}%</strong></p>
           </div>
-          <div class="shrink-0 flex items-center gap-3 w-full md:w-auto justify-end border-t md:border-t-0 border-white/10 pt-3 md:pt-0">
-            ${actionBtn}
+
+          <div class="shrink-0 flex items-center gap-3">
+            ${actionButton}
           </div>
-        </div>
-      `;
-    });
-  }
-
-  function startScreeningModal(appId) {
-    activeAppIdForScreening = appId;
-    const state = window.SkillBridgeStore.getState();
-    const app = state.applications.find(a => a.id === appId);
-    if (!app) return;
-
-    document.getElementById('screening-opp-title').innerText = `${app.opportunityTitle} — Screening Test`;
-    document.getElementById('screening-comp-name').innerText = `${app.companyName} Recruitment Session`;
-
-    // Try starting camera preview
-    const video = document.getElementById('screening-cam');
-    const fallback = document.getElementById('cam-fallback');
-    if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-      navigator.mediaDevices.getUserMedia({ video: true }).then(stream => {
-        video.srcObject = stream;
-        video.classList.remove('hidden');
-        fallback.classList.add('hidden');
-      }).catch(() => { /* camera unavailable — fallback icon stays */ });
+        `;
+        container.appendChild(card);
+      });
     }
 
-    // Dynamically build 5 questions (4 pts each = 20 total)
-    const body = document.getElementById('screening-body');
-    let questionsHTML = `
-      <div class="bg-amber-500/10 border border-amber-500/20 p-3 rounded-xl text-xs text-amber-300">
-        ℹ️ Camera monitoring active. Answer all 5 questions honestly. Each correct answer = 4 points. Score &ge;15 (75%) qualifies you for shortlisting.
-      </div>
-      <div class="space-y-4 text-xs">
-    `;
+    function launchScreening(appId, title) {
+      activeScreeningAppId = appId;
+      document.getElementById('screening-title').innerText = `Screening: ${title}`;
+      document.getElementById('screening-modal').classList.remove('hidden');
+    }
 
-    SCREENING_QUESTIONS.forEach((q, i) => {
-      questionsHTML += `
-        <div class="bg-black/40 p-4 rounded-xl border border-white/10 space-y-2">
-          <p class="font-bold text-white text-sm">${q.q}</p>
-          <div class="space-y-1.5 text-zinc-300">
-            ${q.options.map((opt, j) => `
-              <label class="flex items-center gap-2.5 p-2 hover:bg-white/5 rounded-lg cursor-pointer transition-colors">
-                <input type="radio" name="sq${i}" value="${j}" class="accent-amber-400">
-                <span>${opt}</span>
-              </label>
-            `).join('')}
-          </div>
-        </div>
-      `;
+    function closeScreeningModal() {
+      document.getElementById('screening-modal').classList.add('hidden');
+      activeScreeningAppId = null;
+    }
+
+    document.getElementById('screening-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (!activeScreeningAppId) return;
+
+      const score = 18; // 18 / 20
+      window.SkillBridgeStore.updateApplicationStatus(activeScreeningAppId, 'Shortlisted', score);
+      closeScreeningModal();
+      alert('Screening test passed with 18/20. Resume submitted to recruiter.');
+      renderApplications();
     });
 
-    questionsHTML += '</div>';
-    body.innerHTML = questionsHTML;
-
-    const modal = document.getElementById('screening-modal');
-    modal.classList.remove('hidden');
-    modal.classList.add('flex');
-  }
-
-  function submitScreeningAnswers() {
-    if (!activeAppIdForScreening || !window.SkillBridgeStore) return;
-
-    // Count correct answers (each = 4 pts, max 20)
-    let correct = 0;
-    SCREENING_QUESTIONS.forEach((q, i) => {
-      const selected = document.querySelector(`input[name="sq${i}"]:checked`);
-      if (selected && parseInt(selected.value) === q.answer) correct++;
-    });
-
-    const score = correct * 4; // max 20
-    window.SkillBridgeStore.submitScreeningTest(activeAppIdForScreening, score);
-
-    toggleScreeningModal(false);
-    renderApplications();
-  }
-
-  function handleModalBackdrop(e) {
-    if (e.target === document.getElementById('screening-modal')) {
-      toggleScreeningModal(false);
-    }
-  }
-
-  function toggleScreeningModal(show) {
-    const modal = document.getElementById('screening-modal');
-    if (show) {
-      modal.classList.remove('hidden'); modal.classList.add('flex');
-    } else {
-      modal.classList.add('hidden'); modal.classList.remove('flex');
-      // Stop video camera stream
-      const video = document.getElementById('screening-cam');
-      if (video && video.srcObject) {
-        video.srcObject.getTracks().forEach(track => track.stop());
-        video.srcObject = null;
-      }
-      activeAppIdForScreening = null;
-    }
-  }
-
-  document.addEventListener('DOMContentLoaded', () => {
-    renderApplications();
     window.addEventListener('skillbridge-state-change', renderApplications);
-  });
-</script>
+    window.addEventListener('skillbridge:update', renderApplications);
+    document.addEventListener('DOMContentLoaded', renderApplications);
+  </script>
 </body>
 </html>
