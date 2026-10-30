@@ -78,7 +78,7 @@
     function renderStudents() {
       if (!window.SkillBridgeStore) return;
       const state = window.SkillBridgeStore.getState();
-      const students = (state.students || []).filter(s => s.college === 'Aditya University');
+      const students = (state.students || []).filter(s => s.college === 'Apex Institute of Technology');
 
       const filtered = students.filter(s => activeDept === 'all' || s.department === activeDept);
       document.getElementById('cohort-count-text').innerText = `${filtered.length} Students Listed`;

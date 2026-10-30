@@ -1,7 +1,7 @@
 /**
  * SkillBridge - Standardized Assessment Engine v4.0
  * Two-Factor Timer + Anti-Cheating + 1000-Point Score Calibration
- * Problem Statement ID: SIH 26044 (Smart India Hackathon 2026)
+ * Enterprise Academic & Industry Collaboration Platform
  */
 
 (function () {

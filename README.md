@@ -1,7 +1,7 @@
 # SkillBridge - Portal for Academic & Industry Collaboration
 
 <p align="center">
-  <img src="https://img.shields.io/badge/SIH%202026-Problem%20ID%2026044-4F46E5?style=for-the-badge" alt="SIH 26044" />
+  <img src="https://img.shields.io/badge/Platform-Enterprise%20Edition-4F46E5?style=for-the-badge" alt="Enterprise Edition" />
   <img src="https://img.shields.io/badge/Theme-Smart%20Automation-059669?style=for-the-badge" alt="Theme: Smart Automation" />
   <img src="https://img.shields.io/badge/Architecture-Standardized%201000--Point%20Vector-7C3AED?style=for-the-badge" alt="1000-Point Vector" />
   <img src="https://img.shields.io/badge/Status-Fully%20Rebuilt%20%26%20Operational-10B981?style=for-the-badge" alt="Status: Operational" />
@@ -13,9 +13,9 @@
 
 ---
 
-## 1. Executive Summary & SIH 26044 Alignment
+## 1. Executive Summary & Architecture Overview
 
-**SkillBridge** is an enterprise-grade platform developed for **Smart India Hackathon 2026 (Problem Statement ID: SIH 26044)** under the theme **Smart Automation**.
+**SkillBridge** is an enterprise-grade academic and industry collaboration platform engineered for transparent talent discovery and competency-based matching.
 
 Traditional job portals rely on self-reported resumes and unverified keyword matching, leading to high noise, resume fraud, and severe mismatches between academic curricula and industry hiring thresholds.
 
@@ -39,7 +39,7 @@ SkillBridge solves this challenge with an automated, multi-stakeholder ecosystem
              v                                 v                                 v
 +------------------------+        +------------------------+        +------------------------+
 |   Student Workspace    |        |    Corporate Console   |        |   Institute Console    |
-|   (Rahul Sharma)       |        |    (ABC Tech Corp)     |        |   (Aditya University)  |
+|   (Rahul Sharma)       |        |    (ABC Tech Corp)     |        | (Apex Inst of Tech)    |
 +------------------------+        +------------------------+        +------------------------+
 | - Skill Vector Matrix  |        | - Post Opportunity     |        | - Cohort Registry      |
 | - Proctored Assessment |        | - Set Skill Thresholds |        | - Skill Gap Analytics  |
@@ -64,8 +64,8 @@ SkillBridge solves this challenge with an automated, multi-stakeholder ecosystem
 ```text
 SkillBridge/
 ├── index.html                               # Modern Portal Gateway & Evaluator Switcher
-├── README.md                                # System Architecture & SIH 26044 Documentation
-├── SIH 2026 IDEA Presentation.pptx          # Official Hackathon Idea Pitch Presentation
+├── README.md                                # System Architecture & Workflow Documentation
+├── Presentation.pptx                         # Platform Architecture & Idea Pitch Deck
 ├── Unique Ideas.txt                         # Innovative Feature Breakdown & Algorithms
 │
 ├── css/
@@ -153,4 +153,4 @@ SkillBridge is built as a zero-dependency, ultra-fast client-side web applicatio
 3. Use the **Role Switcher** in the top navigation bar or the quick demo buttons on `index.html` to toggle between:
    - **Student**: Rahul Sharma (`student@gmail.com`)
    - **Company**: ABC Tech Corp (`company@gmail.com`)
-   - **Institute**: Aditya University (`institute@gmail.com`)
+   - **Institute**: Apex Institute of Technology (`institute@gmail.com`)

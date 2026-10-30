@@ -1,13 +1,13 @@
 /**
  * SkillBridge — Central Real-Time State Management Store v4.0
  * 1000-Point Skill Vector System + Verified Platform Activities Engine
- * Problem Statement ID: SIH 26044 (Smart India Hackathon 2026)
+ * Problem Statement: Enterprise Academic & Industry Collaboration Platform
  */
 (function (window) {
   'use strict';
 
-  const STORAGE_KEY = 'skillbridge_app_state_v4';
-  const ASSESSMENT_HISTORY_KEY = 'skillbridge_assessment_history_v4';
+  const STORAGE_KEY = 'skillbridge_app_state_v5';
+  const ASSESSMENT_HISTORY_KEY = 'skillbridge_assessment_history_v5';
 
   function generatePlatformMetrics(githubUser, repoName, leetcodeUser, hackerrankUser) {
     const gh = (githubUser || 'rahul-sharma').replace(/^https?:\/\//i, '').replace(/github\.com\/?/i, '').replace(/\/$/, '') || 'rahul-sharma';
@@ -91,13 +91,13 @@
       name: 'Rahul Sharma',
       email: 'student@gmail.com',
       role: 'student',
-      college: 'Aditya University',
+      college: 'Apex Institute of Technology',
       avatar: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=300&auto=format&fit=crop&q=80'
     },
     students: [
       {
         id: 'std_rahul', name: 'Rahul Sharma', email: 'student@gmail.com', password: '123',
-        college: 'Aditya University', department: 'CSE', year: '3rd Year', cgpa: '8.7',
+        college: 'Apex Institute of Technology', department: 'CSE', year: '3rd Year', cgpa: '8.7',
         phone: '+91 98765 43210', bio: 'Passionate Backend Engineering student exploring microservices, Spring Boot, and cloud architecture.',
         resume: 'Rahul_Sharma_Resume.pdf',
         github: 'https://github.com/rahul-sharma',
@@ -123,8 +123,8 @@
         avatar: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=300&auto=format&fit=crop&q=80'
       },
       {
-        id: 'std_priya', name: 'Priya Patel', email: 'priya.patel@aditya.ac.in', password: '123',
-        college: 'Aditya University', department: 'CSE', year: '4th Year', cgpa: '9.1',
+        id: 'std_priya', name: 'Priya Patel', email: 'priya.patel@apexuniv.edu', password: '123',
+        college: 'Apex Institute of Technology', department: 'CSE', year: '4th Year', cgpa: '9.1',
         phone: '+91 98123 45678', bio: 'Full Stack & Cloud developer specializing in React and Node.js.',
         resume: 'Priya_Patel_Resume.pdf',
         github: 'https://github.com/priyapatel',
@@ -148,8 +148,8 @@
         avatar: 'https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=300&auto=format&fit=crop&q=80'
       },
       {
-        id: 'std_ananya', name: 'Ananya Rao', email: 'ananya.rao@aditya.ac.in', password: '123',
-        college: 'Aditya University', department: 'ECE', year: '3rd Year', cgpa: '8.4',
+        id: 'std_ananya', name: 'Ananya Rao', email: 'ananya.rao@apexuniv.edu', password: '123',
+        college: 'Apex Institute of Technology', department: 'ECE', year: '3rd Year', cgpa: '8.4',
         phone: '+91 97890 12345', bio: 'Embedded Systems & IoT enthusiast transitioning to Data Analytics.',
         resume: 'Ananya_Rao_Resume.pdf',
         github: 'https://github.com/ananyarao',
@@ -213,8 +213,8 @@
     ],
     institutions: [
       {
-        id: 'inst_aditya', name: 'Aditya University', email: 'institute@gmail.com', password: '123',
-        location: 'Surampalem, Andhra Pradesh', website: 'https://aditya.ac.in',
+        id: 'inst_apex', name: 'Apex Institute of Technology', email: 'institute@gmail.com', password: '123',
+        location: 'Bengaluru, Karnataka', website: 'https://apexuniv.edu',
         totalStudents: 1450, activePlacementRate: '78%',
         avatar: 'https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?w=150&auto=format&fit=crop&q=80'
       }
@@ -251,7 +251,7 @@
     ],
     applications: [
       {
-        id: 'app_101', studentId: 'std_priya', studentName: 'Priya Patel', college: 'Aditya University', department: 'CSE',
+        id: 'app_101', studentId: 'std_priya', studentName: 'Priya Patel', college: 'Apex Institute of Technology', department: 'CSE',
         opportunityId: 'opp_1', opportunityTitle: 'Java Backend Intern', companyName: 'ABC Tech', companyId: 'comp_abc',
         appliedDate: '2026-08-28', matchScore: 92, status: 'Shortlisted', screeningScore: 18, screeningTotal: 20,
         skillScoresAtApply: { 'Java': 820, 'SQL': 780, 'Spring Boot': 700, 'Git': 800 }
@@ -767,7 +767,7 @@
     }
 
     getInstitutionData(collegeName) {
-      collegeName = collegeName || 'Aditya University';
+      collegeName = collegeName || 'Apex Institute of Technology';
       const state = this.getState();
       const students = state.students.filter(s => s.college && s.college.toLowerCase().trim() === collegeName.toLowerCase().trim());
       const skillTotals = {};
