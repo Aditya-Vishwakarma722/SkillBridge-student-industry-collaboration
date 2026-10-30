@@ -27,7 +27,7 @@
       <div class="flex items-center gap-3">
         <a href="../Student_Interface/Portal-Dashboard.html"
           class="flex items-center gap-2 text-slate-900 hover:opacity-80 transition">
-          <div class="w-7 h-7 rounded-lg bg-slate-900 flex items-center justify-center text-white">
+          <div class="w-7 h-7 bg-slate-900 flex items-center justify-center text-white">
             <span class="material-symbols-outlined text-[16px]">quiz</span>
           </div>
           <span class="text-sm font-bold tracking-tight">Skill<span class="text-blue-600">Bridge</span> Assessment</span>
@@ -38,14 +38,14 @@
       <!-- Center: Two-Factor Timer -->
       <div class="flex items-center gap-3">
         <!-- Factor 1: Visible Exam Timer -->
-        <div class="flex items-center gap-2 bg-slate-50 border border-slate-200 px-3 py-1 rounded-lg">
+        <div class="flex items-center gap-2 bg-slate-50 border border-slate-200 px-3 py-1">
           <span class="material-symbols-outlined text-amber-600 text-sm">alarm</span>
           <span class="text-xs text-slate-500 hidden sm:inline">Exam Clock:</span>
           <span class="font-mono font-bold text-slate-900 text-sm" id="exam-timer">20:00</span>
         </div>
 
         <!-- Factor 2: Question Dwell Timer -->
-        <div class="hidden md:flex items-center gap-2 bg-slate-50 border border-slate-200 px-3 py-1 rounded-lg">
+        <div class="hidden md:flex items-center gap-2 bg-slate-50 border border-slate-200 px-3 py-1">
           <span class="material-symbols-outlined text-blue-600 text-sm">schedule</span>
           <span class="text-xs text-slate-500">Question Dwell:</span>
           <span class="font-mono font-bold text-slate-900 text-sm" id="q-dwell-timer">00:00</span>
@@ -54,8 +54,8 @@
 
       <!-- Right: Proctoring Status & Exit -->
       <div class="flex items-center gap-3">
-        <div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-rose-50 border border-rose-200 text-rose-700 text-xs font-semibold">
-          <span class="w-2 h-2 rounded-full bg-rose-500"></span>
+        <div class="flex items-center gap-1.5 px-2.5 py-1 bg-rose-50 border border-rose-200 text-rose-700 text-xs font-semibold">
+          <span class="w-2 h-2 bg-rose-500"></span>
           <span class="hidden sm:inline">Proctor Active</span>
         </div>
         <button onclick="confirmExit()" class="sb-btn sb-btn-secondary text-xs px-2.5 py-1">
@@ -92,7 +92,7 @@
       </div>
 
       <!-- Guidelines -->
-      <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2 text-xs text-slate-600">
+      <div class="p-4 bg-slate-50 border border-slate-200 space-y-2 text-xs text-slate-600">
         <h3 class="font-bold text-slate-900 flex items-center gap-1.5">
           <span class="material-symbols-outlined text-amber-600 text-base">policy</span>
           <span>Proctoring &amp; Assessment Guidelines</span>
@@ -124,12 +124,12 @@
 
           <!-- Webcam Frame -->
           <div class="sb-card p-3 space-y-2 text-center">
-            <div class="relative w-full h-32 bg-slate-100 rounded-lg overflow-hidden flex items-center justify-center border border-slate-200">
-              <span class="absolute top-2 left-2 flex items-center gap-1 px-1.5 py-0.5 rounded bg-rose-50 text-rose-700 text-[9px] font-bold border border-rose-200">
-                <span class="w-1.5 h-1.5 rounded-full bg-rose-500"></span> LIVE
+            <div class="relative w-full h-32 bg-slate-100 overflow-hidden flex items-center justify-center border border-slate-200">
+              <span class="absolute top-2 left-2 flex items-center gap-1 px-1.5 py-0.5 bg-rose-50 text-rose-700 text-[9px] font-bold border border-rose-200">
+                <span class="w-1.5 h-1.5 bg-rose-500"></span> LIVE
               </span>
               <span class="material-symbols-outlined text-4xl text-slate-400">face</span>
-              <div class="absolute bottom-1.5 inset-x-2 text-[9px] text-slate-700 bg-white/90 py-0.5 rounded border border-slate-200 font-medium">
+              <div class="absolute bottom-1.5 inset-x-2 text-[9px] text-slate-700 bg-white/90 py-0.5 border border-slate-200 font-medium">
                 Face Center &bull; Verified
               </div>
             </div>
@@ -204,7 +204,7 @@
 
     <!-- Exam Result View (Hidden by default) -->
     <div id="result-view" class="hidden sb-card p-6 sm:p-8 space-y-6 text-center max-w-xl mx-auto">
-      <div class="w-16 h-16 rounded-2xl bg-emerald-50 text-emerald-700 flex items-center justify-center mx-auto">
+      <div class="w-16 h-16 bg-emerald-50 text-emerald-700 flex items-center justify-center mx-auto">
         <span class="material-symbols-outlined text-3xl">verified</span>
       </div>
 

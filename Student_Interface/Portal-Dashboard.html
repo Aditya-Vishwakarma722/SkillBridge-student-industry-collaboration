@@ -49,7 +49,7 @@
       <div class="sb-metric-box">
         <div class="flex items-center justify-between mb-2">
           <span class="text-xs font-medium text-slate-500">Mean Skill Vector</span>
-          <div class="w-8 h-8 rounded-lg bg-blue-50 text-blue-700 flex items-center justify-center">
+          <div class="w-8 h-8 bg-blue-50 text-blue-700 flex items-center justify-center">
             <span class="material-symbols-outlined text-[18px]">psychology</span>
           </div>
         </div>
@@ -60,7 +60,7 @@
       <div class="sb-metric-box">
         <div class="flex items-center justify-between mb-2">
           <span class="text-xs font-medium text-slate-500">Platform Activity</span>
-          <div class="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-700 flex items-center justify-center">
+          <div class="w-8 h-8 bg-emerald-50 text-emerald-700 flex items-center justify-center">
             <span class="material-symbols-outlined text-[18px]">terminal</span>
           </div>
         </div>
@@ -71,7 +71,7 @@
       <div class="sb-metric-box">
         <div class="flex items-center justify-between mb-2">
           <span class="text-xs font-medium text-slate-500">Active Applications</span>
-          <div class="w-8 h-8 rounded-lg bg-amber-50 text-amber-700 flex items-center justify-center">
+          <div class="w-8 h-8 bg-amber-50 text-amber-700 flex items-center justify-center">
             <span class="material-symbols-outlined text-[18px]">assignment_turned_in</span>
           </div>
         </div>
@@ -82,7 +82,7 @@
       <div class="sb-metric-box">
         <div class="flex items-center justify-between mb-2">
           <span class="text-xs font-medium text-slate-500">Eligible Roles</span>
-          <div class="w-8 h-8 rounded-lg bg-sky-50 text-sky-700 flex items-center justify-center">
+          <div class="w-8 h-8 bg-sky-50 text-sky-700 flex items-center justify-center">
             <span class="material-symbols-outlined text-[18px]">verified</span>
           </div>
         </div>
@@ -140,7 +140,7 @@
           </div>
 
           <div class="space-y-3 text-xs">
-            <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-between">
+            <div class="p-3.5 bg-slate-50 border border-slate-200 flex items-center justify-between">
               <div class="flex items-center gap-2.5">
                 <span class="material-symbols-outlined text-slate-700 text-lg">code</span>
                 <div>
@@ -151,7 +151,7 @@
               <span class="sb-badge sb-badge-blue font-mono font-bold">265/300</span>
             </div>
 
-            <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-between">
+            <div class="p-3.5 bg-slate-50 border border-slate-200 flex items-center justify-between">
               <div class="flex items-center gap-2.5">
                 <span class="material-symbols-outlined text-amber-600 text-lg">terminal</span>
                 <div>
@@ -162,7 +162,7 @@
               <span class="sb-badge sb-badge-amber font-mono font-bold">280/400</span>
             </div>
 
-            <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-between">
+            <div class="p-3.5 bg-slate-50 border border-slate-200 flex items-center justify-between">
               <div class="flex items-center gap-2.5">
                 <span class="material-symbols-outlined text-emerald-600 text-lg">military_tech</span>
                 <div>
@@ -184,7 +184,7 @@
           <p class="text-xs text-slate-600 leading-relaxed">
             All assessment attempts are monitored with two-factor timers and tab-switch detection. Zero proctoring strikes recorded.
           </p>
-          <div class="p-3 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-between text-xs">
+          <div class="p-3 bg-slate-50 border border-slate-200 flex items-center justify-between text-xs">
             <span class="text-slate-500">Integrity Trust Score</span>
             <span class="font-mono font-bold text-emerald-700">100% Verified</span>
           </div>
@@ -327,7 +327,7 @@
 
       evalRes.gaps.forEach(gap => {
         const div = document.createElement('div');
-        div.className = 'p-3 rounded-xl border border-slate-200 bg-slate-50 space-y-2';
+        div.className = 'p-3 border border-slate-200 bg-slate-50 space-y-2';
         div.innerHTML = `
           <div class="flex items-center justify-between text-xs">
             <span class="font-semibold text-slate-900">${gap.skill}</span>
@@ -337,7 +337,7 @@
             <span>Your Score: <strong class="text-slate-800">${gap.currentScore}</strong></span>
             <span>Required: <strong class="text-emerald-700">${gap.requiredScore}</strong></span>
           </div>
-          <div class="text-[11px] text-slate-600 bg-white p-2.5 rounded-lg border border-slate-200 space-y-1">
+          <div class="text-[11px] text-slate-600 bg-white p-2.5 border border-slate-200 space-y-1">
             <p>Complete the assessment for ${gap.skill} to meet this threshold.</p>
             <a href="../Assessment_Interface/index.html?skill=${encodeURIComponent(gap.skill)}" class="text-blue-600 hover:underline font-medium inline-block">
               Launch ${gap.skill} Assessment &rarr;

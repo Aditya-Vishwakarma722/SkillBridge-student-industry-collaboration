@@ -216,15 +216,15 @@
       const isSelected = selectedOpt === optIdx;
       const btn = document.createElement('button');
       btn.type = 'button';
-      btn.className = `w-full p-3.5 text-left flex items-start gap-3 rounded-xl border transition ${isSelected
-          ? 'border-blue-600 bg-blue-50/70 text-slate-900 font-semibold shadow-sm'
-          : 'border-slate-200 bg-white text-slate-700 hover:border-slate-300 hover:bg-slate-50'
+      btn.className = `w-full p-3.5 text-left flex items-start gap-3 border transition ${isSelected
+          ? 'border-indigo-500 bg-indigo-600/20 text-white font-semibold shadow-sm shadow-indigo-500/20'
+          : 'border-white/10 bg-slate-900/60 text-slate-300 hover:border-indigo-500/40 hover:bg-white/[0.04]'
         }`;
       btn.onclick = () => selectOption(optIdx);
 
       const letter = String.fromCharCode(65 + optIdx);
       btn.innerHTML = `
-        <span class="w-6 h-6 rounded-md ${isSelected ? 'bg-blue-600 text-white font-bold' : 'bg-slate-100 text-slate-600 border border-slate-200 font-medium'} flex items-center justify-center text-xs shrink-0">
+        <span class="w-6 h-6 ${isSelected ? 'bg-indigo-600 text-white font-bold shadow-xs' : 'bg-white/10 text-slate-300 border border-white/10 font-medium'} flex items-center justify-center text-xs shrink-0">
           ${letter}
         </span>
         <span class="text-xs leading-relaxed pt-0.5">${optText}</span>

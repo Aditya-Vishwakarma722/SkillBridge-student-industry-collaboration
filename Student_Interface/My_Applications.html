@@ -50,7 +50,7 @@
           <p class="text-xs text-slate-500">Proctored two-factor timed test.</p>
         </div>
         <div class="flex items-center gap-2">
-          <span class="font-mono text-amber-700 bg-amber-50 border border-amber-200 px-2 py-0.5 rounded text-xs font-bold" id="screening-timer">19:42</span>
+          <span class="font-mono text-amber-700 bg-amber-50 border border-amber-200 px-2 py-0.5 text-xs font-bold" id="screening-timer">19:42</span>
           <button onclick="closeScreeningModal()" class="text-slate-400 hover:text-slate-700">
             <span class="material-symbols-outlined text-lg">close</span>
           </button>
@@ -58,13 +58,13 @@
       </div>
 
       <!-- Proctor Camera Simulator Frame -->
-      <div class="p-3 text-center space-y-2 rounded-xl border border-slate-200 bg-slate-50">
-        <div class="relative w-full h-32 bg-slate-900 rounded-lg overflow-hidden flex items-center justify-center">
-          <span class="absolute top-2 left-2 flex items-center gap-1 px-2 py-0.5 rounded bg-rose-500/90 text-white text-[10px] font-medium">
-            <span class="w-1.5 h-1.5 rounded-full bg-white"></span> Proctor Active
+      <div class="p-3 text-center space-y-2 border border-slate-200 bg-slate-50">
+        <div class="relative w-full h-32 bg-slate-900 overflow-hidden flex items-center justify-center">
+          <span class="absolute top-2 left-2 flex items-center gap-1 px-2 py-0.5 bg-rose-500/90 text-white text-[10px] font-medium">
+            <span class="w-1.5 h-1.5 bg-white"></span> Proctor Active
           </span>
           <span class="material-symbols-outlined text-4xl text-slate-500">face</span>
-          <div class="absolute bottom-2 inset-x-2 text-[10px] text-slate-300 bg-black/60 py-0.5 rounded backdrop-blur">
+          <div class="absolute bottom-2 inset-x-2 text-[10px] text-slate-300 bg-black/60 py-0.5 backdrop-blur">
             Rahul Sharma &bull; Aditya University
           </div>
         </div>
@@ -73,7 +73,7 @@
 
       <!-- Screening Questions Form -->
       <form id="screening-form" class="space-y-4 text-xs">
-        <div class="p-4 rounded-xl border border-slate-200 bg-white space-y-2.5">
+        <div class="p-4 border border-slate-200 bg-white space-y-2.5">
           <p class="font-bold text-slate-900">Q1. How does the Spring Boot @Transactional annotation ensure ACID consistency across distributed calls?</p>
           <div class="space-y-1.5 text-slate-700">
             <label class="flex items-center gap-2 cursor-pointer">
@@ -87,7 +87,7 @@
           </div>
         </div>
 
-        <div class="p-4 rounded-xl border border-slate-200 bg-white space-y-2.5">
+        <div class="p-4 border border-slate-200 bg-white space-y-2.5">
           <p class="font-bold text-slate-900">Q2. What is the query execution time difference between an index scan and a sequential scan on a 5M row PostgreSQL table?</p>
           <div class="space-y-1.5 text-slate-700">
             <label class="flex items-center gap-2 cursor-pointer">
