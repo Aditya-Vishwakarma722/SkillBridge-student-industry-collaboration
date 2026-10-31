@@ -1,19 +1,19 @@
 /**
- * SkillBridge — Vibey Dark Interactive Design System v6.0
- * Deep Obsidian Gradient Atmosphere with Glowing Accents & Sharp Geometry
+ * SkillBridge — Refined Dark Interactive Design System v7.0
+ * Deep Obsidian Atmosphere with Softened Micro-Geometry & Clean Surfaces
  * Enterprise Academic & Industry Collaboration Platform
  */
 
 :root {
-  /* Deep Obsidian & Nebula Gradient Surface Canvas */
+  /* Deep Obsidian Surface Canvas */
   --sb-bg: #07090e;
   --sb-surface: rgba(13, 18, 30, 0.82);
   --sb-surface-elevated: rgba(18, 25, 42, 0.88);
   --sb-surface-muted: rgba(22, 30, 50, 0.65);
 
-  /* Luminous Hairline Borders */
+  /* Clean Hairline Borders */
   --sb-border: rgba(255, 255, 255, 0.09);
-  --sb-border-hover: rgba(99, 102, 241, 0.45);
+  --sb-border-hover: rgba(255, 255, 255, 0.2);
   --sb-border-focus: #6366f1;
 
   /* Radiant High-Legibility Typography */
@@ -22,8 +22,8 @@
   --sb-text-muted: #94a3b8;
   --sb-text-light: #64748b;
 
-  /* Vibey Neon Accents */
-  --sb-primary: #6366f1;
+  /* Subtle Clean Accents (Zero Glow) */
+  --sb-primary: #4f46e5;
   --sb-accent-blue: #3b82f6;
   --sb-accent-purple: #8b5cf6;
   --sb-accent-cyan: #06b6d4;
@@ -31,23 +31,24 @@
   --sb-accent-amber: #f59e0b;
   --sb-accent-rose: #f43f5e;
 
-  /* Sharp Architectural Geometry (Zero Curved Corners) */
-  --sb-radius-sm: 0px;
-  --sb-radius-md: 0px;
-  --sb-radius-lg: 0px;
-  --sb-radius-xl: 0px;
+  /* Refined Micro-Geometry (Subtle Softened Corners) */
+  --sb-radius-xs: 2px;
+  --sb-radius-sm: 3px;
+  --sb-radius-md: 4px;
+  --sb-radius-lg: 6px;
+  --sb-radius-xl: 8px;
 }
 
-/* Sharp Edge Universal Rule — Enforce Refined Perpendicular Edges */
+/* Subtle Edge Softening Rule — Softens razor sharpness slightly while remaining sleek */
 *,
 *::before,
 *::after {
-  border-radius: 0 !important;
+  border-radius: 4px;
 }
 
-/* Text Selection Glow */
+/* Text Selection */
 ::selection {
-  background: rgba(99, 102, 241, 0.45);
+  background: rgba(99, 102, 241, 0.35);
   color: #ffffff;
 }
 
@@ -78,9 +79,9 @@ body {
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.09) !important;
-  border-radius: 0px !important;
-  box-shadow: 0 4px 24px -2px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.06) !important;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+  border-radius: 6px !important;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.45) !important;
+  transition: border-color 0.2s ease, transform 0.2s ease;
   color: #f8fafc !important;
 }
 
@@ -89,41 +90,42 @@ body {
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.08) !important;
-  border-radius: 0px !important;
-  box-shadow: 0 8px 30px -4px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+  border-radius: 6px !important;
+  box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.45) !important;
   color: #f8fafc !important;
 }
 
 .sb-card-interactive {
-  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s ease, border-color 0.2s ease;
 }
 
+/* NO HOVER GLOW — Clean border highlight only */
 .sb-card-interactive:hover,
 .sb-card:hover {
-  border-color: rgba(99, 102, 241, 0.45) !important;
-  box-shadow: 0 10px 35px -4px rgba(99, 102, 241, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.12) !important;
-  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.18) !important;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.5) !important;
+  transform: translateY(-1px);
 }
 
-/* Metric Box with Ambient Aura */
+/* Metric Box with Clean Depth (Zero Glow) */
 .sb-metric-box {
   background: rgba(13, 18, 30, 0.85) !important;
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.09) !important;
-  border-radius: 0px !important;
+  border-radius: 6px !important;
   padding: 1.25rem;
-  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+  box-shadow: 0 4px 16px -2px rgba(0, 0, 0, 0.35) !important;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: border-color 0.2s ease;
   color: #f8fafc !important;
 }
 
 .sb-metric-box:hover {
-  border-color: rgba(99, 102, 241, 0.4) !important;
-  box-shadow: 0 6px 26px -2px rgba(99, 102, 241, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(255, 255, 255, 0.18) !important;
+  box-shadow: 0 4px 16px -2px rgba(0, 0, 0, 0.4) !important;
 }
 
 /* Overrides for Legacy / Inline Slate Backgrounds */
@@ -174,7 +176,7 @@ a.text-blue-600:hover {
   color: #93c5fd !important;
 }
 
-/* Vibey Electric Primary Button */
+/* Clean Button System (Zero Glow on Hover) */
 .sb-btn {
   display: inline-flex;
   align-items: center;
@@ -183,8 +185,8 @@ a.text-blue-600:hover {
   font-weight: 600;
   font-size: 0.8125rem;
   padding: 0.55rem 0.95rem;
-  border-radius: 0px !important;
-  transition: all 0.2s ease;
+  border-radius: 4px !important;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
   cursor: pointer;
   border: 1px solid transparent;
   user-select: none;
@@ -193,33 +195,32 @@ a.text-blue-600:hover {
 }
 
 .sb-btn-primary {
-  background: linear-gradient(135deg, #2563eb 0%, #6366f1 50%, #8b5cf6 100%) !important;
+  background: #4f46e5 !important;
   color: #ffffff !important;
-  border: 1px solid rgba(255, 255, 255, 0.25) !important;
-  box-shadow: 0 0 18px rgba(99, 102, 241, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.25) !important;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.16) !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25) !important;
+  text-shadow: none !important;
 }
 
 .sb-btn-primary:hover {
-  background: linear-gradient(135deg, #1d4ed8 0%, #4f46e5 50%, #7c3aed 100%) !important;
-  border-color: rgba(255, 255, 255, 0.4) !important;
-  box-shadow: 0 0 28px rgba(99, 102, 241, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.4) !important;
-  transform: translateY(-1px);
+  background: #4338ca !important;
+  border-color: rgba(255, 255, 255, 0.28) !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.35) !important;
+  transform: none !important;
 }
 
-/* Sharp Dark Secondary Button */
 .sb-btn-secondary {
   background: rgba(22, 30, 48, 0.8) !important;
   color: #e2e8f0 !important;
-  border: 1px solid rgba(255, 255, 255, 0.14) !important;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.06) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  box-shadow: none !important;
 }
 
 .sb-btn-secondary:hover {
   background: rgba(30, 41, 68, 0.95) !important;
   color: #ffffff !important;
-  border-color: rgba(99, 102, 241, 0.45) !important;
-  box-shadow: 0 0 16px rgba(99, 102, 241, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.12) !important;
+  border-color: rgba(255, 255, 255, 0.22) !important;
+  box-shadow: none !important;
 }
 
 .sb-btn-outline {
@@ -231,10 +232,10 @@ a.text-blue-600:hover {
 .sb-btn-outline:hover {
   background: rgba(255, 255, 255, 0.08) !important;
   color: #ffffff !important;
-  border-color: rgba(255, 255, 255, 0.25) !important;
+  border-color: rgba(255, 255, 255, 0.22) !important;
 }
 
-/* Luminous Neon Badges & Tags */
+/* Clean Badges & Tags (Zero Glow) */
 .sb-badge {
   display: inline-flex;
   align-items: center;
@@ -242,132 +243,137 @@ a.text-blue-600:hover {
   font-size: 0.725rem;
   font-weight: 600;
   padding: 0.2rem 0.55rem;
-  border-radius: 0px !important;
+  border-radius: 3px !important;
   line-height: 1.1;
   letter-spacing: 0.02em;
+  box-shadow: none !important;
 }
 
 .sb-badge-indigo,
 .sb-badge-blue {
-  background-color: rgba(37, 99, 235, 0.18) !important;
+  background-color: rgba(37, 99, 235, 0.16) !important;
   color: #93c5fd !important;
-  border: 1px solid rgba(59, 130, 246, 0.38) !important;
-  box-shadow: 0 0 12px rgba(59, 130, 246, 0.15) !important;
+  border: 1px solid rgba(59, 130, 246, 0.3) !important;
+  box-shadow: none !important;
 }
 
 .sb-badge-emerald {
-  background-color: rgba(5, 150, 105, 0.18) !important;
+  background-color: rgba(5, 150, 105, 0.16) !important;
   color: #6ee7b7 !important;
-  border: 1px solid rgba(16, 185, 129, 0.38) !important;
-  box-shadow: 0 0 12px rgba(16, 185, 129, 0.15) !important;
+  border: 1px solid rgba(16, 185, 129, 0.3) !important;
+  box-shadow: none !important;
 }
 
 .sb-badge-amber {
-  background-color: rgba(217, 119, 6, 0.18) !important;
+  background-color: rgba(217, 119, 6, 0.16) !important;
   color: #fcd34d !important;
-  border: 1px solid rgba(245, 158, 11, 0.38) !important;
-  box-shadow: 0 0 12px rgba(245, 158, 11, 0.15) !important;
+  border: 1px solid rgba(245, 158, 11, 0.3) !important;
+  box-shadow: none !important;
 }
 
 .sb-badge-rose {
-  background-color: rgba(225, 29, 72, 0.18) !important;
+  background-color: rgba(225, 29, 72, 0.16) !important;
   color: #fda4af !important;
-  border: 1px solid rgba(244, 63, 94, 0.38) !important;
-  box-shadow: 0 0 12px rgba(244, 63, 94, 0.15) !important;
+  border: 1px solid rgba(244, 63, 94, 0.3) !important;
+  box-shadow: none !important;
 }
 
 .sb-badge-muted {
-  background-color: rgba(255, 255, 255, 0.06) !important;
+  background-color: rgba(255, 255, 255, 0.05) !important;
   color: #cbd5e1 !important;
-  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  box-shadow: none !important;
 }
 
-/* Category Filter Pills (Opportunity Catalog) */
+/* Category Filter Pills */
 .cat-pill.sb-badge-blue {
-  background: rgba(37, 99, 235, 0.3) !important;
+  background: rgba(37, 99, 235, 0.25) !important;
   border-color: #3b82f6 !important;
   color: #93c5fd !important;
-  box-shadow: 0 0 12px rgba(59, 130, 246, 0.25) !important;
+  box-shadow: none !important;
 }
 
 .cat-pill.sb-badge-muted {
   background: rgba(255, 255, 255, 0.05) !important;
   border-color: rgba(255, 255, 255, 0.1) !important;
   color: #94a3b8 !important;
+  box-shadow: none !important;
 }
 
 .cat-pill.sb-badge-muted:hover {
   background: rgba(255, 255, 255, 0.1) !important;
   color: #f8fafc !important;
+  box-shadow: none !important;
 }
 
-/* Luminous Linear Gauges */
+/* Linear Gauges (Zero Glow) */
 .sb-progress-track {
   width: 100%;
   background-color: rgba(255, 255, 255, 0.08) !important;
-  border-radius: 0px !important;
+  border-radius: 3px !important;
   height: 6px;
   overflow: hidden;
 }
 
 .sb-progress-fill {
   height: 100%;
-  border-radius: 0px !important;
+  border-radius: 3px !important;
   transition: width 0.35s ease;
+  box-shadow: none !important;
 }
 
 .sb-progress-fill.bg-blue-600 {
-  background: linear-gradient(90deg, #2563eb, #6366f1) !important;
-  box-shadow: 0 0 12px rgba(99, 102, 241, 0.5) !important;
+  background: #4f46e5 !important;
+  box-shadow: none !important;
 }
 
 .sb-progress-fill.bg-emerald-600 {
-  background: linear-gradient(90deg, #059669, #10b981) !important;
-  box-shadow: 0 0 12px rgba(16, 185, 129, 0.5) !important;
+  background: #10b981 !important;
+  box-shadow: none !important;
 }
 
 .sb-progress-fill.bg-amber-500 {
-  background: linear-gradient(90deg, #d97706, #f59e0b) !important;
-  box-shadow: 0 0 12px rgba(245, 158, 11, 0.5) !important;
+  background: #f59e0b !important;
+  box-shadow: none !important;
 }
 
-/* Luminous Icon Boxes */
+/* Subdued Icon Boxes */
 .bg-blue-50 {
-  background-color: rgba(37, 99, 235, 0.18) !important;
+  background-color: rgba(37, 99, 235, 0.14) !important;
 }
 .text-blue-700, .text-blue-600 {
   color: #93c5fd !important;
 }
 
 .bg-emerald-50 {
-  background-color: rgba(5, 150, 105, 0.18) !important;
+  background-color: rgba(5, 150, 105, 0.14) !important;
 }
 .text-emerald-700, .text-emerald-600 {
   color: #6ee7b7 !important;
 }
 
 .bg-amber-50 {
-  background-color: rgba(217, 119, 6, 0.18) !important;
+  background-color: rgba(217, 119, 6, 0.14) !important;
 }
 .text-amber-700, .text-amber-600 {
   color: #fcd34d !important;
 }
 
 .bg-sky-50 {
-  background-color: rgba(14, 165, 233, 0.18) !important;
+  background-color: rgba(14, 165, 233, 0.14) !important;
 }
 .text-sky-700, .text-sky-600 {
   color: #7dd3fc !important;
 }
 
 .bg-rose-50 {
-  background-color: rgba(225, 29, 72, 0.18) !important;
+  background-color: rgba(225, 29, 72, 0.14) !important;
 }
 .text-rose-700, .text-rose-600 {
   color: #fda4af !important;
 }
 
-/* Sharp Obsidian Form Inputs */
+/* Refined Dark Form Inputs */
 .sb-input,
 input[type="text"],
 input[type="email"],
@@ -377,13 +383,13 @@ textarea,
 select {
   width: 100%;
   background-color: rgba(10, 15, 26, 0.85) !important;
-  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
   color: #f8fafc !important;
-  border-radius: 0px !important;
+  border-radius: 4px !important;
   padding: 0.5rem 0.75rem;
   font-size: 0.8125rem;
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4) !important;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: none !important;
+  transition: border-color 0.2s ease;
 }
 
 .sb-input:focus,
@@ -392,7 +398,7 @@ textarea:focus,
 select:focus {
   outline: none;
   border-color: #6366f1 !important;
-  box-shadow: 0 0 14px rgba(99, 102, 241, 0.35), inset 0 2px 4px rgba(0, 0, 0, 0.4) !important;
+  box-shadow: none !important;
 }
 
 input::placeholder,
@@ -407,7 +413,7 @@ input[type="checkbox"] {
   border-color: rgba(255, 255, 255, 0.2) !important;
 }
 
-/* Frosted Modal Backdrops & Content */
+/* Frosted Modal Backdrops & Content (Zero Glow) */
 .sb-modal-backdrop {
   position: fixed;
   inset: 0;
@@ -423,9 +429,9 @@ input[type="checkbox"] {
 
 .sb-modal-content {
   background: rgba(13, 18, 32, 0.96) !important;
-  border: 1px solid rgba(99, 102, 241, 0.35) !important;
-  border-radius: 0px !important;
-  box-shadow: 0 24px 60px -12px rgba(0, 0, 0, 0.85), 0 0 35px rgba(99, 102, 241, 0.2) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 24px 60px -12px rgba(0, 0, 0, 0.85) !important;
   width: 100%;
   max-width: 600px;
   max-height: 90vh;
@@ -436,33 +442,33 @@ input[type="checkbox"] {
 /* Frosted Global Navigation Header */
 #sb-global-header,
 header {
-  background: rgba(7, 10, 18, 0.85) !important;
+  background: rgba(7, 10, 18, 0.88) !important;
   backdrop-filter: blur(20px) !important;
   -webkit-backdrop-filter: blur(20px) !important;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.6) !important;
-  border-radius: 0px !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5) !important;
 }
 
 /* Navigation Links within Header */
 #sb-global-header nav a,
 header nav a {
-  border-radius: 0px !important;
-  transition: all 0.2s ease;
+  border-radius: 4px !important;
+  transition: background-color 0.15s ease, color 0.15s ease;
 }
 
 #sb-global-header nav a.bg-slate-100,
 header nav a.bg-slate-100 {
-  background: rgba(99, 102, 241, 0.2) !important;
+  background: rgba(99, 102, 241, 0.15) !important;
   color: #c7d2fe !important;
-  border: 1px solid rgba(99, 102, 241, 0.35) !important;
-  box-shadow: 0 0 12px rgba(99, 102, 241, 0.15) !important;
+  border: 1px solid rgba(99, 102, 241, 0.3) !important;
+  box-shadow: none !important;
 }
 
 #sb-global-header nav a:not(.bg-slate-100):hover,
 header nav a:not(.bg-slate-100):hover {
-  background: rgba(255, 255, 255, 0.06) !important;
+  background: rgba(255, 255, 255, 0.05) !important;
   color: #f8fafc !important;
+  box-shadow: none !important;
 }
 
 /* Footer Styling */
@@ -472,7 +478,7 @@ footer {
   color: #94a3b8 !important;
 }
 
-/* Clean Custom Scrollbar with Indigo Glow */
+/* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
@@ -483,10 +489,10 @@ footer {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(99, 102, 241, 0.35);
-  border-radius: 0px !important;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 3px !important;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(99, 102, 241, 0.6);
+  background: rgba(255, 255, 255, 0.28);
 }

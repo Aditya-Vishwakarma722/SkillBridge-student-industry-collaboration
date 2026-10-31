@@ -217,14 +217,14 @@
       const btn = document.createElement('button');
       btn.type = 'button';
       btn.className = `w-full p-3.5 text-left flex items-start gap-3 border transition ${isSelected
-          ? 'border-indigo-500 bg-indigo-600/20 text-white font-semibold shadow-sm shadow-indigo-500/20'
+          ? 'border-indigo-500 bg-indigo-600/20 text-white font-semibold rounded-[4px]'
           : 'border-white/10 bg-slate-900/60 text-slate-300 hover:border-indigo-500/40 hover:bg-white/[0.04]'
         }`;
       btn.onclick = () => selectOption(optIdx);
 
       const letter = String.fromCharCode(65 + optIdx);
       btn.innerHTML = `
-        <span class="w-6 h-6 ${isSelected ? 'bg-indigo-600 text-white font-bold shadow-xs' : 'bg-white/10 text-slate-300 border border-white/10 font-medium'} flex items-center justify-center text-xs shrink-0">
+        <span class="w-6 h-6 ${isSelected ? 'bg-indigo-600 text-white font-bold' : 'bg-white/10 text-slate-300 border border-white/10 font-medium'} rounded-[3px] flex items-center justify-center text-xs shrink-0">
           ${letter}
         </span>
         <span class="text-xs leading-relaxed pt-0.5">${optText}</span>

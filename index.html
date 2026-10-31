@@ -1,276 +1,320 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SkillBridge — Unified Academia-Industry Talent & Hiring Platform</title>
-  <meta name="description" content="A skill-based platform connecting students, companies, and academic institutions through standardized assessments, verified platform activities, and skill gap matchmaking.">
+  <title>Sign In — SkillBridge Platform</title>
 
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    rel="stylesheet">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="css/design-system.css">
 </head>
-<body class="min-h-screen flex flex-col justify-between bg-slate-50 text-slate-900">
 
-  <!-- Top Navigation Bar -->
-  <header class="w-full border-b border-slate-200 bg-white/95 backdrop-blur-sm sticky top-0 z-40">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-      <div class="flex items-center gap-3">
-        <div class="w-8 h-8 bg-slate-900 flex items-center justify-center text-white">
-          <span class="material-symbols-outlined text-[18px]">hub</span>
+<body class="min-h-screen flex flex-col justify-between bg-[#07090e] text-slate-100 antialiased selection:bg-indigo-500/30">
+
+  <!-- Top Minimal Header (Matching Brand Logo) -->
+  <header class="w-full border-b border-white/[0.08] bg-[#070a12]/80 backdrop-blur-md sticky top-0 z-30">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-2.5 group transition-opacity hover:opacity-90">
+        <div class="relative w-8 h-8 flex items-center justify-center bg-[#0d121f] border border-white/[0.12] group-hover:border-indigo-400/60 rounded-[4px] transition-all">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2 19H22" stroke="url(#sb-auth-logo)" stroke-width="2.2" stroke-linecap="round"/>
+            <path d="M4 19V11C4 7.68629 6.68629 5 10 5H14C17.3137 5 20 7.68629 20 11V19" stroke="url(#sb-auth-logo)" stroke-width="2" stroke-linecap="round"/>
+            <path d="M8 19V12M16 19V12" stroke="url(#sb-auth-logo)" stroke-width="1.6" stroke-dasharray="2 2"/>
+            <circle cx="12" cy="5" r="2" fill="#38bdf8"/>
+            <defs>
+              <linearGradient id="sb-auth-logo" x1="2" y1="5" x2="22" y2="19" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#818cf8"/>
+                <stop offset="0.5" stop-color="#c084fc"/>
+                <stop offset="1" stop-color="#38bdf8"/>
+              </linearGradient>
+            </defs>
+          </svg>
         </div>
-        <div>
-          <div class="flex items-center gap-2">
-            <span class="text-base font-bold text-slate-900">SkillBridge</span>
+        <span class="text-[16px] font-bold tracking-tight text-white font-sans">Skill<span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-300 to-cyan-300">Bridge</span></span>
+      </a>
 
-          </div>
-          <p class="text-[11px] text-slate-500 hidden sm:block">Academic &amp; Industry Collaboration Portal</p>
-        </div>
-      </div>
-
-      <div class="flex items-center gap-4 text-xs font-medium">
-        <a href="#how-it-works" class="hidden sm:inline-flex text-slate-600 hover:text-slate-900 transition-colors">How It Works</a>
-        <a href="#portals" class="hidden sm:inline-flex text-slate-600 hover:text-slate-900 transition-colors">Explore Portals</a>
-        <a href="#quick-demo" class="sb-btn sb-btn-secondary text-xs">Demo Personas</a>
+      <div class="flex items-center gap-2 text-xs text-slate-400">
+        <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+        <span class="hidden sm:inline">Enterprise Auth Gateway</span>
       </div>
     </div>
   </header>
 
-  <main class="flex-1 max-w-7xl mx-auto px-4 sm:px-6 py-12 space-y-16">
+  <!-- Main Centered Authentication Screen -->
+  <main class="flex-1 flex items-center justify-center px-4 sm:px-6 py-12 w-full">
+    <div class="w-full max-w-[440px] space-y-6">
 
-    <!-- Hero Section -->
-    <section class="text-center max-w-3xl mx-auto space-y-4 pt-6">
-      <div class="inline-flex items-center gap-1.5 px-3 py-1 bg-slate-100 border border-slate-200 text-slate-700 text-xs font-medium">
-        <span class="material-symbols-outlined text-[15px] text-blue-600">verified</span>
-        <span>Verified Competency Matching &bull; Direct Enterprise Recruitment</span>
-      </div>
-      <h1 class="text-3xl sm:text-5xl font-bold text-slate-900 tracking-tight leading-tight">
-        Connecting students, universities, and industry through verified skills.
-      </h1>
-      <p class="text-sm sm:text-base text-slate-600 max-w-2xl mx-auto leading-relaxed">
-        SkillBridge eliminates hiring guesswork by matching students to internships and jobs based on proctored assessments, verified coding activity, and transparent minimum skill requirements.
-      </p>
-    </section>
+      <!-- Central Login Card -->
+      <div class="sb-card p-6 sm:p-8 rounded-[8px] border border-white/[0.1] shadow-2xl space-y-6">
+        
+        <!-- Header -->
+        <div class="text-center space-y-1.5">
+          <h1 class="text-xl sm:text-2xl font-bold text-slate-100 tracking-tight">Sign In to SkillBridge</h1>
+          <p class="text-xs text-slate-400" id="login-role-desc">Select your workspace role to enter your portal</p>
+        </div>
 
-    <!-- Three Structural Entry Portals -->
-    <section id="portals" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Segmented Role Selector -->
+        <div class="grid grid-cols-3 gap-1 p-1 bg-white/[0.03] border border-white/[0.08] rounded-[6px]">
+          <button type="button" id="tab-student" onclick="setRole('student')" class="py-1.5 text-xs font-semibold rounded-[4px] transition-all bg-indigo-600/20 text-indigo-200 border border-indigo-500/40">Student</button>
+          <button type="button" id="tab-company" onclick="setRole('company')" class="py-1.5 text-xs font-medium rounded-[4px] transition-all text-slate-400 hover:text-white border border-transparent">Company</button>
+          <button type="button" id="tab-institute" onclick="setRole('institute')" class="py-1.5 text-xs font-medium rounded-[4px] transition-all text-slate-400 hover:text-white border border-transparent">Institute</button>
+        </div>
 
-      <!-- Student Card -->
-      <div class="sb-card p-6 flex flex-col justify-between space-y-6 sb-card-interactive">
-        <div class="space-y-4">
-          <div class="w-10 h-10 bg-blue-50 border border-blue-100 flex items-center justify-center text-blue-700">
-            <span class="material-symbols-outlined text-xl">school</span>
-          </div>
-          <div>
-            <div class="flex items-center gap-2 mb-1">
-              <h2 class="text-base font-bold text-slate-900">Student Portal</h2>
-              <span class="sb-badge sb-badge-blue">Learners</span>
+        <!-- Single Clean Login Form -->
+        <form id="login-form" onsubmit="handleLoginSubmit(event)" class="space-y-4">
+          
+          <!-- Email Input -->
+          <div class="space-y-1.5">
+            <label class="block text-xs font-medium text-slate-300" for="login-email">Email Address</label>
+            <div class="relative">
+              <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 text-[18px]">mail</span>
+              <input type="email" id="login-email" required class="sb-input pl-9 rounded-[4px]" placeholder="student@gmail.com" value="student@gmail.com">
             </div>
-            <p class="text-xs text-slate-600 leading-relaxed">
-              Verify technical competency with proctored assessments, link GitHub and LeetCode, and apply to opportunities where your scores match company criteria.
-            </p>
           </div>
-          <ul class="text-xs text-slate-600 space-y-2 pt-2 border-t border-slate-100">
-            <li class="flex items-center gap-2">
-              <span class="material-symbols-outlined text-emerald-600 text-sm">check</span>
-              <span>1000-Point Skill Vector Matrix</span>
-            </li>
-            <li class="flex items-center gap-2">
-              <span class="material-symbols-outlined text-emerald-600 text-sm">check</span>
-              <span>Two-Factor Timed Assessments</span>
-            </li>
-            <li class="flex items-center gap-2">
-              <span class="material-symbols-outlined text-emerald-600 text-sm">check</span>
-              <span>Actionable Skill Gap Insights</span>
-            </li>
-          </ul>
-        </div>
 
-        <button onclick="enterAs('student@gmail.com', 'student', 'Student_Interface/Portal-Dashboard.html')" class="w-full sb-btn sb-btn-primary py-2.5">
-          <span>Enter as Student (Rahul)</span>
-          <span class="material-symbols-outlined text-sm">arrow_forward</span>
-        </button>
-      </div>
-
-      <!-- Company Card -->
-      <div class="sb-card p-6 flex flex-col justify-between space-y-6 sb-card-interactive">
-        <div class="space-y-4">
-          <div class="w-10 h-10 bg-emerald-50 border border-emerald-100 flex items-center justify-center text-emerald-700">
-            <span class="material-symbols-outlined text-xl">corporate_fare</span>
-          </div>
-          <div>
-            <div class="flex items-center gap-2 mb-1">
-              <h2 class="text-base font-bold text-slate-900">Company Console</h2>
-              <span class="sb-badge sb-badge-emerald">Recruiters</span>
+          <!-- Password Input -->
+          <div class="space-y-1.5">
+            <div class="flex items-center justify-between">
+              <label class="block text-xs font-medium text-slate-300" for="login-password">Password</label>
+              <button type="button" onclick="showPasswordHint()" class="text-[11px] text-slate-400 hover:text-slate-200 hover:underline">Forgot password?</button>
             </div>
-            <p class="text-xs text-slate-600 leading-relaxed">
-              Define minimum skill thresholds for job and internship openings. Review pre-screened applicants without sorting through unverified resumes.
-            </p>
-          </div>
-          <ul class="text-xs text-slate-600 space-y-2 pt-2 border-t border-slate-100">
-            <li class="flex items-center gap-2">
-              <span class="material-symbols-outlined text-emerald-600 text-sm">check</span>
-              <span>Define Skill Vector Thresholds</span>
-            </li>
-            <li class="flex items-center gap-2">
-              <span class="material-symbols-outlined text-emerald-600 text-sm">check</span>
-              <span>Automated Candidate Screening</span>
-            </li>
-            <li class="flex items-center gap-2">
-              <span class="material-symbols-outlined text-emerald-600 text-sm">check</span>
-              <span>1-Click Shortlist &amp; Offer Letters</span>
-            </li>
-          </ul>
-        </div>
-
-        <button onclick="enterAs('company@gmail.com', 'company', 'Company_Interface/index.html')" class="w-full sb-btn sb-btn-primary py-2.5">
-          <span>Enter as Company (ABC Tech)</span>
-          <span class="material-symbols-outlined text-sm">arrow_forward</span>
-        </button>
-      </div>
-
-      <!-- Institute Card -->
-      <div class="sb-card p-6 flex flex-col justify-between space-y-6 sb-card-interactive">
-        <div class="space-y-4">
-          <div class="w-10 h-10 bg-amber-50 border border-amber-100 flex items-center justify-center text-amber-700">
-            <span class="material-symbols-outlined text-xl">account_balance</span>
-          </div>
-          <div>
-            <div class="flex items-center gap-2 mb-1">
-              <h2 class="text-base font-bold text-slate-900">Institute Console</h2>
-              <span class="sb-badge sb-badge-amber">Universities</span>
+            <div class="relative">
+              <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 text-[18px]">lock</span>
+              <input type="password" id="login-password" required class="sb-input pl-9 pr-10 rounded-[4px]" placeholder="••••••••" value="123">
+              <button type="button" onclick="togglePasswordVisibility()" class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-300" title="Toggle password visibility">
+                <span class="material-symbols-outlined text-[18px]" id="pwd-icon">visibility</span>
+              </button>
             </div>
-            <p class="text-xs text-slate-600 leading-relaxed">
-              Monitor student cohort readiness, identify skill deficits across engineering departments, and bridge academic learning with industry requirements.
-            </p>
           </div>
-          <ul class="text-xs text-slate-600 space-y-2 pt-2 border-t border-slate-100">
-            <li class="flex items-center gap-2">
-              <span class="material-symbols-outlined text-emerald-600 text-sm">check</span>
-              <span>Cohort Skill Readiness Analytics</span>
-            </li>
-            <li class="flex items-center gap-2">
-              <span class="material-symbols-outlined text-emerald-600 text-sm">check</span>
-              <span>Department Benchmarking (CSE vs ECE)</span>
-            </li>
-            <li class="flex items-center gap-2">
-              <span class="material-symbols-outlined text-emerald-600 text-sm">check</span>
-              <span>Placement Conversion Tracking</span>
-            </li>
-          </ul>
-        </div>
 
-        <button onclick="enterAs('institute@gmail.com', 'institute', 'Institute_Interface/index.html')" class="w-full sb-btn sb-btn-primary py-2.5">
-          <span>Enter as Institute (Apex Inst.)</span>
-          <span class="material-symbols-outlined text-sm">arrow_forward</span>
-        </button>
-      </div>
+          <!-- Remember Me & Role Badge -->
+          <div class="flex items-center justify-between text-xs pt-1">
+            <label class="flex items-center gap-2 text-slate-400 cursor-pointer select-none">
+              <input type="checkbox" checked class="rounded-[2px] bg-white/[0.04] border-white/[0.15]">
+              <span>Remember credentials</span>
+            </label>
+            <span id="role-tag" class="sb-badge sb-badge-blue text-[10px]">Student Workspace</span>
+          </div>
 
-    </section>
+          <!-- Error Alert (Hidden by default) -->
+          <div id="login-error" class="hidden p-2.5 bg-rose-500/10 border border-rose-500/30 text-rose-300 text-xs rounded-[4px] flex items-center gap-2">
+            <span class="material-symbols-outlined text-[16px]">error</span>
+            <span id="login-error-text">Authentication failed</span>
+          </div>
 
-    <!-- How it Works Section -->
-    <section id="how-it-works" class="sb-card p-8 sm:p-10 space-y-8">
-      <div class="text-center max-w-2xl mx-auto space-y-2">
-        <h2 class="text-2xl font-bold text-slate-900">The 4-Step Collaborative Pipeline</h2>
-        <p class="text-xs sm:text-sm text-slate-600">
-          How SkillBridge verifies competency, matches candidates, and automates hiring.
-        </p>
-      </div>
+          <!-- Submit Button -->
+          <button type="submit" id="login-btn" class="w-full sb-btn sb-btn-primary py-2.5 text-xs font-semibold flex items-center justify-center gap-2 rounded-[4px]">
+            <span id="login-btn-text">Sign In to Student Portal</span>
+            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+          </button>
+        </form>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div class="space-y-3 p-4 bg-slate-50 border border-slate-200">
-          <div class="w-8 h-8 bg-white border border-slate-200 flex items-center justify-center font-bold text-slate-900 text-xs">1</div>
-          <h3 class="text-sm font-semibold text-slate-900">Proctored Assessment</h3>
-          <p class="text-xs text-slate-600 leading-relaxed">
-            Students take assessments with two-factor timers, webcam face verification, and tab-switch integrity checks.
+        <!-- Card Footer -->
+        <div class="pt-4 border-t border-white/[0.08] text-center space-y-2">
+          <p class="text-[11px] text-slate-400">
+            Need access? Academic or enterprise partners can <a href="mailto:placement@apexuniv.edu" class="text-indigo-400 hover:underline">request workspace onboarding</a>.
           </p>
         </div>
 
-        <div class="space-y-3 p-4 bg-slate-50 border border-slate-200">
-          <div class="w-8 h-8 bg-white border border-slate-200 flex items-center justify-center font-bold text-slate-900 text-xs">2</div>
-          <h3 class="text-sm font-semibold text-slate-900">Skill Score Calibration</h3>
-          <p class="text-xs text-slate-600 leading-relaxed">
-            Test results and coding footprint (GitHub/LeetCode) are normalized into a verifiable 1000-point skill vector.
-          </p>
-        </div>
-
-        <div class="space-y-3 p-4 bg-slate-50 border border-slate-200">
-          <div class="w-8 h-8 bg-white border border-slate-200 flex items-center justify-center font-bold text-slate-900 text-xs">3</div>
-          <h3 class="text-sm font-semibold text-slate-900">Transparent Matching Gate</h3>
-          <p class="text-xs text-slate-600 leading-relaxed">
-            Students view exactly where they meet employer requirements (&ge; required score) and receive gap remediation for deficits.
-          </p>
-        </div>
-
-        <div class="space-y-3 p-4 bg-slate-50 border border-slate-200">
-          <div class="w-8 h-8 bg-white border border-slate-200 flex items-center justify-center font-bold text-slate-900 text-xs">4</div>
-          <h3 class="text-sm font-semibold text-slate-900">Direct Shortlist &amp; Offer</h3>
-          <p class="text-xs text-slate-600 leading-relaxed">
-            Eligible candidates complete a 20-question proctored screening test to deliver their resume directly to the employer.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Demo Personas Quick Selector -->
-    <section id="quick-demo" class="sb-card p-6 sm:p-8 space-y-4">
-      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200 pb-4">
-        <div>
-          <h2 class="text-base font-bold text-slate-900">Evaluator Persona Demo Selector</h2>
-          <p class="text-xs text-slate-600">Switch context with 1-click to test the complete user journey.</p>
-        </div>
-        <span class="text-xs text-slate-500 font-medium">Single Source of Truth Store Active</span>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-1">
-        <button onclick="enterAs('student@gmail.com', 'student', 'Student_Interface/Portal-Dashboard.html')" class="p-3.5 border border-slate-200 bg-white hover:border-slate-300 hover:bg-slate-50/50 flex items-center gap-3 text-left transition">
-          <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=100&auto=format&fit=crop&q=80" class="w-10 h-10 object-cover border border-slate-200" alt="Rahul Sharma">
-          <div>
-            <div class="text-xs font-semibold text-slate-900">Rahul Sharma</div>
-            <div class="text-[11px] text-slate-500">Student &bull; Java 820/1000</div>
-          </div>
-        </button>
-
-        <button onclick="enterAs('company@gmail.com', 'company', 'Company_Interface/index.html')" class="p-3.5 border border-slate-200 bg-white hover:border-slate-300 hover:bg-slate-50/50 flex items-center gap-3 text-left transition">
-          <div class="w-10 h-10 bg-emerald-50 border border-emerald-200 flex items-center justify-center text-emerald-700">
-            <span class="material-symbols-outlined text-xl">corporate_fare</span>
-          </div>
-          <div>
-            <div class="text-xs font-semibold text-slate-900">ABC Tech Corp</div>
-            <div class="text-[11px] text-slate-500">Recruiter &bull; 4 Open Drives</div>
-          </div>
-        </button>
-
-        <button onclick="enterAs('institute@gmail.com', 'institute', 'Institute_Interface/index.html')" class="p-3.5 border border-slate-200 bg-white hover:border-slate-300 hover:bg-slate-50/50 flex items-center gap-3 text-left transition">
-          <div class="w-10 h-10 bg-amber-50 border border-amber-200 flex items-center justify-center text-amber-700">
-            <span class="material-symbols-outlined text-xl">account_balance</span>
-          </div>
-          <div>
-            <div class="text-xs font-semibold text-slate-900">Apex Institute of Technology</div>
-            <div class="text-[11px] text-slate-500">Academic &bull; 1,248 Students</div>
-          </div>
-        </button>
-      </div>
-    </section>
-
+    </div>
   </main>
 
-  <!-- Clean Footer -->
-  <footer class="w-full border-t border-slate-200 bg-white py-6">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
-      <div>
-        <strong class="text-slate-200">SkillBridge</strong> &bull; Unified Academic &amp; Industry Collaboration Platform
+  <!-- Lower Corner Demo Login Section (Discrete 1-Click Access) -->
+  <aside class="fixed bottom-5 right-5 z-40 max-w-[310px] w-full" aria-label="Demo Login Section">
+    <div class="sb-card p-3.5 rounded-[6px] border border-white/[0.12] shadow-2xl space-y-2.5" style="background: rgba(13, 18, 32, 0.96); backdrop-filter: blur(20px);">
+      <div class="flex items-center justify-between pb-2 border-b border-white/[0.08]">
+        <div class="flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-indigo-400"></span>
+          <span class="text-xs font-semibold text-slate-200">Demo Login Access</span>
+        </div>
+        <span class="text-[10px] text-slate-400 font-mono bg-white/[0.04] px-1.5 py-0.5 rounded-[3px] border border-white/[0.06]">1-Click</span>
       </div>
+      <p class="text-[11px] text-slate-400 leading-snug">
+        Explore internal platform features without typing credentials:
+      </p>
+      <div class="space-y-1.5">
+        <!-- Student Demo -->
+        <button onclick="enterAs('student@gmail.com', 'student', 'Student_Interface/Portal-Dashboard.html')" class="w-full px-2.5 py-1.5 bg-white/[0.03] hover:bg-white/[0.08] border border-white/[0.08] hover:border-white/[0.2] rounded-[4px] flex items-center justify-between text-left transition group">
+          <div class="flex items-center gap-2">
+            <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=60&auto=format&fit=crop&q=80" class="w-6 h-6 object-cover rounded-[3px] border border-white/[0.1]" alt="Rahul Sharma">
+            <div>
+              <div class="text-xs font-medium text-slate-200 group-hover:text-white">Rahul Sharma</div>
+              <div class="text-[10px] text-slate-400">Student &bull; Java Track</div>
+            </div>
+          </div>
+          <span class="material-symbols-outlined text-[16px] text-slate-400 group-hover:text-white">arrow_forward</span>
+        </button>
+
+        <!-- Company Demo -->
+        <button onclick="enterAs('company@gmail.com', 'company', 'Company_Interface/index.html')" class="w-full px-2.5 py-1.5 bg-white/[0.03] hover:bg-white/[0.08] border border-white/[0.08] hover:border-white/[0.2] rounded-[4px] flex items-center justify-between text-left transition group">
+          <div class="flex items-center gap-2">
+            <div class="w-6 h-6 bg-white/[0.05] border border-white/[0.1] rounded-[3px] flex items-center justify-center text-slate-300">
+              <span class="material-symbols-outlined text-[15px]">corporate_fare</span>
+            </div>
+            <div>
+              <div class="text-xs font-medium text-slate-200 group-hover:text-white">ABC Tech Corp</div>
+              <div class="text-[10px] text-slate-400">Corporate Recruiter</div>
+            </div>
+          </div>
+          <span class="material-symbols-outlined text-[16px] text-slate-400 group-hover:text-white">arrow_forward</span>
+        </button>
+
+        <!-- Institute Demo -->
+        <button onclick="enterAs('institute@gmail.com', 'institute', 'Institute_Interface/index.html')" class="w-full px-2.5 py-1.5 bg-white/[0.03] hover:bg-white/[0.08] border border-white/[0.08] hover:border-white/[0.2] rounded-[4px] flex items-center justify-between text-left transition group">
+          <div class="flex items-center gap-2">
+            <div class="w-6 h-6 bg-white/[0.05] border border-white/[0.1] rounded-[3px] flex items-center justify-center text-slate-300">
+              <span class="material-symbols-outlined text-[15px]">account_balance</span>
+            </div>
+            <div>
+              <div class="text-xs font-medium text-slate-200 group-hover:text-white">Apex Institute of Tech</div>
+              <div class="text-[10px] text-slate-400">Placement Cell</div>
+            </div>
+          </div>
+          <span class="material-symbols-outlined text-[16px] text-slate-400 group-hover:text-white">arrow_forward</span>
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Clean Minimal Footer -->
+  <footer class="w-full border-t border-white/[0.08] bg-[#070a12]/90 py-4">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-slate-400">
       <div>
-        Institutional &amp; Industry Collaboration Platform
+        <strong class="text-slate-200 font-medium">SkillBridge</strong> &bull; Enterprise Academic &amp; Industry Collaboration Platform
+      </div>
+      <div class="flex items-center gap-4 text-[11px]">
+        <a href="mailto:placement@apexuniv.edu" class="hover:text-slate-200 transition">Contact Placement Cell</a>
+        <span>&bull;</span>
+        <span>Version 7.1</span>
       </div>
     </div>
   </footer>
 
   <script src="js/store.js"></script>
   <script>
+    let currentRole = 'student';
+
+    const roleConfig = {
+      student: {
+        email: 'student@gmail.com',
+        desc: 'Access assessments, skill matrix, and verified applications',
+        btnText: 'Sign In to Student Portal',
+        badgeText: 'Student Workspace',
+        badgeClass: 'sb-badge sb-badge-blue text-[10px]',
+        redirectUrl: 'Student_Interface/Portal-Dashboard.html'
+      },
+      company: {
+        email: 'company@gmail.com',
+        desc: 'Manage job listings, define skill gating, and hire candidates',
+        btnText: 'Sign In to Company Console',
+        badgeText: 'Company Console',
+        badgeClass: 'sb-badge sb-badge-emerald text-[10px]',
+        redirectUrl: 'Company_Interface/index.html'
+      },
+      institute: {
+        email: 'institute@gmail.com',
+        desc: 'Review cohort skill readiness, departments, and placement rates',
+        btnText: 'Sign In to Institute Console',
+        badgeText: 'Institute Console',
+        badgeClass: 'sb-badge sb-badge-amber text-[10px]',
+        redirectUrl: 'Institute_Interface/index.html'
+      }
+    };
+
+    function setRole(role) {
+      currentRole = role;
+      const cfg = roleConfig[role];
+
+      // Update Tab Styles
+      ['student', 'company', 'institute'].forEach(r => {
+        const tab = document.getElementById('tab-' + r);
+        if (r === role) {
+          tab.className = 'py-1.5 text-xs font-semibold rounded-[4px] transition-all bg-indigo-600/20 text-indigo-200 border border-indigo-500/40';
+        } else {
+          tab.className = 'py-1.5 text-xs font-medium rounded-[4px] transition-all text-slate-400 hover:text-white border border-transparent';
+        }
+      });
+
+      // Update Inputs & Labels
+      const emailInput = document.getElementById('login-email');
+      emailInput.value = cfg.email;
+      emailInput.placeholder = cfg.email;
+
+      document.getElementById('login-role-desc').innerText = cfg.desc;
+      document.getElementById('login-btn-text').innerText = cfg.btnText;
+
+      const badge = document.getElementById('role-tag');
+      badge.className = cfg.badgeClass;
+      badge.innerText = cfg.badgeText;
+
+      hideError();
+    }
+
+    function togglePasswordVisibility() {
+      const pwd = document.getElementById('login-password');
+      const icon = document.getElementById('pwd-icon');
+      if (pwd.type === 'password') {
+        pwd.type = 'text';
+        icon.innerText = 'visibility_off';
+      } else {
+        pwd.type = 'password';
+        icon.innerText = 'visibility';
+      }
+    }
+
+    function showPasswordHint() {
+      alert('Default demo password for all accounts is "123". You can also use the 1-click Demo Login in the lower corner.');
+    }
+
+    function showError(msg) {
+      const errBox = document.getElementById('login-error');
+      const errText = document.getElementById('login-error-text');
+      errText.innerText = msg;
+      errBox.classList.remove('hidden');
+    }
+
+    function hideError() {
+      const errBox = document.getElementById('login-error');
+      errBox.classList.add('hidden');
+    }
+
+    function handleLoginSubmit(event) {
+      event.preventDefault();
+      hideError();
+
+      const email = document.getElementById('login-email').value.trim();
+      const password = document.getElementById('login-password').value;
+
+      if (!email) {
+        showError('Please enter an email address.');
+        return;
+      }
+
+      if (window.SkillBridgeStore) {
+        // Authenticate via store
+        const user = window.SkillBridgeStore.login(email, password, currentRole);
+        if (user) {
+          const redirectUrl = roleConfig[user.role || currentRole].redirectUrl;
+          window.location.href = redirectUrl;
+          return;
+        }
+      }
+
+      // Fallback redirection
+      const fallbackUrl = roleConfig[currentRole].redirectUrl;
+      window.location.href = fallbackUrl;
+    }
+
     function enterAs(email, role, redirectUrl) {
       if (window.SkillBridgeStore) {
         window.SkillBridgeStore.login(email, role);
@@ -279,4 +323,5 @@
     }
   </script>
 </body>
+
 </html>
