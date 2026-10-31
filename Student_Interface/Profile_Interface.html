@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -14,12 +14,85 @@
 </head>
 <body class="min-h-screen flex flex-col bg-slate-50 text-slate-900">
 
+  <!-- Global Navigation Header (Pre-rendered for zero transition flicker) -->
+  <header id="sb-global-header" data-sb-role="student" data-sb-user="std_rahul" data-sb-page="profile_interface.html" class="sticky top-0 z-50 w-full h-16 border-b border-white/[0.08] bg-[#070a12]/90 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-6 text-sm font-sans">
+      
+      <!-- Left: Brand Logo & Role Pill -->
+      <div class="flex items-center gap-3.5 flex-shrink-0">
+        <a href="../index.html" class="flex items-center gap-2.5 group hover:opacity-90">
+          <div class="relative w-8 h-8 flex items-center justify-center bg-[#0d121f] border border-white/[0.12] rounded-[4px]">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2 19H22" stroke="url(#sb-logo-grad)" stroke-width="2.2" stroke-linecap="round"/>
+              <path d="M4 19V11C4 7.68629 6.68629 5 10 5H14C17.3137 5 20 7.68629 20 11V19" stroke="url(#sb-logo-grad)" stroke-width="2" stroke-linecap="round"/>
+              <path d="M8 19V12M16 19V12" stroke="url(#sb-logo-grad)" stroke-width="1.6" stroke-dasharray="2 2"/>
+              <circle cx="12" cy="5" r="2" fill="#38bdf8"/>
+              <defs>
+                <linearGradient id="sb-logo-grad" x1="2" y1="5" x2="22" y2="19" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#818cf8"/>
+                  <stop offset="0.5" stop-color="#c084fc"/>
+                  <stop offset="1" stop-color="#38bdf8"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <span class="text-[16px] font-bold tracking-tight text-white font-sans">Skill<span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-300 to-cyan-300">Bridge</span></span>
+        </a>
+        <div class="hidden sm:block"><span class="sb-badge sb-badge-blue text-[11px]"><span class="w-1.5 h-1.5 rounded-full bg-blue-400"></span>Student</span></div>
+      </div>
+
+      <!-- Center: Spacious Role Navigation Links -->
+      <nav class="hidden md:flex items-center gap-1.5 lg:gap-2">
+        <a href="../Student_Interface/Portal-Dashboard.html" class="flex items-center gap-1.5 px-3.5 py-1.5 lg:px-4 lg:py-2 text-xs tracking-tight text-slate-400 hover:text-slate-100 hover:bg-white/[0.04] border border-transparent font-medium rounded-[4px]">
+          <span class="material-symbols-outlined text-[16px] text-slate-400">space_dashboard</span>
+          <span>Dashboard</span>
+        </a>
+        <a href="../Student_Interface/Skills_Overview.html" class="flex items-center gap-1.5 px-3.5 py-1.5 lg:px-4 lg:py-2 text-xs tracking-tight text-slate-400 hover:text-slate-100 hover:bg-white/[0.04] border border-transparent font-medium rounded-[4px]">
+          <span class="material-symbols-outlined text-[16px] text-slate-400">psychology</span>
+          <span>Skill Matrix</span>
+        </a>
+        <a href="../Opportunity_Interface/Opportunities_Interface.html" class="flex items-center gap-1.5 px-3.5 py-1.5 lg:px-4 lg:py-2 text-xs tracking-tight text-slate-400 hover:text-slate-100 hover:bg-white/[0.04] border border-transparent font-medium rounded-[4px]">
+          <span class="material-symbols-outlined text-[16px] text-slate-400">work</span>
+          <span>Opportunities</span>
+        </a>
+        <a href="../Assessment_Interface/index.html" class="flex items-center gap-1.5 px-3.5 py-1.5 lg:px-4 lg:py-2 text-xs tracking-tight text-slate-400 hover:text-slate-100 hover:bg-white/[0.04] border border-transparent font-medium rounded-[4px]">
+          <span class="material-symbols-outlined text-[16px] text-slate-400">quiz</span>
+          <span>Assessments</span>
+        </a>
+        <a href="../Student_Interface/My_Applications.html" class="flex items-center gap-1.5 px-3.5 py-1.5 lg:px-4 lg:py-2 text-xs tracking-tight text-slate-400 hover:text-slate-100 hover:bg-white/[0.04] border border-transparent font-medium rounded-[4px]">
+          <span class="material-symbols-outlined text-[16px] text-slate-400">assignment</span>
+          <span>Applications</span>
+        </a>
+        <a href="../Student_Interface/Activities_Interface.html" class="flex items-center gap-1.5 px-3.5 py-1.5 lg:px-4 lg:py-2 text-xs tracking-tight text-slate-400 hover:text-slate-100 hover:bg-white/[0.04] border border-transparent font-medium rounded-[4px]">
+          <span class="material-symbols-outlined text-[16px] text-slate-400">code_blocks</span>
+          <span>Activities</span>
+        </a>
+      </nav>
+
+      <!-- Right: Active Identity Capsule & Logout -->
+      <div class="flex items-center gap-3 flex-shrink-0">
+        <a href="../Student_Interface/Profile_Interface.html" class="flex items-center gap-2.5 px-3 py-1.5 bg-white/[0.03] hover:bg-white/[0.08] border border-white/[0.08] hover:border-white/[0.2] rounded-[4px] group" title="View Your Profile (Rahul Sharma)">
+          <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=300&auto=format&fit=crop&q=80" alt="Rahul Sharma" width="24" height="24" loading="eager" class="w-6 h-6 object-cover rounded-[3px] border border-white/[0.1] group-hover:border-indigo-400/60">
+          <span class="hidden lg:block text-xs font-medium text-slate-200 group-hover:text-white">Rahul Sharma</span>
+        </a>
+
+        <a href="../index.html" class="p-2 text-slate-400 hover:text-rose-400 hover:bg-rose-500/10 rounded-[4px] border border-transparent flex items-center justify-center" title="Exit to Portal Gateway">
+          <span class="material-symbols-outlined text-[19px]">logout</span>
+        </a>
+
+        <button id="sb-mobile-toggle" class="md:hidden p-2 text-slate-400 hover:text-white hover:bg-white/10 rounded-[4px] border border-transparent">
+          <span class="material-symbols-outlined text-[20px]">menu</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
   <main class="flex-1 max-w-7xl mx-auto px-4 sm:px-6 py-8 w-full space-y-6">
 
     <!-- Profile Header Banner -->
     <div class="sb-card p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 border-slate-200">
       <div class="flex items-center gap-5">
-        <img id="prof-avatar" src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=300&auto=format&fit=crop&q=80" alt="Avatar" class="w-20 h-20 object-cover border border-slate-200">
+        <img id="prof-avatar" src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=300&auto=format&fit=crop&q=80" alt="Avatar" width="80" height="80" loading="eager" class="w-20 h-20 object-cover border border-slate-200">
         <div class="space-y-1">
           <div class="flex items-center gap-2 flex-wrap">
             <h1 id="prof-name" class="text-2xl font-bold text-slate-900">Rahul Sharma</h1>
@@ -83,8 +156,31 @@
             <a href="Skills_Overview.html" class="text-xs font-medium text-blue-600 hover:text-blue-700 hover:underline">Full Matrix &rarr;</a>
           </div>
 
-          <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 text-xs" id="prof-skills-grid">
-            <!-- Dynamically populated -->
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 text-xs min-h-[140px]" id="prof-skills-grid">
+            <div class="sb-card-elevated p-3 space-y-1">
+              <span class="text-slate-500 text-[11px]">Java</span>
+              <div class="font-bold text-slate-900 font-mono text-sm">840 <span class="text-xs text-slate-500 font-normal">/ 1000</span></div>
+            </div>
+            <div class="sb-card-elevated p-3 space-y-1">
+              <span class="text-slate-500 text-[11px]">SQL</span>
+              <div class="font-bold text-slate-900 font-mono text-sm">780 <span class="text-xs text-slate-500 font-normal">/ 1000</span></div>
+            </div>
+            <div class="sb-card-elevated p-3 space-y-1">
+              <span class="text-slate-500 text-[11px]">Spring Boot</span>
+              <div class="font-bold text-slate-900 font-mono text-sm">710 <span class="text-xs text-slate-500 font-normal">/ 1000</span></div>
+            </div>
+            <div class="sb-card-elevated p-3 space-y-1">
+              <span class="text-slate-500 text-[11px]">React</span>
+              <div class="font-bold text-slate-900 font-mono text-sm">650 <span class="text-xs text-slate-500 font-normal">/ 1000</span></div>
+            </div>
+            <div class="sb-card-elevated p-3 space-y-1">
+              <span class="text-slate-500 text-[11px]">Git</span>
+              <div class="font-bold text-slate-900 font-mono text-sm">890 <span class="text-xs text-slate-500 font-normal">/ 1000</span></div>
+            </div>
+            <div class="sb-card-elevated p-3 space-y-1">
+              <span class="text-slate-500 text-[11px]">System Design</span>
+              <div class="font-bold text-slate-900 font-mono text-sm">620 <span class="text-xs text-slate-500 font-normal">/ 1000</span></div>
+            </div>
           </div>
         </div>
 
@@ -168,45 +264,79 @@
   <script src="../js/store.js"></script>
   <script src="../js/nav.js"></script>
   <script>
+    let lastRenderedKey = null;
+
     function renderProfile() {
       if (!window.SkillBridgeStore) return;
       const std = window.SkillBridgeStore.getCurrentStudent();
       if (!std) return;
 
-      const avatarEl = document.getElementById('prof-avatar');
-      if (avatarEl && std.avatar) avatarEl.src = std.avatar;
+      const currentKey = `${std.id}_${std.name}_${std.department}_${std.cgpa}_${JSON.stringify(std.skills || {})}`;
+      if (currentKey === lastRenderedKey) return;
+      lastRenderedKey = currentKey;
 
-      document.getElementById('prof-name').innerText = std.name;
-      document.getElementById('prof-headline').innerText = `${std.college} • ${std.department} • ${std.year}`;
-      document.getElementById('prof-email').innerText = `${std.email} • ${std.phone || '+91 98765 43210'}`;
-      document.getElementById('prof-college').innerText = std.college;
-      document.getElementById('prof-dept').innerText = std.department;
-      document.getElementById('prof-cgpa').innerText = `${std.cgpa} / 10.0`;
-      document.getElementById('prof-bio').innerText = std.bio || 'Computer Science undergraduate.';
+      const avatarEl = document.getElementById('prof-avatar');
+      if (avatarEl && std.avatar && avatarEl.getAttribute('src') !== std.avatar) {
+        avatarEl.src = std.avatar;
+      }
+
+      const nameEl = document.getElementById('prof-name');
+      if (nameEl && nameEl.innerText !== std.name) nameEl.innerText = std.name;
+
+      const headlineEl = document.getElementById('prof-headline');
+      const headlineText = `${std.college} \u2022 ${std.department} \u2022 ${std.year}`;
+      if (headlineEl && headlineEl.innerText !== headlineText) headlineEl.innerText = headlineText;
+
+      const emailEl = document.getElementById('prof-email');
+      const emailText = `${std.email} \u2022 ${std.phone || '+91 98765 43210'}`;
+      if (emailEl && emailEl.innerText !== emailText) emailEl.innerText = emailText;
+
+      const colEl = document.getElementById('prof-college');
+      if (colEl && colEl.innerText !== std.college) colEl.innerText = std.college;
+
+      const deptEl = document.getElementById('prof-dept');
+      if (deptEl && deptEl.innerText !== std.department) deptEl.innerText = std.department;
+
+      const cgpaEl = document.getElementById('prof-cgpa');
+      const cgpaText = `${std.cgpa} / 10.0`;
+      if (cgpaEl && cgpaEl.innerText !== cgpaText) cgpaEl.innerText = cgpaText;
+
+      const bioEl = document.getElementById('prof-bio');
+      const bioText = std.bio || 'Pre-final year Computer Science undergraduate passionate about high-throughput backend microservices and distributed database indexing.';
+      if (bioEl && bioEl.innerText !== bioText) bioEl.innerText = bioText;
 
       const ghEl = document.getElementById('prof-gh');
-      if (ghEl) ghEl.innerText = std.github ? `@${std.github.split('/').pop()}` : '@candidate';
+      const ghText = std.github ? `@${std.github.split('/').pop()}` : '@rahul-sharma';
+      if (ghEl && ghEl.innerText !== ghText) ghEl.innerText = ghText;
 
       const lcEl = document.getElementById('prof-lc');
-      if (lcEl) lcEl.innerText = std.leetcode ? `@${std.leetcode.split('/').pop()}` : '@leetcode_dev';
+      const lcText = std.leetcode ? `@${std.leetcode.split('/').pop()}` : '@rahul_codes';
+      if (lcEl && lcEl.innerText !== lcText) lcEl.innerText = lcText;
 
       const liEl = document.getElementById('prof-li');
-      if (liEl) liEl.innerText = std.linkedin ? `in/${std.linkedin.split('/').pop()}` : 'in/verified-candidate';
+      const liText = std.linkedin ? `in/${std.linkedin.split('/').pop()}` : 'in/rahulsharma';
+      if (liEl && liEl.innerText !== liText) liEl.innerText = liText;
 
       const grid = document.getElementById('prof-skills-grid');
-      grid.innerHTML = '';
-      const skills = std.skills || {};
-      for (const [k, v] of Object.entries(skills)) {
-        if (k === 'Platform Activities') continue;
-        const box = document.createElement('div');
-        box.className = 'sb-card-elevated p-3 space-y-1';
-        box.innerHTML = `
-          <span class="text-slate-500 text-[11px]">${k}</span>
-          <div class="font-bold text-slate-900 font-mono text-sm">${v} <span class="text-xs text-slate-500 font-normal">/ 1000</span></div>
-        `;
-        grid.appendChild(box);
+      if (grid) {
+        const skills = std.skills || {};
+        const entries = Object.entries(skills).filter(([k]) => k !== 'Platform Activities');
+        if (entries.length > 0) {
+          const html = entries.map(([k, v]) => `
+            <div class="sb-card-elevated p-3 space-y-1">
+              <span class="text-slate-500 text-[11px]">${k}</span>
+              <div class="font-bold text-slate-900 font-mono text-sm">${v} <span class="text-xs text-slate-500 font-normal">/ 1000</span></div>
+            </div>
+          `).join('');
+          if (grid.innerHTML.trim() !== html.trim()) {
+            grid.innerHTML = html;
+          }
+        }
       }
     }
+
+    // Synchronous execution immediately upon script evaluation ensures frame 0 stability
+    renderProfile();
 
     function openEditProfileModal() {
       const std = window.SkillBridgeStore.getCurrentStudent();
@@ -233,6 +363,7 @@
       window.SkillBridgeStore.updateStudentProfile({ name, department: dept, cgpa, bio });
       closeEditProfileModal();
       alert('Profile updated successfully.');
+      lastRenderedKey = null;
       renderProfile();
     });
 

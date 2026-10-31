@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -12,6 +12,71 @@
   <link rel="stylesheet" href="../css/design-system.css">
 </head>
 <body class="min-h-screen flex flex-col bg-slate-50 text-slate-900">
+
+  <!-- Global Navigation Header (Pre-rendered for zero transition flicker) -->
+  <header id="sb-global-header" data-sb-role="company" data-sb-user="comp_abc" data-sb-page="profile.html" class="sticky top-0 z-50 w-full h-16 border-b border-white/[0.08] bg-[#070a12]/90 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-6 text-sm font-sans">
+      
+      <!-- Left: Brand Logo & Role Pill -->
+      <div class="flex items-center gap-3.5 flex-shrink-0">
+        <a href="../index.html" class="flex items-center gap-2.5 group hover:opacity-90">
+          <div class="relative w-8 h-8 flex items-center justify-center bg-[#0d121f] border border-white/[0.12] rounded-[4px]">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2 19H22" stroke="url(#sb-logo-grad)" stroke-width="2.2" stroke-linecap="round"/>
+              <path d="M4 19V11C4 7.68629 6.68629 5 10 5H14C17.3137 5 20 7.68629 20 11V19" stroke="url(#sb-logo-grad)" stroke-width="2" stroke-linecap="round"/>
+              <path d="M8 19V12M16 19V12" stroke="url(#sb-logo-grad)" stroke-width="1.6" stroke-dasharray="2 2"/>
+              <circle cx="12" cy="5" r="2" fill="#38bdf8"/>
+              <defs>
+                <linearGradient id="sb-logo-grad" x1="2" y1="5" x2="22" y2="19" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#818cf8"/>
+                  <stop offset="0.5" stop-color="#c084fc"/>
+                  <stop offset="1" stop-color="#38bdf8"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <span class="text-[16px] font-bold tracking-tight text-white font-sans">Skill<span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-300 to-cyan-300">Bridge</span></span>
+        </a>
+        <div class="hidden sm:block"><span class="sb-badge sb-badge-emerald text-[11px]"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>Company</span></div>
+      </div>
+
+      <!-- Center: Spacious Role Navigation Links -->
+      <nav class="hidden md:flex items-center gap-1.5 lg:gap-2">
+        <a href="../Company_Interface/index.html" class="flex items-center gap-1.5 px-3.5 py-1.5 lg:px-4 lg:py-2 text-xs tracking-tight text-slate-400 hover:text-slate-100 hover:bg-white/[0.04] border border-transparent font-medium rounded-[4px]">
+          <span class="material-symbols-outlined text-[16px] text-slate-400">space_dashboard</span>
+          <span>Dashboard</span>
+        </a>
+        <a href="../Company_Interface/opportunities.html" class="flex items-center gap-1.5 px-3.5 py-1.5 lg:px-4 lg:py-2 text-xs tracking-tight text-slate-400 hover:text-slate-100 hover:bg-white/[0.04] border border-transparent font-medium rounded-[4px]">
+          <span class="material-symbols-outlined text-[16px] text-slate-400">post_add</span>
+          <span>Listings</span>
+        </a>
+        <a href="../Company_Interface/applicants.html" class="flex items-center gap-1.5 px-3.5 py-1.5 lg:px-4 lg:py-2 text-xs tracking-tight text-slate-400 hover:text-slate-100 hover:bg-white/[0.04] border border-transparent font-medium rounded-[4px]">
+          <span class="material-symbols-outlined text-[16px] text-slate-400">groups</span>
+          <span>Candidates</span>
+        </a>
+        <a href="../Company_Interface/shortlisted.html" class="flex items-center gap-1.5 px-3.5 py-1.5 lg:px-4 lg:py-2 text-xs tracking-tight text-slate-400 hover:text-slate-100 hover:bg-white/[0.04] border border-transparent font-medium rounded-[4px]">
+          <span class="material-symbols-outlined text-[16px] text-slate-400">verified</span>
+          <span>Shortlisted</span>
+        </a>
+      </nav>
+
+      <!-- Right: Active Identity Capsule & Logout -->
+      <div class="flex items-center gap-3 flex-shrink-0">
+        <a href="../Company_Interface/profile.html" class="flex items-center gap-2.5 px-3 py-1.5 bg-white/[0.03] hover:bg-white/[0.08] border border-white/[0.08] hover:border-white/[0.2] rounded-[4px] group" title="View Your Profile (ABC Tech Corp)">
+          <div class="w-6 h-6 bg-white/[0.05] border border-white/[0.1] rounded-[3px] flex items-center justify-center text-emerald-400"><span class="material-symbols-outlined text-[15px]">corporate_fare</span></div>
+          <span class="hidden lg:block text-xs font-medium text-slate-200 group-hover:text-white">ABC Tech Corp</span>
+        </a>
+
+        <a href="../index.html" class="p-2 text-slate-400 hover:text-rose-400 hover:bg-rose-500/10 rounded-[4px] border border-transparent flex items-center justify-center" title="Exit to Portal Gateway">
+          <span class="material-symbols-outlined text-[19px]">logout</span>
+        </a>
+
+        <button id="sb-mobile-toggle" class="md:hidden p-2 text-slate-400 hover:text-white hover:bg-white/10 rounded-[4px] border border-transparent">
+          <span class="material-symbols-outlined text-[20px]">menu</span>
+        </button>
+      </div>
+    </div>
+  </header>
 
   <main class="flex-1 max-w-5xl mx-auto px-4 sm:px-6 py-8 w-full space-y-6">
 

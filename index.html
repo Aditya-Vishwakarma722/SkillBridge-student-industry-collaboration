@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sign In — SkillBridge Platform</title>
+  <title>Sign In — SkillBridge Enterprise Platform</title>
 
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   <link
@@ -19,15 +19,17 @@
 
 <body class="min-h-screen flex flex-col justify-between bg-[#07090e] text-slate-100 antialiased selection:bg-indigo-500/30 relative overflow-x-hidden">
 
-  <!-- Ambient Aesthetic Background (Connecting Campus & Enterprise) -->
+  <!-- Ambient Authentic Photographic Background (Campus & Enterprise Modern Architecture) -->
   <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+    <!-- Crisp, High-Resolution Architectural Skybridge (No cheap particles, no snow) -->
     <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=2000&q=85"
-         alt="SkillBridge Campus & Industry Skybridge"
-         class="w-full h-full object-cover object-center transform scale-110"
-         style="filter: blur(12px) brightness(0.55) contrast(0.78) saturate(0.95); opacity: 1;">
-    <!-- Soft Subtle Tint Scrim (Allows image to remain completely visible) -->
-    <div class="absolute inset-0 bg-black/35"></div>
-    <div class="absolute inset-0 bg-gradient-to-t from-[#07090e]/60 via-transparent to-[#07090e]/40"></div>
+         alt="SkillBridge Campus & Industry Skybridge Architecture"
+         class="w-full h-full object-cover object-center transform scale-105"
+         style="filter: brightness(0.48) contrast(1.1) saturate(0.95); opacity: 0.52;">
+
+    <!-- Subtle Cinematic Gradient & Ambient Lighting (Authentic, Classy Depth) -->
+    <div class="absolute inset-0 bg-gradient-to-t from-[#07090e] via-[#07090e]/65 to-[#07090e]/80"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,_rgba(99,102,241,0.16),_transparent_70%)]"></div>
   </div>
 
   <!-- Top Minimal Header (Matching Brand Logo) -->
@@ -59,18 +61,26 @@
     </div>
   </header>
 
-  <!-- Main Centered Authentication Screen -->
-  <main class="flex-1 flex items-center justify-center px-4 sm:px-6 py-10 w-full relative z-10">
-    <div class="w-full max-w-[420px] space-y-5">
+  <!-- Main Centered Authentication Experience (Spacious, Uncluttered, Focused) -->
+  <main class="flex-1 flex items-center justify-center px-4 sm:px-6 py-12 sm:py-16 w-full relative z-10">
+    <div class="w-full max-w-[430px] space-y-6">
 
-      <!-- Central Login Card -->
-      <div class="sb-card p-6 sm:p-8 rounded-[8px] border border-white/[0.1] shadow-2xl space-y-5" style="background: rgba(13, 18, 32, 0.88); backdrop-filter: blur(20px);">
-        
-        <!-- Header -->
-        <div class="text-center space-y-1.5">
-          <h1 class="text-xl sm:text-2xl font-bold text-slate-100 tracking-tight">Sign In to SkillBridge</h1>
-          <p class="text-xs text-slate-400" id="login-role-desc">Select your workspace role to enter your portal</p>
+      <!-- Context Welcome Header -->
+      <div class="text-center space-y-2">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-[11px] font-semibold text-indigo-300">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+          <span>Official Placement &amp; Enterprise Portal</span>
         </div>
+        <h1 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+          Sign In to SkillBridge
+        </h1>
+        <p class="text-xs text-slate-400 max-w-sm mx-auto leading-relaxed" id="login-role-desc">
+          Access assessments, skill vector matrix, and verified job drives
+        </p>
+      </div>
+
+      <!-- Frosted Glass Authentication Card -->
+      <div class="sb-card p-6 sm:p-8 rounded-[8px] border border-white/[0.12] shadow-2xl space-y-5" style="background: rgba(13, 18, 32, 0.88); backdrop-filter: blur(24px);">
 
         <!-- Segmented Role Selector -->
         <div class="grid grid-cols-3 gap-1 p-1 bg-white/[0.03] border border-white/[0.08] rounded-[6px]">
@@ -82,26 +92,16 @@
         <!-- Single Clean Login Form -->
         <form id="login-form" onsubmit="handleLoginSubmit(event)" class="space-y-4">
           
-          <!-- Email Input -->
+          <!-- Email Input (Fixed 2.75rem Padding, No Overlap) -->
           <div class="space-y-1.5">
-            <div class="flex items-center justify-between">
-              <label class="block text-xs font-medium text-slate-300" for="login-email">Email Address</label>
-              <div class="flex items-center gap-1.5 text-[10px] text-slate-400">
-                <span>Demo:</span>
-                <button type="button" onclick="fillRoleDemo('student')" class="hover:text-indigo-300 hover:underline">Student</button>
-                <span>&bull;</span>
-                <button type="button" onclick="fillRoleDemo('company')" class="hover:text-indigo-300 hover:underline">Company</button>
-                <span>&bull;</span>
-                <button type="button" onclick="fillRoleDemo('institute')" class="hover:text-indigo-300 hover:underline">Institute</button>
-              </div>
-            </div>
+            <label class="block text-xs font-medium text-slate-300" for="login-email">Email Address</label>
             <div class="relative flex items-center">
               <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-[18px] pointer-events-none select-none z-10">mail</span>
               <input type="email" id="login-email" required class="sb-input sb-input-icon-left rounded-[4px]" style="padding-left: 2.75rem !important; padding-right: 1rem !important; height: 42px;" placeholder="student@gmail.com" value="student@gmail.com" autocomplete="email">
             </div>
           </div>
 
-          <!-- Password Input -->
+          <!-- Password Input (Fixed 2.75rem Padding, No Overlap) -->
           <div class="space-y-1.5">
             <div class="flex items-center justify-between">
               <label class="block text-xs font-medium text-slate-300" for="login-password">Password</label>
@@ -146,7 +146,7 @@
         <!-- Card Footer -->
         <div class="pt-3.5 border-t border-white/[0.08] text-center space-y-1.5">
           <p class="text-[11px] text-slate-400">
-            Need onboarding? Academic and enterprise partners can <a href="mailto:placement@apexuniv.edu" class="text-indigo-400 hover:underline">contact administrator</a>.
+            Need institutional onboarding? <a href="mailto:placement@apexuniv.edu" class="text-indigo-400 hover:underline">Contact Placement Office</a>.
           </p>
         </div>
 
@@ -155,17 +155,24 @@
     </div>
   </main>
 
-  <!-- Lower Corner Demo Login Widget (Discrete 1-Click Access with Collapse Toggle) -->
-  <aside class="fixed bottom-5 right-5 z-40" aria-label="Demo Login Section">
+  <!-- Floating Demo Login Widget (Positioned above footer so footer links remain fully visible) -->
+  <aside class="fixed bottom-20 right-5 sm:right-6 z-40" aria-label="Demo Login Section">
     
-    <!-- Expanded Floating Card -->
-    <div id="demo-widget-content" class="sb-card p-3.5 rounded-[6px] border border-white/[0.12] shadow-2xl space-y-2.5 w-[300px]" style="background: rgba(13, 18, 32, 0.96); backdrop-filter: blur(20px);">
+    <!-- Collapsed Floating Capsule Pill (Visible by default) -->
+    <button id="demo-widget-pill" onclick="toggleDemoWidget()" class="flex items-center gap-2 px-3.5 py-2 bg-[#0d1220]/95 hover:bg-[#131b2e] border border-white/[0.15] hover:border-indigo-500/50 text-xs font-semibold text-slate-200 rounded-full shadow-2xl transition cursor-pointer">
+      <span class="w-2 h-2 rounded-full bg-indigo-400"></span>
+      <span>Demo Accounts</span>
+      <span class="material-symbols-outlined text-[16px] text-slate-400">expand_less</span>
+    </button>
+
+    <!-- Expanded Floating Card (Hidden by default, opens when tapping pill) -->
+    <div id="demo-widget-content" class="hidden sb-card p-3.5 rounded-[6px] border border-white/[0.12] shadow-2xl space-y-2.5 w-[300px]" style="background: rgba(13, 18, 32, 0.96); backdrop-filter: blur(20px);">
       <div class="flex items-center justify-between pb-2 border-b border-white/[0.08]">
         <div class="flex items-center gap-1.5">
           <span class="w-2 h-2 rounded-full bg-indigo-400"></span>
           <span class="text-xs font-semibold text-slate-200">Demo Login Access</span>
         </div>
-        <button type="button" onclick="toggleDemoWidget()" class="text-slate-400 hover:text-white p-0.5" title="Minimize demo panel">
+        <button type="button" onclick="toggleDemoWidget()" class="text-slate-400 hover:text-white p-0.5" title="Close demo panel">
           <span class="material-symbols-outlined text-[16px]">close</span>
         </button>
       </div>
@@ -214,13 +221,6 @@
         </button>
       </div>
     </div>
-
-    <!-- Collapsed Floating Capsule Pill -->
-    <button id="demo-widget-pill" onclick="toggleDemoWidget()" class="hidden flex items-center gap-2 px-3 py-2 bg-[#0d1220]/95 border border-white/[0.15] text-xs font-semibold text-slate-200 rounded-full shadow-2xl hover:border-indigo-500/50 transition">
-      <span class="w-2 h-2 rounded-full bg-indigo-400"></span>
-      <span>Demo Accounts</span>
-      <span class="material-symbols-outlined text-[16px] text-slate-400">expand_less</span>
-    </button>
   </aside>
 
   <!-- Clean Minimal Footer -->
@@ -230,7 +230,7 @@
         <strong class="text-slate-200 font-medium">SkillBridge</strong> &bull; Enterprise Academic &amp; Industry Collaboration Platform
       </div>
       <div class="flex items-center gap-4 text-[11px]">
-        <a href="mailto:placement@apexuniv.edu" class="hover:text-slate-200 transition">Contact Placement Cell</a>
+        <a href="mailto:placement@apexuniv.edu" class="hover:text-slate-200 transition">Contact Placement Office</a>
         <span>&bull;</span>
         <span>Version 7.1</span>
       </div>
@@ -310,6 +310,14 @@
 
       hideError();
       hidePasswordHint();
+
+      // Smooth fade transition between role tabs
+      const form = document.getElementById('login-form');
+      if (form) {
+        form.style.animation = 'none';
+        form.offsetHeight;
+        form.style.animation = 'sb-tab-fade 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards';
+      }
     }
 
     function fillRoleDemo(role) {

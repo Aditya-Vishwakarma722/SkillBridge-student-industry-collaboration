@@ -20,7 +20,7 @@
 
   function getBrandLogoSvg() {
     return `
-      <div class="relative w-8 h-8 flex items-center justify-center bg-[#0d121f] border border-white/[0.12] group-hover:border-indigo-400/60 rounded-[4px] transition-all">
+      <div class="relative w-8 h-8 flex items-center justify-center bg-[#0d121f] border border-white/[0.12] group-hover:border-indigo-400/60 rounded-[4px]">
         <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M2 19H22" stroke="url(#sb-logo-grad)" stroke-width="2.2" stroke-linecap="round"/>
           <path d="M4 19V11C4 7.68629 6.68629 5 10 5H14C17.3137 5 20 7.68629 20 11V19" stroke="url(#sb-logo-grad)" stroke-width="2" stroke-linecap="round"/>
@@ -39,160 +39,181 @@
     `;
   }
 
+  let isInitializingHeader = false;
+
   function initHeader() {
     if (!window.SkillBridgeStore) return;
+    if (isInitializingHeader) return;
+    isInitializingHeader = true;
 
-    // Suppress any legacy static headers
-    document.querySelectorAll('body > header:not(#sb-global-header)').forEach(el => el.remove());
+    try {
+      // Suppress any legacy static headers
+      document.querySelectorAll('body > header:not(#sb-global-header)').forEach(el => el.remove());
 
-    let headerEl = document.getElementById('sb-global-header');
-    if (!headerEl) {
-      headerEl = document.createElement('header');
-      headerEl.id = 'sb-global-header';
-      headerEl.className = 'sticky top-0 z-50 w-full border-b border-white/[0.08] bg-[#070a12]/90 backdrop-blur-md transition-all';
-      if (document.body) document.body.prepend(headerEl);
-    }
+      let headerEl = document.getElementById('sb-global-header');
+      if (!headerEl) {
+        headerEl = document.createElement('header');
+        headerEl.id = 'sb-global-header';
+        headerEl.className = 'sticky top-0 z-50 w-full h-16 border-b border-white/[0.08] bg-[#070a12]/90 backdrop-blur-md';
+        if (document.body) document.body.prepend(headerEl);
+      }
 
-    const rootPath = getRootPath();
-    const currentPath = window.location.pathname.toLowerCase().replace(/\\/g, '/');
+      const rootPath = getRootPath();
+      const currentPath = window.location.pathname.toLowerCase().replace(/\\/g, '/');
 
-    // Context-aware role detection: Lock persona to the active workspace directory
-    let requiredRole = null;
-    if (currentPath.includes('/student_interface/') || currentPath.includes('/opportunity_interface/') || currentPath.includes('/assessment_interface/')) {
-      requiredRole = 'student';
-    } else if (currentPath.includes('/company_interface/')) {
-      requiredRole = 'company';
-    } else if (currentPath.includes('/institute_interface/')) {
-      requiredRole = 'institute';
-    }
+      // Context-aware role detection: Lock persona to the active workspace directory
+      let requiredRole = null;
+      if (currentPath.includes('/student_interface/') || currentPath.includes('/opportunity_interface/') || currentPath.includes('/assessment_interface/')) {
+        requiredRole = 'student';
+      } else if (currentPath.includes('/company_interface/')) {
+        requiredRole = 'company';
+      } else if (currentPath.includes('/institute_interface/')) {
+        requiredRole = 'institute';
+      }
 
-    let user = window.SkillBridgeStore.getCurrentUser();
-    // If active workspace requires a specific persona and the stored persona does not match, auto-sync
-    if (requiredRole && (!user || user.role !== requiredRole)) {
-      user = window.SkillBridgeStore.setCurrentRole(requiredRole);
-    }
-    if (!user) {
-      user = {
-        id: 'std_rahul', name: 'Rahul Sharma', role: 'student', college: 'Apex Institute of Technology',
-        avatar: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=300&auto=format&fit=crop&q=80'
-      };
-    }
+      let user = window.SkillBridgeStore.getCurrentUser();
+      // If active workspace requires a specific persona and the stored persona does not match, auto-sync
+      if (requiredRole && (!user || user.role !== requiredRole)) {
+        user = window.SkillBridgeStore.setCurrentRole(requiredRole);
+      }
+      if (!user) {
+        user = {
+          id: 'std_rahul', name: 'Rahul Sharma', role: 'student', college: 'Apex Institute of Technology',
+          avatar: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=300&auto=format&fit=crop&q=80'
+        };
+      }
 
-    const isCurrent = (href) => {
-      const cleanHref = href.toLowerCase().replace('../', '').replace('./', '');
-      const currentFileName = currentPath.split('/').pop() || 'index.html';
-      const targetFileName = cleanHref.split('/').pop() || '';
-      return currentPath.includes(cleanHref) || currentFileName === targetFileName;
-    };
+      const activeFile = currentPath.split('/').pop() || 'index.html';
+      const isAlreadyPreRendered = headerEl.getAttribute('data-sb-role') === user.role &&
+                                  headerEl.getAttribute('data-sb-user') === user.id &&
+                                  headerEl.getAttribute('data-sb-page') === activeFile &&
+                                  headerEl.children.length > 0;
 
-    function linkHtml(href, label, icon) {
-      const active = isCurrent(href);
-      const activeClass = 'text-indigo-200 bg-indigo-500/15 border border-indigo-500/40 font-semibold rounded-[4px]';
-      const inactiveClass = 'text-slate-400 hover:text-slate-100 hover:bg-white/[0.04] border border-transparent font-medium rounded-[4px]';
-      return `
-        <a href="${rootPath}${href}" class="flex items-center gap-1.5 px-3.5 py-1.5 lg:px-4 lg:py-2 text-xs transition-all tracking-tight ${active ? activeClass : inactiveClass}">
-          ${icon ? `<span class="material-symbols-outlined text-[16px] ${active ? 'text-indigo-400' : 'text-slate-400'}">${icon}</span>` : ''}
-          <span>${label}</span>
-        </a>
-      `;
-    }
+      if (!isAlreadyPreRendered) {
+        headerEl.setAttribute('data-sb-role', user.role);
+        headerEl.setAttribute('data-sb-user', user.id);
+        headerEl.setAttribute('data-sb-page', activeFile);
 
-    let roleLinks = '';
-    let roleBadge = '';
-    let profileHref = `${rootPath}Student_Interface/Profile_Interface.html`;
+        const isCurrent = (href) => {
+          const cleanHref = href.toLowerCase().replace('../', '').replace('./', '');
+          const currentFileName = currentPath.split('/').pop() || 'index.html';
+          const targetFileName = cleanHref.split('/').pop() || '';
+          return currentPath.includes(cleanHref) || currentFileName === targetFileName;
+        };
 
-    if (user.role === 'student') {
-      profileHref = `${rootPath}Student_Interface/Profile_Interface.html`;
-      roleBadge = `<span class="sb-badge sb-badge-blue text-[11px]"><span class="w-1.5 h-1.5 rounded-full bg-blue-400"></span>Student</span>`;
-      roleLinks = `
-        ${linkHtml('Student_Interface/Portal-Dashboard.html', 'Dashboard', 'space_dashboard')}
-        ${linkHtml('Student_Interface/Skills_Overview.html', 'Skill Matrix', 'psychology')}
-        ${linkHtml('Opportunity_Interface/Opportunities_Interface.html', 'Opportunities', 'work')}
-        ${linkHtml('Assessment_Interface/index.html', 'Assessments', 'quiz')}
-        ${linkHtml('Student_Interface/My_Applications.html', 'Applications', 'assignment')}
-        ${linkHtml('Student_Interface/Activities_Interface.html', 'Activities', 'code_blocks')}
-      `;
-    } else if (user.role === 'company') {
-      profileHref = `${rootPath}Company_Interface/profile.html`;
-      roleBadge = `<span class="sb-badge sb-badge-emerald text-[11px]"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>Company</span>`;
-      roleLinks = `
-        ${linkHtml('Company_Interface/index.html', 'Dashboard', 'space_dashboard')}
-        ${linkHtml('Company_Interface/opportunities.html', 'Listings', 'post_add')}
-        ${linkHtml('Company_Interface/applicants.html', 'Candidates', 'groups')}
-        ${linkHtml('Company_Interface/shortlisted.html', 'Shortlisted', 'verified')}
-      `;
-    } else if (user.role === 'institute') {
-      profileHref = `${rootPath}Institute_Interface/profile.html`;
-      roleBadge = `<span class="sb-badge sb-badge-amber text-[11px]"><span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>Institute</span>`;
-      roleLinks = `
-        ${linkHtml('Institute_Interface/index.html', 'Overview', 'bar_chart')}
-        ${linkHtml('Institute_Interface/students.html', 'Student Cohort', 'school')}
-        ${linkHtml('Institute_Interface/skill-overview.html', 'Skill Analytics', 'psychology')}
-        ${linkHtml('Institute_Interface/department-performance.html', 'Departments', 'domain')}
-      `;
-    }
+        function linkHtml(href, label, icon) {
+          const active = isCurrent(href);
+          const activeClass = 'text-indigo-200 bg-indigo-500/15 border border-indigo-500/40 font-semibold rounded-[4px]';
+          const inactiveClass = 'text-slate-400 hover:text-slate-100 hover:bg-white/[0.04] border border-transparent font-medium rounded-[4px]';
+          return `
+            <a href="${rootPath}${href}" class="flex items-center gap-1.5 px-3.5 py-1.5 lg:px-4 lg:py-2 text-xs tracking-tight ${active ? activeClass : inactiveClass}">
+              ${icon ? `<span class="material-symbols-outlined text-[16px] ${active ? 'text-indigo-400' : 'text-slate-400'}">${icon}</span>` : ''}
+              <span>${label}</span>
+            </a>
+          `;
+        }
 
-    const avatarUrl = user.avatar || 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=300&auto=format&fit=crop&q=80';
+        let roleLinks = '';
+        let roleBadge = '';
+        let profileHref = `${rootPath}Student_Interface/Profile_Interface.html`;
 
-    headerEl.innerHTML = `
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-6 text-sm font-sans">
-        
-        <!-- Left: Brand Logo & Role Pill -->
-        <div class="flex items-center gap-3.5 flex-shrink-0">
-          <a href="${rootPath}index.html" class="flex items-center gap-2.5 group transition-opacity hover:opacity-90">
-            ${getBrandLogoSvg()}
-          </a>
-          <div class="hidden sm:block">${roleBadge}</div>
-        </div>
+        if (user.role === 'student') {
+          profileHref = `${rootPath}Student_Interface/Profile_Interface.html`;
+          roleBadge = `<span class="sb-badge sb-badge-blue text-[11px]"><span class="w-1.5 h-1.5 rounded-full bg-blue-400"></span>Student</span>`;
+          roleLinks = `
+            ${linkHtml('Student_Interface/Portal-Dashboard.html', 'Dashboard', 'space_dashboard')}
+            ${linkHtml('Student_Interface/Skills_Overview.html', 'Skill Matrix', 'psychology')}
+            ${linkHtml('Opportunity_Interface/Opportunities_Interface.html', 'Opportunities', 'work')}
+            ${linkHtml('Assessment_Interface/index.html', 'Assessments', 'quiz')}
+            ${linkHtml('Student_Interface/My_Applications.html', 'Applications', 'assignment')}
+            ${linkHtml('Student_Interface/Activities_Interface.html', 'Activities', 'code_blocks')}
+          `;
+        } else if (user.role === 'company') {
+          profileHref = `${rootPath}Company_Interface/profile.html`;
+          roleBadge = `<span class="sb-badge sb-badge-emerald text-[11px]"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>Company</span>`;
+          roleLinks = `
+            ${linkHtml('Company_Interface/index.html', 'Dashboard', 'space_dashboard')}
+            ${linkHtml('Company_Interface/opportunities.html', 'Listings', 'post_add')}
+            ${linkHtml('Company_Interface/applicants.html', 'Candidates', 'groups')}
+            ${linkHtml('Company_Interface/shortlisted.html', 'Shortlisted', 'verified')}
+          `;
+        } else if (user.role === 'institute') {
+          profileHref = `${rootPath}Institute_Interface/profile.html`;
+          roleBadge = `<span class="sb-badge sb-badge-amber text-[11px]"><span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>Institute</span>`;
+          roleLinks = `
+            ${linkHtml('Institute_Interface/index.html', 'Overview', 'bar_chart')}
+            ${linkHtml('Institute_Interface/students.html', 'Student Cohort', 'school')}
+            ${linkHtml('Institute_Interface/skill-overview.html', 'Skill Analytics', 'psychology')}
+            ${linkHtml('Institute_Interface/department-performance.html', 'Departments', 'domain')}
+          `;
+        }
 
-        <!-- Center: Spacious Role Navigation Links -->
-        <nav class="hidden md:flex items-center gap-1.5 lg:gap-2">
-          ${roleLinks}
-        </nav>
+        const avatarUrl = user.avatar || 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=300&auto=format&fit=crop&q=80';
 
-        <!-- Right: Active Identity Capsule & Logout (No Switch Role when logged in) -->
-        <div class="flex items-center gap-3 flex-shrink-0">
-          
-          <!-- User Profile Identity Capsule -->
-          <a href="${profileHref}" class="flex items-center gap-2.5 px-3 py-1.5 bg-white/[0.03] hover:bg-white/[0.08] border border-white/[0.08] hover:border-white/[0.2] rounded-[4px] transition group" title="View Your Profile (${user.name})">
-            <img src="${avatarUrl}" alt="${user.name}" class="w-6 h-6 object-cover rounded-[3px] border border-white/[0.1] group-hover:border-indigo-400/60">
-            <span class="hidden lg:block text-xs font-medium text-slate-200 group-hover:text-white">${user.name}</span>
-          </a>
+        headerEl.innerHTML = `
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-6 text-sm font-sans">
+            
+            <!-- Left: Brand Logo & Role Pill -->
+            <div class="flex items-center gap-3.5 flex-shrink-0">
+              <a href="${rootPath}index.html" class="flex items-center gap-2.5 group hover:opacity-90">
+                ${getBrandLogoSvg()}
+              </a>
+              <div class="hidden sm:block">${roleBadge}</div>
+            </div>
 
-          <!-- Exit / Logout -->
-          <a href="${rootPath}index.html" class="p-2 text-slate-400 hover:text-rose-400 hover:bg-rose-500/10 rounded-[4px] border border-transparent transition flex items-center justify-center" title="Exit to Portal Gateway">
-            <span class="material-symbols-outlined text-[19px]">logout</span>
-          </a>
+            <!-- Center: Spacious Role Navigation Links -->
+            <nav class="hidden md:flex items-center gap-1.5 lg:gap-2">
+              ${roleLinks}
+            </nav>
 
-          <!-- Mobile Menu Trigger -->
-          <button id="sb-mobile-toggle" class="md:hidden p-2 text-slate-400 hover:text-white hover:bg-white/10 rounded-[4px] border border-transparent">
-            <span class="material-symbols-outlined text-[20px]">menu</span>
-          </button>
-        </div>
-      </div>
+            <!-- Right: Active Identity Capsule & Logout (No Switch Role when logged in) -->
+            <div class="flex items-center gap-3 flex-shrink-0">
+              
+              <!-- User Profile Identity Capsule -->
+              <a href="${profileHref}" class="flex items-center gap-2.5 px-3 py-1.5 bg-white/[0.03] hover:bg-white/[0.08] border border-white/[0.08] hover:border-white/[0.2] rounded-[4px] group" title="View Your Profile (${user.name})">
+                <img src="${avatarUrl}" alt="${user.name}" width="24" height="24" loading="eager" class="w-6 h-6 object-cover rounded-[3px] border border-white/[0.1] group-hover:border-indigo-400/60">
+                <span class="hidden lg:block text-xs font-medium text-slate-200 group-hover:text-white">${user.name}</span>
+              </a>
 
-      <!-- Mobile Dropdown Navigation -->
-      <div id="sb-mobile-menu" class="hidden md:hidden border-t border-white/[0.08] bg-[#090d18]/95 backdrop-blur-md px-4 py-3 space-y-1">
-        ${roleLinks}
-        <div class="pt-2 mt-2 border-t border-white/[0.08]">
-          <a href="${profileHref}" class="flex items-center gap-2 px-3 py-2 text-xs text-slate-300 hover:text-white rounded-[4px]">
-            <span class="material-symbols-outlined text-[18px]">account_circle</span>
-            <span>Profile & Account</span>
-          </a>
-        </div>
-      </div>
-    `;
+              <!-- Exit / Logout -->
+              <a href="${rootPath}index.html" class="p-2 text-slate-400 hover:text-rose-400 hover:bg-rose-500/10 rounded-[4px] border border-transparent flex items-center justify-center" title="Exit to Portal Gateway">
+                <span class="material-symbols-outlined text-[19px]">logout</span>
+              </a>
+
+              <!-- Mobile Menu Trigger -->
+              <button id="sb-mobile-toggle" class="md:hidden p-2 text-slate-400 hover:text-white hover:bg-white/10 rounded-[4px] border border-transparent">
+                <span class="material-symbols-outlined text-[20px]">menu</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Mobile Dropdown Navigation -->
+          <div id="sb-mobile-menu" class="hidden md:hidden border-t border-white/[0.08] bg-[#090d18]/95 backdrop-blur-md px-4 py-3 space-y-1">
+            ${roleLinks}
+            <div class="pt-2 mt-2 border-t border-white/[0.08]">
+              <a href="${profileHref}" class="flex items-center gap-2 px-3 py-2 text-xs text-slate-300 hover:text-white rounded-[4px]">
+                <span class="material-symbols-outlined text-[18px]">account_circle</span>
+                <span>Profile & Account</span>
+              </a>
+            </div>
+          </div>
+        `;
+      }
 
     injectRoleSwitcherModal(rootPath, user);
 
     const mobileToggle = document.getElementById('sb-mobile-toggle');
     const mobileMenu = document.getElementById('sb-mobile-menu');
-    if (mobileToggle && mobileMenu) {
+    if (mobileToggle && mobileMenu && !mobileToggle._hasSbListener) {
+      mobileToggle._hasSbListener = true;
       mobileToggle.addEventListener('click', () => {
         mobileMenu.classList.toggle('hidden');
       });
     }
+  } finally {
+    isInitializingHeader = false;
   }
+}
 
   function injectRoleSwitcherModal(rootPath, currentUser) {
     let modal = document.getElementById('sb-role-modal');
@@ -299,7 +320,12 @@
     }
   };
 
-  document.addEventListener('DOMContentLoaded', initHeader);
+  // Initialize immediately if body is ready to avoid layout shift, fallback to DOMContentLoaded
+  if (document.body) {
+    initHeader();
+  } else {
+    document.addEventListener('DOMContentLoaded', initHeader);
+  }
   window.addEventListener('skillbridge-state-change', initHeader);
   window.addEventListener('skillbridge:update', initHeader);
 
