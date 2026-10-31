@@ -17,10 +17,21 @@
   <link rel="stylesheet" href="css/design-system.css">
 </head>
 
-<body class="min-h-screen flex flex-col justify-between bg-[#07090e] text-slate-100 antialiased selection:bg-indigo-500/30">
+<body class="min-h-screen flex flex-col justify-between bg-[#07090e] text-slate-100 antialiased selection:bg-indigo-500/30 relative overflow-x-hidden">
+
+  <!-- Ambient Aesthetic Background (Connecting Campus & Enterprise) -->
+  <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+    <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=2000&q=85"
+         alt="SkillBridge Campus & Industry Skybridge"
+         class="w-full h-full object-cover object-center transform scale-110"
+         style="filter: blur(12px) brightness(0.55) contrast(0.78) saturate(0.95); opacity: 1;">
+    <!-- Soft Subtle Tint Scrim (Allows image to remain completely visible) -->
+    <div class="absolute inset-0 bg-black/35"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-[#07090e]/60 via-transparent to-[#07090e]/40"></div>
+  </div>
 
   <!-- Top Minimal Header (Matching Brand Logo) -->
-  <header class="w-full border-b border-white/[0.08] bg-[#070a12]/80 backdrop-blur-md sticky top-0 z-30">
+  <header class="w-full border-b border-white/[0.08] bg-[#070a12]/85 backdrop-blur-md sticky top-0 z-30 relative">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
       <a href="index.html" class="flex items-center gap-2.5 group transition-opacity hover:opacity-90">
         <div class="relative w-8 h-8 flex items-center justify-center bg-[#0d121f] border border-white/[0.12] group-hover:border-indigo-400/60 rounded-[4px] transition-all">
@@ -49,11 +60,11 @@
   </header>
 
   <!-- Main Centered Authentication Screen -->
-  <main class="flex-1 flex items-center justify-center px-4 sm:px-6 py-12 w-full">
-    <div class="w-full max-w-[440px] space-y-6">
+  <main class="flex-1 flex items-center justify-center px-4 sm:px-6 py-10 w-full relative z-10">
+    <div class="w-full max-w-[420px] space-y-5">
 
       <!-- Central Login Card -->
-      <div class="sb-card p-6 sm:p-8 rounded-[8px] border border-white/[0.1] shadow-2xl space-y-6">
+      <div class="sb-card p-6 sm:p-8 rounded-[8px] border border-white/[0.1] shadow-2xl space-y-5" style="background: rgba(13, 18, 32, 0.88); backdrop-filter: blur(20px);">
         
         <!-- Header -->
         <div class="text-center space-y-1.5">
@@ -73,10 +84,20 @@
           
           <!-- Email Input -->
           <div class="space-y-1.5">
-            <label class="block text-xs font-medium text-slate-300" for="login-email">Email Address</label>
-            <div class="relative">
-              <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 text-[18px]">mail</span>
-              <input type="email" id="login-email" required class="sb-input pl-9 rounded-[4px]" placeholder="student@gmail.com" value="student@gmail.com">
+            <div class="flex items-center justify-between">
+              <label class="block text-xs font-medium text-slate-300" for="login-email">Email Address</label>
+              <div class="flex items-center gap-1.5 text-[10px] text-slate-400">
+                <span>Demo:</span>
+                <button type="button" onclick="fillRoleDemo('student')" class="hover:text-indigo-300 hover:underline">Student</button>
+                <span>&bull;</span>
+                <button type="button" onclick="fillRoleDemo('company')" class="hover:text-indigo-300 hover:underline">Company</button>
+                <span>&bull;</span>
+                <button type="button" onclick="fillRoleDemo('institute')" class="hover:text-indigo-300 hover:underline">Institute</button>
+              </div>
+            </div>
+            <div class="relative flex items-center">
+              <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-[18px] pointer-events-none select-none z-10">mail</span>
+              <input type="email" id="login-email" required class="sb-input sb-input-icon-left rounded-[4px]" style="padding-left: 2.75rem !important; padding-right: 1rem !important; height: 42px;" placeholder="student@gmail.com" value="student@gmail.com" autocomplete="email">
             </div>
           </div>
 
@@ -84,21 +105,26 @@
           <div class="space-y-1.5">
             <div class="flex items-center justify-between">
               <label class="block text-xs font-medium text-slate-300" for="login-password">Password</label>
-              <button type="button" onclick="showPasswordHint()" class="text-[11px] text-slate-400 hover:text-slate-200 hover:underline">Forgot password?</button>
+              <button type="button" onclick="showPasswordHint()" class="text-[11px] text-slate-400 hover:text-slate-200 hover:underline">Demo password?</button>
             </div>
-            <div class="relative">
-              <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 text-[18px]">lock</span>
-              <input type="password" id="login-password" required class="sb-input pl-9 pr-10 rounded-[4px]" placeholder="••••••••" value="123">
-              <button type="button" onclick="togglePasswordVisibility()" class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-300" title="Toggle password visibility">
+            <div class="relative flex items-center">
+              <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-[18px] pointer-events-none select-none z-10">lock</span>
+              <input type="password" id="login-password" required class="sb-input sb-input-icon-left sb-input-icon-right rounded-[4px]" style="padding-left: 2.75rem !important; padding-right: 2.75rem !important; height: 42px;" placeholder="••••••••" value="123" autocomplete="current-password">
+              <button type="button" onclick="togglePasswordVisibility()" class="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-200 p-1 flex items-center justify-center rounded-[3px] transition-colors z-10" title="Toggle password visibility">
                 <span class="material-symbols-outlined text-[18px]" id="pwd-icon">visibility</span>
               </button>
+            </div>
+            <!-- Discreet password hint box (no popup alert) -->
+            <div id="pwd-hint" class="hidden text-[11px] text-indigo-300 bg-indigo-950/40 border border-indigo-500/30 p-2 rounded-[4px] flex items-center justify-between">
+              <span>Default demo password for all accounts is <strong>123</strong>.</span>
+              <button type="button" onclick="hidePasswordHint()" class="text-slate-400 hover:text-white text-xs">&times;</button>
             </div>
           </div>
 
           <!-- Remember Me & Role Badge -->
-          <div class="flex items-center justify-between text-xs pt-1">
+          <div class="flex items-center justify-between text-xs pt-0.5">
             <label class="flex items-center gap-2 text-slate-400 cursor-pointer select-none">
-              <input type="checkbox" checked class="rounded-[2px] bg-white/[0.04] border-white/[0.15]">
+              <input type="checkbox" id="remember-me" checked class="rounded-[2px] bg-white/[0.04] border-white/[0.15]">
               <span>Remember credentials</span>
             </label>
             <span id="role-tag" class="sb-badge sb-badge-blue text-[10px]">Student Workspace</span>
@@ -118,9 +144,9 @@
         </form>
 
         <!-- Card Footer -->
-        <div class="pt-4 border-t border-white/[0.08] text-center space-y-2">
+        <div class="pt-3.5 border-t border-white/[0.08] text-center space-y-1.5">
           <p class="text-[11px] text-slate-400">
-            Need access? Academic or enterprise partners can <a href="mailto:placement@apexuniv.edu" class="text-indigo-400 hover:underline">request workspace onboarding</a>.
+            Need onboarding? Academic and enterprise partners can <a href="mailto:placement@apexuniv.edu" class="text-indigo-400 hover:underline">contact administrator</a>.
           </p>
         </div>
 
@@ -129,18 +155,22 @@
     </div>
   </main>
 
-  <!-- Lower Corner Demo Login Section (Discrete 1-Click Access) -->
-  <aside class="fixed bottom-5 right-5 z-40 max-w-[310px] w-full" aria-label="Demo Login Section">
-    <div class="sb-card p-3.5 rounded-[6px] border border-white/[0.12] shadow-2xl space-y-2.5" style="background: rgba(13, 18, 32, 0.96); backdrop-filter: blur(20px);">
+  <!-- Lower Corner Demo Login Widget (Discrete 1-Click Access with Collapse Toggle) -->
+  <aside class="fixed bottom-5 right-5 z-40" aria-label="Demo Login Section">
+    
+    <!-- Expanded Floating Card -->
+    <div id="demo-widget-content" class="sb-card p-3.5 rounded-[6px] border border-white/[0.12] shadow-2xl space-y-2.5 w-[300px]" style="background: rgba(13, 18, 32, 0.96); backdrop-filter: blur(20px);">
       <div class="flex items-center justify-between pb-2 border-b border-white/[0.08]">
         <div class="flex items-center gap-1.5">
           <span class="w-2 h-2 rounded-full bg-indigo-400"></span>
           <span class="text-xs font-semibold text-slate-200">Demo Login Access</span>
         </div>
-        <span class="text-[10px] text-slate-400 font-mono bg-white/[0.04] px-1.5 py-0.5 rounded-[3px] border border-white/[0.06]">1-Click</span>
+        <button type="button" onclick="toggleDemoWidget()" class="text-slate-400 hover:text-white p-0.5" title="Minimize demo panel">
+          <span class="material-symbols-outlined text-[16px]">close</span>
+        </button>
       </div>
       <p class="text-[11px] text-slate-400 leading-snug">
-        Explore internal platform features without typing credentials:
+        Explore internal platform features with 1 click:
       </p>
       <div class="space-y-1.5">
         <!-- Student Demo -->
@@ -184,10 +214,17 @@
         </button>
       </div>
     </div>
+
+    <!-- Collapsed Floating Capsule Pill -->
+    <button id="demo-widget-pill" onclick="toggleDemoWidget()" class="hidden flex items-center gap-2 px-3 py-2 bg-[#0d1220]/95 border border-white/[0.15] text-xs font-semibold text-slate-200 rounded-full shadow-2xl hover:border-indigo-500/50 transition">
+      <span class="w-2 h-2 rounded-full bg-indigo-400"></span>
+      <span>Demo Accounts</span>
+      <span class="material-symbols-outlined text-[16px] text-slate-400">expand_less</span>
+    </button>
   </aside>
 
   <!-- Clean Minimal Footer -->
-  <footer class="w-full border-t border-white/[0.08] bg-[#070a12]/90 py-4">
+  <footer class="w-full border-t border-white/[0.08] bg-[#070a12]/90 py-4 relative z-10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-slate-400">
       <div>
         <strong class="text-slate-200 font-medium">SkillBridge</strong> &bull; Enterprise Academic &amp; Industry Collaboration Platform
@@ -206,24 +243,27 @@
 
     const roleConfig = {
       student: {
+        name: 'Rahul Sharma',
         email: 'student@gmail.com',
-        desc: 'Access assessments, skill matrix, and verified applications',
+        desc: 'Access assessments, skill vector matrix, and verified job drives',
         btnText: 'Sign In to Student Portal',
         badgeText: 'Student Workspace',
         badgeClass: 'sb-badge sb-badge-blue text-[10px]',
         redirectUrl: 'Student_Interface/Portal-Dashboard.html'
       },
       company: {
+        name: 'ABC Tech Corp',
         email: 'company@gmail.com',
-        desc: 'Manage job listings, define skill gating, and hire candidates',
+        desc: 'Manage job postings, set minimum skill gating, and recruit talent',
         btnText: 'Sign In to Company Console',
         badgeText: 'Company Console',
         badgeClass: 'sb-badge sb-badge-emerald text-[10px]',
         redirectUrl: 'Company_Interface/index.html'
       },
       institute: {
+        name: 'Apex Institute of Technology',
         email: 'institute@gmail.com',
-        desc: 'Review cohort skill readiness, departments, and placement rates',
+        desc: 'Track cohort readiness, department benchmarks, and placements',
         btnText: 'Sign In to Institute Console',
         badgeText: 'Institute Console',
         badgeClass: 'sb-badge sb-badge-amber text-[10px]',
@@ -231,81 +271,123 @@
       }
     };
 
-    function setRole(role) {
+    function setRole(role, preserveCustomEmail) {
       currentRole = role;
       const cfg = roleConfig[role];
 
       // Update Tab Styles
       ['student', 'company', 'institute'].forEach(r => {
         const tab = document.getElementById('tab-' + r);
-        if (r === role) {
-          tab.className = 'py-1.5 text-xs font-semibold rounded-[4px] transition-all bg-indigo-600/20 text-indigo-200 border border-indigo-500/40';
-        } else {
-          tab.className = 'py-1.5 text-xs font-medium rounded-[4px] transition-all text-slate-400 hover:text-white border border-transparent';
+        if (tab) {
+          if (r === role) {
+            tab.className = 'py-1.5 text-xs font-semibold rounded-[4px] transition-all bg-indigo-600/20 text-indigo-200 border border-indigo-500/40';
+          } else {
+            tab.className = 'py-1.5 text-xs font-medium rounded-[4px] transition-all text-slate-400 hover:text-white border border-transparent';
+          }
         }
       });
 
       // Update Inputs & Labels
       const emailInput = document.getElementById('login-email');
-      emailInput.value = cfg.email;
-      emailInput.placeholder = cfg.email;
+      if (emailInput) {
+        if (!preserveCustomEmail || !emailInput.value || Object.values(roleConfig).some(c => c.email === emailInput.value)) {
+          emailInput.value = cfg.email;
+        }
+        emailInput.placeholder = cfg.email;
+      }
 
-      document.getElementById('login-role-desc').innerText = cfg.desc;
-      document.getElementById('login-btn-text').innerText = cfg.btnText;
+      const descEl = document.getElementById('login-role-desc');
+      if (descEl) descEl.textContent = cfg.desc;
+
+      const btnTextEl = document.getElementById('login-btn-text');
+      if (btnTextEl) btnTextEl.textContent = cfg.btnText;
 
       const badge = document.getElementById('role-tag');
-      badge.className = cfg.badgeClass;
-      badge.innerText = cfg.badgeText;
+      if (badge) {
+        badge.className = cfg.badgeClass;
+        badge.textContent = cfg.badgeText;
+      }
 
       hideError();
+      hidePasswordHint();
+    }
+
+    function fillRoleDemo(role) {
+      setRole(role);
+      const pwd = document.getElementById('login-password');
+      if (pwd) pwd.value = '123';
     }
 
     function togglePasswordVisibility() {
       const pwd = document.getElementById('login-password');
       const icon = document.getElementById('pwd-icon');
+      if (!pwd || !icon) return;
       if (pwd.type === 'password') {
         pwd.type = 'text';
-        icon.innerText = 'visibility_off';
+        icon.textContent = 'visibility_off';
       } else {
         pwd.type = 'password';
-        icon.innerText = 'visibility';
+        icon.textContent = 'visibility';
       }
     }
 
     function showPasswordHint() {
-      alert('Default demo password for all accounts is "123". You can also use the 1-click Demo Login in the lower corner.');
+      const hintBox = document.getElementById('pwd-hint');
+      if (hintBox) hintBox.classList.toggle('hidden');
+    }
+
+    function hidePasswordHint() {
+      const hintBox = document.getElementById('pwd-hint');
+      if (hintBox) hintBox.classList.add('hidden');
     }
 
     function showError(msg) {
       const errBox = document.getElementById('login-error');
       const errText = document.getElementById('login-error-text');
-      errText.innerText = msg;
-      errBox.classList.remove('hidden');
+      if (errBox && errText) {
+        errText.textContent = msg;
+        errBox.classList.remove('hidden');
+      }
     }
 
     function hideError() {
       const errBox = document.getElementById('login-error');
-      errBox.classList.add('hidden');
+      if (errBox) errBox.classList.add('hidden');
     }
 
     function handleLoginSubmit(event) {
-      event.preventDefault();
+      if (event) event.preventDefault();
       hideError();
 
-      const email = document.getElementById('login-email').value.trim();
-      const password = document.getElementById('login-password').value;
+      const emailEl = document.getElementById('login-email');
+      const pwdEl = document.getElementById('login-password');
+      const email = emailEl ? emailEl.value.trim() : '';
+      const password = pwdEl ? pwdEl.value : '';
 
       if (!email) {
         showError('Please enter an email address.');
         return;
       }
 
+      // Check remember me checkbox
+      const rememberCheckbox = document.getElementById('remember-me');
+      if (rememberCheckbox && rememberCheckbox.checked) {
+        try {
+          localStorage.setItem('sb_remembered_user', JSON.stringify({ email, role: currentRole }));
+        } catch(e) {}
+      }
+
       if (window.SkillBridgeStore) {
-        // Authenticate via store
-        const user = window.SkillBridgeStore.login(email, password, currentRole);
-        if (user) {
-          const redirectUrl = roleConfig[user.role || currentRole].redirectUrl;
+        const res = window.SkillBridgeStore.login(email, password, currentRole);
+        const loggedUser = (res && res.user) ? res.user : res;
+
+        if (loggedUser && (loggedUser.id || loggedUser.role)) {
+          const targetRole = loggedUser.role || currentRole;
+          const redirectUrl = roleConfig[targetRole] ? roleConfig[targetRole].redirectUrl : roleConfig[currentRole].redirectUrl;
           window.location.href = redirectUrl;
+          return;
+        } else if (res && res.success === false) {
+          showError(res.message || 'Authentication failed. Please check credentials.');
           return;
         }
       }
@@ -321,6 +403,32 @@
       }
       window.location.href = redirectUrl;
     }
+
+    function toggleDemoWidget() {
+      const content = document.getElementById('demo-widget-content');
+      const pill = document.getElementById('demo-widget-pill');
+      if (content && pill) {
+        content.classList.toggle('hidden');
+        pill.classList.toggle('hidden');
+      }
+    }
+
+    // Restore saved login if available
+    document.addEventListener('DOMContentLoaded', () => {
+      try {
+        const saved = localStorage.getItem('sb_remembered_user');
+        if (saved) {
+          const data = JSON.parse(saved);
+          if (data && data.role && roleConfig[data.role]) {
+            setRole(data.role, true);
+            if (data.email) {
+              const emailInput = document.getElementById('login-email');
+              if (emailInput) emailInput.value = data.email;
+            }
+          }
+        }
+      } catch(e) {}
+    });
   </script>
 </body>
 

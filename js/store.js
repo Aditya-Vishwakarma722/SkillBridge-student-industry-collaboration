@@ -395,6 +395,8 @@
         }
       }
 
+
+
       if (user) {
         state.currentUser = user;
         this.saveState(state);
@@ -432,6 +434,8 @@
           };
         }
       }
+
+
 
       if (user) {
         state.currentUser = user;

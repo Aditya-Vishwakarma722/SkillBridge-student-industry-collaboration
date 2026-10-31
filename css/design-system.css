@@ -386,10 +386,29 @@ select {
   border: 1px solid rgba(255, 255, 255, 0.14) !important;
   color: #f8fafc !important;
   border-radius: 4px !important;
-  padding: 0.5rem 0.75rem;
+  padding: 0.55rem 0.75rem;
   font-size: 0.8125rem;
   box-shadow: none !important;
   transition: border-color 0.2s ease;
+}
+
+/* Explicit Input Padding for Icons to Prevent Overlap */
+.sb-input-icon-left,
+input.pl-9,
+input.pl-10,
+input.pl-11,
+input.sb-input-icon-left,
+.sb-input.sb-input-icon-left {
+  padding-left: 2.75rem !important;
+}
+
+.sb-input-icon-right,
+input.pr-9,
+input.pr-10,
+input.pr-11,
+input.sb-input-icon-right,
+.sb-input.sb-input-icon-right {
+  padding-right: 2.75rem !important;
 }
 
 .sb-input:focus,
@@ -404,6 +423,16 @@ select:focus {
 input::placeholder,
 textarea::placeholder {
   color: #64748b !important;
+}
+
+/* Prevent Browser Autofill from breaking dark mode */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px rgba(10, 15, 26, 0.95) inset !important;
+  -webkit-text-fill-color: #f8fafc !important;
+  transition: background-color 5000s ease-in-out 0s;
 }
 
 input[type="radio"],
