@@ -1,4 +1,4 @@
-/**
+﻿/**
  * SkillBridge — Central Real-Time State Management Store v4.0
  * 1000-Point Skill Vector System + Verified Platform Activities Engine
  * Problem Statement: Enterprise Academic & Industry Collaboration Platform
@@ -106,11 +106,11 @@
         hackerrank: 'https://hackerrank.com/profile/rahul_sharma',
         linkedin: 'https://linkedin.com/in/rahulsharma-dev',
         skills: {
-          'Java': 780,
+          'Java Development': 780,
           'SQL': 650,
           'Spring Boot': 420,
           'Git': 720,
-          'Python': 550,
+          'Python Development': 550,
           'React': 600,
           'Platform Activities': defaultRahulPlatform.totalScore
         },
@@ -283,6 +283,14 @@
                     if (std.skills[k] <= 100 && k !== 'violations') {
                       std.skills[k] = Math.min(1000, std.skills[k] * 10);
                     }
+                  }
+                  if (std.skills['Java'] !== undefined && std.skills['Java Development'] === undefined) {
+                    std.skills['Java Development'] = std.skills['Java'];
+                    delete std.skills['Java'];
+                  }
+                  if (std.skills['Python'] !== undefined && std.skills['Python Development'] === undefined) {
+                    std.skills['Python Development'] = std.skills['Python'];
+                    delete std.skills['Python'];
                   }
                   const metrics = generatePlatformMetrics(std.github, std.githubRepo, std.leetcode, std.hackerrank);
                   std.platformActivities = metrics;
@@ -536,6 +544,11 @@
       if (student) {
         if (!student.skills) student.skills = {};
         student.skills[skillName] = Math.min(1000, Math.max(0, parseInt(newScore, 10)));
+        if (skillName.endsWith(' Development')) {
+          delete student.skills[skillName.replace(' Development', '')];
+        } else if (student.skills[skillName + ' Development'] !== undefined) {
+          delete student.skills[skillName + ' Development'];
+        }
         this.saveState(state);
         return true;
       }
@@ -645,7 +658,7 @@
 
     evaluateEligibility(studentSkills, requiredSkills) {
       if (!requiredSkills || Object.keys(requiredSkills).length === 0) {
-        return { isEligible: true, gaps: [], matchPercentage: 100, matchedSkills: 0, totalSkills: 0 };
+        return { isEligible: true, eligible: true, gaps: [], matchPercentage: 100, matchedSkills: 0, totalSkills: 0 };
       }
       let totalSkills = 0, matchedSkills = 0, totalRequiredScore = 0, totalAttainedScore = 0;
       const gaps = [];
@@ -653,7 +666,16 @@
       for (const [skill, reqScore] of Object.entries(requiredSkills)) {
         totalSkills++;
         totalRequiredScore += reqScore;
-        const studentScore = (studentSkills && studentSkills[skill] !== undefined) ? studentSkills[skill] : 0;
+        let studentScore = 0;
+        if (studentSkills) {
+          if (studentSkills[skill] !== undefined) {
+            studentScore = studentSkills[skill];
+          } else if (studentSkills[skill.replace(' Development', '')] !== undefined) {
+            studentScore = studentSkills[skill.replace(' Development', '')];
+          } else if (studentSkills[skill + ' Development'] !== undefined) {
+            studentScore = studentSkills[skill + ' Development'];
+          }
+        }
         totalAttainedScore += Math.min(studentScore, reqScore);
 
         if (studentScore >= reqScore) {
@@ -664,7 +686,8 @@
       }
 
       const matchPercentage = totalRequiredScore > 0 ? Math.round((totalAttainedScore / totalRequiredScore) * 100) : 100;
-      return { isEligible: gaps.length === 0, gaps, matchPercentage, matchedSkills, totalSkills };
+      const isEligible = gaps.length === 0;
+      return { isEligible, eligible: isEligible, gaps, matchPercentage, matchedSkills, totalSkills };
     }
 
     applyToOpportunity(opportunityId) {

@@ -1,4 +1,4 @@
-/**
+﻿/**
  * SkillBridge - Standardized Assessment Engine v4.0
  * Two-Factor Timer + Anti-Cheating + 1000-Point Score Calibration
  * Enterprise Academic & Industry Collaboration Platform
@@ -52,9 +52,17 @@
       // Check URL param ?skill=...
       const urlParams = new URLSearchParams(window.location.search);
       const skillParam = urlParams.get('skill');
-      if (skillParam && AVAILABLE_SKILLS.includes(skillParam)) {
-        selector.value = skillParam;
-        selectedSkill = skillParam;
+      if (skillParam) {
+        const decoded = decodeURIComponent(skillParam).trim();
+        const matched = AVAILABLE_SKILLS.find(s => 
+          s.toLowerCase() === decoded.toLowerCase() ||
+          s.replace(' Development', '').toLowerCase() === decoded.toLowerCase() ||
+          (s + ' Development').toLowerCase() === decoded.toLowerCase()
+        );
+        if (matched) {
+          selector.value = matched;
+          selectedSkill = matched;
+        }
       }
 
       selector.addEventListener('change', (e) => {

@@ -436,7 +436,7 @@
         const primarySkills = ['Java Development', 'SQL', 'Spring Boot', 'React', 'Git'];
         let skillsHtml = '';
         primarySkills.forEach(skillName => {
-          const score = skills[skillName] || 600;
+          const score = skills[skillName] || skills[skillName.replace(' Development', '')] || 600;
           const pct = Math.min(100, Math.round((score / 1000) * 100));
           let colorClass = 'bg-blue-600';
           if (score >= 800) colorClass = 'bg-emerald-600';
