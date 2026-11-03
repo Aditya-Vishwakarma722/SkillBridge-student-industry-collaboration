@@ -10,10 +10,25 @@
   const ASSESSMENT_HISTORY_KEY = 'skillbridge_assessment_history_v5';
 
   function generatePlatformMetrics(githubUser, repoName, leetcodeUser, hackerrankUser) {
-    const gh = (githubUser || 'rahul-sharma').replace(/^https?:\/\//i, '').replace(/github\.com\/?/i, '').replace(/\/$/, '') || 'rahul-sharma';
-    const lc = (leetcodeUser || 'rahul_sharma').replace(/^https?:\/\//i, '').replace(/leetcode\.com\/(u\/)?/i, '').replace(/\/$/, '') || 'rahul_sharma';
-    const hr = (hackerrankUser || 'rahul_sharma').replace(/^https?:\/\//i, '').replace(/hackerrank\.com\/(profile\/)?/i, '').replace(/\/$/, '') || 'rahul_sharma';
-    const rep = (repoName || 'microservice-orders').replace(/^https?:\/\//i, '').replace(/github\.com\/[^\/]+\/?/i, '').replace(/\/$/, '') || 'microservice-orders';
+    const gh = (githubUser || 'rahul-sharma').toString().trim()
+      .replace(/^https?:\/\/(www\.)?/i, '')
+      .replace(/github\.com\/?/i, '')
+      .replace(/\/.*$/, '') || 'rahul-sharma';
+
+    const lc = (leetcodeUser || 'rahul_sharma').toString().trim()
+      .replace(/^https?:\/\/(www\.)?/i, '')
+      .replace(/leetcode\.com\/(u\/)?/i, '')
+      .replace(/\/.*$/, '') || 'rahul_sharma';
+
+    const hr = (hackerrankUser || 'rahul_sharma').toString().trim()
+      .replace(/^https?:\/\/(www\.)?/i, '')
+      .replace(/hackerrank\.com\/(profile\/)?/i, '')
+      .replace(/\/.*$/, '') || 'rahul_sharma';
+
+    const rep = (repoName || 'microservice-orders').toString().trim()
+      .replace(/^https?:\/\/(www\.)?/i, '')
+      .replace(/github\.com\/[^\/]+\/?/i, '')
+      .replace(/\/.*$/, '') || 'microservice-orders';
 
     let hash = 0;
     const seed = gh + lc + hr + rep;
@@ -562,10 +577,21 @@
       if (index === -1) return { success: false, message: 'Student profile not found' };
 
       const student = state.students[index];
-      const gh = platforms.github !== undefined ? platforms.github : student.github;
-      const repo = platforms.githubRepo !== undefined ? platforms.githubRepo : student.githubRepo;
-      const lc = platforms.leetcode !== undefined ? platforms.leetcode : student.leetcode;
-      const hr = platforms.hackerrank !== undefined ? platforms.hackerrank : student.hackerrank;
+      let gh = (platforms.github !== undefined ? platforms.github : (student.github || 'https://github.com/rahul-sharma')).toString().trim();
+      let lc = (platforms.leetcode !== undefined ? platforms.leetcode : (student.leetcode || 'https://leetcode.com/u/rahul_sharma')).toString().trim();
+      let hr = (platforms.hackerrank !== undefined ? platforms.hackerrank : (student.hackerrank || 'https://hackerrank.com/profile/rahul_sharma')).toString().trim();
+      let repo = platforms.githubRepo !== undefined ? platforms.githubRepo.toString().trim() : student.githubRepo;
+
+      // Ensure proper full URL prefix
+      if (gh && !gh.startsWith('http://') && !gh.startsWith('https://')) {
+        gh = `https://github.com/${gh.replace(/^@/, '')}`;
+      }
+      if (lc && !lc.startsWith('http://') && !lc.startsWith('https://')) {
+        lc = `https://leetcode.com/u/${lc.replace(/^@/, '')}`;
+      }
+      if (hr && !hr.startsWith('http://') && !hr.startsWith('https://')) {
+        hr = `https://hackerrank.com/profile/${hr.replace(/^@/, '')}`;
+      }
 
       const metrics = generatePlatformMetrics(gh, repo, lc, hr);
 
