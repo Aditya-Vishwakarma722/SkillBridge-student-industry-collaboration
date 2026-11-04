@@ -17,16 +17,16 @@
   <link rel="stylesheet" href="../css/design-system.css">
 </head>
 
-<body class="min-h-screen flex flex-col bg-slate-50 text-slate-900">
+<body class="min-h-screen flex flex-col bg-[#070b16] text-slate-100">
 
   <!-- Global Navigation Header (Pre-rendered for zero transition flicker) -->
-  <header id="sb-global-header" data-sb-role="institute" data-sb-user="inst_apex" data-sb-page="opportunities.html" class="sticky top-0 z-50 w-full h-16 border-b border-white/[0.08] bg-[#070a12]/90 backdrop-blur-md">
+  <header id="sb-global-header" data-sb-role="institute" data-sb-user="inst_apex" data-sb-page="opportunities.html" class="sticky top-0 z-50 w-full h-16 border-b border-white/[0.08] bg-[#080e1c]/90 backdrop-blur-md">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-6 text-sm font-sans">
       
       <!-- Left: Brand Logo & Role Pill -->
       <div class="flex items-center gap-3.5 flex-shrink-0">
         <a href="../index.html" class="flex items-center gap-2.5 group hover:opacity-90">
-          <div class="relative w-8 h-8 flex items-center justify-center bg-[#0d121f] border border-white/[0.12] rounded-[4px]">
+          <div class="relative w-8 h-8 flex items-center justify-center bg-[#0e1629] border border-white/[0.12] rounded-[4px]">
             <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M2 19H22" stroke="url(#sb-logo-grad)" stroke-width="2.2" stroke-linecap="round"/>
               <path d="M4 19V11C4 7.68629 6.68629 5 10 5H14C17.3137 5 20 7.68629 20 11V19" stroke="url(#sb-logo-grad)" stroke-width="2" stroke-linecap="round"/>
@@ -93,8 +93,8 @@
           <span class="sb-badge sb-badge-blue">Placement Outreach</span>
           <span class="sb-badge sb-badge-emerald">Live Pipeline</span>
         </div>
-        <h1 class="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">Active Opportunities &amp; Placement Tracking</h1>
-        <p class="text-xs sm:text-sm text-slate-600 max-w-xl">
+        <h1 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">Active Opportunities &amp; Placement Tracking</h1>
+        <p class="text-xs sm:text-sm text-slate-300 max-w-xl">
           Monitor open industry drives and track your students' application conversions in real time.
         </p>
       </div>
@@ -107,12 +107,12 @@
 
     <!-- Active Drives Grid -->
     <div class="sb-card p-6 space-y-4">
-      <div class="flex items-center justify-between border-b border-slate-100 pb-3">
-        <h2 class="text-base font-bold text-slate-900 flex items-center gap-2">
-          <span class="material-symbols-outlined text-slate-700">corporate_fare</span>
+      <div class="flex items-center justify-between border-b border-white/[0.08] pb-3">
+        <h2 class="text-base font-bold text-white flex items-center gap-2">
+          <span class="material-symbols-outlined text-slate-200">corporate_fare</span>
           <span>Corporate Recruitment Postings</span>
         </h2>
-        <span class="text-xs text-slate-500 font-mono" id="inst-drives-count">Loading drives...</span>
+        <span class="text-xs text-slate-400 font-mono" id="inst-drives-count">Loading drives...</span>
       </div>
 
       <div id="inst-opps-grid" class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -122,9 +122,9 @@
 
     <!-- Cohort Applications Tracking Table -->
     <div class="sb-card p-6 space-y-4">
-      <div class="flex items-center justify-between border-b border-slate-100 pb-3">
-        <h2 class="text-base font-bold text-slate-900 flex items-center gap-2">
-          <span class="material-symbols-outlined text-slate-700">assignment_turned_in</span>
+      <div class="flex items-center justify-between border-b border-white/[0.08] pb-3">
+        <h2 class="text-base font-bold text-white flex items-center gap-2">
+          <span class="material-symbols-outlined text-slate-200">assignment_turned_in</span>
           <span>Cohort Application Submissions</span>
         </h2>
         <span class="sb-badge sb-badge-blue">Live Pipeline</span>
@@ -161,16 +161,16 @@
           item.innerHTML = `
             <div class="flex items-start justify-between">
               <div>
-                <h3 class="text-sm font-bold text-slate-900">${opp.title}</h3>
-                <p class="text-xs text-slate-500">${opp.companyName} &bull; ${opp.location} &bull; ${opp.stipend}</p>
+                <h3 class="text-sm font-bold text-white">${opp.title}</h3>
+                <p class="text-xs text-slate-400">${opp.companyName} &bull; ${opp.location} &bull; ${opp.stipend}</p>
               </div>
               <span class="sb-badge sb-badge-blue">${opp.type}</span>
             </div>
-            <p class="text-xs text-slate-600 leading-relaxed">${opp.description}</p>
-            <div class="text-[11px] text-slate-500 pt-2 border-t border-slate-100 flex items-center gap-2">
-              <span>Deadline: <strong class="text-slate-800">${opp.deadline}</strong></span>
+            <p class="text-xs text-slate-300 leading-relaxed">${opp.description}</p>
+            <div class="text-[11px] text-slate-400 pt-2 border-t border-white/[0.08] flex items-center gap-2">
+              <span>Deadline: <strong class="text-slate-100">${opp.deadline}</strong></span>
               <span>&bull;</span>
-              <span>Openings: <strong class="text-emerald-700">${opp.openings}</strong></span>
+              <span>Openings: <strong class="text-emerald-400">${opp.openings}</strong></span>
             </div>
           `;
           oppsContainer.appendChild(item);
@@ -183,7 +183,7 @@
         appsContainer.innerHTML = '';
 
         if (apps.length === 0) {
-          appsContainer.innerHTML = '<p class="text-xs text-slate-500 py-6 text-center">No student applications submitted yet.</p>';
+          appsContainer.innerHTML = '<p class="text-xs text-slate-400 py-6 text-center">No student applications submitted yet.</p>';
         } else {
           apps.forEach(app => {
             const card = document.createElement('div');
@@ -197,15 +197,15 @@
             card.innerHTML = `
               <div>
                 <div class="flex items-center gap-2 flex-wrap">
-                  <span class="text-xs font-bold text-slate-900">${app.studentName}</span>
+                  <span class="text-xs font-bold text-white">${app.studentName}</span>
                   <span class="sb-badge sb-badge-muted text-[10px]">${app.department || 'CSE'}</span>
                   ${statusBadge}
                 </div>
-                <p class="text-xs text-slate-500 mt-1">Role: <strong class="text-slate-800">${app.opportunityTitle}</strong> at <strong>${app.companyName}</strong></p>
+                <p class="text-xs text-slate-400 mt-1">Role: <strong class="text-slate-100">${app.opportunityTitle}</strong> at <strong>${app.companyName}</strong></p>
               </div>
               <div class="text-right text-xs">
-                <span class="text-emerald-700 font-bold">Match: ${app.matchScore}%</span>
-                <p class="text-[11px] text-slate-500">Screening: ${app.screeningScore !== null ? `${app.screeningScore}/20` : 'Pending'}</p>
+                <span class="text-emerald-400 font-bold">Match: ${app.matchScore}%</span>
+                <p class="text-[11px] text-slate-400">Screening: ${app.screeningScore !== null ? `${app.screeningScore}/20` : 'Pending'}</p>
               </div>
             `;
             appsContainer.appendChild(card);
@@ -221,3 +221,4 @@
 </body>
 
 </html>
+

@@ -17,26 +17,22 @@
   <link rel="stylesheet" href="css/design-system.css">
 </head>
 
-<body class="min-h-screen flex flex-col justify-between bg-[#07090e] text-slate-100 antialiased selection:bg-indigo-500/30 relative overflow-x-hidden">
+<body class="min-h-screen flex flex-col justify-between bg-[#090d16] text-slate-100 antialiased selection:bg-indigo-500/30 selection:text-white relative overflow-x-hidden">
 
-  <!-- Ambient Authentic Photographic Background (Campus & Enterprise Modern Architecture) -->
+  <!-- Ambient Institutional Grid & Subtle Precision Spotlight -->
   <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-    <!-- Crisp, High-Resolution Architectural Skybridge (No cheap particles, no snow) -->
-    <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=2000&q=85"
-         alt="SkillBridge Campus & Industry Skybridge Architecture"
-         class="w-full h-full object-cover object-center transform scale-105"
-         style="filter: brightness(0.48) contrast(1.1) saturate(0.95); opacity: 0.52;">
-
-    <!-- Subtle Cinematic Gradient & Ambient Lighting (Authentic, Classy Depth) -->
-    <div class="absolute inset-0 bg-gradient-to-t from-[#07090e] via-[#07090e]/65 to-[#07090e]/80"></div>
-    <div class="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,_rgba(99,102,241,0.16),_transparent_70%)]"></div>
+    <!-- Precision Engineering Dot Matrix -->
+    <div class="absolute inset-0 opacity-[0.45]" style="background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px); background-size: 24px 24px;"></div>
+    <!-- Soft Top Vignette & Ambient Radial Light -->
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_75%_45%_at_50%_-5%,_rgba(99,102,241,0.12),_transparent_70%)]"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#090d16]/50 to-[#090d16]"></div>
   </div>
 
   <!-- Top Minimal Header (Matching Brand Logo) -->
-  <header class="w-full border-b border-white/[0.08] bg-[#070a12]/85 backdrop-blur-md sticky top-0 z-30 relative">
+  <header class="w-full border-b border-white/[0.08] bg-[#090d16]/90 backdrop-blur-md sticky top-0 z-30 relative shadow-sm">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
       <a href="index.html" class="flex items-center gap-2.5 group transition-opacity hover:opacity-90">
-        <div class="relative w-8 h-8 flex items-center justify-center bg-[#0d121f] border border-white/[0.12] group-hover:border-indigo-400/60 rounded-[4px] transition-all">
+        <div class="relative w-8 h-8 flex items-center justify-center bg-white/[0.04] border border-white/[0.1] group-hover:border-indigo-400/50 rounded-[6px] transition-all">
           <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M2 19H22" stroke="url(#sb-auth-logo)" stroke-width="2.2" stroke-linecap="round"/>
             <path d="M4 19V11C4 7.68629 6.68629 5 10 5H14C17.3137 5 20 7.68629 20 11V19" stroke="url(#sb-auth-logo)" stroke-width="2" stroke-linecap="round"/>
@@ -51,12 +47,12 @@
             </defs>
           </svg>
         </div>
-        <span class="text-[16px] font-bold tracking-tight text-white font-sans">Skill<span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-300 to-cyan-300">Bridge</span></span>
+        <span class="text-[16px] font-bold tracking-tight text-white font-sans">Skill<span class="text-indigo-400">Bridge</span></span>
       </a>
 
       <div class="flex items-center gap-2 text-xs text-slate-400">
         <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
-        <span class="hidden sm:inline">Enterprise Auth Gateway</span>
+        <span class="hidden sm:inline font-mono">Enterprise Auth Gateway</span>
       </div>
     </div>
   </header>
@@ -80,13 +76,13 @@
       </div>
 
       <!-- Frosted Glass Authentication Card -->
-      <div class="sb-card p-6 sm:p-8 rounded-[8px] border border-white/[0.12] shadow-2xl space-y-5" style="background: rgba(13, 18, 32, 0.88); backdrop-filter: blur(24px);">
+      <div class="sb-card p-6 sm:p-8 rounded-[12px] border border-white/[0.1] shadow-2xl space-y-5" style="background: rgba(15, 21, 35, 0.85); backdrop-filter: blur(20px); box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.1);">
 
         <!-- Segmented Role Selector -->
-        <div class="grid grid-cols-3 gap-1 p-1 bg-white/[0.03] border border-white/[0.08] rounded-[6px]">
-          <button type="button" id="tab-student" onclick="setRole('student')" class="py-1.5 text-xs font-semibold rounded-[4px] transition-all bg-indigo-600/20 text-indigo-200 border border-indigo-500/40">Student</button>
-          <button type="button" id="tab-company" onclick="setRole('company')" class="py-1.5 text-xs font-medium rounded-[4px] transition-all text-slate-400 hover:text-white border border-transparent">Company</button>
-          <button type="button" id="tab-institute" onclick="setRole('institute')" class="py-1.5 text-xs font-medium rounded-[4px] transition-all text-slate-400 hover:text-white border border-transparent">Institute</button>
+        <div class="grid grid-cols-3 gap-1 p-1 bg-black/40 border border-white/[0.08] rounded-[8px]">
+          <button type="button" id="tab-student" onclick="setRole('student')" class="py-1.5 text-xs font-semibold rounded-[6px] transition-all bg-white/[0.1] text-white border border-white/[0.15] shadow-xs">Student</button>
+          <button type="button" id="tab-company" onclick="setRole('company')" class="py-1.5 text-xs font-medium rounded-[6px] transition-all text-slate-400 hover:text-white border border-transparent">Company</button>
+          <button type="button" id="tab-institute" onclick="setRole('institute')" class="py-1.5 text-xs font-medium rounded-[6px] transition-all text-slate-400 hover:text-white border border-transparent">Institute</button>
         </div>
 
         <!-- Single Clean Login Form -->
@@ -224,7 +220,7 @@
   </aside>
 
   <!-- Clean Minimal Footer -->
-  <footer class="w-full border-t border-white/[0.08] bg-[#070a12]/90 py-4 relative z-10">
+  <footer class="w-full border-t border-white/[0.08] bg-[#080e1c]/90 py-4 relative z-10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-slate-400">
       <div>
         <strong class="text-slate-200 font-medium">SkillBridge</strong> &bull; Enterprise Academic &amp; Industry Collaboration Platform
@@ -280,9 +276,9 @@
         const tab = document.getElementById('tab-' + r);
         if (tab) {
           if (r === role) {
-            tab.className = 'py-1.5 text-xs font-semibold rounded-[4px] transition-all bg-indigo-600/20 text-indigo-200 border border-indigo-500/40';
+            tab.className = 'py-1.5 text-xs font-semibold rounded-[6px] transition-all bg-white/[0.1] text-white border border-white/[0.15] shadow-xs';
           } else {
-            tab.className = 'py-1.5 text-xs font-medium rounded-[4px] transition-all text-slate-400 hover:text-white border border-transparent';
+            tab.className = 'py-1.5 text-xs font-medium rounded-[6px] transition-all text-slate-400 hover:text-white border border-transparent';
           }
         }
       });

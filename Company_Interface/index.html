@@ -11,16 +11,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/design-system.css">
 </head>
-<body class="min-h-screen flex flex-col bg-slate-50 text-slate-900">
+<body class="min-h-screen flex flex-col bg-[#070b16] text-slate-100">
 
   <!-- Global Navigation Header (Pre-rendered for zero transition flicker) -->
-  <header id="sb-global-header" data-sb-role="company" data-sb-user="comp_abc" data-sb-page="index.html" class="sticky top-0 z-50 w-full h-16 border-b border-white/[0.08] bg-[#070a12]/90 backdrop-blur-md">
+  <header id="sb-global-header" data-sb-role="company" data-sb-user="comp_abc" data-sb-page="index.html" class="sticky top-0 z-50 w-full h-16 border-b border-white/[0.08] bg-[#080e1c]/90 backdrop-blur-md">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-6 text-sm font-sans">
       
       <!-- Left: Brand Logo & Role Pill -->
       <div class="flex items-center gap-3.5 flex-shrink-0">
         <a href="../index.html" class="flex items-center gap-2.5 group hover:opacity-90">
-          <div class="relative w-8 h-8 flex items-center justify-center bg-[#0d121f] border border-white/[0.12] rounded-[4px]">
+          <div class="relative w-8 h-8 flex items-center justify-center bg-[#0e1629] border border-white/[0.12] rounded-[4px]">
             <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M2 19H22" stroke="url(#sb-logo-grad)" stroke-width="2.2" stroke-linecap="round"/>
               <path d="M4 19V11C4 7.68629 6.68629 5 10 5H14C17.3137 5 20 7.68629 20 11V19" stroke="url(#sb-logo-grad)" stroke-width="2" stroke-linecap="round"/>
@@ -81,16 +81,16 @@
   <main class="flex-1 max-w-7xl mx-auto px-4 sm:px-6 py-8 w-full space-y-6">
 
     <!-- Header Banner -->
-    <div class="sb-card p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 border-slate-200">
+    <div class="sb-card p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 border-white/[0.08]">
       <div class="space-y-1.5">
         <div class="flex items-center gap-2">
           <span class="sb-badge sb-badge-emerald">Corporate Workspace</span>
           <span class="sb-badge sb-badge-blue" id="comp-partner-tag">ABC Tech</span>
         </div>
-        <h1 class="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight" id="comp-header-title">
+        <h1 class="text-2xl sm:text-3xl font-bold text-white tracking-tight" id="comp-header-title">
           ABC Tech Recruitment
         </h1>
-        <p class="text-xs sm:text-sm text-slate-600 max-w-xl">
+        <p class="text-xs sm:text-sm text-slate-300 max-w-xl">
           Review qualified candidates filtered by 1,000-point skill benchmarks and proctored technical evaluations.
         </p>
       </div>
@@ -111,60 +111,60 @@
     <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
       <div class="sb-metric-box">
         <div class="flex items-center justify-between mb-2">
-          <span class="text-xs font-medium text-slate-500">Active Listings</span>
-          <div class="w-8 h-8 bg-emerald-50 text-emerald-700 flex items-center justify-center">
+          <span class="text-xs font-medium text-slate-400">Active Listings</span>
+          <div class="w-8 h-8 bg-emerald-500/10 text-emerald-400 flex items-center justify-center">
             <span class="material-symbols-outlined text-[18px]">work</span>
           </div>
         </div>
-        <div class="text-2xl font-bold text-slate-900" id="stat-comp-listings">2 <span class="text-xs text-slate-500 font-normal">Roles Open</span></div>
-        <p class="text-[11px] text-slate-500 mt-1">Skill thresholds enforced</p>
+        <div class="text-2xl font-bold text-white" id="stat-comp-listings">2 <span class="text-xs text-slate-400 font-normal">Roles Open</span></div>
+        <p class="text-[11px] text-slate-400 mt-1">Skill thresholds enforced</p>
       </div>
 
       <div class="sb-metric-box">
         <div class="flex items-center justify-between mb-2">
-          <span class="text-xs font-medium text-slate-500">Qualified Applicants</span>
-          <div class="w-8 h-8 bg-blue-50 text-blue-700 flex items-center justify-center">
+          <span class="text-xs font-medium text-slate-400">Qualified Applicants</span>
+          <div class="w-8 h-8 bg-blue-500/10 text-indigo-400 flex items-center justify-center">
             <span class="material-symbols-outlined text-[18px]">people</span>
           </div>
         </div>
-        <div class="text-2xl font-bold text-slate-900" id="stat-comp-applicants">1 <span class="text-xs text-slate-500 font-normal">Candidate</span></div>
-        <p class="text-[11px] text-emerald-700 font-medium mt-1">100% Skill Vector Match</p>
+        <div class="text-2xl font-bold text-white" id="stat-comp-applicants">1 <span class="text-xs text-slate-400 font-normal">Candidate</span></div>
+        <p class="text-[11px] text-emerald-400 font-medium mt-1">100% Skill Vector Match</p>
       </div>
 
       <div class="sb-metric-box">
         <div class="flex items-center justify-between mb-2">
-          <span class="text-xs font-medium text-slate-500">Screening Passed</span>
-          <div class="w-8 h-8 bg-sky-50 text-sky-700 flex items-center justify-center">
+          <span class="text-xs font-medium text-slate-400">Screening Passed</span>
+          <div class="w-8 h-8 bg-sky-500/10 text-sky-400 flex items-center justify-center">
             <span class="material-symbols-outlined text-[18px]">verified</span>
           </div>
         </div>
-        <div class="text-2xl font-bold text-slate-900" id="stat-comp-screened">1 <span class="text-xs text-slate-500 font-normal">Candidate</span></div>
-        <p class="text-[11px] text-slate-500 mt-1">Scored ≥ 15/20 on proctored test</p>
+        <div class="text-2xl font-bold text-white" id="stat-comp-screened">1 <span class="text-xs text-slate-400 font-normal">Candidate</span></div>
+        <p class="text-[11px] text-slate-400 mt-1">Scored ≥ 15/20 on proctored test</p>
       </div>
 
       <div class="sb-metric-box">
         <div class="flex items-center justify-between mb-2">
-          <span class="text-xs font-medium text-slate-500">Shortlisted Pool</span>
-          <div class="w-8 h-8 bg-amber-50 text-amber-700 flex items-center justify-center">
+          <span class="text-xs font-medium text-slate-400">Shortlisted Pool</span>
+          <div class="w-8 h-8 bg-amber-500/10 text-amber-400 flex items-center justify-center">
             <span class="material-symbols-outlined text-[18px]">star</span>
           </div>
         </div>
-        <div class="text-2xl font-bold text-slate-900" id="stat-comp-shortlisted">1 <span class="text-xs text-slate-500 font-normal">Ready for Offer</span></div>
-        <p class="text-[11px] text-slate-500 mt-1">Ready for final interview</p>
+        <div class="text-2xl font-bold text-white" id="stat-comp-shortlisted">1 <span class="text-xs text-slate-400 font-normal">Ready for Offer</span></div>
+        <p class="text-[11px] text-slate-400 mt-1">Ready for final interview</p>
       </div>
     </div>
 
     <!-- Active Candidate Pipeline Table/Cards -->
     <div class="sb-card p-6 space-y-4">
-      <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+      <div class="flex items-center justify-between border-b border-white/[0.08] pb-3">
         <div>
-          <h2 class="text-base font-bold text-slate-900 flex items-center gap-2">
-            <span class="material-symbols-outlined text-slate-700">groups</span>
+          <h2 class="text-base font-bold text-white flex items-center gap-2">
+            <span class="material-symbols-outlined text-slate-200">groups</span>
             <span>Candidate Application Pipeline</span>
           </h2>
-          <p class="text-xs text-slate-500">Verified applicant profiles matching required threshold vectors.</p>
+          <p class="text-xs text-slate-400">Verified applicant profiles matching required threshold vectors.</p>
         </div>
-        <a href="applicants.html" class="text-xs font-medium text-blue-600 hover:text-blue-700 hover:underline">Manage All Candidates &rarr;</a>
+        <a href="applicants.html" class="text-xs font-medium text-indigo-400 hover:text-indigo-400 hover:underline">Manage All Candidates &rarr;</a>
       </div>
 
       <div id="company-candidates-list" class="space-y-3">
@@ -174,13 +174,13 @@
 
     <!-- Active Company Postings -->
     <div class="sb-card p-6 space-y-4">
-      <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+      <div class="flex items-center justify-between border-b border-white/[0.08] pb-3">
         <div>
-          <h2 class="text-base font-bold text-slate-900 flex items-center gap-2">
-            <span class="material-symbols-outlined text-slate-700">list_alt</span>
+          <h2 class="text-base font-bold text-white flex items-center gap-2">
+            <span class="material-symbols-outlined text-slate-200">list_alt</span>
             <span>Active Position Postings</span>
           </h2>
-          <p class="text-xs text-slate-500">Positions with configured skill requirements.</p>
+          <p class="text-xs text-slate-400">Positions with configured skill requirements.</p>
         </div>
         <a href="opportunities.html" class="sb-btn sb-btn-primary text-xs">Post Opportunity</a>
       </div>
@@ -205,7 +205,7 @@
       document.getElementById('comp-header-title').innerText = `${compName} Recruitment`;
 
       const compOpps = (state.opportunities || []).filter(o => o.companyId === comp.id || o.companyName === compName);
-      document.getElementById('stat-comp-listings').innerHTML = `${compOpps.length} <span class="text-xs text-slate-500 font-normal">Roles Open</span>`;
+      document.getElementById('stat-comp-listings').innerHTML = `${compOpps.length} <span class="text-xs text-slate-400 font-normal">Roles Open</span>`;
 
       const oppIds = new Set(compOpps.map(o => o.id));
       const compApps = (state.applications || []).filter(a => oppIds.has(a.opportunityId) || a.companyId === comp.id);
@@ -213,15 +213,15 @@
       const shortlisted = compApps.filter(a => a.status === 'Shortlisted');
       const screened = compApps.filter(a => a.screeningScore && a.screeningScore >= 15);
 
-      document.getElementById('stat-comp-applicants').innerHTML = `${compApps.length} <span class="text-xs text-slate-500 font-normal">Candidate${compApps.length === 1 ? '' : 's'}</span>`;
-      document.getElementById('stat-comp-screened').innerHTML = `${screened.length} <span class="text-xs text-slate-500 font-normal">Candidate${screened.length === 1 ? '' : 's'}</span>`;
-      document.getElementById('stat-comp-shortlisted').innerHTML = `${shortlisted.length} <span class="text-xs text-slate-500 font-normal">Ready for Offer</span>`;
+      document.getElementById('stat-comp-applicants').innerHTML = `${compApps.length} <span class="text-xs text-slate-400 font-normal">Candidate${compApps.length === 1 ? '' : 's'}</span>`;
+      document.getElementById('stat-comp-screened').innerHTML = `${screened.length} <span class="text-xs text-slate-400 font-normal">Candidate${screened.length === 1 ? '' : 's'}</span>`;
+      document.getElementById('stat-comp-shortlisted').innerHTML = `${shortlisted.length} <span class="text-xs text-slate-400 font-normal">Ready for Offer</span>`;
 
       const candContainer = document.getElementById('company-candidates-list');
       candContainer.innerHTML = '';
 
       if (compApps.length === 0) {
-        candContainer.innerHTML = '<p class="text-xs text-slate-500 py-6 text-center">No candidates have applied to your active listings yet.</p>';
+        candContainer.innerHTML = '<p class="text-xs text-slate-400 py-6 text-center">No candidates have applied to your active listings yet.</p>';
       } else {
         compApps.forEach(app => {
           const card = document.createElement('div');
@@ -235,15 +235,15 @@
           card.innerHTML = `
             <div class="space-y-1">
               <div class="flex items-center gap-2 flex-wrap">
-                <span class="text-sm font-bold text-slate-900">${app.studentName}</span>
+                <span class="text-sm font-bold text-white">${app.studentName}</span>
                 <span class="sb-badge sb-badge-muted text-[10px]">${app.college} · ${app.department || 'CSE'}</span>
                 ${statusBadge}
               </div>
-              <p class="text-xs text-slate-600">Position: <b class="text-slate-800">${app.opportunityTitle}</b> · Applied: ${app.appliedDate}</p>
-              <div class="flex items-center gap-3 text-[11px] text-slate-500 pt-1">
-                <span>Skill Match: <b class="text-emerald-700">${app.matchScore}%</b></span>
+              <p class="text-xs text-slate-300">Position: <b class="text-slate-100">${app.opportunityTitle}</b> · Applied: ${app.appliedDate}</p>
+              <div class="flex items-center gap-3 text-[11px] text-slate-400 pt-1">
+                <span>Skill Match: <b class="text-emerald-400">${app.matchScore}%</b></span>
                 <span>·</span>
-                <span>Screening Score: <b class="text-blue-700">${app.screeningScore !== null ? `${app.screeningScore}/20` : 'Pending'}</b></span>
+                <span>Screening Score: <b class="text-indigo-400">${app.screeningScore !== null ? `${app.screeningScore}/20` : 'Pending'}</b></span>
               </div>
             </div>
 
@@ -264,12 +264,12 @@
         item.innerHTML = `
           <div class="flex items-start justify-between">
             <div>
-              <h3 class="text-sm font-bold text-slate-900">${opp.title}</h3>
-              <p class="text-xs text-slate-500">${opp.type} · ${opp.location} · ${opp.stipend}</p>
+              <h3 class="text-sm font-bold text-white">${opp.title}</h3>
+              <p class="text-xs text-slate-400">${opp.type} · ${opp.location} · ${opp.stipend}</p>
             </div>
             <span class="sb-badge sb-badge-blue">${opp.openings} Openings</span>
           </div>
-          <p class="text-xs text-slate-600 leading-relaxed">${opp.description}</p>
+          <p class="text-xs text-slate-300 leading-relaxed">${opp.description}</p>
         `;
         listContainer.appendChild(item);
       });
@@ -286,3 +286,4 @@
   </script>
 </body>
 </html>
+

@@ -1,67 +1,70 @@
 /**
- * SkillBridge — Refined Dark Interactive Design System v7.0
- * Deep Obsidian Atmosphere with Softened Micro-Geometry & Clean Surfaces
- * Enterprise Academic & Industry Collaboration Platform
+ * SkillBridge — Enterprise Precision Dark Design System v9.0
+ * Aesthetic: Authentic Modern Enterprise (Linear & Stripe Inspired)
+ * Precision Hairlines, Specular Highlights, Deep Obsidian-Slate Canvas, Crystal Clarity
+ * Institutional Rigor, Corporate Trust, and Student Usability
  */
 
 :root {
-  /* Deep Obsidian Surface Canvas */
-  --sb-bg: #07090e;
-  --sb-surface: rgba(13, 18, 30, 0.82);
-  --sb-surface-elevated: rgba(18, 25, 42, 0.88);
-  --sb-surface-muted: rgba(22, 30, 50, 0.65);
+  /* Deep Obsidian-Slate Foundations */
+  --sb-bg: #090d16;
+  --sb-bg-darker: #060910;
+  --sb-bg-card: rgba(15, 21, 35, 0.82);
+  --sb-bg-card-elevated: rgba(19, 27, 46, 0.88);
+  --sb-bg-card-muted: rgba(22, 32, 54, 0.65);
 
-  /* Clean Hairline Borders */
-  --sb-border: rgba(255, 255, 255, 0.09);
-  --sb-border-hover: rgba(255, 255, 255, 0.2);
+  /* Precision Hairline Borders & Specular Edges */
+  --sb-border: rgba(255, 255, 255, 0.08);
+  --sb-border-subtle: rgba(255, 255, 255, 0.05);
+  --sb-border-hover: rgba(255, 255, 255, 0.18);
+  --sb-border-active: rgba(99, 102, 241, 0.5);
   --sb-border-focus: #6366f1;
 
-  /* Radiant High-Legibility Typography */
-  --sb-text-primary: #f8fafc;
-  --sb-text-secondary: #cbd5e1;
+  /* Authentic Contrast Typography */
+  --sb-text-primary: #ffffff;
+  --sb-text-secondary: #e2e8f0;
   --sb-text-muted: #94a3b8;
-  --sb-text-light: #64748b;
+  --sb-text-dim: #64748b;
 
-  /* Subtle Clean Accents (Zero Glow) */
+  /* Restrained Functional Jewel Accents */
   --sb-primary: #4f46e5;
+  --sb-primary-hover: #4338ca;
   --sb-accent-blue: #3b82f6;
-  --sb-accent-purple: #8b5cf6;
-  --sb-accent-cyan: #06b6d4;
+  --sb-accent-indigo: #6366f1;
+  --sb-accent-cyan: #0ea5e9;
   --sb-accent-emerald: #10b981;
   --sb-accent-amber: #f59e0b;
   --sb-accent-rose: #f43f5e;
 
-  /* Refined Micro-Geometry (Subtle Softened Corners) */
-  --sb-radius-xs: 2px;
-  --sb-radius-sm: 3px;
-  --sb-radius-md: 4px;
-  --sb-radius-lg: 6px;
-  --sb-radius-xl: 8px;
+  /* Precision Geometry */
+  --sb-radius-xs: 3px;
+  --sb-radius-sm: 4px;
+  --sb-radius-md: 6px;
+  --sb-radius-lg: 8px;
+  --sb-radius-xl: 12px;
 }
 
-/* Subtle Edge Softening Rule — Softens razor sharpness slightly while remaining sleek */
+/* Base Softening Rule */
 *,
 *::before,
 *::after {
   border-radius: 4px;
 }
 
-/* Text Selection */
+/* Refined Selection */
 ::selection {
-  background: rgba(99, 102, 241, 0.35);
+  background: rgba(99, 102, 241, 0.3);
   color: #ffffff;
 }
 
-/* Base Body: Immersive Vibey Dark Gradient Canvas */
+/* Base Body: Pristine Deep Obsidian Canvas with Ultra-Subtle Ambient Light */
 html,
 body {
-  background-color: #07090e !important;
+  background-color: #090d16 !important;
   background-image: 
-    radial-gradient(ellipse 90% 55% at 50% -10%, rgba(99, 102, 241, 0.22), transparent 70%),
-    radial-gradient(ellipse 65% 45% at 90% 25%, rgba(168, 85, 247, 0.16), transparent 60%),
-    radial-gradient(ellipse 55% 45% at 10% 75%, rgba(6, 182, 212, 0.14), transparent 55%),
-    radial-gradient(ellipse 50% 40% at 85% 85%, rgba(16, 185, 129, 0.10), transparent 50%),
-    linear-gradient(180deg, #07090e 0%, #0c101c 50%, #07090e 100%) !important;
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(99, 102, 241, 0.12), transparent 70%),
+    radial-gradient(ellipse 60% 40% at 85% 15%, rgba(56, 189, 248, 0.06), transparent 60%),
+    linear-gradient(180deg, #090d16 0%, #0d121f 50%, #070a12 100%) !important;
   background-attachment: fixed !important;
   background-repeat: no-repeat !important;
   background-size: cover !important;
@@ -73,7 +76,7 @@ body {
   min-height: 100vh;
 }
 
-/* Pure, Smooth Fade Transition Between Tabs & Pages (Zero Layout Shift, Zero Glitch) */
+/* Smooth Tab Fade Transition */
 main,
 .sb-tab-fade,
 .tab-content,
@@ -92,9 +95,9 @@ main,
   }
 }
 
-/* Smooth Interactive Element Transitions (No transform jitter) */
+/* Clean Micro-Transitions */
 a, button {
-  transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+  transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
 }
 
 /* Respect user's motion preferences */
@@ -107,78 +110,81 @@ a, button {
   }
 }
 
-/* Translucent Dark Glassmorphic Panels & Cards */
+/* Precision Hairline Glass Cards with Specular Top Highlight */
 .sb-card {
-  background: rgba(13, 18, 30, 0.82) !important;
+  background: rgba(15, 21, 35, 0.78) !important;
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.09) !important;
-  border-radius: 6px !important;
-  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.45) !important;
-  transition: border-color 0.2s ease;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.45), inset 0 1px 0 0 rgba(255, 255, 255, 0.07) !important;
+  transition: border-color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
   color: #f8fafc !important;
 }
 
 .sb-card-elevated {
-  background: rgba(18, 25, 42, 0.88) !important;
+  background: rgba(19, 27, 46, 0.85) !important;
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08) !important;
-  border-radius: 6px !important;
-  box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.45) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 8px 28px -4px rgba(0, 0, 0, 0.55), inset 0 1px 0 0 rgba(255, 255, 255, 0.09) !important;
+  transition: border-color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
   color: #f8fafc !important;
 }
 
 .sb-card-interactive {
-  transition: transform 0.2s ease, border-color 0.2s ease;
+  transition: border-color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
 }
 
-/* NO HOVER GLOW — Clean border highlight only */
+/* Crisp Physical Card Hover (Hairline Brightening & Subtle Lift, No Neon Fog) */
+.sb-card:hover,
 .sb-card-interactive:hover,
-.sb-card:hover {
-  border-color: rgba(255, 255, 255, 0.18) !important;
-  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.5) !important;
+.sb-card-elevated:hover {
+  border-color: rgba(255, 255, 255, 0.2) !important;
+  box-shadow: 0 12px 32px -4px rgba(0, 0, 0, 0.65), inset 0 1px 0 0 rgba(255, 255, 255, 0.12) !important;
   transform: translateY(-1px);
 }
 
-/* Metric Box with Clean Depth (Zero Glow) */
+/* Metric Box with Clean Material Depth */
 .sb-metric-box {
-  background: rgba(13, 18, 30, 0.85) !important;
+  background: rgba(16, 23, 38, 0.8) !important;
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.09) !important;
-  border-radius: 6px !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 8px !important;
   padding: 1.25rem;
-  box-shadow: 0 4px 16px -2px rgba(0, 0, 0, 0.35) !important;
+  box-shadow: 0 4px 16px -2px rgba(0, 0, 0, 0.4), inset 0 1px 0 0 rgba(255, 255, 255, 0.06) !important;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: border-color 0.2s ease;
+  transition: border-color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
   color: #f8fafc !important;
 }
 
 .sb-metric-box:hover {
   border-color: rgba(255, 255, 255, 0.18) !important;
-  box-shadow: 0 4px 16px -2px rgba(0, 0, 0, 0.4) !important;
+  box-shadow: 0 8px 24px -2px rgba(0, 0, 0, 0.5), inset 0 1px 0 0 rgba(255, 255, 255, 0.1) !important;
+  transform: translateY(-1px);
 }
 
-/* Overrides for Legacy / Inline Slate Backgrounds */
+/* Legacy Background Overrides */
 .bg-white,
 .bg-slate-50,
 .bg-slate-100 {
-  background: rgba(18, 25, 42, 0.75) !important;
+  background: rgba(17, 24, 40, 0.8) !important;
   color: #f8fafc !important;
   border-color: rgba(255, 255, 255, 0.08) !important;
 }
 
-/* Deep Hairline Borders Overrides */
+/* Hairline Border Overrides */
 .border-slate-100,
 .border-slate-200,
 .border-slate-300 {
   border-color: rgba(255, 255, 255, 0.08) !important;
 }
 
-/* Typography Overrides for Crisp Readability in Dark Mode */
+/* Typography Hierarchy for High Legibility */
 h1, h2, h3, h4, h5, h6,
 .text-slate-900,
 .text-slate-800 {
@@ -201,16 +207,18 @@ h1, h2, h3, h4, h5, h6,
   color: #64748b !important;
 }
 
-/* Hyperlinks in Dark Mode */
-a.text-blue-600 {
-  color: #60a5fa !important;
+/* Crisp Hyperlinks */
+a.text-blue-600,
+a.text-indigo-600 {
+  color: #818cf8 !important;
 }
 
-a.text-blue-600:hover {
-  color: #93c5fd !important;
+a.text-blue-600:hover,
+a.text-indigo-600:hover {
+  color: #a5b4fc !important;
 }
 
-/* Clean Button System (Zero Glow on Hover) */
+/* Authoritative Button System (Solid, Tactile, No Rainbow Gimmicks) */
 .sb-btn {
   display: inline-flex;
   align-items: center;
@@ -218,9 +226,9 @@ a.text-blue-600:hover {
   gap: 0.45rem;
   font-weight: 600;
   font-size: 0.8125rem;
-  padding: 0.55rem 0.95rem;
-  border-radius: 4px !important;
-  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  padding: 0.55rem 1rem;
+  border-radius: 6px !important;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease, transform 0.15s ease;
   cursor: pointer;
   border: 1px solid transparent;
   user-select: none;
@@ -231,30 +239,30 @@ a.text-blue-600:hover {
 .sb-btn-primary {
   background: #4f46e5 !important;
   color: #ffffff !important;
-  border: 1px solid rgba(255, 255, 255, 0.16) !important;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25) !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
   text-shadow: none !important;
 }
 
 .sb-btn-primary:hover {
   background: #4338ca !important;
   border-color: rgba(255, 255, 255, 0.28) !important;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.35) !important;
-  transform: none !important;
+  box-shadow: 0 2px 8px rgba(79, 70, 229, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.25) !important;
+  transform: translateY(-0.5px);
 }
 
 .sb-btn-secondary {
-  background: rgba(22, 30, 48, 0.8) !important;
+  background: rgba(255, 255, 255, 0.05) !important;
   color: #e2e8f0 !important;
   border: 1px solid rgba(255, 255, 255, 0.12) !important;
-  box-shadow: none !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) !important;
 }
 
 .sb-btn-secondary:hover {
-  background: rgba(30, 41, 68, 0.95) !important;
+  background: rgba(255, 255, 255, 0.09) !important;
   color: #ffffff !important;
-  border-color: rgba(255, 255, 255, 0.22) !important;
-  box-shadow: none !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+  transform: translateY(-0.5px);
 }
 
 .sb-btn-outline {
@@ -264,150 +272,147 @@ a.text-blue-600:hover {
 }
 
 .sb-btn-outline:hover {
-  background: rgba(255, 255, 255, 0.08) !important;
+  background: rgba(255, 255, 255, 0.06) !important;
   color: #ffffff !important;
   border-color: rgba(255, 255, 255, 0.22) !important;
 }
 
-/* Clean Badges & Tags (Zero Glow) */
+/* Authentic Enterprise Micro-Badges (Clean, Sharp, No Neon Fog) */
 .sb-badge {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
   font-size: 0.725rem;
   font-weight: 600;
-  padding: 0.2rem 0.55rem;
-  border-radius: 3px !important;
+  padding: 0.22rem 0.6rem;
+  border-radius: 4px !important;
   line-height: 1.1;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.015em;
   box-shadow: none !important;
 }
 
 .sb-badge-indigo,
 .sb-badge-blue {
-  background-color: rgba(37, 99, 235, 0.16) !important;
+  background: rgba(59, 130, 246, 0.1) !important;
   color: #93c5fd !important;
-  border: 1px solid rgba(59, 130, 246, 0.3) !important;
-  box-shadow: none !important;
+  border: 1px solid rgba(59, 130, 246, 0.25) !important;
 }
 
 .sb-badge-emerald {
-  background-color: rgba(5, 150, 105, 0.16) !important;
+  background: rgba(16, 185, 129, 0.1) !important;
   color: #6ee7b7 !important;
-  border: 1px solid rgba(16, 185, 129, 0.3) !important;
-  box-shadow: none !important;
+  border: 1px solid rgba(16, 185, 129, 0.25) !important;
 }
 
 .sb-badge-amber {
-  background-color: rgba(217, 119, 6, 0.16) !important;
+  background: rgba(245, 158, 11, 0.1) !important;
   color: #fcd34d !important;
-  border: 1px solid rgba(245, 158, 11, 0.3) !important;
-  box-shadow: none !important;
+  border: 1px solid rgba(245, 158, 11, 0.25) !important;
 }
 
 .sb-badge-rose {
-  background-color: rgba(225, 29, 72, 0.16) !important;
+  background: rgba(244, 63, 94, 0.1) !important;
   color: #fda4af !important;
-  border: 1px solid rgba(244, 63, 94, 0.3) !important;
-  box-shadow: none !important;
+  border: 1px solid rgba(244, 63, 94, 0.25) !important;
 }
 
 .sb-badge-muted {
-  background-color: rgba(255, 255, 255, 0.05) !important;
+  background: rgba(255, 255, 255, 0.05) !important;
   color: #cbd5e1 !important;
   border: 1px solid rgba(255, 255, 255, 0.1) !important;
-  box-shadow: none !important;
 }
 
 /* Category Filter Pills */
-.cat-pill.sb-badge-blue {
-  background: rgba(37, 99, 235, 0.25) !important;
-  border-color: #3b82f6 !important;
-  color: #93c5fd !important;
-  box-shadow: none !important;
+.cat-pill.sb-badge-blue,
+.cat-pill.active {
+  background: rgba(99, 102, 241, 0.18) !important;
+  border: 1px solid rgba(99, 102, 241, 0.45) !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
 }
 
 .cat-pill.sb-badge-muted {
-  background: rgba(255, 255, 255, 0.05) !important;
-  border-color: rgba(255, 255, 255, 0.1) !important;
+  background: rgba(255, 255, 255, 0.04) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
   color: #94a3b8 !important;
-  box-shadow: none !important;
 }
 
 .cat-pill.sb-badge-muted:hover {
-  background: rgba(255, 255, 255, 0.1) !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(255, 255, 255, 0.16) !important;
   color: #f8fafc !important;
-  box-shadow: none !important;
 }
 
-/* Linear Gauges (Zero Glow) */
+/* Linear Gauges */
 .sb-progress-track {
   width: 100%;
   background-color: rgba(255, 255, 255, 0.08) !important;
-  border-radius: 3px !important;
+  border-radius: 4px !important;
   height: 6px;
   overflow: hidden;
 }
 
 .sb-progress-fill {
   height: 100%;
-  border-radius: 3px !important;
+  border-radius: 4px !important;
   transition: width 0.35s ease;
   box-shadow: none !important;
 }
 
 .sb-progress-fill.bg-blue-600 {
   background: #4f46e5 !important;
-  box-shadow: none !important;
 }
 
 .sb-progress-fill.bg-emerald-600 {
   background: #10b981 !important;
-  box-shadow: none !important;
 }
 
 .sb-progress-fill.bg-amber-500 {
   background: #f59e0b !important;
-  box-shadow: none !important;
 }
 
-/* Subdued Icon Boxes */
+/* Subdued Functional Icon Boxes */
 .bg-blue-50 {
-  background-color: rgba(37, 99, 235, 0.14) !important;
+  background: rgba(59, 130, 246, 0.12) !important;
+  border: 1px solid rgba(59, 130, 246, 0.22) !important;
 }
 .text-blue-700, .text-blue-600 {
   color: #93c5fd !important;
 }
 
 .bg-emerald-50 {
-  background-color: rgba(5, 150, 105, 0.14) !important;
+  background: rgba(16, 185, 129, 0.12) !important;
+  border: 1px solid rgba(16, 185, 129, 0.22) !important;
 }
 .text-emerald-700, .text-emerald-600 {
   color: #6ee7b7 !important;
 }
 
 .bg-amber-50 {
-  background-color: rgba(217, 119, 6, 0.14) !important;
+  background: rgba(245, 158, 11, 0.12) !important;
+  border: 1px solid rgba(245, 158, 11, 0.22) !important;
 }
 .text-amber-700, .text-amber-600 {
   color: #fcd34d !important;
 }
 
 .bg-sky-50 {
-  background-color: rgba(14, 165, 233, 0.14) !important;
+  background: rgba(14, 165, 233, 0.12) !important;
+  border: 1px solid rgba(14, 165, 233, 0.22) !important;
 }
 .text-sky-700, .text-sky-600 {
   color: #7dd3fc !important;
 }
 
 .bg-rose-50 {
-  background-color: rgba(225, 29, 72, 0.14) !important;
+  background: rgba(244, 63, 94, 0.12) !important;
+  border: 1px solid rgba(244, 63, 94, 0.22) !important;
 }
 .text-rose-700, .text-rose-600 {
   color: #fda4af !important;
 }
 
-/* Refined Dark Form Inputs */
+/* Precision Dark Form Inputs (Apple / Linear Quality) */
 .sb-input,
 input[type="text"],
 input[type="email"],
@@ -416,17 +421,17 @@ input[type="url"],
 textarea,
 select {
   width: 100%;
-  background-color: rgba(10, 15, 26, 0.85) !important;
-  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  background-color: rgba(11, 15, 25, 0.85) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
   color: #f8fafc !important;
-  border-radius: 4px !important;
+  border-radius: 6px !important;
   padding: 0.55rem 0.75rem;
   font-size: 0.8125rem;
-  box-shadow: none !important;
-  transition: border-color 0.2s ease;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
-/* Explicit Input Padding for Icons to Prevent Overlap */
+/* Explicit Input Padding for Icons */
 .sb-input-icon-left,
 input.pl-9,
 input.pl-10,
@@ -451,7 +456,7 @@ textarea:focus,
 select:focus {
   outline: none;
   border-color: #6366f1 !important;
-  box-shadow: none !important;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.18), inset 0 1px 2px rgba(0, 0, 0, 0.2) !important;
 }
 
 input::placeholder,
@@ -464,25 +469,25 @@ input:-webkit-autofill,
 input:-webkit-autofill:hover, 
 input:-webkit-autofill:focus, 
 input:-webkit-autofill:active {
-  -webkit-box-shadow: 0 0 0 30px rgba(10, 15, 26, 0.95) inset !important;
+  -webkit-box-shadow: 0 0 0 30px rgba(11, 15, 25, 0.98) inset !important;
   -webkit-text-fill-color: #f8fafc !important;
   transition: background-color 5000s ease-in-out 0s;
 }
 
 input[type="radio"],
 input[type="checkbox"] {
-  accent-color: #6366f1 !important;
-  background-color: rgba(10, 15, 26, 0.85) !important;
+  accent-color: #4f46e5 !important;
+  background-color: rgba(11, 15, 25, 0.85) !important;
   border-color: rgba(255, 255, 255, 0.2) !important;
 }
 
-/* Frosted Modal Backdrops & Content (Zero Glow) */
+/* Frosted Modal Backdrops & Precision Content */
 .sb-modal-backdrop {
   position: fixed;
   inset: 0;
-  background-color: rgba(3, 7, 18, 0.8) !important;
-  backdrop-filter: blur(10px) !important;
-  -webkit-backdrop-filter: blur(10px) !important;
+  background-color: rgba(3, 6, 14, 0.8) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -491,10 +496,10 @@ input[type="checkbox"] {
 }
 
 .sb-modal-content {
-  background: rgba(13, 18, 32, 0.96) !important;
+  background: rgba(15, 21, 35, 0.96) !important;
   border: 1px solid rgba(255, 255, 255, 0.12) !important;
-  border-radius: 8px !important;
-  box-shadow: 0 24px 60px -12px rgba(0, 0, 0, 0.85) !important;
+  border-radius: 10px !important;
+  box-shadow: 0 24px 60px -12px rgba(0, 0, 0, 0.85), inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
   width: 100%;
   max-width: 600px;
   max-height: 90vh;
@@ -505,7 +510,7 @@ input[type="checkbox"] {
 /* Frosted Global Navigation Header */
 #sb-global-header,
 header {
-  background: rgba(7, 10, 18, 0.88) !important;
+  background: rgba(9, 13, 22, 0.9) !important;
   backdrop-filter: blur(20px) !important;
   -webkit-backdrop-filter: blur(20px) !important;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
@@ -515,23 +520,25 @@ header {
 /* Navigation Links within Header */
 #sb-global-header nav a,
 header nav a {
-  border-radius: 4px !important;
-  transition: background-color 0.15s ease, color 0.15s ease;
+  border-radius: 6px !important;
+  transition: all 0.15s ease;
 }
 
 #sb-global-header nav a.bg-slate-100,
-header nav a.bg-slate-100 {
-  background: rgba(99, 102, 241, 0.15) !important;
-  color: #c7d2fe !important;
-  border: 1px solid rgba(99, 102, 241, 0.3) !important;
-  box-shadow: none !important;
+header nav a.bg-slate-100,
+#sb-global-header nav a.active,
+header nav a.active {
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25) !important;
 }
 
-#sb-global-header nav a:not(.bg-slate-100):hover,
-header nav a:not(.bg-slate-100):hover {
-  background: rgba(255, 255, 255, 0.05) !important;
+#sb-global-header nav a:not(.bg-slate-100):not(.active):hover,
+header nav a:not(.bg-slate-100):not(.active):hover {
+  background: rgba(255, 255, 255, 0.04) !important;
   color: #f8fafc !important;
-  box-shadow: none !important;
+  border-color: transparent !important;
 }
 
 /* Footer Styling */
@@ -548,7 +555,7 @@ footer {
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(7, 10, 18, 0.8);
+  background: rgba(7, 10, 18, 0.85);
 }
 
 ::-webkit-scrollbar-thumb {

@@ -11,16 +11,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/design-system.css">
 </head>
-<body class="min-h-screen flex flex-col bg-slate-50 text-slate-900">
+<body class="min-h-screen flex flex-col bg-[#070b16] text-slate-100">
 
   <!-- Global Navigation Header (Pre-rendered for zero transition flicker) -->
-  <header id="sb-global-header" data-sb-role="student" data-sb-user="std_rahul" data-sb-page="certificates_interface.html" class="sticky top-0 z-50 w-full h-16 border-b border-white/[0.08] bg-[#070a12]/90 backdrop-blur-md">
+  <header id="sb-global-header" data-sb-role="student" data-sb-user="std_rahul" data-sb-page="certificates_interface.html" class="sticky top-0 z-50 w-full h-16 border-b border-white/[0.08] bg-[#080e1c]/90 backdrop-blur-md">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-6 text-sm font-sans">
       
       <!-- Left: Brand Logo & Role Pill -->
       <div class="flex items-center gap-3.5 flex-shrink-0">
         <a href="../index.html" class="flex items-center gap-2.5 group hover:opacity-90">
-          <div class="relative w-8 h-8 flex items-center justify-center bg-[#0d121f] border border-white/[0.12] rounded-[4px]">
+          <div class="relative w-8 h-8 flex items-center justify-center bg-[#0e1629] border border-white/[0.12] rounded-[4px]">
             <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M2 19H22" stroke="url(#sb-logo-grad)" stroke-width="2.2" stroke-linecap="round"/>
               <path d="M4 19V11C4 7.68629 6.68629 5 10 5H14C17.3137 5 20 7.68629 20 11V19" stroke="url(#sb-logo-grad)" stroke-width="2" stroke-linecap="round"/>
@@ -89,14 +89,14 @@
   <main class="flex-1 max-w-7xl mx-auto px-4 sm:px-6 py-8 w-full space-y-6">
 
     <!-- Header Banner -->
-    <div class="sb-card p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 border-slate-200">
+    <div class="sb-card p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 border-white/[0.08]">
       <div class="space-y-1.5">
         <div class="flex items-center gap-2">
           <span class="sb-badge sb-badge-amber">Credentials</span>
           <span class="sb-badge sb-badge-blue">Verified Portfolio</span>
         </div>
-        <h1 class="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">Certificates &amp; Credentials</h1>
-        <p class="text-xs sm:text-sm text-slate-600 max-w-xl">
+        <h1 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">Certificates &amp; Credentials</h1>
+        <p class="text-xs sm:text-sm text-slate-300 max-w-xl">
           Authorized certificates with immutable verification IDs. Shared directly with corporate hiring teams.
         </p>
       </div>
@@ -117,41 +117,41 @@
   <!-- Add Certificate Modal -->
   <div id="add-cert-modal" class="sb-modal-backdrop hidden">
     <div class="sb-modal-content p-6 sm:p-8 space-y-5 max-w-md">
-      <div class="flex items-center justify-between border-b border-slate-100 pb-3">
-        <h3 class="text-base font-bold text-slate-900">Add Verifiable Certificate</h3>
-        <button onclick="closeAddCertModal()" class="text-slate-400 hover:text-slate-700">
+      <div class="flex items-center justify-between border-b border-white/[0.08] pb-3">
+        <h3 class="text-base font-bold text-white">Add Verifiable Certificate</h3>
+        <button onclick="closeAddCertModal()" class="text-slate-400 hover:text-slate-200">
           <span class="material-symbols-outlined text-lg">close</span>
         </button>
       </div>
 
       <form id="add-cert-form" class="space-y-4 text-xs">
         <div>
-          <label class="block text-slate-700 mb-1 font-medium">Certificate Title</label>
+          <label class="block text-slate-200 mb-1 font-medium">Certificate Title</label>
           <input type="text" id="cert-name" class="sb-input" placeholder="e.g. AWS Certified Cloud Practitioner" required>
         </div>
 
         <div>
-          <label class="block text-slate-700 mb-1 font-medium">Issuing Organization</label>
+          <label class="block text-slate-200 mb-1 font-medium">Issuing Organization</label>
           <input type="text" id="cert-issuer" class="sb-input" placeholder="e.g. Amazon Web Services (AWS)" required>
         </div>
 
         <div class="grid grid-cols-2 gap-3">
           <div>
-            <label class="block text-slate-700 mb-1 font-medium">Issue Date</label>
+            <label class="block text-slate-200 mb-1 font-medium">Issue Date</label>
             <input type="text" id="cert-date" class="sb-input" placeholder="e.g. Jan 2026" required>
           </div>
           <div>
-            <label class="block text-slate-700 mb-1 font-medium">Credential ID</label>
+            <label class="block text-slate-200 mb-1 font-medium">Credential ID</label>
             <input type="text" id="cert-id" class="sb-input" placeholder="e.g. AWS-8921-X" required>
           </div>
         </div>
 
         <div>
-          <label class="block text-slate-700 mb-1 font-medium">Verification URL</label>
+          <label class="block text-slate-200 mb-1 font-medium">Verification URL</label>
           <input type="url" id="cert-url" class="sb-input" placeholder="https://aws.amazon.com/verify/..." required>
         </div>
 
-        <div class="pt-3 border-t border-slate-100 flex justify-end gap-2">
+        <div class="pt-3 border-t border-white/[0.08] flex justify-end gap-2">
           <button type="button" onclick="closeAddCertModal()" class="sb-btn sb-btn-secondary">Cancel</button>
           <button type="submit" class="sb-btn sb-btn-primary">Save Credential</button>
         </div>
@@ -175,8 +175,8 @@
         container.innerHTML = `
           <div class="col-span-full sb-card p-12 text-center space-y-3">
             <span class="material-symbols-outlined text-4xl text-slate-400">workspace_premium</span>
-            <h3 class="text-base font-bold text-slate-900">No Credentials Added</h3>
-            <p class="text-xs text-slate-500 max-w-sm mx-auto">Upload and attach verifiable course completions and industry certifications to your profile.</p>
+            <h3 class="text-base font-bold text-white">No Credentials Added</h3>
+            <p class="text-xs text-slate-400 max-w-sm mx-auto">Upload and attach verifiable course completions and industry certifications to your profile.</p>
             <button onclick="openAddCertModal()" class="sb-btn sb-btn-primary">Add Your First Certificate</button>
           </div>
         `;
@@ -189,22 +189,22 @@
         card.innerHTML = `
           <div class="space-y-3">
             <div class="flex items-center justify-between">
-              <div class="w-9 h-9 bg-amber-50 border border-amber-100 flex items-center justify-center text-amber-700">
+              <div class="w-9 h-9 bg-amber-500/10 border border-amber-100 flex items-center justify-center text-amber-400">
                 <span class="material-symbols-outlined text-xl">verified</span>
               </div>
               <span class="sb-badge sb-badge-emerald text-[10px]">Verified Credential</span>
             </div>
             <div>
-              <h3 class="text-sm font-bold text-slate-900">${cert.name}</h3>
-              <p class="text-xs text-slate-500">${cert.issuer} &bull; Issued ${cert.date}</p>
+              <h3 class="text-sm font-bold text-white">${cert.name}</h3>
+              <p class="text-xs text-slate-400">${cert.issuer} &bull; Issued ${cert.date}</p>
             </div>
-            <div class="text-[11px] text-slate-600 bg-slate-50 p-2.5 border border-slate-200 font-mono">
+            <div class="text-[11px] text-slate-300 bg-[#0c1220]/70 p-2.5 border border-white/[0.08] font-mono">
               ID: ${cert.credentialId}
             </div>
           </div>
 
-          <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
-            <a href="${cert.url || '#'}" target="_blank" class="text-blue-600 hover:underline flex items-center gap-1 font-medium">
+          <div class="pt-3 border-t border-white/[0.08] flex items-center justify-between text-xs">
+            <a href="${cert.url || '#'}" target="_blank" class="text-indigo-400 hover:underline flex items-center gap-1 font-medium">
               <span>Verify Link</span>
               <span class="material-symbols-outlined text-xs">open_in_new</span>
             </a>
@@ -253,3 +253,4 @@
   </script>
 </body>
 </html>
+

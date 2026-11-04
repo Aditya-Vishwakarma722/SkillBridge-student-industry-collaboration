@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -11,16 +11,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/design-system.css">
 </head>
-<body class="min-h-screen flex flex-col bg-slate-50 text-slate-900">
+<body class="min-h-screen flex flex-col bg-[#070b16] text-slate-100">
 
   <!-- Global Navigation Header (Pre-rendered for zero transition flicker) -->
-  <header id="sb-global-header" data-sb-role="student" data-sb-user="std_rahul" data-sb-page="opportunities_interface.html" class="sticky top-0 z-50 w-full h-16 border-b border-white/[0.08] bg-[#070a12]/90 backdrop-blur-md">
+  <header id="sb-global-header" data-sb-role="student" data-sb-user="std_rahul" data-sb-page="opportunities_interface.html" class="sticky top-0 z-50 w-full h-16 border-b border-white/[0.08] bg-[#080e1c]/90 backdrop-blur-md">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-6 text-sm font-sans">
       
       <!-- Left: Brand Logo & Role Pill -->
       <div class="flex items-center gap-3.5 flex-shrink-0">
         <a href="../index.html" class="flex items-center gap-2.5 group hover:opacity-90">
-          <div class="relative w-8 h-8 flex items-center justify-center bg-[#0d121f] border border-white/[0.12] rounded-[4px]">
+          <div class="relative w-8 h-8 flex items-center justify-center bg-[#0e1629] border border-white/[0.12] rounded-[4px]">
             <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M2 19H22" stroke="url(#sb-logo-grad)" stroke-width="2.2" stroke-linecap="round"/>
               <path d="M4 19V11C4 7.68629 6.68629 5 10 5H14C17.3137 5 20 7.68629 20 11V19" stroke="url(#sb-logo-grad)" stroke-width="2" stroke-linecap="round"/>
@@ -89,14 +89,14 @@
   <main class="flex-1 max-w-7xl mx-auto px-4 sm:px-6 py-8 w-full space-y-6">
 
     <!-- Header Banner -->
-    <div class="sb-card p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 border-slate-200">
+    <div class="sb-card p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 border-white/[0.08]">
       <div class="space-y-1.5">
         <div class="flex items-center gap-2">
           <span class="sb-badge sb-badge-blue">Skill-Gated Roles</span>
           <span class="sb-badge sb-badge-emerald">Transparent Requirements</span>
         </div>
-        <h1 class="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">Industry Opportunities Catalog</h1>
-        <p class="text-xs sm:text-sm text-slate-600 max-w-xl">
+        <h1 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">Industry Opportunities Catalog</h1>
+        <p class="text-xs sm:text-sm text-slate-300 max-w-xl">
           Opportunities specify minimum skill score thresholds. Apply directly when eligible, or view targeted gap roadmaps to qualify.
         </p>
       </div>
@@ -117,15 +117,15 @@
     <div class="sb-card p-4 flex flex-col sm:flex-row items-center justify-between gap-4">
       <div class="relative w-full sm:w-80">
         <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">search</span>
-        <input type="text" id="opp-search" oninput="filterOpportunities()" class="w-full bg-white border border-slate-300 pl-9 pr-3 py-1.5 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-100" placeholder="Search by role, company, or skill...">
+        <input type="text" id="opp-search" oninput="filterOpportunities()" class="sb-input pl-9 text-xs" placeholder="Search by role, company, or skill...">
       </div>
 
       <!-- Category Filter Pills -->
       <div class="flex items-center gap-1.5 self-start sm:self-auto flex-wrap">
         <button onclick="setCategory('all')" class="cat-pill sb-badge sb-badge-blue cursor-pointer px-3 py-1.5 font-medium" data-cat="all">All Opportunities</button>
-        <button onclick="setCategory('internships')" class="cat-pill sb-badge sb-badge-muted cursor-pointer px-3 py-1.5 font-medium hover:text-slate-900" data-cat="internships">Internships</button>
-        <button onclick="setCategory('jobs')" class="cat-pill sb-badge sb-badge-muted cursor-pointer px-3 py-1.5 font-medium hover:text-slate-900" data-cat="jobs">Full-Time Jobs</button>
-        <button onclick="setCategory('workshops')" class="cat-pill sb-badge sb-badge-muted cursor-pointer px-3 py-1.5 font-medium hover:text-slate-900" data-cat="workshops">Workshops</button>
+        <button onclick="setCategory('internships')" class="cat-pill sb-badge sb-badge-muted cursor-pointer px-3 py-1.5 font-medium hover:text-white" data-cat="internships">Internships</button>
+        <button onclick="setCategory('jobs')" class="cat-pill sb-badge sb-badge-muted cursor-pointer px-3 py-1.5 font-medium hover:text-white" data-cat="jobs">Full-Time Jobs</button>
+        <button onclick="setCategory('workshops')" class="cat-pill sb-badge sb-badge-muted cursor-pointer px-3 py-1.5 font-medium hover:text-white" data-cat="workshops">Workshops</button>
       </div>
     </div>
 
@@ -139,12 +139,12 @@
   <!-- Skill Deficit Remediator Modal -->
   <div id="gap-modal" class="sb-modal-backdrop hidden">
     <div class="sb-modal-content p-6 sm:p-8 space-y-5">
-      <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+      <div class="flex items-center justify-between border-b border-white/[0.08] pb-3">
         <div>
-          <h3 class="text-base font-bold text-slate-900" id="gap-modal-title">Skill Gap Analysis</h3>
-          <p class="text-xs text-slate-500">Deficits preventing application eligibility.</p>
+          <h3 class="text-base font-bold text-white" id="gap-modal-title">Skill Gap Analysis</h3>
+          <p class="text-xs text-slate-400">Deficits preventing application eligibility.</p>
         </div>
-        <button onclick="closeGapModal()" class="text-slate-400 hover:text-slate-700">
+        <button onclick="closeGapModal()" class="text-slate-400 hover:text-slate-200">
           <span class="material-symbols-outlined text-lg">close</span>
         </button>
       </div>
@@ -153,7 +153,7 @@
         <!-- Injected dynamically -->
       </div>
 
-      <div class="pt-3 border-t border-slate-100 flex justify-end">
+      <div class="pt-3 border-t border-white/[0.08] flex justify-end">
         <button onclick="closeGapModal()" class="sb-btn sb-btn-secondary">Close Analysis</button>
       </div>
     </div>
@@ -170,7 +170,7 @@
         if (btn.dataset.cat === cat) {
           btn.className = 'cat-pill sb-badge sb-badge-blue cursor-pointer px-3 py-1.5 font-medium';
         } else {
-          btn.className = 'cat-pill sb-badge sb-badge-muted cursor-pointer px-3 py-1.5 font-medium hover:text-slate-900';
+          btn.className = 'cat-pill sb-badge sb-badge-muted cursor-pointer px-3 py-1.5 font-medium hover:text-white';
         }
       });
       renderOpportunities();
@@ -211,8 +211,8 @@
         container.innerHTML = `
           <div class="col-span-full sb-card p-12 text-center space-y-3">
             <span class="material-symbols-outlined text-4xl text-slate-400">search_off</span>
-            <h3 class="text-base font-bold text-slate-900">No Matching Opportunities</h3>
-            <p class="text-xs text-slate-500 max-w-sm mx-auto">Try adjusting your search terms or category filters.</p>
+            <h3 class="text-base font-bold text-white">No Matching Opportunities</h3>
+            <p class="text-xs text-slate-400 max-w-sm mx-auto">Try adjusting your search terms or category filters.</p>
           </div>
         `;
         return;
@@ -226,7 +226,7 @@
           const userScore = skills[sk] || 0;
           const met = userScore >= req;
           skillBadges += `
-            <span class="text-[10px] px-2 py-0.5 ${met ? 'bg-emerald-50 text-emerald-700 border border-emerald-200' : 'bg-slate-100 text-slate-600 border border-slate-200'}">
+            <span class="text-[10px] px-2 py-0.5 ${met ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-200' : 'bg-[#0e1629] text-slate-300 border border-white/[0.08]'}">
               ${sk}: ${req} pts ${met ? '✓' : ''}
             </span>
           `;
@@ -239,34 +239,34 @@
             <div class="flex items-start justify-between gap-3">
               <div>
                 <span class="sb-badge sb-badge-muted text-[10px]">${opp.type}</span>
-                <h3 class="text-base font-bold text-slate-900 mt-1">${opp.title}</h3>
-                <p class="text-xs text-slate-500">${opp.companyName} &bull; ${opp.location}</p>
+                <h3 class="text-base font-bold text-white mt-1">${opp.title}</h3>
+                <p class="text-xs text-slate-400">${opp.companyName} &bull; ${opp.location}</p>
               </div>
               <div class="text-right">
-                <span class="text-xs font-bold text-slate-900">${opp.stipend}</span>
-                <div class="text-[11px] font-semibold ${evalRes.eligible ? 'text-emerald-700' : 'text-amber-700'} mt-0.5">
+                <span class="text-xs font-bold text-white">${opp.stipend}</span>
+                <div class="text-[11px] font-semibold ${evalRes.eligible ? 'text-emerald-400' : 'text-amber-400'} mt-0.5">
                   ${evalRes.matchScore}% Match
                 </div>
               </div>
             </div>
 
-            <p class="text-xs text-slate-600 leading-relaxed">${opp.description}</p>
+            <p class="text-xs text-slate-300 leading-relaxed">${opp.description}</p>
 
-            <div class="space-y-1.5 pt-2 border-t border-slate-100">
-              <span class="text-[11px] text-slate-500 font-medium">Required Skill Thresholds:</span>
+            <div class="space-y-1.5 pt-2 border-t border-white/[0.08]">
+              <span class="text-[11px] text-slate-400 font-medium">Required Skill Thresholds:</span>
               <div class="flex flex-wrap gap-1 pt-0.5">
                 ${skillBadges}
               </div>
             </div>
           </div>
 
-          <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-xs">
-            <span class="text-slate-500 text-[11px]">${opp.openings} Openings &bull; ${opp.deadline}</span>
+          <div class="pt-3 border-t border-white/[0.08] flex items-center justify-between text-xs">
+            <span class="text-slate-400 text-[11px]">${opp.openings} Openings &bull; ${opp.deadline}</span>
             <div class="flex items-center gap-2">
               <a href="opportunity-details.html?id=${opp.id}" class="sb-btn sb-btn-secondary text-xs px-2.5 py-1">Details</a>
               ${evalRes.eligible 
                 ? `<button onclick="applyDirect('${opp.id}', '${opp.title}')" class="sb-btn sb-btn-primary text-xs px-2.5 py-1">Apply</button>`
-                : `<button onclick="showGapModal('${opp.id}')" class="sb-btn sb-btn-secondary text-xs px-2.5 py-1 text-amber-700 hover:text-amber-800">Skill Gap</button>`
+                : `<button onclick="showGapModal('${opp.id}')" class="sb-btn sb-btn-secondary text-xs px-2.5 py-1 text-amber-400 hover:text-amber-300">Skill Gap</button>`
               }
             </div>
           </div>
@@ -301,19 +301,19 @@
 
       evalRes.gaps.forEach(gap => {
         const div = document.createElement('div');
-        div.className = 'p-3 border border-slate-200 bg-slate-50 space-y-2';
+        div.className = 'p-3 border border-white/[0.08] bg-[#0c1220]/70 space-y-2';
         div.innerHTML = `
           <div class="flex items-center justify-between text-xs">
-            <span class="font-semibold text-slate-900">${gap.skill}</span>
-            <span class="text-amber-700 font-mono font-medium">Deficit: -${gap.gap} pts</span>
+            <span class="font-semibold text-white">${gap.skill}</span>
+            <span class="text-amber-400 font-mono font-medium">Deficit: -${gap.gap} pts</span>
           </div>
-          <div class="flex items-center justify-between text-[11px] text-slate-500">
-            <span>Your Score: <strong class="text-slate-800">${gap.currentScore}</strong></span>
-            <span>Required Threshold: <strong class="text-emerald-700">${gap.requiredScore}</strong></span>
+          <div class="flex items-center justify-between text-[11px] text-slate-400">
+            <span>Your Score: <strong class="text-slate-100">${gap.currentScore}</strong></span>
+            <span>Required Threshold: <strong class="text-emerald-400">${gap.requiredScore}</strong></span>
           </div>
-          <div class="text-[11px] text-slate-600 bg-white p-2 border border-slate-200 space-y-1">
+          <div class="text-[11px] text-slate-300 bg-white p-2 border border-white/[0.08] space-y-1">
             <p>Complete the assessment for ${gap.skill} to meet this threshold.</p>
-            <a href="../Assessment_Interface/index.html?skill=${encodeURIComponent(gap.skill)}" class="text-blue-600 hover:underline font-medium inline-block">
+            <a href="../Assessment_Interface/index.html?skill=${encodeURIComponent(gap.skill)}" class="text-indigo-400 hover:underline font-medium inline-block">
               Launch ${gap.skill} Assessment &rarr;
             </a>
           </div>
@@ -334,3 +334,4 @@
   </script>
 </body>
 </html>
+

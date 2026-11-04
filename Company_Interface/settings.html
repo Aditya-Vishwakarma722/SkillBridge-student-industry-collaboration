@@ -11,16 +11,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/design-system.css">
 </head>
-<body class="min-h-screen flex flex-col bg-slate-50 text-slate-900">
+<body class="min-h-screen flex flex-col bg-[#070b16] text-slate-100">
 
   <!-- Global Navigation Header (Pre-rendered for zero transition flicker) -->
-  <header id="sb-global-header" data-sb-role="company" data-sb-user="comp_abc" data-sb-page="settings.html" class="sticky top-0 z-50 w-full h-16 border-b border-white/[0.08] bg-[#070a12]/90 backdrop-blur-md">
+  <header id="sb-global-header" data-sb-role="company" data-sb-user="comp_abc" data-sb-page="settings.html" class="sticky top-0 z-50 w-full h-16 border-b border-white/[0.08] bg-[#080e1c]/90 backdrop-blur-md">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-6 text-sm font-sans">
       
       <!-- Left: Brand Logo & Role Pill -->
       <div class="flex items-center gap-3.5 flex-shrink-0">
         <a href="../index.html" class="flex items-center gap-2.5 group hover:opacity-90">
-          <div class="relative w-8 h-8 flex items-center justify-center bg-[#0d121f] border border-white/[0.12] rounded-[4px]">
+          <div class="relative w-8 h-8 flex items-center justify-center bg-[#0e1629] border border-white/[0.12] rounded-[4px]">
             <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M2 19H22" stroke="url(#sb-logo-grad)" stroke-width="2.2" stroke-linecap="round"/>
               <path d="M4 19V11C4 7.68629 6.68629 5 10 5H14C17.3137 5 20 7.68629 20 11V19" stroke="url(#sb-logo-grad)" stroke-width="2" stroke-linecap="round"/>
@@ -81,14 +81,14 @@
   <main class="flex-1 max-w-5xl mx-auto px-4 sm:px-6 py-8 w-full space-y-6">
 
     <!-- Header Banner -->
-    <div class="sb-card p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 border-slate-200">
+    <div class="sb-card p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 border-white/[0.08]">
       <div class="space-y-1.5">
         <div class="flex items-center gap-2">
           <span class="sb-badge sb-badge-emerald">Organization Settings</span>
           <span class="sb-badge sb-badge-blue">Enterprise Account</span>
         </div>
-        <h1 class="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">Organization Profile &amp; ATS Integrations</h1>
-        <p class="text-xs sm:text-sm text-slate-600 max-w-xl">
+        <h1 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">Organization Profile &amp; ATS Integrations</h1>
+        <p class="text-xs sm:text-sm text-slate-300 max-w-xl">
           Manage corporate credentials, ATS integrations, automated screening webhooks, and recruiter access.
         </p>
       </div>
@@ -101,29 +101,29 @@
 
     <!-- Settings Sections -->
     <div class="sb-card p-6 space-y-5">
-      <h2 class="text-base font-bold text-slate-900 border-b border-slate-100 pb-3">Corporate Identity &amp; Verification</h2>
+      <h2 class="text-base font-bold text-white border-b border-white/[0.08] pb-3">Corporate Identity &amp; Verification</h2>
       
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
         <div class="space-y-1.5">
-          <label class="text-slate-700 font-medium">Company Name</label>
+          <label class="text-slate-200 font-medium">Company Name</label>
           <input type="text" value="ABC Tech Corp" class="sb-input">
         </div>
 
         <div class="space-y-1.5">
-          <label class="text-slate-700 font-medium">Headquarters Location</label>
+          <label class="text-slate-200 font-medium">Headquarters Location</label>
           <input type="text" value="Bengaluru, Karnataka, India" class="sb-input">
         </div>
 
         <div class="space-y-1.5">
-          <label class="text-slate-700 font-medium">Recruiting Lead Email</label>
+          <label class="text-slate-200 font-medium">Recruiting Lead Email</label>
           <input type="email" value="recruitment@abctech.com" class="sb-input">
         </div>
 
         <div class="space-y-1.5">
-          <label class="text-slate-700 font-medium">Verification Status</label>
+          <label class="text-slate-200 font-medium">Verification Status</label>
           <div class="pt-1.5 flex items-center gap-2">
             <span class="sb-badge sb-badge-emerald">Verified Enterprise Partner</span>
-            <span class="text-slate-500 text-[11px]">Verified Enterprise Partner</span>
+            <span class="text-slate-400 text-[11px]">Verified Enterprise Partner</span>
           </div>
         </div>
       </div>
@@ -131,27 +131,27 @@
 
     <!-- ATS & Webhooks Integration -->
     <div class="sb-card p-6 space-y-4">
-      <h2 class="text-base font-bold text-slate-900 border-b border-slate-100 pb-3">Automated ATS &amp; Webhook Synchronization</h2>
+      <h2 class="text-base font-bold text-white border-b border-white/[0.08] pb-3">Automated ATS &amp; Webhook Synchronization</h2>
       
       <div class="space-y-3 text-xs">
-        <div class="flex items-center justify-between p-3.5 bg-slate-50 border border-slate-200">
+        <div class="flex items-center justify-between p-3.5 bg-[#0c1220]/70 border border-white/[0.08]">
           <div>
-            <p class="font-bold text-slate-900">Candidate Resume Delivery Webhook</p>
-            <p class="text-slate-500 text-[11px]">Triggers JSON payload when candidate clears screening (&ge; 15/20)</p>
+            <p class="font-bold text-white">Candidate Resume Delivery Webhook</p>
+            <p class="text-slate-400 text-[11px]">Triggers JSON payload when candidate clears screening (&ge; 15/20)</p>
           </div>
           <span class="sb-badge sb-badge-emerald">Active</span>
         </div>
 
-        <div class="flex items-center justify-between p-3.5 bg-slate-50 border border-slate-200">
+        <div class="flex items-center justify-between p-3.5 bg-[#0c1220]/70 border border-white/[0.08]">
           <div>
-            <p class="font-bold text-slate-900">Workday &amp; Greenhouse Integration</p>
-            <p class="text-slate-500 text-[11px]">Synchronize candidate skill vectors directly to ATS job requisitions</p>
+            <p class="font-bold text-white">Workday &amp; Greenhouse Integration</p>
+            <p class="text-slate-400 text-[11px]">Synchronize candidate skill vectors directly to ATS job requisitions</p>
           </div>
           <span class="sb-badge sb-badge-blue">Connected</span>
         </div>
       </div>
 
-      <div class="pt-3 border-t border-slate-100 flex justify-end">
+      <div class="pt-3 border-t border-white/[0.08] flex justify-end">
         <button onclick="alert('Settings saved successfully.')" class="sb-btn sb-btn-primary text-xs px-4 py-2">
           Save Preferences
         </button>
@@ -164,3 +164,4 @@
   <script src="../js/nav.js"></script>
 </body>
 </html>
+

@@ -12,16 +12,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/design-system.css">
 </head>
-<body class="min-h-screen flex flex-col bg-slate-50 text-slate-900">
+<body class="min-h-screen flex flex-col bg-[#070b16] text-slate-100">
 
   <!-- Global Navigation Header (Pre-rendered for zero transition flicker) -->
-  <header id="sb-global-header" data-sb-role="student" data-sb-user="std_rahul" data-sb-page="portal-dashboard.html" class="sticky top-0 z-50 w-full h-16 border-b border-white/[0.08] bg-[#070a12]/90 backdrop-blur-md">
+  <header id="sb-global-header" data-sb-role="student" data-sb-user="std_rahul" data-sb-page="portal-dashboard.html" class="sticky top-0 z-50 w-full h-16 border-b border-white/[0.08] bg-[#080e1c]/90 backdrop-blur-md">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-6 text-sm font-sans">
       
       <!-- Left: Brand Logo & Role Pill -->
       <div class="flex items-center gap-3.5 flex-shrink-0">
         <a href="../index.html" class="flex items-center gap-2.5 group hover:opacity-90">
-          <div class="relative w-8 h-8 flex items-center justify-center bg-[#0d121f] border border-white/[0.12] rounded-[4px]">
+          <div class="relative w-8 h-8 flex items-center justify-center bg-[#0e1629] border border-white/[0.12] rounded-[4px]">
             <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M2 19H22" stroke="url(#sb-logo-grad)" stroke-width="2.2" stroke-linecap="round"/>
               <path d="M4 19V11C4 7.68629 6.68629 5 10 5H14C17.3137 5 20 7.68629 20 11V19" stroke="url(#sb-logo-grad)" stroke-width="2" stroke-linecap="round"/>
@@ -91,16 +91,16 @@
   <main class="flex-1 max-w-7xl mx-auto px-4 sm:px-6 py-8 w-full space-y-6">
 
     <!-- Hero Context Header -->
-    <div class="sb-card p-6 sm:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 border-slate-200">
+    <div class="sb-card p-6 sm:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 border-white/[0.08]">
       <div class="space-y-1.5">
         <div class="flex items-center gap-2">
           <span class="sb-badge sb-badge-blue">1000-Point Scoring</span>
           <span id="dash-college" class="sb-badge sb-badge-muted">Apex Institute of Technology</span>
         </div>
-        <h1 id="dash-greeting" class="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
+        <h1 id="dash-greeting" class="text-2xl sm:text-3xl font-bold text-white tracking-tight">
           Welcome back, Rahul
         </h1>
-        <p class="text-xs sm:text-sm text-slate-600 max-w-xl">
+        <p class="text-xs sm:text-sm text-slate-300 max-w-xl">
           Your skill vectors are verified through proctored assessments and platform activity. Opportunities display transparent eligibility based on company thresholds.
         </p>
       </div>
@@ -121,46 +121,46 @@
     <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
       <div class="sb-metric-box">
         <div class="flex items-center justify-between mb-2">
-          <span class="text-xs font-medium text-slate-500">Mean Skill Vector</span>
-          <div class="w-8 h-8 bg-blue-50 text-blue-700 flex items-center justify-center">
+          <span class="text-xs font-medium text-slate-400">Mean Skill Vector</span>
+          <div class="w-8 h-8 bg-blue-500/10 text-blue-400 flex items-center justify-center">
             <span class="material-symbols-outlined text-[18px]">psychology</span>
           </div>
         </div>
-        <div class="text-2xl font-bold text-slate-900" id="dash-mean-score">820 <span class="text-xs text-slate-500 font-normal">/ 1000</span></div>
-        <p class="text-[11px] text-emerald-700 font-medium mt-1">Tier-1 Industry Qualified</p>
+        <div class="text-2xl font-bold text-white" id="dash-mean-score">820 <span class="text-xs text-slate-400 font-normal">/ 1000</span></div>
+        <p class="text-[11px] text-emerald-400 font-medium mt-1">Tier-1 Industry Qualified</p>
       </div>
 
       <div class="sb-metric-box">
         <div class="flex items-center justify-between mb-2">
-          <span class="text-xs font-medium text-slate-500">Platform Activity</span>
-          <div class="w-8 h-8 bg-emerald-50 text-emerald-700 flex items-center justify-center">
+          <span class="text-xs font-medium text-slate-400">Platform Activity</span>
+          <div class="w-8 h-8 bg-emerald-500/10 text-emerald-400 flex items-center justify-center">
             <span class="material-symbols-outlined text-[18px]">terminal</span>
           </div>
         </div>
-        <div class="text-2xl font-bold text-slate-900" id="dash-platform-score">745 <span class="text-xs text-slate-500 font-normal">/ 1000</span></div>
-        <p class="text-[11px] text-slate-500 mt-1">Synced across GitHub/LeetCode</p>
+        <div class="text-2xl font-bold text-white" id="dash-platform-score">745 <span class="text-xs text-slate-400 font-normal">/ 1000</span></div>
+        <p class="text-[11px] text-slate-400 mt-1">Synced across GitHub/LeetCode</p>
       </div>
 
       <div class="sb-metric-box">
         <div class="flex items-center justify-between mb-2">
-          <span class="text-xs font-medium text-slate-500">Active Applications</span>
-          <div class="w-8 h-8 bg-amber-50 text-amber-700 flex items-center justify-center">
+          <span class="text-xs font-medium text-slate-400">Active Applications</span>
+          <div class="w-8 h-8 bg-amber-500/10 text-amber-400 flex items-center justify-center">
             <span class="material-symbols-outlined text-[18px]">assignment_turned_in</span>
           </div>
         </div>
-        <div class="text-2xl font-bold text-slate-900" id="dash-apps-count">1 <span class="text-xs text-slate-500 font-normal">Active</span></div>
-        <p class="text-[11px] text-slate-500 mt-1">1 Under Shortlist Review</p>
+        <div class="text-2xl font-bold text-white" id="dash-apps-count">1 <span class="text-xs text-slate-400 font-normal">Active</span></div>
+        <p class="text-[11px] text-slate-400 mt-1">1 Under Shortlist Review</p>
       </div>
 
       <div class="sb-metric-box">
         <div class="flex items-center justify-between mb-2">
-          <span class="text-xs font-medium text-slate-500">Eligible Roles</span>
-          <div class="w-8 h-8 bg-sky-50 text-sky-700 flex items-center justify-center">
+          <span class="text-xs font-medium text-slate-400">Eligible Roles</span>
+          <div class="w-8 h-8 bg-sky-500/10 text-sky-400 flex items-center justify-center">
             <span class="material-symbols-outlined text-[18px]">verified</span>
           </div>
         </div>
-        <div class="text-2xl font-bold text-slate-900" id="dash-eligible-count">4 <span class="text-xs text-slate-500 font-normal">Openings</span></div>
-        <p class="text-[11px] text-slate-500 mt-1">100% threshold match</p>
+        <div class="text-2xl font-bold text-white" id="dash-eligible-count">4 <span class="text-xs text-slate-400 font-normal">Openings</span></div>
+        <p class="text-[11px] text-slate-400 mt-1">100% threshold match</p>
       </div>
     </div>
 
@@ -172,21 +172,21 @@
 
         <!-- Skills Progress Card -->
         <div class="sb-card p-6 space-y-5">
-          <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+          <div class="flex items-center justify-between border-b border-white/[0.08] pb-3">
             <div>
-              <h2 class="text-base font-bold text-slate-900">Verified Technical Vectors</h2>
-              <p class="text-xs text-slate-500">Scores calibrated out of 1000 points through proctored evaluations.</p>
+              <h2 class="text-base font-bold text-white">Verified Technical Vectors</h2>
+              <p class="text-xs text-slate-400">Scores calibrated out of 1000 points through proctored evaluations.</p>
             </div>
-            <a href="Skills_Overview.html" class="text-xs font-medium text-blue-600 hover:text-blue-700 hover:underline">View All Skills &rarr;</a>
+            <a href="Skills_Overview.html" class="text-xs font-medium text-indigo-400 hover:text-indigo-300 hover:underline">View All Skills &rarr;</a>
           </div>
 
           <div id="dash-skills-container" class="space-y-4 min-h-[260px]">
             <div class="space-y-1.5">
               <div class="flex items-center justify-between text-xs">
-                <span class="font-bold text-slate-900">Java Development</span>
+                <span class="font-bold text-white">Java Development</span>
                 <div class="flex items-center gap-2">
-                  <span class="font-mono text-slate-700 font-semibold">840 / 1000</span>
-                  <a href="../Assessment_Interface/index.html?skill=Java%20Development" class="text-[11px] text-blue-600 hover:text-blue-700 hover:underline">Re-test</a>
+                  <span class="font-mono text-slate-200 font-semibold">840 / 1000</span>
+                  <a href="../Assessment_Interface/index.html?skill=Java%20Development" class="text-[11px] text-indigo-400 hover:text-indigo-300 hover:underline">Re-test</a>
                 </div>
               </div>
               <div class="sb-progress-track">
@@ -195,10 +195,10 @@
             </div>
             <div class="space-y-1.5">
               <div class="flex items-center justify-between text-xs">
-                <span class="font-bold text-slate-900">SQL</span>
+                <span class="font-bold text-white">SQL</span>
                 <div class="flex items-center gap-2">
-                  <span class="font-mono text-slate-700 font-semibold">780 / 1000</span>
-                  <a href="../Assessment_Interface/index.html?skill=SQL" class="text-[11px] text-blue-600 hover:text-blue-700 hover:underline">Re-test</a>
+                  <span class="font-mono text-slate-200 font-semibold">780 / 1000</span>
+                  <a href="../Assessment_Interface/index.html?skill=SQL" class="text-[11px] text-indigo-400 hover:text-indigo-300 hover:underline">Re-test</a>
                 </div>
               </div>
               <div class="sb-progress-track">
@@ -207,10 +207,10 @@
             </div>
             <div class="space-y-1.5">
               <div class="flex items-center justify-between text-xs">
-                <span class="font-bold text-slate-900">Spring Boot</span>
+                <span class="font-bold text-white">Spring Boot</span>
                 <div class="flex items-center gap-2">
-                  <span class="font-mono text-slate-700 font-semibold">710 / 1000</span>
-                  <a href="../Assessment_Interface/index.html?skill=Spring%20Boot" class="text-[11px] text-blue-600 hover:text-blue-700 hover:underline">Re-test</a>
+                  <span class="font-mono text-slate-200 font-semibold">710 / 1000</span>
+                  <a href="../Assessment_Interface/index.html?skill=Spring%20Boot" class="text-[11px] text-indigo-400 hover:text-indigo-300 hover:underline">Re-test</a>
                 </div>
               </div>
               <div class="sb-progress-track">
@@ -219,10 +219,10 @@
             </div>
             <div class="space-y-1.5">
               <div class="flex items-center justify-between text-xs">
-                <span class="font-bold text-slate-900">React</span>
+                <span class="font-bold text-white">React</span>
                 <div class="flex items-center gap-2">
-                  <span class="font-mono text-slate-700 font-semibold">650 / 1000</span>
-                  <a href="../Assessment_Interface/index.html?skill=React" class="text-[11px] text-blue-600 hover:text-blue-700 hover:underline">Re-test</a>
+                  <span class="font-mono text-slate-200 font-semibold">650 / 1000</span>
+                  <a href="../Assessment_Interface/index.html?skill=React" class="text-[11px] text-indigo-400 hover:text-indigo-300 hover:underline">Re-test</a>
                 </div>
               </div>
               <div class="sb-progress-track">
@@ -231,10 +231,10 @@
             </div>
             <div class="space-y-1.5">
               <div class="flex items-center justify-between text-xs">
-                <span class="font-bold text-slate-900">Git</span>
+                <span class="font-bold text-white">Git</span>
                 <div class="flex items-center gap-2">
-                  <span class="font-mono text-slate-700 font-semibold">890 / 1000</span>
-                  <a href="../Assessment_Interface/index.html?skill=Git" class="text-[11px] text-blue-600 hover:text-blue-700 hover:underline">Re-test</a>
+                  <span class="font-mono text-slate-200 font-semibold">890 / 1000</span>
+                  <a href="../Assessment_Interface/index.html?skill=Git" class="text-[11px] text-indigo-400 hover:text-indigo-300 hover:underline">Re-test</a>
                 </div>
               </div>
               <div class="sb-progress-track">
@@ -246,23 +246,23 @@
 
         <!-- Matching Opportunities Card -->
         <div class="sb-card p-6 space-y-4">
-          <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+          <div class="flex items-center justify-between border-b border-white/[0.08] pb-3">
             <div>
-              <h2 class="text-base font-bold text-slate-900">Recommended Opportunities</h2>
-              <p class="text-xs text-slate-500">Positions where your verified skill scores meet required thresholds.</p>
+              <h2 class="text-base font-bold text-white">Recommended Opportunities</h2>
+              <p class="text-xs text-slate-400">Positions where your verified skill scores meet required thresholds.</p>
             </div>
-            <a href="../Opportunity_Interface/Opportunities_Interface.html" class="text-xs font-medium text-blue-600 hover:text-blue-700 hover:underline">Browse All &rarr;</a>
+            <a href="../Opportunity_Interface/Opportunities_Interface.html" class="text-xs font-medium text-indigo-400 hover:text-indigo-300 hover:underline">Browse All &rarr;</a>
           </div>
 
           <div id="dash-opps-container" class="space-y-3 min-h-[240px]">
             <div class="sb-card-elevated p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 sb-card-interactive">
               <div class="space-y-1">
                 <div class="flex items-center gap-2 flex-wrap">
-                  <span class="text-sm font-bold text-slate-900">Junior Backend Engineer (Java)</span>
+                  <span class="text-sm font-bold text-white">Junior Backend Engineer (Java)</span>
                   <span class="sb-badge sb-badge-muted text-[10px]">Full-time</span>
                   <span class="sb-badge sb-badge-emerald text-[10px]">Threshold Met</span>
                 </div>
-                <p class="text-xs text-slate-500">ABC Tech Corp &bull; Bengaluru / Hybrid &bull; &#8377;8.5 LPA</p>
+                <p class="text-xs text-slate-400">ABC Tech Corp &bull; Bengaluru / Hybrid &bull; &#8377;8.5 LPA</p>
               </div>
               <div class="flex items-center gap-2 shrink-0">
                 <a href="../Opportunity_Interface/opportunity-details.html?id=opp_1" class="sb-btn sb-btn-primary text-xs">Apply Now</a>
@@ -271,11 +271,11 @@
             <div class="sb-card-elevated p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 sb-card-interactive">
               <div class="space-y-1">
                 <div class="flex items-center gap-2 flex-wrap">
-                  <span class="text-sm font-bold text-slate-900">Cloud Microservices Intern</span>
+                  <span class="text-sm font-bold text-white">Cloud Microservices Intern</span>
                   <span class="sb-badge sb-badge-muted text-[10px]">Internship</span>
                   <span class="sb-badge sb-badge-amber text-[10px]">Skill Deficit</span>
                 </div>
-                <p class="text-xs text-slate-500">CloudScale Systems &bull; Remote &bull; &#8377;28,000 / mo</p>
+                <p class="text-xs text-slate-400">CloudScale Systems &bull; Remote &bull; &#8377;28,000 / mo</p>
               </div>
               <div class="flex items-center gap-2 shrink-0">
                 <button onclick="showGapModal('opp_2')" class="sb-btn sb-btn-secondary text-xs">View Skill Gap</button>
@@ -284,11 +284,11 @@
             <div class="sb-card-elevated p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 sb-card-interactive">
               <div class="space-y-1">
                 <div class="flex items-center gap-2 flex-wrap">
-                  <span class="text-sm font-bold text-slate-900">Full Stack Trainee</span>
+                  <span class="text-sm font-bold text-white">Full Stack Trainee</span>
                   <span class="sb-badge sb-badge-muted text-[10px]">Full-time</span>
                   <span class="sb-badge sb-badge-emerald text-[10px]">Threshold Met</span>
                 </div>
-                <p class="text-xs text-slate-500">FinTech Global &bull; Hyderabad &bull; &#8377;7.2 LPA</p>
+                <p class="text-xs text-slate-400">FinTech Global &bull; Hyderabad &bull; &#8377;7.2 LPA</p>
               </div>
               <div class="flex items-center gap-2 shrink-0">
                 <a href="../Opportunity_Interface/opportunity-details.html?id=opp_3" class="sb-btn sb-btn-primary text-xs">Apply Now</a>
@@ -304,40 +304,40 @@
 
         <!-- External Coding Sync -->
         <div class="sb-card p-6 space-y-4">
-          <div class="flex items-center justify-between border-b border-slate-100 pb-3">
-            <h2 class="text-base font-bold text-slate-900">Platform Activity</h2>
-            <a href="Activities_Interface.html" class="text-xs font-medium text-blue-600 hover:text-blue-700 hover:underline">Recalibrate &rarr;</a>
+          <div class="flex items-center justify-between border-b border-white/[0.08] pb-3">
+            <h2 class="text-base font-bold text-white">Platform Activity</h2>
+            <a href="Activities_Interface.html" class="text-xs font-medium text-indigo-400 hover:text-indigo-300 hover:underline">Recalibrate &rarr;</a>
           </div>
 
           <div class="space-y-3 text-xs">
-            <div class="p-3.5 bg-slate-50 border border-slate-200 flex items-center justify-between">
+            <div class="p-3.5 bg-[#0c1220]/70 border border-white/[0.08] flex items-center justify-between">
               <div class="flex items-center gap-2.5">
-                <span class="material-symbols-outlined text-slate-700 text-lg">code</span>
+                <span class="material-symbols-outlined text-slate-200 text-lg">code</span>
                 <div>
-                  <div class="font-bold text-slate-900">GitHub</div>
-                  <div class="text-[11px] text-slate-500">84 Day Streak &bull; 14 Repos</div>
+                  <div class="font-bold text-white">GitHub</div>
+                  <div class="text-[11px] text-slate-400">84 Day Streak &bull; 14 Repos</div>
                 </div>
               </div>
               <span class="sb-badge sb-badge-blue font-mono font-bold">265/300</span>
             </div>
 
-            <div class="p-3.5 bg-slate-50 border border-slate-200 flex items-center justify-between">
+            <div class="p-3.5 bg-[#0c1220]/70 border border-white/[0.08] flex items-center justify-between">
               <div class="flex items-center gap-2.5">
                 <span class="material-symbols-outlined text-amber-600 text-lg">terminal</span>
                 <div>
-                  <div class="font-bold text-slate-900">LeetCode</div>
-                  <div class="text-[11px] text-slate-500">182 Solved &bull; 1740 Rating</div>
+                  <div class="font-bold text-white">LeetCode</div>
+                  <div class="text-[11px] text-slate-400">182 Solved &bull; 1740 Rating</div>
                 </div>
               </div>
               <span class="sb-badge sb-badge-amber font-mono font-bold">280/400</span>
             </div>
 
-            <div class="p-3.5 bg-slate-50 border border-slate-200 flex items-center justify-between">
+            <div class="p-3.5 bg-[#0c1220]/70 border border-white/[0.08] flex items-center justify-between">
               <div class="flex items-center gap-2.5">
                 <span class="material-symbols-outlined text-emerald-600 text-lg">military_tech</span>
                 <div>
-                  <div class="font-bold text-slate-900">HackerRank</div>
-                  <div class="text-[11px] text-slate-500">5-Star Java &bull; Gold SQL</div>
+                  <div class="font-bold text-white">HackerRank</div>
+                  <div class="text-[11px] text-slate-400">5-Star Java &bull; Gold SQL</div>
                 </div>
               </div>
               <span class="sb-badge sb-badge-emerald font-mono font-bold">200/300</span>
@@ -347,16 +347,16 @@
 
         <!-- Academic Integrity & Proctoring -->
         <div class="sb-card p-6 space-y-3">
-          <div class="flex items-center justify-between border-b border-slate-100 pb-3">
-            <h2 class="text-base font-bold text-slate-900">Academic Integrity</h2>
+          <div class="flex items-center justify-between border-b border-white/[0.08] pb-3">
+            <h2 class="text-base font-bold text-white">Academic Integrity</h2>
             <span class="sb-badge sb-badge-emerald">Clean Record</span>
           </div>
-          <p class="text-xs text-slate-600 leading-relaxed">
+          <p class="text-xs text-slate-300 leading-relaxed">
             All assessment attempts are monitored with two-factor timers and tab-switch detection. Zero proctoring strikes recorded.
           </p>
-          <div class="p-3 bg-slate-50 border border-slate-200 flex items-center justify-between text-xs">
-            <span class="text-slate-500">Integrity Trust Score</span>
-            <span class="font-mono font-bold text-emerald-700">100% Verified</span>
+          <div class="p-3 bg-[#0c1220]/70 border border-white/[0.08] flex items-center justify-between text-xs">
+            <span class="text-slate-400">Integrity Trust Score</span>
+            <span class="font-mono font-bold text-emerald-400">100% Verified</span>
           </div>
         </div>
 
@@ -369,9 +369,9 @@
   <!-- Skill Deficit Remediator Modal -->
   <div id="gap-modal" class="sb-modal-backdrop hidden">
     <div class="sb-modal-content p-6 sm:p-8 space-y-5">
-      <div class="flex items-center justify-between border-b border-slate-100 pb-3">
-        <h3 class="text-base font-bold text-slate-900" id="gap-modal-title">Skill Gap Analysis</h3>
-        <button onclick="closeGapModal()" class="text-slate-400 hover:text-slate-700">
+      <div class="flex items-center justify-between border-b border-white/[0.08] pb-3">
+        <h3 class="text-base font-bold text-white" id="gap-modal-title">Skill Gap Analysis</h3>
+        <button onclick="closeGapModal()" class="text-slate-400 hover:text-slate-200">
           <span class="material-symbols-outlined text-lg">close</span>
         </button>
       </div>
@@ -380,7 +380,7 @@
         <!-- Injected via JS -->
       </div>
 
-      <div class="pt-3 border-t border-slate-100 flex justify-end">
+      <div class="pt-3 border-t border-white/[0.08] flex justify-end">
         <button onclick="closeGapModal()" class="sb-btn sb-btn-secondary">Close</button>
       </div>
     </div>
@@ -419,16 +419,16 @@
       }
       const meanScore = count > 0 ? Math.round(total / count) : 750;
       const meanEl = document.getElementById('dash-mean-score');
-      if (meanEl) meanEl.innerHTML = `${meanScore} <span class="text-xs text-slate-500 font-normal">/ 1000</span>`;
+      if (meanEl) meanEl.innerHTML = `${meanScore} <span class="text-xs text-slate-400 font-normal">/ 1000</span>`;
       
       const platformScore = skills['Platform Activities'] || 745;
       const platEl = document.getElementById('dash-platform-score');
-      if (platEl) platEl.innerHTML = `${platformScore} <span class="text-xs text-slate-500 font-normal">/ 1000</span>`;
+      if (platEl) platEl.innerHTML = `${platformScore} <span class="text-xs text-slate-400 font-normal">/ 1000</span>`;
 
       // Applications
       const myApps = (state.applications || []).filter(a => a.studentId === student.id);
       const appsEl = document.getElementById('dash-apps-count');
-      if (appsEl) appsEl.innerHTML = `${myApps.length} <span class="text-xs text-slate-500 font-normal">Active</span>`;
+      if (appsEl) appsEl.innerHTML = `${myApps.length} <span class="text-xs text-slate-400 font-normal">Active</span>`;
 
       // Render Skills only if changed
       const skillContainer = document.getElementById('dash-skills-container');
@@ -445,10 +445,10 @@
           skillsHtml += `
             <div class="space-y-1.5">
               <div class="flex items-center justify-between text-xs">
-                <span class="font-bold text-slate-900">${skillName}</span>
+                <span class="font-bold text-white">${skillName}</span>
                 <div class="flex items-center gap-2">
-                  <span class="font-mono text-slate-700 font-semibold">${score} / 1000</span>
-                  <a href="../Assessment_Interface/index.html?skill=${encodeURIComponent(skillName)}" class="text-[11px] text-blue-600 hover:text-blue-700 hover:underline">Re-test</a>
+                  <span class="font-mono text-slate-200 font-semibold">${score} / 1000</span>
+                  <a href="../Assessment_Interface/index.html?skill=${encodeURIComponent(skillName)}" class="text-[11px] text-indigo-400 hover:text-indigo-300 hover:underline">Re-test</a>
                 </div>
               </div>
               <div class="sb-progress-track">
@@ -475,14 +475,14 @@
             <div class="sb-card-elevated p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 sb-card-interactive">
               <div class="space-y-1">
                 <div class="flex items-center gap-2 flex-wrap">
-                  <span class="text-sm font-bold text-slate-900">${opp.title}</span>
+                  <span class="text-sm font-bold text-white">${opp.title}</span>
                   <span class="sb-badge sb-badge-muted text-[10px]">${opp.type}</span>
                   ${evalRes.eligible 
                     ? '<span class="sb-badge sb-badge-emerald text-[10px]">Threshold Met</span>'
                     : '<span class="sb-badge sb-badge-amber text-[10px]">Skill Deficit</span>'
                   }
                 </div>
-                <p class="text-xs text-slate-500">${opp.companyName} \u2022 ${opp.location} \u2022 ${opp.stipend}</p>
+                <p class="text-xs text-slate-400">${opp.companyName} \u2022 ${opp.location} \u2022 ${opp.stipend}</p>
               </div>
 
               <div class="flex items-center gap-2 shrink-0">
@@ -500,7 +500,7 @@
       }
 
       const eligibleEl = document.getElementById('dash-eligible-count');
-      if (eligibleEl) eligibleEl.innerHTML = `${eligibleCount} <span class="text-xs text-slate-500 font-normal">Openings</span>`;
+      if (eligibleEl) eligibleEl.innerHTML = `${eligibleCount} <span class="text-xs text-slate-400 font-normal">Openings</span>`;
     }
 
     // Synchronous execution immediately upon script evaluation ensures frame 0 stability
@@ -519,19 +519,19 @@
 
       evalRes.gaps.forEach(gap => {
         const div = document.createElement('div');
-        div.className = 'p-3 border border-slate-200 bg-slate-50 space-y-2';
+        div.className = 'p-3 border border-white/[0.08] bg-[#0c1220]/70 space-y-2';
         div.innerHTML = `
           <div class="flex items-center justify-between text-xs">
-            <span class="font-semibold text-slate-900">${gap.skill}</span>
-            <span class="text-amber-700 font-mono font-medium">Deficit: -${gap.gap} pts</span>
+            <span class="font-semibold text-white">${gap.skill}</span>
+            <span class="text-amber-400 font-mono font-medium">Deficit: -${gap.gap} pts</span>
           </div>
-          <div class="flex items-center justify-between text-[11px] text-slate-500">
-            <span>Your Score: <strong class="text-slate-800">${gap.currentScore}</strong></span>
-            <span>Required: <strong class="text-emerald-700">${gap.requiredScore}</strong></span>
+          <div class="flex items-center justify-between text-[11px] text-slate-400">
+            <span>Your Score: <strong class="text-slate-100">${gap.currentScore}</strong></span>
+            <span>Required: <strong class="text-emerald-400">${gap.requiredScore}</strong></span>
           </div>
-          <div class="text-[11px] text-slate-600 bg-white p-2.5 border border-slate-200 space-y-1">
+          <div class="text-[11px] text-slate-300 bg-white p-2.5 border border-white/[0.08] space-y-1">
             <p>Complete the assessment for ${gap.skill} to meet this threshold.</p>
-            <a href="../Assessment_Interface/index.html?skill=${encodeURIComponent(gap.skill)}" class="text-blue-600 hover:underline font-medium inline-block">
+            <a href="../Assessment_Interface/index.html?skill=${encodeURIComponent(gap.skill)}" class="text-indigo-400 hover:underline font-medium inline-block">
               Launch ${gap.skill} Assessment &rarr;
             </a>
           </div>
@@ -552,3 +552,5 @@
   </script>
 </body>
 </html>
+
+

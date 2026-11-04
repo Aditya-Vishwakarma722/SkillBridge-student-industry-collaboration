@@ -11,16 +11,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/design-system.css">
 </head>
-<body class="min-h-screen flex flex-col bg-slate-50 text-slate-900">
+<body class="min-h-screen flex flex-col bg-[#070b16] text-slate-100">
 
   <!-- Global Navigation Header (Pre-rendered for zero transition flicker) -->
-  <header id="sb-global-header" data-sb-role="student" data-sb-user="std_rahul" data-sb-page="my_applications.html" class="sticky top-0 z-50 w-full h-16 border-b border-white/[0.08] bg-[#070a12]/90 backdrop-blur-md">
+  <header id="sb-global-header" data-sb-role="student" data-sb-user="std_rahul" data-sb-page="my_applications.html" class="sticky top-0 z-50 w-full h-16 border-b border-white/[0.08] bg-[#080e1c]/90 backdrop-blur-md">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-6 text-sm font-sans">
       
       <!-- Left: Brand Logo & Role Pill -->
       <div class="flex items-center gap-3.5 flex-shrink-0">
         <a href="../index.html" class="flex items-center gap-2.5 group hover:opacity-90">
-          <div class="relative w-8 h-8 flex items-center justify-center bg-[#0d121f] border border-white/[0.12] rounded-[4px]">
+          <div class="relative w-8 h-8 flex items-center justify-center bg-[#0e1629] border border-white/[0.12] rounded-[4px]">
             <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M2 19H22" stroke="url(#sb-logo-grad)" stroke-width="2.2" stroke-linecap="round"/>
               <path d="M4 19V11C4 7.68629 6.68629 5 10 5H14C17.3137 5 20 7.68629 20 11V19" stroke="url(#sb-logo-grad)" stroke-width="2" stroke-linecap="round"/>
@@ -89,14 +89,14 @@
   <main class="flex-1 max-w-7xl mx-auto px-4 sm:px-6 py-8 w-full space-y-6">
 
     <!-- Header Banner -->
-    <div class="sb-card p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 border-slate-200">
+    <div class="sb-card p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 border-white/[0.08]">
       <div class="space-y-1.5">
         <div class="flex items-center gap-2">
           <span class="sb-badge sb-badge-blue">Applications</span>
           <span class="sb-badge sb-badge-emerald">Verified Pipeline</span>
         </div>
-        <h1 class="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">My Applications</h1>
-        <p class="text-xs sm:text-sm text-slate-600 max-w-xl">
+        <h1 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">My Applications</h1>
+        <p class="text-xs sm:text-sm text-slate-300 max-w-xl">
           Track stage progression, complete proctored company screening tests, and view feedback from employer hiring teams.
         </p>
       </div>
@@ -111,8 +111,8 @@
     <div id="applications-container" class="space-y-4 min-h-[160px]">
       <div class="sb-card p-12 text-center space-y-3">
         <span class="material-symbols-outlined text-4xl text-slate-400">assignment</span>
-        <h3 class="text-base font-bold text-slate-900">No Active Applications</h3>
-        <p class="text-xs text-slate-500 max-w-sm mx-auto">Explore the opportunities catalog to find positions matching your verified skill vectors.</p>
+        <h3 class="text-base font-bold text-white">No Active Applications</h3>
+        <p class="text-xs text-slate-400 max-w-sm mx-auto">Explore the opportunities catalog to find positions matching your verified skill vectors.</p>
         <a href="../Opportunity_Interface/Opportunities_Interface.html" class="sb-btn sb-btn-primary inline-flex">Explore Catalog</a>
       </div>
     </div>
@@ -122,40 +122,40 @@
   <!-- Proctored Screening Modal -->
   <div id="screening-modal" class="sb-modal-backdrop hidden">
     <div class="sb-modal-content p-6 sm:p-8 space-y-5 max-w-2xl">
-      <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+      <div class="flex items-center justify-between border-b border-white/[0.08] pb-3">
         <div>
-          <h3 class="text-base font-bold text-slate-900" id="screening-title">Corporate Screening Evaluation</h3>
-          <p class="text-xs text-slate-500">Proctored two-factor timed test.</p>
+          <h3 class="text-base font-bold text-white" id="screening-title">Corporate Screening Evaluation</h3>
+          <p class="text-xs text-slate-400">Proctored two-factor timed test.</p>
         </div>
         <div class="flex items-center gap-2">
-          <span class="font-mono text-amber-700 bg-amber-50 border border-amber-200 px-2 py-0.5 text-xs font-bold" id="screening-timer">19:42</span>
-          <button onclick="closeScreeningModal()" class="text-slate-400 hover:text-slate-700">
+          <span class="font-mono text-amber-400 bg-amber-500/10 border border-amber-200 px-2 py-0.5 text-xs font-bold" id="screening-timer">19:42</span>
+          <button onclick="closeScreeningModal()" class="text-slate-400 hover:text-slate-200">
             <span class="material-symbols-outlined text-lg">close</span>
           </button>
         </div>
       </div>
 
       <!-- Proctor Camera Simulator Frame -->
-      <div class="p-3 text-center space-y-2 border border-slate-200 bg-slate-50">
+      <div class="p-3 text-center space-y-2 border border-white/[0.08] bg-[#0c1220]/70">
         <div class="relative w-full h-32 bg-slate-900 overflow-hidden flex items-center justify-center">
           <span class="absolute top-2 left-2 flex items-center gap-1 px-2 py-0.5 bg-rose-500/90 text-white text-[10px] font-medium">
             <span class="w-1.5 h-1.5 bg-white"></span> Proctor Active
           </span>
-          <span class="material-symbols-outlined text-4xl text-slate-500">face</span>
+          <span class="material-symbols-outlined text-4xl text-slate-400">face</span>
           <div class="absolute bottom-2 inset-x-2 text-[10px] text-slate-300 bg-black/60 py-0.5 backdrop-blur">
             Rahul Sharma &bull; Apex Institute of Technology
           </div>
         </div>
-        <span class="text-[11px] text-slate-500">Webcam Monitor: Center Alignment Verified</span>
+        <span class="text-[11px] text-slate-400">Webcam Monitor: Center Alignment Verified</span>
       </div>
 
       <!-- Screening Questions Form -->
       <form id="screening-form" class="space-y-4 text-xs">
-        <div class="p-4 border border-slate-200 bg-white space-y-2.5">
-          <p class="font-bold text-slate-900">Q1. How does the Spring Boot @Transactional annotation ensure ACID consistency across distributed calls?</p>
-          <div class="space-y-1.5 text-slate-700">
+        <div class="p-4 border border-white/[0.08] bg-white space-y-2.5">
+          <p class="font-bold text-white">Q1. How does the Spring Boot @Transactional annotation ensure ACID consistency across distributed calls?</p>
+          <div class="space-y-1.5 text-slate-200">
             <label class="flex items-center gap-2 cursor-pointer">
-              <input type="radio" name="q1" value="A" required class="text-blue-600 focus:ring-blue-500">
+              <input type="radio" name="q1" value="A" required class="text-indigo-400 focus:ring-blue-500">
               <span>Through thread-bound TransactionSynchronizationManager and AOP proxy interceptors</span>
             </label>
             <label class="flex items-center gap-2 cursor-pointer">
@@ -165,11 +165,11 @@
           </div>
         </div>
 
-        <div class="p-4 border border-slate-200 bg-white space-y-2.5">
-          <p class="font-bold text-slate-900">Q2. What is the query execution time difference between an index scan and a sequential scan on a 5M row PostgreSQL table?</p>
-          <div class="space-y-1.5 text-slate-700">
+        <div class="p-4 border border-white/[0.08] bg-white space-y-2.5">
+          <p class="font-bold text-white">Q2. What is the query execution time difference between an index scan and a sequential scan on a 5M row PostgreSQL table?</p>
+          <div class="space-y-1.5 text-slate-200">
             <label class="flex items-center gap-2 cursor-pointer">
-              <input type="radio" name="q2" value="A" required class="text-blue-600 focus:ring-blue-500">
+              <input type="radio" name="q2" value="A" required class="text-indigo-400 focus:ring-blue-500">
               <span>B-Tree index reduces I/O lookups to O(log N) eliminating disk traversal</span>
             </label>
             <label class="flex items-center gap-2 cursor-pointer">
@@ -179,7 +179,7 @@
           </div>
         </div>
 
-        <div class="pt-2 border-t border-slate-100 flex justify-end gap-2">
+        <div class="pt-2 border-t border-white/[0.08] flex justify-end gap-2">
           <button type="button" onclick="closeScreeningModal()" class="sb-btn sb-btn-secondary">Cancel</button>
           <button type="submit" class="sb-btn sb-btn-primary">Submit Proctored Test</button>
         </div>
@@ -206,8 +206,8 @@
         container.innerHTML = `
           <div class="sb-card p-12 text-center space-y-3">
             <span class="material-symbols-outlined text-4xl text-slate-400">assignment</span>
-            <h3 class="text-base font-bold text-slate-900">No Active Applications</h3>
-            <p class="text-xs text-slate-500 max-w-sm mx-auto">Explore the opportunities catalog to find positions matching your verified skill vectors.</p>
+            <h3 class="text-base font-bold text-white">No Active Applications</h3>
+            <p class="text-xs text-slate-400 max-w-sm mx-auto">Explore the opportunities catalog to find positions matching your verified skill vectors.</p>
             <a href="../Opportunity_Interface/Opportunities_Interface.html" class="sb-btn sb-btn-primary inline-flex">Explore Catalog</a>
           </div>
         `;
@@ -238,8 +238,8 @@
         } else {
           actionButton = `
             <div class="text-right">
-              <span class="text-[11px] text-slate-500 font-medium">Screening Score:</span>
-              <div class="font-mono font-bold text-blue-700 text-sm">${app.screeningScore} / 20</div>
+              <span class="text-[11px] text-slate-400 font-medium">Screening Score:</span>
+              <div class="font-mono font-bold text-indigo-400 text-sm">${app.screeningScore} / 20</div>
             </div>
           `;
         }
@@ -247,11 +247,11 @@
         card.innerHTML = `
           <div class="space-y-1.5">
             <div class="flex items-center gap-2 flex-wrap">
-              <h3 class="text-base font-bold text-slate-900">${app.opportunityTitle}</h3>
+              <h3 class="text-base font-bold text-white">${app.opportunityTitle}</h3>
               <span class="sb-badge sb-badge-muted">${app.companyName}</span>
               ${statusBadge}
             </div>
-            <p class="text-xs text-slate-500">Applied Date: ${app.appliedDate} &bull; Skill Match: <strong class="text-emerald-700">${app.matchScore}%</strong></p>
+            <p class="text-xs text-slate-400">Applied Date: ${app.appliedDate} &bull; Skill Match: <strong class="text-emerald-400">${app.matchScore}%</strong></p>
           </div>
 
           <div class="shrink-0 flex items-center gap-3">
@@ -290,3 +290,4 @@
   </script>
 </body>
 </html>
+

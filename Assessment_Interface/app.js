@@ -187,23 +187,23 @@
     filtered.forEach(domain => {
       const isSelected = domain.name === selectedSkill;
       const card = document.createElement('div');
-      card.className = `p-3.5 rounded-[6px] border cursor-pointer transition flex flex-col justify-between space-y-2 text-left relative group ${
+      card.className = `p-3.5 rounded-[8px] border cursor-pointer transition-all flex flex-col justify-between space-y-2 text-left relative group ${
         isSelected
-          ? 'border-indigo-500/80 bg-indigo-950/40 text-indigo-300 ring-1 ring-indigo-500/60 shadow-lg shadow-indigo-950/40'
-          : 'border-white/[0.08] bg-[#070a12]/80 hover:border-white/20 hover:bg-[#12182a] text-slate-200'
+          ? 'border-indigo-500 bg-indigo-950/40 text-indigo-200 ring-1 ring-indigo-500/60 shadow-xs'
+          : 'border-white/[0.08] bg-[#0c1220]/80 hover:border-white/20 hover:bg-[#121929] text-slate-200'
       }`;
       card.onclick = () => window.selectDomain(domain.name);
 
       card.innerHTML = `
         <div class="space-y-1.5">
           <div class="flex items-center justify-between">
-            <div class="w-8 h-8 rounded-[4px] ${isSelected ? 'bg-indigo-600 text-white shadow-sm' : 'bg-white/[0.05] text-slate-300 border border-white/[0.08]'} flex items-center justify-center shrink-0">
+            <div class="w-8 h-8 rounded-[6px] ${isSelected ? 'bg-indigo-600 text-white shadow-xs' : 'bg-white/[0.04] text-slate-300 border border-white/[0.08]'} flex items-center justify-center shrink-0">
               <span class="material-symbols-outlined text-lg">${domain.icon}</span>
             </div>
             ${isSelected ? '<span class="sb-badge sb-badge-blue text-[9px] font-bold">Selected</span>' : `<span class="text-[9px] text-slate-400 font-mono">${domain.category}</span>`}
           </div>
           <div>
-            <h4 class="text-xs font-bold ${isSelected ? 'text-white' : 'text-slate-200 group-hover:text-indigo-300'} line-clamp-1">${domain.name}</h4>
+            <h4 class="text-xs font-bold ${isSelected ? 'text-white' : 'text-slate-100 group-hover:text-indigo-300'} line-clamp-1">${domain.name}</h4>
             <p class="text-[11px] text-slate-400 line-clamp-2 pt-0.5 leading-relaxed">${domain.desc}</p>
           </div>
         </div>
@@ -228,9 +228,9 @@
     pills.forEach(pill => {
       const pillCat = pill.getAttribute('data-cat');
       if (pillCat === category) {
-        pill.className = 'cat-pill px-3 py-1 rounded-[4px] font-semibold bg-indigo-600 border border-indigo-500 text-white shrink-0 transition shadow-sm';
+        pill.className = 'cat-pill px-3 py-1 rounded-[4px] font-semibold bg-indigo-600 border border-indigo-500 text-white shrink-0 transition';
       } else {
-        pill.className = 'cat-pill px-3 py-1 rounded-[4px] font-medium bg-[#12182a] border border-white/[0.08] text-slate-300 hover:bg-white/[0.08] hover:text-white shrink-0 transition';
+        pill.className = 'cat-pill px-3 py-1 rounded-[4px] font-medium bg-[#121828] border border-white/[0.08] text-slate-300 hover:border-white/20 hover:text-white shrink-0 transition';
       }
     });
     renderDomainCards();
@@ -561,13 +561,13 @@
         const isCurrent = activeType === 'mcq' && currentMcqIndex === idx;
         const isAnswered = userMcqAnswers[idx] !== undefined;
 
-        let cls = 'w-full aspect-square rounded-[3px] text-xs font-mono font-medium flex items-center justify-center transition ';
+        let cls = 'w-full aspect-square rounded-[4px] text-xs font-mono font-medium flex items-center justify-center transition ';
         if (isCurrent) {
-          cls += 'ring-2 ring-indigo-500 bg-indigo-950/70 text-white font-bold border border-indigo-500 shadow-sm';
+          cls += 'ring-2 ring-indigo-500 bg-indigo-950/70 text-white font-bold border border-indigo-500';
         } else if (isAnswered) {
-          cls += 'bg-emerald-950/80 text-emerald-300 font-bold border border-emerald-500/60 hover:bg-emerald-900 shadow-xs';
+          cls += 'bg-emerald-950/70 text-emerald-300 font-bold border border-emerald-500/50 hover:bg-emerald-900';
         } else {
-          cls += 'bg-[#0d121f] text-slate-300 border border-white/[0.08] hover:border-white/20 hover:bg-[#12182a]';
+          cls += 'bg-[#0d1322] text-slate-300 border border-white/[0.08] hover:border-white/20 hover:bg-[#121929]';
         }
 
         btn.className = cls;
@@ -601,11 +601,11 @@
 
         const shortTitle = (prob.title || `Problem ${idx + 1}`).split('—')[0].trim();
 
-        let cls = 'w-full p-2 rounded-[4px] border flex items-center justify-between gap-2 text-left transition ';
+        let cls = 'w-full p-2 rounded-[6px] border flex items-center justify-between gap-2 text-left transition ';
         if (isCurrent) {
-          cls += 'ring-2 ring-indigo-500 bg-indigo-950/70 border-indigo-500/80 text-white font-bold shadow-xs';
+          cls += 'ring-2 ring-indigo-500 bg-indigo-950/70 border-indigo-500/80 text-white font-bold';
         } else {
-          cls += 'bg-[#0d121f] text-slate-300 border border-white/[0.08] hover:border-white/20 hover:bg-[#12182a]';
+          cls += 'bg-[#0d1322] text-slate-300 border border-white/[0.08] hover:border-white/20 hover:bg-[#121929]';
         }
 
         btn.className = cls;
@@ -724,18 +724,18 @@
       const isSelected = selectedOpt === optIdx;
       const btn = document.createElement('button');
       btn.type = 'button';
-      btn.className = `w-full p-3.5 text-left flex items-start gap-3 border transition rounded-[4px] ${
+      btn.className = `w-full p-3.5 text-left flex items-start gap-3 border transition-all rounded-[6px] ${
         isSelected
-          ? 'border-indigo-500 bg-indigo-950/60 text-white font-medium ring-1 ring-indigo-500/80 shadow-md shadow-indigo-950/30'
-          : 'border-white/[0.08] bg-[#0d121f] text-slate-200 hover:border-indigo-400/50 hover:bg-[#12182a]'
+          ? 'border-indigo-500/80 bg-indigo-950/40 text-white font-medium ring-1 ring-indigo-500/40 shadow-xs'
+          : 'border-white/[0.08] bg-[#0c1220]/70 text-slate-200 hover:border-white/20 hover:bg-[#11192b]'
       }`;
       btn.onclick = () => selectMcqOption(optIdx);
 
       const letter = String.fromCharCode(65 + optIdx);
       btn.innerHTML = `
         <span class="w-6 h-6 ${
-          isSelected ? 'bg-indigo-600 text-white font-bold shadow-sm' : 'bg-white/[0.06] text-slate-300 border border-white/[0.1] font-medium'
-        } rounded-[3px] flex items-center justify-center text-xs shrink-0">
+          isSelected ? 'bg-indigo-600 text-white font-semibold shadow-xs' : 'bg-white/[0.05] text-slate-300 border border-white/[0.1] font-medium'
+        } rounded-[4px] flex items-center justify-center text-xs shrink-0">
           ${letter}
         </span>
         <span class="text-xs leading-relaxed pt-0.5">${optText}</span>
@@ -816,22 +816,22 @@
       constrList.appendChild(li);
     });
 
-    // Sample Cases (Dark Obsidian Styling)
+    // Sample Cases (Deep Midnight Navy & Cyan Styling)
     const sampleContainer = document.getElementById('prob-sample-cases');
     sampleContainer.innerHTML = '';
     (prob.visibleTestCases || []).forEach((tc, tcIdx) => {
       const box = document.createElement('div');
-      box.className = 'p-3 rounded-[4px] border border-white/[0.08] bg-[#070a12]/80 space-y-2';
+      box.className = 'p-3 rounded-[6px] border border-white/[0.08] bg-[#0c1220]/70 space-y-2';
       box.innerHTML = `
-        <span class="font-bold text-slate-200 text-[11px]">${tc.label || `Sample Case ${tcIdx + 1}`}</span>
+        <span class="font-semibold text-indigo-300 text-[11px]">${tc.label || `Sample Case ${tcIdx + 1}`}</span>
         <div class="space-y-1 font-mono text-[11px]">
-          <div class="bg-[#0d121f] p-2 rounded border border-white/[0.06]">
+          <div class="bg-[#080d18] p-2 rounded border border-white/[0.06]">
             <span class="text-slate-400 font-sans block text-[10px]">Input:</span>
             <span class="text-slate-200">${JSON.stringify(tc.input)}</span>
           </div>
-          <div class="bg-[#0d121f] p-2 rounded border border-white/[0.06]">
+          <div class="bg-[#080d18] p-2 rounded border border-white/[0.06]">
             <span class="text-slate-400 font-sans block text-[10px]">Expected Output:</span>
-            <span class="text-emerald-400 font-bold">${JSON.stringify(tc.expectedOutput)}</span>
+            <span class="text-emerald-400 font-semibold">${JSON.stringify(tc.expectedOutput)}</span>
           </div>
           ${tc.explanation ? `<p class="font-sans text-[10px] text-slate-400 pt-1">Explanation: ${tc.explanation}</p>` : ''}
         </div>
@@ -1070,9 +1070,9 @@
     execData.results.forEach((r) => {
       if (r.isHidden && !r.passed) {
         itemsHtml += `
-          <div class="p-3 rounded-[4px] border border-rose-500/30 bg-rose-950/30 space-y-1">
+          <div class="p-3 rounded-[6px] border border-rose-500/30 bg-rose-950/20 space-y-1">
             <div class="flex items-center justify-between">
-              <span class="font-bold text-rose-300 text-[11px] flex items-center gap-1">
+              <span class="font-semibold text-rose-300 text-[11px] flex items-center gap-1.5">
                 <span class="material-symbols-outlined text-sm text-rose-400">cancel</span>
                 <span>${r.label} (Protected Test Case)</span>
               </span>
@@ -1083,9 +1083,9 @@
         `;
       } else if (r.isHidden && r.passed) {
         itemsHtml += `
-          <div class="p-3 rounded-[4px] border border-emerald-500/30 bg-emerald-950/30 space-y-1">
+          <div class="p-3 rounded-[6px] border border-emerald-500/30 bg-emerald-950/20 space-y-1">
             <div class="flex items-center justify-between">
-              <span class="font-bold text-emerald-300 text-[11px] flex items-center gap-1">
+              <span class="font-semibold text-emerald-300 text-[11px] flex items-center gap-1.5">
                 <span class="material-symbols-outlined text-sm text-emerald-400">check_circle</span>
                 <span>${r.label} (Protected Test Case)</span>
               </span>
@@ -1096,9 +1096,9 @@
         `;
       } else {
         itemsHtml += `
-          <div class="p-3 rounded-[4px] border ${r.passed ? 'border-emerald-500/30 bg-emerald-950/20' : 'border-rose-500/30 bg-rose-950/20'} space-y-1.5 font-mono text-[11px]">
+          <div class="p-3 rounded-[6px] border ${r.passed ? 'border-emerald-500/30 bg-emerald-950/20' : 'border-rose-500/30 bg-rose-950/20'} space-y-1.5 font-mono text-[11px]">
             <div class="flex items-center justify-between font-sans">
-              <span class="font-bold ${r.passed ? 'text-emerald-300' : 'text-rose-300'} flex items-center gap-1">
+              <span class="font-semibold ${r.passed ? 'text-emerald-300' : 'text-rose-300'} flex items-center gap-1.5">
                 <span class="material-symbols-outlined text-sm ${r.passed ? 'text-emerald-400' : 'text-rose-400'}">
                   ${r.passed ? 'check_circle' : 'cancel'}
                 </span>
@@ -1108,17 +1108,17 @@
             </div>
 
             <div class="space-y-1 pt-1">
-              <div class="bg-[#070a12] p-2 rounded border border-white/[0.06]">
+              <div class="bg-[#080d18] p-2 rounded border border-white/[0.06]">
                 <span class="text-slate-400 font-sans block text-[9px]">Input:</span>
                 <span class="text-slate-200">${JSON.stringify(r.input)}</span>
               </div>
-              <div class="bg-[#070a12] p-2 rounded border border-white/[0.06]">
+              <div class="bg-[#080d18] p-2 rounded border border-white/[0.06]">
                 <span class="text-slate-400 font-sans block text-[9px]">Expected:</span>
-                <span class="text-emerald-400 font-bold">${JSON.stringify(r.expectedOutput)}</span>
+                <span class="text-emerald-400 font-semibold">${JSON.stringify(r.expectedOutput)}</span>
               </div>
-              <div class="bg-[#070a12] p-2 rounded border border-white/[0.06]">
+              <div class="bg-[#080d18] p-2 rounded border border-white/[0.06]">
                 <span class="text-slate-400 font-sans block text-[9px]">Your Output:</span>
-                <span class="${r.passed ? 'text-emerald-400 font-bold' : 'text-rose-400 font-bold'}">
+                <span class="${r.passed ? 'text-emerald-400 font-semibold' : 'text-rose-400 font-semibold'}">
                   ${r.error ? `Error: ${r.error}` : JSON.stringify(r.actualOutput)}
                 </span>
               </div>
