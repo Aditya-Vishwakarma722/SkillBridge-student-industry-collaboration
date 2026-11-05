@@ -1,8 +1,9 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="view-transition" content="same-origin">
   <title>Career Roles &amp; Pathways — SkillBridge</title>
 
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
@@ -15,7 +16,7 @@
 <body class="min-h-screen flex flex-col bg-[#070b16] text-slate-100">
 
   <!-- Global Navigation Header (Pre-rendered for zero transition flicker) -->
-  <header id="sb-global-header" data-sb-role="student" data-sb-user="std_rahul" data-sb-page="index.html" class="sticky top-0 z-50 w-full h-16 border-b border-white/[0.08] bg-[#080e1c]/90 backdrop-blur-md">
+  <header id="sb-global-header" data-sb-role="student" data-sb-user="std_rahul" data-sb-page="opportunities_interface.html" class="sticky top-0 z-50 w-full h-16 border-b border-white/[0.08] bg-[#080e1c]/90 backdrop-blur-md">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-6 text-sm font-sans">
       
       <!-- Left: Brand Logo & Role Pill -->
@@ -43,27 +44,27 @@
 
       <!-- Center: Spacious Role Navigation Links -->
       <nav class="hidden md:flex items-center gap-1.5 lg:gap-2">
-        <a href="../Student_Interface/Portal-Dashboard.html" class="flex items-center gap-1.5 px-3.5 py-1.5 lg:px-4 lg:py-2 text-xs tracking-tight text-slate-400 hover:text-slate-100 hover:bg-white/[0.04] border border-transparent font-medium rounded-[4px]">
+        <a href="../Student_Interface/Portal-Dashboard.html" class="sb-nav-link flex items-center gap-1.5 px-3.5 py-1.5 lg:px-4 lg:py-2 text-xs tracking-tight text-slate-400 hover:text-slate-100 hover:bg-white/[0.04] border border-transparent font-medium rounded-[4px]">
           <span class="material-symbols-outlined text-[16px] text-slate-400">space_dashboard</span>
           <span>Dashboard</span>
         </a>
-        <a href="../Student_Interface/Skills_Overview.html" class="flex items-center gap-1.5 px-3.5 py-1.5 lg:px-4 lg:py-2 text-xs tracking-tight text-slate-400 hover:text-slate-100 hover:bg-white/[0.04] border border-transparent font-medium rounded-[4px]">
+        <a href="../Student_Interface/Skills_Overview.html" class="sb-nav-link flex items-center gap-1.5 px-3.5 py-1.5 lg:px-4 lg:py-2 text-xs tracking-tight text-slate-400 hover:text-slate-100 hover:bg-white/[0.04] border border-transparent font-medium rounded-[4px]">
           <span class="material-symbols-outlined text-[16px] text-slate-400">psychology</span>
           <span>Skill Matrix</span>
         </a>
-        <a href="../Opportunity_Interface/Opportunities_Interface.html" class="flex items-center gap-1.5 px-3.5 py-1.5 lg:px-4 lg:py-2 text-xs tracking-tight text-slate-400 hover:text-slate-100 hover:bg-white/[0.04] border border-transparent font-medium rounded-[4px]">
-          <span class="material-symbols-outlined text-[16px] text-slate-400">work</span>
+        <a href="../Opportunity_Interface/Opportunities_Interface.html" class="sb-nav-link active flex items-center gap-1.5 px-3.5 py-1.5 lg:px-4 lg:py-2 text-xs tracking-tight text-indigo-200 bg-indigo-500/15 border border-indigo-500/40 font-semibold rounded-[4px]">
+          <span class="material-symbols-outlined text-[16px] text-indigo-400">work</span>
           <span>Opportunities</span>
         </a>
-        <a href="../Assessment_Interface/index.html" class="flex items-center gap-1.5 px-3.5 py-1.5 lg:px-4 lg:py-2 text-xs tracking-tight text-indigo-200 bg-indigo-500/15 border border-indigo-500/40 font-semibold rounded-[4px]">
-          <span class="material-symbols-outlined text-[16px] text-indigo-400">quiz</span>
+        <a href="../Assessment_Interface/index.html" class="sb-nav-link flex items-center gap-1.5 px-3.5 py-1.5 lg:px-4 lg:py-2 text-xs tracking-tight text-slate-400 hover:text-slate-100 hover:bg-white/[0.04] border border-transparent font-medium rounded-[4px]">
+          <span class="material-symbols-outlined text-[16px] text-slate-400">quiz</span>
           <span>Assessments</span>
         </a>
-        <a href="../Student_Interface/My_Applications.html" class="flex items-center gap-1.5 px-3.5 py-1.5 lg:px-4 lg:py-2 text-xs tracking-tight text-slate-400 hover:text-slate-100 hover:bg-white/[0.04] border border-transparent font-medium rounded-[4px]">
+        <a href="../Student_Interface/My_Applications.html" class="sb-nav-link flex items-center gap-1.5 px-3.5 py-1.5 lg:px-4 lg:py-2 text-xs tracking-tight text-slate-400 hover:text-slate-100 hover:bg-white/[0.04] border border-transparent font-medium rounded-[4px]">
           <span class="material-symbols-outlined text-[16px] text-slate-400">assignment</span>
           <span>Applications</span>
         </a>
-        <a href="../Student_Interface/Activities_Interface.html" class="flex items-center gap-1.5 px-3.5 py-1.5 lg:px-4 lg:py-2 text-xs tracking-tight text-slate-400 hover:text-slate-100 hover:bg-white/[0.04] border border-transparent font-medium rounded-[4px]">
+        <a href="../Student_Interface/Activities_Interface.html" class="sb-nav-link flex items-center gap-1.5 px-3.5 py-1.5 lg:px-4 lg:py-2 text-xs tracking-tight text-slate-400 hover:text-slate-100 hover:bg-white/[0.04] border border-transparent font-medium rounded-[4px]">
           <span class="material-symbols-outlined text-[16px] text-slate-400">code_blocks</span>
           <span>Activities</span>
         </a>

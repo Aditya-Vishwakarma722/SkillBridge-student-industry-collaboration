@@ -76,23 +76,77 @@ body {
   min-height: 100vh;
 }
 
-/* Smooth Tab Fade Transition */
-main,
-.sb-tab-fade,
-.tab-content,
-[role="tabpanel"],
-#opportunities-grid {
-  animation: sb-tab-fade 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  will-change: opacity;
+/* Native Cross-Document View Transitions (Edge/Chrome 126+) */
+@view-transition {
+  navigation: auto;
 }
 
-@keyframes sb-tab-fade {
+#sb-global-header,
+header#sb-global-header {
+  view-transition-name: sb-header;
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 50 !important;
+  width: 100% !important;
+  height: 64px !important;
+  min-height: 64px !important;
+  max-height: 64px !important;
+  box-sizing: border-box !important;
+}
+
+#sb-global-header > div,
+header#sb-global-header > div {
+  height: 64px !important;
+  min-height: 64px !important;
+  max-height: 64px !important;
+}
+
+#sb-theme-widget-wrap {
+  view-transition-name: sb-theme-widget;
+}
+
+::view-transition-old(root) {
+  animation: 80ms cubic-bezier(0.4, 0, 1, 1) both sb-page-exit;
+}
+
+::view-transition-new(root) {
+  animation: 140ms cubic-bezier(0, 0, 0.2, 1) both sb-page-enter;
+}
+
+@keyframes sb-page-exit {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes sb-page-enter {
   from {
     opacity: 0;
   }
   to {
     opacity: 1;
   }
+}
+
+/* Silky Micro-Fade Page Transitions (Zero Vertical Shift / Zero CLS) */
+main {
+  animation: sb-page-enter 0.12s cubic-bezier(0, 0, 0.2, 1) forwards;
+  will-change: opacity;
+}
+
+.sb-page-exit {
+  opacity: 0.8 !important;
+  transition: opacity 0.08s ease !important;
+}
+
+.sb-tab-fade,
+.tab-content,
+[role="tabpanel"],
+.sb-filter-fade {
+  animation: sb-page-enter 0.12s cubic-bezier(0, 0, 0.2, 1) forwards;
 }
 
 /* Clean Micro-Transitions */
@@ -1322,37 +1376,105 @@ select option {
 /* ==========================================================================
    Light Mode Assessment Engine & Coding Lab Overrides
    ========================================================================== */
-[data-theme="light"] .bg-indigo-950\/70,
+/* Light Mode Assessment Domain Logo & Card (Setup View) */
+[data-theme="light"] #selected-domain-icon-wrap,
+[data-theme="light"] .bg-indigo-950,
 [data-theme="light"] .bg-indigo-950\/80,
-[data-theme="light"] .bg-indigo-950\/40 {
+[data-theme="light"] .bg-indigo-950\/70,
+[data-theme="light"] .bg-indigo-950\/60,
+[data-theme="light"] .bg-indigo-950\/50,
+[data-theme="light"] .bg-indigo-950\/40,
+[data-theme="light"] .bg-indigo-950\/30,
+[data-theme="light"] .bg-indigo-950\/20 {
   background-color: #e0e7ff !important;
-  color: #3730a3 !important;
-  border-color: #6366f1 !important;
+  color: #4338ca !important;
+  border-color: #c7d2fe !important;
 }
 
+[data-theme="light"] #selected-domain-icon,
+[data-theme="light"] #selected-domain-icon-wrap span {
+  color: #4338ca !important;
+}
+
+[data-theme="light"] #selected-domain-card,
+[data-theme="light"] #setup-view .sb-card-elevated {
+  background-color: #ffffff !important;
+  border-color: #e2e8f0 !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
+}
+
+[data-theme="light"] #selected-domain-card:hover {
+  background-color: #f8fafc !important;
+  border-color: #818cf8 !important;
+}
+
+[data-theme="light"] #selected-domain-name {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] #selected-domain-desc {
+  color: #475569 !important;
+}
+
+/* Light Mode Assessment Global Header Elements */
+[data-theme="light"] #sb-asm-logo-box,
+[data-theme="light"] header div.bg-\[\#0e1629\],
+[data-theme="light"] header a div.bg-\[\#0e1629\] {
+  background-color: #f8fafc !important;
+  border-color: #e2e8f0 !important;
+}
+
+[data-theme="light"] header #exam-timer {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] header #item-dwell-timer {
+  color: #4338ca !important;
+}
+
+/* All Emerald 950 alpha variants */
+[data-theme="light"] .bg-emerald-950,
+[data-theme="light"] .bg-emerald-950\/80,
 [data-theme="light"] .bg-emerald-950\/70,
+[data-theme="light"] .bg-emerald-950\/60,
+[data-theme="light"] .bg-emerald-950\/50,
+[data-theme="light"] .bg-emerald-950\/40,
 [data-theme="light"] .bg-emerald-950\/30,
 [data-theme="light"] .bg-emerald-950\/25,
-[data-theme="light"] .bg-emerald-950\/20,
-[data-theme="light"] .bg-emerald-950\/40 {
+[data-theme="light"] .bg-emerald-950\/20 {
   background-color: #ecfdf5 !important;
   color: #065f46 !important;
-  border-color: #34d399 !important;
+  border-color: #a7f3d0 !important;
 }
 
+/* All Rose 950 alpha variants */
+[data-theme="light"] .bg-rose-950,
+[data-theme="light"] .bg-rose-950\/80,
+[data-theme="light"] .bg-rose-950\/70,
+[data-theme="light"] .bg-rose-950\/60,
+[data-theme="light"] .bg-rose-950\/50,
+[data-theme="light"] .bg-rose-950\/40,
 [data-theme="light"] .bg-rose-950\/30,
 [data-theme="light"] .bg-rose-950\/25,
 [data-theme="light"] .bg-rose-950\/20 {
   background-color: #fff1f2 !important;
   color: #9f1239 !important;
-  border-color: #f87171 !important;
+  border-color: #fecdd3 !important;
 }
 
+/* All Amber 950 alpha variants */
+[data-theme="light"] .bg-amber-950,
+[data-theme="light"] .bg-amber-950\/80,
+[data-theme="light"] .bg-amber-950\/70,
+[data-theme="light"] .bg-amber-950\/60,
+[data-theme="light"] .bg-amber-950\/50,
 [data-theme="light"] .bg-amber-950\/40,
-[data-theme="light"] .bg-amber-950\/30 {
+[data-theme="light"] .bg-amber-950\/30,
+[data-theme="light"] .bg-amber-950\/25,
+[data-theme="light"] .bg-amber-950\/20 {
   background-color: #fffbeb !important;
   color: #92400e !important;
-  border-color: #fbbf24 !important;
+  border-color: #fde68a !important;
 }
 
 /* Landing Page Spotlight & Dot Grid in Light Mode */
@@ -1455,6 +1577,33 @@ select option {
 [data-theme="light"] #domain-cards-grid > div:hover {
   background-color: #f8fafc !important;
   border-color: #cbd5e1 !important;
+}
+
+[data-theme="light"] #domain-cards-grid > div.border-indigo-500,
+[data-theme="light"] #domain-cards-grid > div.bg-indigo-950\/40 {
+  background-color: #eef2ff !important;
+  border-color: #6366f1 !important;
+  color: #312e81 !important;
+}
+
+[data-theme="light"] #domain-cards-grid > div .domain-modal-icon-box,
+[data-theme="light"] #domain-cards-grid > div .w-8.h-8:not(.bg-indigo-600) {
+  background-color: #eef2ff !important;
+  color: #4338ca !important;
+  border-color: #c7d2fe !important;
+}
+
+[data-theme="light"] #domain-cards-grid > div:hover .domain-modal-icon-box,
+[data-theme="light"] #domain-cards-grid > div:hover .w-8.h-8:not(.bg-indigo-600) {
+  background-color: #e0e7ff !important;
+  color: #3730a3 !important;
+  border-color: #818cf8 !important;
+}
+
+[data-theme="light"] #domain-cards-grid > div .w-8.h-8.bg-indigo-600 {
+  background-color: #4f46e5 !important;
+  color: #ffffff !important;
+  border-color: #4338ca !important;
 }
 
 [data-theme="light"] #domain-cards-grid > div h4 {

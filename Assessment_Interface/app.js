@@ -197,7 +197,7 @@
       card.innerHTML = `
         <div class="space-y-1.5">
           <div class="flex items-center justify-between">
-            <div class="w-8 h-8 rounded-[6px] ${isSelected ? 'bg-indigo-600 text-white shadow-xs' : 'bg-white/[0.04] text-slate-300 border border-white/[0.08]'} flex items-center justify-center shrink-0">
+            <div class="domain-modal-icon-box w-8 h-8 rounded-[6px] ${isSelected ? 'bg-indigo-600 text-white shadow-xs' : 'bg-white/[0.04] text-slate-300 border border-white/[0.08]'} flex items-center justify-center shrink-0">
               <span class="material-symbols-outlined text-lg">${domain.icon}</span>
             </div>
             ${isSelected ? '<span class="sb-badge sb-badge-blue text-[9px] font-bold">Selected</span>' : `<span class="text-[9px] text-slate-400 font-mono">${domain.category}</span>`}

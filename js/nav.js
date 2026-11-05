@@ -39,6 +39,37 @@
     `;
   }
 
+  function checkIsCurrent(href, currentPath) {
+    if (!href) return false;
+    const cleanHref = href.toLowerCase().replace('../', '').replace('./', '');
+    const cleanCurrent = currentPath.toLowerCase().replace(/\\/g, '/');
+    
+    if (cleanCurrent.endsWith(cleanHref) || cleanCurrent.includes('/' + cleanHref)) {
+      return true;
+    }
+    
+    const currentFile = cleanCurrent.split('/').pop() || 'index.html';
+    const targetFile = cleanHref.split('/').pop() || '';
+    
+    // In Opportunity interface, any opportunity page highlights Opportunities
+    if (cleanCurrent.includes('/opportunity_interface/') && cleanHref.includes('opportunity_interface')) {
+      return true;
+    }
+
+    if (targetFile && targetFile !== 'index.html' && currentFile === targetFile) {
+      return true;
+    }
+    
+    if (targetFile === 'index.html' && currentFile === 'index.html') {
+      const targetDir = cleanHref.split('/')[0] || '';
+      const currentParts = cleanCurrent.split('/');
+      const currentDir = currentParts.length >= 2 ? currentParts[currentParts.length - 2] : '';
+      return targetDir === currentDir;
+    }
+    
+    return false;
+  }
+
   let isInitializingHeader = false;
 
   function initHeader() {
@@ -47,15 +78,16 @@
     isInitializingHeader = true;
 
     try {
-      // Suppress any legacy static headers
-      document.querySelectorAll('body > header:not(#sb-global-header)').forEach(el => el.remove());
-
-      let headerEl = document.getElementById('sb-global-header');
+      // Stable header adoption: Never destroy an existing header, claim and enhance it
+      let headerEl = document.getElementById('sb-global-header') || document.querySelector('body > header');
       if (!headerEl) {
         headerEl = document.createElement('header');
         headerEl.id = 'sb-global-header';
-        headerEl.className = 'sticky top-0 z-50 w-full h-16 border-b border-white/[0.08] bg-[#070a12]/90 backdrop-blur-md';
+        headerEl.className = 'sticky top-0 z-50 w-full h-16 border-b border-white/[0.08] bg-[#080e1c]/90 backdrop-blur-md';
         if (document.body) document.body.prepend(headerEl);
+      } else {
+        headerEl.id = 'sb-global-header';
+        headerEl.classList.add('sticky', 'top-0', 'z-50', 'w-full', 'h-16');
       }
 
       const rootPath = getRootPath();
@@ -84,25 +116,30 @@
       }
 
       const activeFile = currentPath.split('/').pop() || 'index.html';
-      const isAlreadyPreRendered = headerEl.getAttribute('data-sb-role') === user.role &&
-                                  headerEl.getAttribute('data-sb-user') === user.id &&
-                                  headerEl.getAttribute('data-sb-page') === activeFile &&
-                                  headerEl.children.length > 0;
+      const hasNav = headerEl.querySelector('nav') !== null;
+      const roleMatches = headerEl.getAttribute('data-sb-role') === user.role;
 
-      if (!isAlreadyPreRendered) {
+      // In-Place Update: If header has nav and matching role, preserve DOM nodes to eliminate flicker
+      if (hasNav && roleMatches && headerEl.children.length > 0) {
         headerEl.setAttribute('data-sb-role', user.role);
         headerEl.setAttribute('data-sb-user', user.id);
         headerEl.setAttribute('data-sb-page', activeFile);
 
-        const isCurrent = (href) => {
-          const cleanHref = href.toLowerCase().replace('../', '').replace('./', '');
-          const currentFileName = currentPath.split('/').pop() || 'index.html';
-          const targetFileName = cleanHref.split('/').pop() || '';
-          return currentPath.includes(cleanHref) || currentFileName === targetFileName;
-        };
+        const profileLink = headerEl.querySelector('a[title*="Profile"]');
+        if (profileLink) {
+          profileLink.title = `View Your Profile (${user.name})`;
+          const img = profileLink.querySelector('img');
+          if (img && user.avatar && img.src !== user.avatar) img.src = user.avatar;
+          const nameSpan = profileLink.querySelector('span.text-xs, span.font-medium');
+          if (nameSpan && nameSpan.textContent !== user.name) nameSpan.textContent = user.name;
+        }
+      } else {
+        headerEl.setAttribute('data-sb-role', user.role);
+        headerEl.setAttribute('data-sb-user', user.id);
+        headerEl.setAttribute('data-sb-page', activeFile);
 
         function linkHtml(href, label, icon) {
-          const active = isCurrent(href);
+          const active = checkIsCurrent(href, currentPath);
           const activeClass = 'sb-nav-link active text-indigo-200 bg-indigo-500/15 border border-indigo-500/40 font-semibold rounded-[4px]';
           const inactiveClass = 'sb-nav-link text-slate-400 border border-transparent font-medium rounded-[4px]';
           return `
@@ -199,6 +236,9 @@
           </div>
         `;
       }
+
+    // Attach instant tab active feedback & smooth page exit transitions
+    attachNavTransitions(headerEl);
 
     injectRoleSwitcherModal(rootPath, user);
 
@@ -299,6 +339,55 @@
       </div>
     `;
     document.body.appendChild(modal);
+  }
+
+  function attachNavTransitions(header) {
+    if (!header) return;
+    const currentPath = window.location.pathname.toLowerCase().replace(/\\/g, '/');
+
+    header.querySelectorAll('nav a').forEach(link => {
+      link.classList.add('sb-nav-link');
+      const href = link.getAttribute('href') || '';
+      const isCurrent = checkIsCurrent(href, currentPath);
+
+      // Actively synchronize active class on initial load
+      if (isCurrent) {
+        link.classList.add('active', 'bg-indigo-500/15', 'border-indigo-500/40', 'font-semibold', 'text-indigo-200');
+        link.classList.remove('text-slate-400', 'border-transparent');
+      } else {
+        link.classList.remove('active', 'bg-indigo-500/15', 'border-indigo-500/40', 'font-semibold', 'text-indigo-200');
+        link.classList.add('text-slate-400', 'border-transparent', 'font-medium');
+      }
+
+      if (link._hasTransitionHandler) return;
+      link._hasTransitionHandler = true;
+
+      link.addEventListener('click', (e) => {
+        if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || link.target === '_blank') return;
+        const targetHref = link.getAttribute('href');
+        if (!targetHref || targetHref === '#' || targetHref.startsWith('javascript:')) return;
+
+        // If clicking the current tab, ignore to prevent redundant reload/flicker
+        if (checkIsCurrent(targetHref, currentPath)) {
+          e.preventDefault();
+          return;
+        }
+
+        // Instant active tab visual response
+        header.querySelectorAll('nav a').forEach(other => {
+          other.classList.remove('active', 'bg-indigo-500/15', 'border-indigo-500/40', 'font-semibold', 'text-indigo-200');
+          other.classList.add('text-slate-400', 'border-transparent', 'font-medium');
+        });
+        link.classList.add('active', 'bg-indigo-500/15', 'border-indigo-500/40', 'font-semibold', 'text-indigo-200');
+        link.classList.remove('text-slate-400', 'border-transparent');
+
+        // Smooth exit transition on main
+        const main = document.querySelector('main');
+        if (main) {
+          main.classList.add('sb-page-exit');
+        }
+      });
+    });
   }
 
   window.SkillBridgeNav = {
