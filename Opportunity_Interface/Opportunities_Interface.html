@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/design-system.css">
+  <script src="../js/theme.js"></script>
 </head>
 <body class="min-h-screen flex flex-col bg-[#070b16] text-slate-100">
 
@@ -123,9 +124,9 @@
       <!-- Category Filter Pills -->
       <div class="flex items-center gap-1.5 self-start sm:self-auto flex-wrap">
         <button onclick="setCategory('all')" class="cat-pill sb-badge sb-badge-blue cursor-pointer px-3 py-1.5 font-medium" data-cat="all">All Opportunities</button>
-        <button onclick="setCategory('internships')" class="cat-pill sb-badge sb-badge-muted cursor-pointer px-3 py-1.5 font-medium hover:text-white" data-cat="internships">Internships</button>
-        <button onclick="setCategory('jobs')" class="cat-pill sb-badge sb-badge-muted cursor-pointer px-3 py-1.5 font-medium hover:text-white" data-cat="jobs">Full-Time Jobs</button>
-        <button onclick="setCategory('workshops')" class="cat-pill sb-badge sb-badge-muted cursor-pointer px-3 py-1.5 font-medium hover:text-white" data-cat="workshops">Workshops</button>
+        <button onclick="setCategory('internships')" class="cat-pill sb-badge sb-badge-muted cursor-pointer px-3 py-1.5 font-medium" data-cat="internships">Internships</button>
+        <button onclick="setCategory('jobs')" class="cat-pill sb-badge sb-badge-muted cursor-pointer px-3 py-1.5 font-medium" data-cat="jobs">Full-Time Jobs</button>
+        <button onclick="setCategory('workshops')" class="cat-pill sb-badge sb-badge-muted cursor-pointer px-3 py-1.5 font-medium" data-cat="workshops">Workshops</button>
       </div>
     </div>
 
@@ -170,7 +171,7 @@
         if (btn.dataset.cat === cat) {
           btn.className = 'cat-pill sb-badge sb-badge-blue cursor-pointer px-3 py-1.5 font-medium';
         } else {
-          btn.className = 'cat-pill sb-badge sb-badge-muted cursor-pointer px-3 py-1.5 font-medium hover:text-white';
+          btn.className = 'cat-pill sb-badge sb-badge-muted cursor-pointer px-3 py-1.5 font-medium';
         }
       });
       renderOpportunities();
@@ -311,7 +312,7 @@
             <span>Your Score: <strong class="text-slate-100">${gap.currentScore}</strong></span>
             <span>Required Threshold: <strong class="text-emerald-400">${gap.requiredScore}</strong></span>
           </div>
-          <div class="text-[11px] text-slate-300 bg-white p-2 border border-white/[0.08] space-y-1">
+          <div class="text-[11px] text-slate-300 bg-[#080e1c] p-2 border border-white/[0.08] space-y-1">
             <p>Complete the assessment for ${gap.skill} to meet this threshold.</p>
             <a href="../Assessment_Interface/index.html?skill=${encodeURIComponent(gap.skill)}" class="text-indigo-400 hover:underline font-medium inline-block">
               Launch ${gap.skill} Assessment &rarr;
@@ -334,4 +335,5 @@
   </script>
 </body>
 </html>
+
 

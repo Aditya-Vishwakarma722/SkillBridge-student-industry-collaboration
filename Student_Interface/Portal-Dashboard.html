@@ -11,6 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/design-system.css">
+  <script src="../js/theme.js"></script>
 </head>
 <body class="min-h-screen flex flex-col bg-[#070b16] text-slate-100">
 
@@ -529,7 +530,7 @@
             <span>Your Score: <strong class="text-slate-100">${gap.currentScore}</strong></span>
             <span>Required: <strong class="text-emerald-400">${gap.requiredScore}</strong></span>
           </div>
-          <div class="text-[11px] text-slate-300 bg-white p-2.5 border border-white/[0.08] space-y-1">
+          <div class="text-[11px] text-slate-300 bg-[#080e1c] p-2.5 border border-white/[0.08] space-y-1">
             <p>Complete the assessment for ${gap.skill} to meet this threshold.</p>
             <a href="../Assessment_Interface/index.html?skill=${encodeURIComponent(gap.skill)}" class="text-indigo-400 hover:underline font-medium inline-block">
               Launch ${gap.skill} Assessment &rarr;
@@ -552,5 +553,6 @@
   </script>
 </body>
 </html>
+
 
 

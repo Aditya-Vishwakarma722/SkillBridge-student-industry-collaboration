@@ -103,11 +103,11 @@
 
         function linkHtml(href, label, icon) {
           const active = isCurrent(href);
-          const activeClass = 'text-indigo-200 bg-indigo-500/15 border border-indigo-500/40 font-semibold rounded-[4px]';
-          const inactiveClass = 'text-slate-400 hover:text-slate-100 hover:bg-white/[0.04] border border-transparent font-medium rounded-[4px]';
+          const activeClass = 'sb-nav-link active text-indigo-200 bg-indigo-500/15 border border-indigo-500/40 font-semibold rounded-[4px]';
+          const inactiveClass = 'sb-nav-link text-slate-400 border border-transparent font-medium rounded-[4px]';
           return `
             <a href="${rootPath}${href}" class="flex items-center gap-1.5 px-3.5 py-1.5 lg:px-4 lg:py-2 text-xs tracking-tight ${active ? activeClass : inactiveClass}">
-              ${icon ? `<span class="material-symbols-outlined text-[16px] ${active ? 'text-indigo-400' : 'text-slate-400'}">${icon}</span>` : ''}
+              ${icon ? `<span class="material-symbols-outlined text-[16px]">${icon}</span>` : ''}
               <span>${label}</span>
             </a>
           `;
